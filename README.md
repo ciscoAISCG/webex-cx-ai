@@ -1,4 +1,4 @@
-<p align="centre">
+<p align="center">
   <img src="./ai-scg-logo/ai-scg-logo-final.svg" alt="AI SCG" width="360">
 </p>
 
