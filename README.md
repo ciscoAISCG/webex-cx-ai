@@ -143,6 +143,7 @@ It is built for teams that need to build, adapt and scale AI use cases faster.
 ## Licence
 
 This project is licensed under the MIT License - use it, modify it, share it.
+
 ---
 
 ## Trademarks
