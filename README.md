@@ -2,10 +2,10 @@
   <img src="./ai-scg-logo/ai-scg-logo-final.svg" alt="AI SCG" width="360">
 </p>
 
-# AI SCG Assets
+# Webex Customer Experience AI
 ### Reusable AI assets built from customer learnings
 
-This repository is where AI SCG publishes reusable assets created from real customer engagements, field patterns, and adoption learnings.
+This repository is where AI Solution Consulting teams publishes reusable assets created from real customer engagements, field patterns, and adoption learnings.
 
 The goal is simple: help Cisco teams and partners build faster, avoid starting from scratch, and apply proven AI patterns with more confidence.
 
