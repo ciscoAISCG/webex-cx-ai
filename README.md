@@ -85,7 +85,15 @@ Use skills when you want an assistant to help with:
 - Executive narrative drafting
 - Build review and improvement
 
-[Browse skills](./skills)
+[Browse the skills shed](./skills shed)
+
+---
+
+## MCP Factory
+
+Explore a number of MCP endpoints that you can use and deploy as part of your POCs or in production. This is a set of MCP endpoints that the team has used or developed and is shared here so that you can deploy this MCP endpoint yourself in your environment for your testing or production purposes 
+
+[Browse the MCP Factory](./mcp factory)
 
 ---
 
