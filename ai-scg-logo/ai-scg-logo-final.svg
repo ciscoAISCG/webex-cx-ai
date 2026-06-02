@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI SCG experiment mark</title>
+  <desc id="desc">A wordless mark with an experimentation flask and modular build blocks in a Webex-adjacent palette.</desc>
+  <defs>
+    <linearGradient id="outer" x1="83" y1="83" x2="429" y2="429" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00BCEB"/>
+      <stop offset="0.55" stop-color="#086EDB"/>
+      <stop offset="1" stop-color="#00D6A3"/>
+    </linearGradient>
+    <linearGradient id="liquid" x1="181" y1="252" x2="335" y2="359" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00BCEB"/>
+      <stop offset="1" stop-color="#20A66A"/>
+    </linearGradient>
+    <filter id="shadow" x="55" y="56" width="402" height="402" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#0B2341" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#ffffff"/>
+  <g filter="url(#shadow)">
+    <path d="M256 82C320.9 82 376.8 119.9 403.1 174.7C416.6 202.8 407 236.6 381.1 253.9L332.5 286.4C315.6 297.8 293.1 286.1 292.9 265.7L292.1 168.2C292 151.9 278.8 138.8 262.5 138.8H249.5C233.2 138.8 220 151.9 219.9 168.2L219.1 265.7C218.9 286.1 196.4 297.8 179.5 286.4L130.9 253.9C105 236.6 95.4 202.8 108.9 174.7C135.2 119.9 191.1 82 256 82Z" stroke="url(#outer)" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M143 327.3L215.4 375.5C249.5 398.2 294.5 398.2 328.6 375.5L401 327.3" stroke="url(#outer)" stroke-width="42" stroke-linecap="round"/>
+
+    <path d="M231 151H281" stroke="#0B2341" stroke-width="14" stroke-linecap="round"/>
+    <path d="M241 151V218L179 335C171.4 349.3 181.8 366.5 198 366.5H314C330.2 366.5 340.6 349.3 333 335L271 218V151" fill="#ffffff"/>
+    <path d="M241 151V218L179 335C171.4 349.3 181.8 366.5 198 366.5H314C330.2 366.5 340.6 349.3 333 335L271 218V151" stroke="#0B2341" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M202 326C229 305.5 257 354 311 318L327 348C329.2 352.1 326.2 357 321.5 357H191.1C186.4 357 183.4 352.1 185.6 348L202 326Z" fill="url(#liquid)"/>
+    <circle cx="217" cy="308" r="9" fill="#0B2341"/>
+    <circle cx="284" cy="292" r="12" fill="#20A66A"/>
+    <circle cx="263" cy="245" r="8" fill="#00BCEB"/>
+  </g>
+</svg>
