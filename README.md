@@ -115,30 +115,10 @@ cd ../cookbooks
 cd ../skills
 ```
 
----
-
-## What Good Looks Like
-
-Every asset should be practical, specific, and easy to reuse.
-
-Good assets come from real customer work. They capture the pattern behind the work so another team can move faster with better judgement.
-
-Every asset should include:
-
-- Purpose
-- Intended user
-- When to use it
-- Required inputs
-- Build or usage steps
-- Example output or example configuration
-- Adaptation guidance
-- Owner or maintainer
-
----
 
 ## Contributing
 
-Contributions should make the library more useful for the next team.
+Contributions should make the library more useful for the next consumer.
 
 Good contributions usually come from:
 
@@ -148,7 +128,7 @@ Good contributions usually come from:
 - A best practice that should be applied consistently.
 - A personal-assistant workflow that reliably improves build quality.
 
-Before adding something new, check whether an existing asset should be improved instead. Duplication creates noise. Better assets create leverage.
+Before adding something new, check whether an existing asset should be improved instead. 
 
 ---
 
@@ -156,14 +136,13 @@ Before adding something new, check whether an existing asset should be improved 
 
 This repository is maintained by AI SCG as a publishing library for reusable AI assets based on customer learnings.
 
-It is built for teams that need to build, adapt, and scale AI use cases faster.
+It is built for teams that need to build, adapt and scale AI use cases faster.
 
 ---
 
 ## Licence
 
-Add the appropriate licence for this repository before publishing externally or sharing beyond the intended audience.
-
+This project is licensed under the MIT License - use it, modify it, share it.
 ---
 
 ## Trademarks
