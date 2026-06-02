@@ -85,7 +85,7 @@ Use skills when you want an assistant to help with:
 - Executive narrative drafting
 - Build review and improvement
 
-[Browse the skills shed](./Skills%20Shed)
+[Browse the Skills Shed](./Skills%20Shed)
 
 ---
 
