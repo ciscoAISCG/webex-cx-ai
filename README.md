@@ -22,6 +22,7 @@ The repository is organised around three asset types:
 | Templates | Pre-built use cases and structures that help consumers build quickly. | Use when you want a working starting point for a customer scenario, demo, workflow, or solution pattern. |
 | Cookbooks | Best practices, build guidance, examples, and how-to material. | Use when you need to understand how to build, adapt, validate, or improve an AI use case. |
 | Skills for personal assistants | Instructions that turn AI assistants into specialised experts who can build along with you. | Use when you want your assistant to behave like a domain expert for a repeatable task. |
+| MCP Factory | Templates for MCP endpoints that can be used for demo, POC or production purposes. |
 
 ```text
 templates/       Pre-built use cases and reusable starting points
