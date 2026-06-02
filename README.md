@@ -27,7 +27,7 @@ The repository is organised around three asset types:
 ```text
 templates/       Pre-built use cases and reusable starting points
 cookbooks/       Best practices, how-to guides, and build patterns
-skills factory/          Personal-assistant skills for specialist AI workflows
+skills shed/          Personal-assistant skills for specialist AI workflows
 mcp factory/    MCP endpoints for various integrations
 ```
 
