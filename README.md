@@ -46,7 +46,7 @@ Use templates when you need to:
 - Adapt a field-tested use case for a new customer or vertical.
 - Give sales, SE, partner, or delivery teams a stronger starting point.
 
-[Browse templates](./templates)
+[Browse templates and playbooks](./playbooks)
 
 ---
 
