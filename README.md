@@ -21,7 +21,7 @@ The repository is organised around three asset types:
 | --- | --- | --- |
 | Templates | Pre-built use cases and structures that help consumers build quickly. | Use when you want a working starting point for a customer scenario, demo, workflow, or solution pattern. |
 | Cookbooks | Best practices, build guidance, examples, and how-to material. | Use when you need to understand how to build, adapt, validate, or improve an AI use case. |
-| Skills for personal assistants | Instructions that turn AI assistants into specialised experts who can build along with you. | Use when you want your assistant to behave like a domain expert for a repeatable task. |
+| Skills for personal assistants | Instructions that turn your AI assistants into specialised experts who can build along with you. | Use when you want claude/codex/gemini to behave like to help in your config, best practices and other aspects of Webex CX AI portfolio. They will already know everything in the best practices, the cookbooks and so on. Let them build for you. |
 | MCP Factory | Templates for MCP endpoints that can be used for demo, POC or production purposes. | Use when you want to have a reference implementation for an MCP integration with 3rd party systems. |
 
 ```text
