@@ -35,7 +35,7 @@ Remy handles the full self-service journey on a voice call:
 ```mermaid
 flowchart LR
     Caller([Caller])
-    PSTN[/PSTN / SIP/]
+    PSTN[/Webex Calling/]
     subgraph WXCC["Webex Contact Center"]
         Flow["Payment_Flow<br/>(voice flow)"]
         AI["Remy<br/>Autonomous AI Agent<br/>(Payment_Agent)"]
@@ -72,49 +72,19 @@ The pattern is the standard Webex CC AI Agent + Flow integration:
 ## Conversation flow (Remy)
 
 ```mermaid
-flowchart TD
-    Start([Call answered]) --> Greet["Welcome message:<br/>'Hi, this is Remy…'"]
-    Greet --> Intent{"Intent?"}
-    Intent -- balance --> A1[Ask Patient ID + confirm]
-    Intent -- payment --> B1[Ask Patient ID + confirm]
-    Intent -- unclear --> C1[Probe + re-route]
-    C1 --> Intent
-
-    A1 --> A2[Ask DOB + confirm] --> A3["[checkBalance]"] --> A4["State balance"]
-    A4 --> A5{"Pay today?"}
-    A5 -- no --> Close([Close politely])
-    A5 -- yes --> Pay
-
-    B1 --> B2[Ask DOB + confirm] --> B3["[checkBalance]"] --> B4["Confirm balance<br/>'Pay in full?'"]
-    B4 -- yes --> Pay
-    B4 -- no --> Close
-
-    subgraph Pay["Payment Capture"]
-        P1[Card number<br/>confirm in groups of 4] --> P2[Expiry<br/>confirm MM/YY]
-        P2 --> P3[CVV<br/>confirm length only]
-        P3 --> P4[Confirm amount]
-        P4 --> P5["[makePayment]"]
-    end
-
-    P5 --> R{Result}
-    R -- success --> Done["'Payment confirmed.'"] --> Close
-    R -- decline --> Retry["Offer ONE retry<br/>with different card"]
-    Retry -- still fails --> Handover
-    Retry -- success --> Done
-
-    A3 -. 3 failures .-> Handover
-    B3 -. 3 failures .-> Handover
-    P5 -. 3 failures .-> Handover
-    A1 -. 2 mis-confirms .-> Handover
-    B1 -. 2 mis-confirms .-> Handover
-
-    Handover["Agent Handover<br/>→ Billing specialist"]
+flowchart LR
+    Start([Call]) --> Verify["Greet → Intent<br/>Patient ID + DOB"]
+    Verify --> CB["[checkBalance]<br/>state balance"]
+    CB --> Pay{"Pay?"}
+    Pay -- no --> Close([Close])
+    Pay -- yes --> Capture["Card / Expiry / CVV / Amount"]
+    Capture --> MP["[makePayment]"]
+    MP -- success --> Close
+    MP -- decline --> Retry["1 retry"] --> MP
+    Verify & CB & MP -. failures / human request .-> Handover["Billing specialist"]
 ```
 
-### Retry & escalation rules
-- **Field confirmation:** max **2** mis-confirmations per field → handover.
-- **Tool calls:** retry up to **3** times on transient errors → handover.
-- **Caller asks for a human:** immediate handover.
+**Escalation rules:** 2 mis-confirmations per field, 3 tool failures, or any human request → handover.
 
 ---
 
