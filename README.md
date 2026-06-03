@@ -48,6 +48,7 @@ Use templates when you need to:
 - Give sales, SE, partner, or delivery teams a stronger starting point.
 
 | Template | Description |
+| ---- | ---- |
 | [Payment AI Agent](https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/Payment_AI_agent) | A reference implementation of an autonomous voice AI agent built on Webex Contact Center that lets patients call in to check their outstanding hospital balance and pay it by credit card — end-to-end, without a human agent — while safely escalating anything out of scope. |
 
 [Browse templates and playbooks](./playbooks)
