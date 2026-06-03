@@ -1,0 +1,1 @@
+Skill for AI Calculator 
