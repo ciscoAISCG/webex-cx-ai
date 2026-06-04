@@ -90,6 +90,11 @@ Use skills when you want an assistant to help with:
 - Executive narrative drafting
 - Build review and improvement
 
+| Skill | Description |
+| ---- | ---- |
+| [Whatsapp](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Skills%20Shed/whatsapp) | Skill workspace for WhatsApp-related guidance and reusable assistant instructions. |
+| [AI Calculator](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Skills%20Shed/AI%20Calculator/SKILL.md) | The AI Calculator quantifies the financial impact of AI in a contact center. It takes current-state metrics (call volume, AHT, agent salary, occupancy, FCR, digital volume) plus a set of AI optimization levers, and returns annual savings, agent (FTE) reduction, a per-lever savings breakdown, and a step-by-step calculation trace. Results render on screen and export to PDF/PPTX. |
+
 [Browse the Skills Shed](./Skills%20Shed)
 
 ---
