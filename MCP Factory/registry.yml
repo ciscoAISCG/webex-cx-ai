@@ -9,3 +9,8 @@ servers:
     airtable_record_url: https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/recvZjvYRp2DPUqD4?home=pagB18fxYi4MDBi4f
     repo_path: MCP Factory/servers/salesforce
     status: cataloged
+  - name: ServiceNow
+    slug: servicenow
+    airtable_record_url: https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/recGtYgpO68QB4N8a?home=pagB18fxYi4MDBi4f
+    repo_path: MCP Factory/servers/servicenow
+    status: cataloged
