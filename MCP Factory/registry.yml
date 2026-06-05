@@ -1,0 +1,6 @@
+servers:
+  - name: Mem0
+    slug: mem0
+    airtable_record_url: https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/rec0tFReN8TeoIyem?home=pagB18fxYi4MDBi4f
+    repo_path: MCP Factory/servers/mem0
+    status: cataloged
