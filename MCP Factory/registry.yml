@@ -4,3 +4,8 @@ servers:
     airtable_record_url: https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/rec0tFReN8TeoIyem?home=pagB18fxYi4MDBi4f
     repo_path: MCP Factory/servers/mem0
     status: cataloged
+  - name: Salesforce
+    slug: salesforce
+    airtable_record_url: https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/recvZjvYRp2DPUqD4?home=pagB18fxYi4MDBi4f
+    repo_path: MCP Factory/servers/salesforce
+    status: cataloged

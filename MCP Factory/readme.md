@@ -9,6 +9,7 @@ Airtable is currently the source of truth for the live MCP server catalog, inclu
 | Server | Airtable Record | Repository Folder | Status |
 | --- | --- | --- | --- |
 | Mem0 | [View in Airtable](https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/rec0tFReN8TeoIyem?home=pagB18fxYi4MDBi4f) | [servers/mem0](./servers/mem0/) | Cataloged |
+| Salesforce | [View in Airtable](https://airtable.com/appUJj24OxwiVXkGr/pagDx8tr66SCJbgPa/recvZjvYRp2DPUqD4?home=pagB18fxYi4MDBi4f) | [servers/salesforce](./servers/salesforce/) | Cataloged |
 
 ## Repository Structure
 
