@@ -1,0 +1,360 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": "PRO_US",
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are an appointment scheduling assistant. You collect the customer's \nappointment details through conversation, send them a text summary to \nreview on their phone, and confirm the booking once they approve it by voice.\n\n### INSTRUCTIONS:\n## Collecting Details\nBefore calling any tool, collect all required fields through natural \nconversation: full name, preferred date, preferred time, and service type. \nAlso ask for location ( Pasadena or  Arcadia office) and any special notes if relevant.\nFormat date as \"Day Month DD, YYYY\" (e.g. \"Friday April 11, 2026\") and \ntime as \"H:MM AM/PM\" (e.g. \"10:00 AM\") before passing to any tool.\n\n## Sending the Summary\nOnce all details are confirmed, call appt_draft_and_notify. Use the \ncustomer's phone number as the session_id.\nAfter the tool responds, read the voice_prompt field out loud — word for word.\n\n## Waiting for the Customer\nThe customer needs a moment to read their phone. Do not rush them.\nIf the customer goes quiet, call appt_nudge and read the voice_prompt \nit returns. Do not call appt_nudge more than 3 times.\n\n## Confirming\nWhen the customer says CONFIRM (or clear equivalents like \"yes\", \n\"that's correct\", \"looks good\", \"book it\"), call appt_confirm.\nRead the voice_prompt from the response — it contains their reference number.\n\n## Handling Changes\nIf the customer asks to change anything, call appt_modify with the \nfield name and new value. Valid fields: name, date, time, service, \nlocation, notes. Read the voice_prompt after the tool responds.\n\n## Cancelling\nIf the customer does not want to proceed at any point, call appt_cancel.\n\n## General\n- Always read the voice_prompt field from every tool response.\n- Never confirm a booking without the customer's explicit approval.\n- Never mention that you are checking wait times or sending SMS in the background — just do it.",
+    "llm_model": "1.0.0",
+    "logo": "https://studio.aiagent-us1.cisco.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": false,
+          "response_settings": {
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": []
+    },
+    "welcome_message": "Hi there, Im here to help you set up an appointment, ready to begin ?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "0dd46add209f08be8d23b63cde6c411e",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 64577,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Confirm and book the appointment. Sends a final confirmation SMS with a reference code.\n\nCall this when the customer says CONFIRM or gives verbal approval.\nA booking reference is generated and sent to the customer's phone via SMS.\n\nArgs:\n    session_id: Session ID from appt_draft_and_notify.\n\n[build: v1.0]",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/b608b2e1bdc04b7b8dbe7d52bdd27e17.jpg",
+        "server_id": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_name": "visual_appointments",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/visual_appointment_v1/mcp"
+      },
+      "id": "e81e8c1ce06abd433b99eab2b9d42adb",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_id"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "appt_confirm",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 64577,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Retrieve the current draft details for an active session.\n\nUse this if the agent needs to recall what is currently in the draft\nwithout sending another SMS to the customer.\n\nArgs:\n    session_id: Session ID from appt_draft_and_notify.\n\n[build: v1.0]",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/b608b2e1bdc04b7b8dbe7d52bdd27e17.jpg",
+        "server_id": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_name": "visual_appointments",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/visual_appointment_v1/mcp"
+      },
+      "id": "140b485db54bb2675424336d6fa516b9",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_id"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "appt_get_draft",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 64577,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Return a soft reassurance prompt to read aloud while the customer\nreviews their SMS summary. Call this if the customer goes quiet after\nappt_draft_and_notify. Do NOT call more than 3 times per session —\nif nudge_count reaches 3, ask the customer if they received the text.\n\nArgs:\n    session_id: Session ID from appt_draft_and_notify.\n\n[build: v1.0]",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/b608b2e1bdc04b7b8dbe7d52bdd27e17.jpg",
+        "server_id": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_name": "visual_appointments",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/visual_appointment_v1/mcp"
+      },
+      "id": "79b0ef1ca58c0ab3125b1d558223975d",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_id"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "appt_nudge",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 64577,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Cancel an appointment draft or confirmed booking and notify the customer by SMS.\n\nCall this if the customer decides not to proceed, or asks to cancel a\npreviously confirmed appointment.\n\nArgs:\n    session_id: Session ID from appt_draft_and_notify.\n\n[build: v1.0]",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/b608b2e1bdc04b7b8dbe7d52bdd27e17.jpg",
+        "server_id": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_name": "visual_appointments",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/visual_appointment_v1/mcp"
+      },
+      "id": "4dab22205cb3252ce2d13c844e486e84",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_id"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "appt_cancel",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 64577,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Create an appointment draft and send a plain-text SMS summary to the customer.\n\nCall this once the agent has collected all appointment details from the customer.\nThe customer will receive an SMS to visually review while still on the call.\nUse the voice_prompt from the response to tell the customer to check their phone.\nThe agent then waits for the customer to say CONFIRM or request a change by voice.\n\nArgs:\n    session_id:  Unique ID for this conversation (e.g. customer phone number).\n    phone:       Customer phone number to receive the SMS (e.g. '+14155551234').\n    name:        Customer full name.\n    date:        Appointment date (e.g. 'Friday April 11, 2026').\n    time_slot:   Appointment time (e.g. '10:00 AM').\n    service:     Type of appointment (e.g. 'Annual Checkup', 'Consultation').\n    location:    Optional office or location name.\n    notes:       Optional special instructions or notes.\n\n[build: v1.0]",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/b608b2e1bdc04b7b8dbe7d52bdd27e17.jpg",
+        "server_id": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_name": "visual_appointments",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/visual_appointment_v1/mcp"
+      },
+      "id": "a5cbc2ffdefc1e985b6ae98385906a7c",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "location": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "phone": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string"
+            },
+            "session_id": {
+              "type": "string"
+            },
+            "time_slot": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_id",
+            "phone",
+            "name",
+            "date",
+            "time_slot",
+            "service"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "appt_draft_and_notify",
+      "slots_view": "editor",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 64577,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Update one field in the appointment draft and resend the SMS summary.\n\nCall this when the customer asks to change something after reviewing the SMS.\nAn updated SMS is sent automatically so they can re-verify the change.\nUse the voice_prompt to tell the customer to check the updated text.\n\nArgs:\n    session_id: Session ID from appt_draft_and_notify.\n    field:      The field to change. One of: name, date, time, service,\n                location, notes.\n    new_value:  The new value for that field.\n\n[build: v1.0]",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/b608b2e1bdc04b7b8dbe7d52bdd27e17.jpg",
+        "server_id": "baeareifvhrsp3urdynhc5d2pq7tpyfj2dzslch5ewswuj6qxg62wg4aw4q",
+        "server_name": "visual_appointments",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/visual_appointment_v1/mcp"
+      },
+      "id": "9a73ef0a2c43ae2adcb9aa9d435d3b11",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "type": "string"
+            },
+            "new_value": {
+              "type": "string"
+            },
+            "session_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "session_id",
+            "field",
+            "new_value"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "appt_modify",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}

@@ -26,5 +26,6 @@ Each template typically includes:
 | Template | Description |
 |---|---|
 | [Payment_AI_agent](Payment_AI_agent/README.md) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
+| [Visual_Appointment_Confirmation](Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 
 > Contributing a new template? Drop it in its own subfolder with a `README.md` that follows the same structure (overview, architecture, deployment steps, sample data, security notes).

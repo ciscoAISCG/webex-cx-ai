@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">Visual appointment confirmation flow</title>
+  <desc id="desc">A friendly illustration showing a caller, AI assistant, SMS review, and confirmed appointment.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7ff"/>
+      <stop offset="0.55" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#e9fff7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#153047" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2978d3"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="560" rx="28" fill="url(#bg)"/>
+  <circle cx="1100" cy="92" r="72" fill="#d7f6ee"/>
+  <circle cx="180" cy="448" r="92" fill="#dcecff"/>
+  <circle cx="1014" cy="468" r="54" fill="#e4f2ff"/>
+
+  <text x="72" y="70" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#17324d">Voice + visual confirmation</text>
+  <text x="72" y="110" font-family="Inter, Arial, sans-serif" font-size="20" fill="#526678">The caller reviews the appointment by SMS before the booking is confirmed.</text>
+
+  <!-- Caller card -->
+  <g filter="url(#shadow)">
+    <rect x="72" y="170" width="245" height="250" rx="24" fill="#ffffff"/>
+    <circle cx="194" cy="250" r="58" fill="#ffcf9f"/>
+    <path d="M135 245 Q194 160 253 245 Q241 188 194 188 Q147 188 135 245Z" fill="#28324a"/>
+    <circle cx="174" cy="253" r="5" fill="#1d2435"/>
+    <circle cx="214" cy="253" r="5" fill="#1d2435"/>
+    <path d="M174 282 Q194 300 216 282" fill="none" stroke="#1d2435" stroke-width="5" stroke-linecap="round"/>
+    <path d="M134 378 Q194 314 254 378" fill="#36c2a7"/>
+    <path d="M246 260 q34 16 34 52 q0 36-30 50" fill="none" stroke="#2978d3" stroke-width="14" stroke-linecap="round"/>
+    <text x="114" y="389" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#17324d">Caller speaks</text>
+  </g>
+
+  <!-- AI card -->
+  <g filter="url(#shadow)">
+    <rect x="508" y="142" width="260" height="305" rx="26" fill="#ffffff"/>
+    <rect x="548" y="190" width="180" height="130" rx="22" fill="#eef6ff" stroke="#90c2f4" stroke-width="4"/>
+    <circle cx="638" cy="255" r="42" fill="#5e8df5"/>
+    <circle cx="622" cy="246" r="6" fill="#ffffff"/>
+    <circle cx="654" cy="246" r="6" fill="#ffffff"/>
+    <path d="M619 273 Q638 288 658 273" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <path d="M575 345 h126" stroke="#d6e4f2" stroke-width="10" stroke-linecap="round"/>
+    <path d="M575 372 h92" stroke="#d6e4f2" stroke-width="10" stroke-linecap="round"/>
+    <text x="555" y="416" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#17324d">AI collects details</text>
+  </g>
+
+  <!-- SMS phone card -->
+  <g filter="url(#shadow)">
+    <rect x="948" y="137" width="224" height="328" rx="34" fill="#203047"/>
+    <rect x="966" y="170" width="188" height="255" rx="20" fill="#ffffff"/>
+    <circle cx="1060" cy="443" r="10" fill="#88a0b8"/>
+    <rect x="992" y="202" width="136" height="34" rx="10" fill="#e9f7ff"/>
+    <rect x="992" y="252" width="136" height="18" rx="9" fill="#dbe8f5"/>
+    <rect x="992" y="286" width="120" height="18" rx="9" fill="#dbe8f5"/>
+    <rect x="992" y="320" width="148" height="18" rx="9" fill="#dbe8f5"/>
+    <circle cx="1033" cy="372" r="28" fill="#28b487"/>
+    <path d="M1018 371 l11 12 l22-28" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="993" y="223" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#17324d">Review SMS</text>
+    <text x="1002" y="412" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#17324d">Confirm</text>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M330 306 C386 284 438 284 492 300" fill="none" stroke="#2978d3" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M780 306 C838 284 884 284 934 300" fill="none" stroke="#2978d3" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M948 436 C806 514 478 514 304 442" fill="none" stroke="#36c2a7" stroke-width="7" stroke-linecap="round" stroke-dasharray="13 17" marker-end="url(#arrow)"/>
+
+  <!-- Captions -->
+  <g font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">
+    <rect x="348" y="232" width="138" height="38" rx="19" fill="#ffffff" opacity="0.94" stroke="#c9ddfb" stroke-width="2"/>
+    <text x="417" y="257" text-anchor="middle" fill="#2978d3">voice details</text>
+
+    <rect x="790" y="232" width="142" height="38" rx="19" fill="#ffffff" opacity="0.94" stroke="#c9ddfb" stroke-width="2"/>
+    <text x="861" y="257" text-anchor="middle" fill="#2978d3">send summary</text>
+
+    <rect x="516" y="468" width="176" height="38" rx="19" fill="#ffffff" opacity="0.94" stroke="#bce7d6" stroke-width="2"/>
+    <text x="604" y="493" text-anchor="middle" fill="#208a70">approve or correct</text>
+  </g>
+</svg>
