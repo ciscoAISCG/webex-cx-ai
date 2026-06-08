@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webex MCP Onboarding"
+  short_description: "Guide MCP setup for Webex AI agents"
+  default_prompt: "Use $webex-mcp-onboarding to plan and validate MCP setup for a Webex AI agent."
