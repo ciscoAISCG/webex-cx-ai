@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">User identification and verification agent flow</title>
+  <desc id="desc">A caller provides details to an authentication AI agent, the agent verifies with a backend service, then continues to another AI agent or escalates to a human agent.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .card { fill: #ffffff; stroke: #b8d7ee; stroke-width: 2; }
+      .soft { fill: #e8f5ff; }
+      .teal { fill: #e7fbf6; stroke: #77cbbb; stroke-width: 2; }
+      .green { fill: #ecf8ed; stroke: #8ccf95; stroke-width: 2; }
+      .dark { fill: #17233c; font-family: Arial, Helvetica, sans-serif; }
+      .muted { fill: #52606d; font-family: Arial, Helvetica, sans-serif; }
+      .pill { fill: #184e77; }
+      .pillText { fill: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 700; }
+      .title { font-size: 25px; font-weight: 700; }
+      .body { font-size: 18px; }
+      .small { font-size: 15px; }
+      .arrow { stroke: #277da1; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="28" markerHeight="28" refX="6" refY="14" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M6,6 L22,14 L6,22 Z" fill="#277da1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" rx="28"/>
+  <text class="dark title" x="54" y="52">User Identification and Verification Agent</text>
+  <text class="muted body" x="54" y="82">Collect details, verify with a backend service, then continue safely.</text>
+
+  <rect class="card" x="55" y="125" width="245" height="215" rx="20"/>
+  <circle class="soft" cx="124" cy="190" r="38"/>
+  <circle fill="#277da1" cx="124" cy="178" r="15"/>
+  <path fill="#277da1" d="M92 226c7-25 57-25 64 0v8H92z"/>
+  <text class="dark title" x="83" y="276">Caller</text>
+  <text class="muted body" x="83" y="306">Provides ID details</text>
+
+  <path class="arrow" d="M315 232 H414"/>
+  <rect class="pill" x="330" y="196" width="145" height="30" rx="15"/>
+  <text class="pillText" x="351" y="217">collect</text>
+
+  <rect class="teal" x="430" y="125" width="285" height="215" rx="20"/>
+  <rect fill="#ffffff" x="486" y="162" width="172" height="94" rx="14"/>
+  <circle fill="#77cbbb" cx="528" cy="209" r="21"/>
+  <path fill="none" stroke="#17233c" stroke-width="5" stroke-linecap="round" d="M572 196h45M572 215h31"/>
+  <text class="dark title" x="463" y="292">Auth AI Agent</text>
+  <text class="muted body" x="474" y="322">Confirms and calls action</text>
+
+  <path class="arrow" d="M715 232 H824"/>
+  <rect class="pill" x="744" y="196" width="154" height="30" rx="15"/>
+  <text class="pillText" x="763" y="217">verify</text>
+
+  <rect class="card" x="840" y="125" width="275" height="215" rx="20"/>
+  <rect class="green" x="903" y="160" width="148" height="92" rx="14"/>
+  <path fill="none" stroke="#2f7d39" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" d="M935 207l25 25 55-61"/>
+  <text class="dark title" x="890" y="292">Backend Service</text>
+  <text class="muted body" x="890" y="322">Returns verification result</text>
+
+  <path class="arrow" d="M840 270 C800 302 760 302 724 270"/>
+  <rect class="pill" x="735" y="252" width="128" height="30" rx="15"/>
+  <text class="pillText" x="753" y="273">auth result</text>
+
+  <path class="arrow" d="M570 350 V409"/>
+  <rect class="pill" x="590" y="374" width="116" height="30" rx="15"/>
+  <text class="pillText" x="613" y="395">continue</text>
+
+  <rect class="card" x="430" y="425" width="285" height="105" rx="20"/>
+  <text class="dark title" x="477" y="475">Other AI Agents</text>
+  <text class="muted body" x="480" y="505">Protected self-service</text>
+
+  <path class="arrow" d="M715 318 C810 390 842 440 874 440"/>
+  <rect class="pill" x="768" y="381" width="110" height="30" rx="15"/>
+  <text class="pillText" x="791" y="402">escalate</text>
+
+  <rect class="card" x="890" y="392" width="225" height="105" rx="20"/>
+  <circle class="soft" cx="942" cy="445" r="30"/>
+  <circle fill="#277da1" cx="942" cy="434" r="12"/>
+  <path fill="#277da1" d="M918 466c5-20 43-20 48 0v6h-48z"/>
+  <text class="dark title" x="982" y="436">Human</text>
+  <text class="dark title" x="982" y="465">Agent</text>
+</svg>

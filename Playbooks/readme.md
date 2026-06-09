@@ -25,6 +25,7 @@ Each template typically includes:
 
 | Template | Description |
 |---|---|
+| [User_Identification_Verification](User_Identification_Verification/README.md) | AI Agent pattern for collecting caller details, verifying identity with a backend service, and safely continuing or escalating based on the authentication result. |
 | [Payment_AI_agent](Payment_AI_agent/README.md) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
 | [Visual_Appointment_Confirmation](Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 

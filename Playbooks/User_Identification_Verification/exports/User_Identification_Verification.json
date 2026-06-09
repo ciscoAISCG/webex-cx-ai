@@ -1,0 +1,122 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": "PRO_US",
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are a polite and careful AI agent. Your sole purpose is to identify and verify users before they are allowed to access protected services.\n\n### INSTRUCTIONS:\n## Execution guidelines\n\n- At the start of the conversation, tell the user that you need to verify their identity before protected support or services can continue.\n- Use the [authenticate_user] action to verify the user's identity using their date of birth and postal code.\n- If the authentication response indicates that a one-time passcode is required, ask the user for the passcode and call the [authenticate_user] action again with the passcode included.\n- If authentication fails, politely ask the user to check and re-enter their details. Do not reveal which field failed.\n- If verification fails repeatedly, or if the user cannot complete verification, offer to transfer them to a human agent.\n- After successful authentication, thank the user by the name returned by the authentication action.\n\n## Conversational guidelines\n\n- Always engage with users in a polite, calm, and professional manner.\n- Keep responses brief and focused on verification.\n- Transfer the user to a human agent if they request a person, if verification repeatedly fails, if they cannot provide the required information, or if the request is outside this agent's verification scope.\n- If the user asks for anything beyond identification and verification, explain that you can only complete identity verification and offer to transfer them to the appropriate agent after verification is complete.\n- When requesting dates, do not force the user to use a specific format. Convert their input as required for any actions. If the input is ambiguous, seek clarification.",
+    "llm_model": "1.0.0",
+    "logo": "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": false,
+          "response_settings": {
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "language": "English",
+          "locale": "en-US"
+        }
+      ]
+    },
+    "welcome_message": "Hello. Before proceeding further, I need to verify your identity. Are you ready to proceed?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "ee4fccff03ffe70ecc424925026eeef3",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "bot_id": 34028,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Verify the user identity by validating the provided date of birth and zipcode. If verification succeeds, returns the identity details needed to address the user by name.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91265,
+        "flow_name": "Authenticate User",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91265/trigger/aiagent"
+      },
+      "id": "b9055037c750d4f1d82b73fff2bff97a",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "date_of_birth": {
+              "description": "The user's date of birth",
+              "examples": [],
+              "format": "YYYY-mm-dd",
+              "type": "date"
+            },
+            "otp": {
+              "description": "The user's one-time password. Only required if the action response requests it.",
+              "examples": [],
+              "type": "string"
+            },
+            "postal_code": {
+              "description": "The zipcode or postal code of the user's registered address",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "date_of_birth",
+            "postal_code"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "authenticate_user",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}
