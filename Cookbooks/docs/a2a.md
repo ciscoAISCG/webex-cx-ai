@@ -92,8 +92,6 @@ sequenceDiagram
 
 A2A is useful for both consult and transfer mechanics.
 
-![A2A transfer mechanics picture extracted from the workshop slide deck](assets/ai-agent-protocols/a2a-transfer-mechanics.jpeg)
-
 | Pattern | Ownership | Example |
 | --- | --- | --- |
 | Consult | Primary agent keeps control | Main agent asks insurance agent to validate coverage and then continues |
@@ -219,4 +217,3 @@ A2A is the collaboration layer. MCP is the system-access layer. Together with a 
 ## References
 
 - A2A protocol specification: <https://a2a-protocol.org/latest/specification/>
-
