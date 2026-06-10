@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="560" viewBox="0 0 1800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Strategic Value of Multi-Agent Systems</title>
+  <desc id="desc">Five advantage cards for multi-agent systems: workflow specialization, risk mitigation and security, operational resilience, simplified governance, and human in the loop.</desc>
+  <rect width="1800" height="560" fill="#07182b"/>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <g transform="translate(65,70)">
+      <rect width="300" height="390" fill="none" stroke="#ffd600" stroke-width="5"/>
+      <text x="150" y="180" fill="#f5f7fb" font-size="34" font-weight="700">Workflow</text>
+      <text x="150" y="222" fill="#f5f7fb" font-size="34" font-weight="700">Specialization</text>
+      <text x="150" y="285" fill="#f5f7fb" font-size="24" font-weight="700">Break down complex</text>
+      <text x="150" y="318" fill="#f5f7fb" font-size="24" font-weight="700">requests into</text>
+      <text x="150" y="351" fill="#f5f7fb" font-size="24" font-weight="700">manageable steps.</text>
+      <path d="M115 78 C93 45 99 20 130 8 M130 8 L133 39 M130 8 L160 15" fill="none" stroke="#ffd600" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="155" cy="82" r="25" fill="none" stroke="#ffd600" stroke-width="5"/>
+      <circle cx="195" cy="110" r="18" fill="none" stroke="#ffd600" stroke-width="5"/>
+    </g>
+    <g transform="translate(410,90)">
+      <rect width="300" height="390" fill="none" stroke="#ff8a1f" stroke-width="5"/>
+      <text x="150" y="180" fill="#f5f7fb" font-size="34" font-weight="700">Risk Mitigation</text>
+      <text x="150" y="222" fill="#f5f7fb" font-size="34" font-weight="700">and Security</text>
+      <text x="150" y="285" fill="#f5f7fb" font-size="24" font-weight="700">Narrower permissions</text>
+      <text x="150" y="318" fill="#f5f7fb" font-size="24" font-weight="700">and clearer audit logs</text>
+      <text x="150" y="351" fill="#f5f7fb" font-size="24" font-weight="700">enhance security.</text>
+      <path d="M150 35 L205 58 V100 C205 139 184 171 150 188 C116 171 95 139 95 100 V58 Z" fill="none" stroke="#ff8a1f" stroke-width="5"/>
+      <path d="M130 105 L146 121 L177 82" fill="none" stroke="#ff8a1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(755,70)">
+      <rect width="300" height="390" fill="none" stroke="#ff5b5f" stroke-width="5"/>
+      <text x="150" y="180" fill="#f5f7fb" font-size="34" font-weight="700">Operational</text>
+      <text x="150" y="222" fill="#f5f7fb" font-size="34" font-weight="700">Resilience</text>
+      <text x="150" y="285" fill="#f5f7fb" font-size="24" font-weight="700">Decoupled processes</text>
+      <text x="150" y="318" fill="#f5f7fb" font-size="24" font-weight="700">prevent single</text>
+      <text x="150" y="351" fill="#f5f7fb" font-size="24" font-weight="700">points of failure.</text>
+      <path d="M150 176 C196 158 218 116 199 79 C192 100 176 108 158 108 C170 88 163 65 139 47 C135 81 106 94 92 119 C76 148 96 170 150 176 Z" fill="none" stroke="#ff5b5f" stroke-width="5" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(1100,90)">
+      <rect width="300" height="390" fill="none" stroke="#f05abc" stroke-width="5"/>
+      <text x="150" y="180" fill="#f5f7fb" font-size="34" font-weight="700">Simplified</text>
+      <text x="150" y="222" fill="#f5f7fb" font-size="34" font-weight="700">Governance</text>
+      <text x="150" y="285" fill="#f5f7fb" font-size="24" font-weight="700">Incremental</text>
+      <text x="150" y="318" fill="#f5f7fb" font-size="24" font-weight="700">certification and</text>
+      <text x="150" y="351" fill="#f5f7fb" font-size="24" font-weight="700">focused maintenance.</text>
+      <path d="M150 40 V165 M80 72 H220 M95 72 L60 150 H130 Z M205 72 L170 150 H240 Z M110 165 H190" fill="none" stroke="#f05abc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(1445,70)">
+      <rect width="300" height="390" fill="none" stroke="#00bceb" stroke-width="5"/>
+      <text x="150" y="213" fill="#f5f7fb" font-size="34" font-weight="700">Human in the Loop</text>
+      <path d="M115 78 C93 45 99 20 130 8 M130 8 L133 39 M130 8 L160 15" fill="none" stroke="#ffd600" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="155" cy="82" r="25" fill="none" stroke="#ffd600" stroke-width="5"/>
+      <circle cx="195" cy="110" r="18" fill="none" stroke="#ffd600" stroke-width="5"/>
+      <circle cx="150" cy="135" r="22" fill="none" stroke="#00bceb" stroke-width="5"/>
+      <path d="M100 238 C108 196 126 174 150 174 C174 174 192 196 200 238" fill="none" stroke="#00bceb" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

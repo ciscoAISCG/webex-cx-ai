@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Risk Mitigation and Security</title>
+  <desc id="desc">A dark card showing risk mitigation and security as an advantage of multi-agent systems.</desc>
+  <rect width="900" height="480" fill="#07182b"/>
+  <path d="M70 54 H830 V426 H70 Z" fill="none" stroke="#ff8a1f" stroke-width="8"/>
+  <path d="M70 338 C72 410 114 426 202 426" fill="none" stroke="#ff8a1f" stroke-width="8" stroke-linecap="round"/>
+  <g fill="none" stroke="#ff8a1f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M450 91 L540 128 V193 C540 251 505 299 450 322 C395 299 360 251 360 193 V128 Z"/>
+    <path d="M409 176 L440 207 L498 143"/>
+    <path d="M328 136 H286 M286 136 C273 136 263 126 263 113 C263 100 273 90 286 90 C299 90 309 100 309 113 C309 126 299 136 286 136"/>
+    <path d="M572 136 H614 M614 136 C627 136 637 126 637 113 C637 100 627 90 614 90 C601 90 591 100 591 113 C591 126 601 136 614 136"/>
+    <path d="M360 274 H282 M282 274 L310 246 M282 274 L310 302"/>
+    <path d="M540 274 H618 M618 274 L590 246 M618 274 L590 302"/>
+  </g>
+  <text x="450" y="354" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" text-anchor="middle">Risk Mitigation</text>
+  <text x="450" y="407" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" text-anchor="middle">and Security</text>
+</svg>

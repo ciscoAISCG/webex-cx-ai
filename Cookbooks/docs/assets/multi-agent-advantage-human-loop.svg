@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Human in the Loop</title>
+  <desc id="desc">A dark card showing human in the loop as an advantage of multi-agent systems.</desc>
+  <rect width="900" height="480" fill="#07182b"/>
+  <path d="M70 54 H830 V426 H70 Z" fill="none" stroke="#00bceb" stroke-width="8"/>
+  <path d="M830 287 C829 352 820 395 794 416 C674 426 393 426 70 426" fill="none" stroke="#00bceb" stroke-width="8" stroke-linecap="round"/>
+  <g fill="none" stroke="#ffd600" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="412" cy="144" r="34"/>
+    <path d="M412 84 V64 M412 223 V202 M353 144 H333 M491 144 H471 M370 102 L356 88 M454 102 L468 88 M370 186 L356 200 M454 186 L468 200"/>
+    <circle cx="508" cy="202" r="24"/>
+    <path d="M508 153 V138 M508 267 V252 M458 202 H443 M573 202 H558 M473 167 L462 156 M543 167 L554 156 M473 237 L462 248 M543 237 L554 248"/>
+    <path d="M297 160 C276 115 291 70 336 48"/>
+    <path d="M586 127 C621 164 617 223 581 258"/>
+    <path d="M336 48 L338 92 M336 48 L378 59"/>
+    <path d="M581 258 L569 216 M581 258 L538 257"/>
+  </g>
+  <g fill="none" stroke="#00bceb" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="450" cy="109" r="28"/>
+    <path d="M386 284 C394 230 418 200 450 200 C482 200 506 230 514 284"/>
+  </g>
+  <text x="450" y="356" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" text-anchor="middle">Human in the Loop</text>
+</svg>

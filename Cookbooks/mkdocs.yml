@@ -1,0 +1,101 @@
+---
+site_name: AI Agent Cookbook for WxCC
+site_description: A practical guide for building secure, governed, and production-ready AI agents in WxCC
+site_author: Chandramouli Vaithiyanathan
+site_url: https://webexsamples.github.io/webex-ai-agents/
+docs_dir: docs
+copyright: Copyright &copy; 2026 Cisco Systems Inc. All Rights Reserved.
+
+theme:
+  name: material
+  logo: assets/cisco-logo.png
+  favicon: assets/cisco-logo.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - content.code.copy
+    - toc.integrate
+    - content.tooltips
+    - content.footnote.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra:
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: fade
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: false
+      auto_caption: true
+      caption_position: top
+
+markdown_extensions:
+  - md_in_html
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - tables
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+  - Security: security.md
+  - multi-agent-strategy: multi-agent-strategy.md
+  - model-context-protocol: model-context-protocol.md
+  - Agent2Agent: a2a.md
+  - Scripted AI Agent Design: scripted-ai-agent-design.md
+  - Knowledge and RAG: knowledge-and-rag.md
+  - Testing and Evaluation: testing-and-evaluation.md
+  - PreBuilt_AIAgent: agent-template.md
+  - Glossary: glossary.md

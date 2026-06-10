@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Simplified Governance</title>
+  <desc id="desc">A dark card showing simplified governance as an advantage of multi-agent systems.</desc>
+  <rect width="900" height="480" fill="#07182b"/>
+  <path d="M70 54 H830 V426 H70 Z" fill="none" stroke="#f05abc" stroke-width="8"/>
+  <path d="M830 75 C692 45 508 54 70 54" fill="none" stroke="#f05abc" stroke-width="8" stroke-linecap="round"/>
+  <g fill="none" stroke="#f05abc" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M450 96 V263"/>
+    <path d="M372 263 H528"/>
+    <path d="M330 129 H570"/>
+    <circle cx="450" cy="129" r="15"/>
+    <path d="M350 129 L290 248 H410 Z"/>
+    <path d="M550 129 L490 248 H610 Z"/>
+    <path d="M270 248 H430"/>
+    <path d="M470 248 H630"/>
+  </g>
+  <text x="450" y="344" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" text-anchor="middle">Simplified</text>
+  <text x="450" y="399" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" text-anchor="middle">Governance</text>
+</svg>
