@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Operational Resilience</title>
+  <desc id="desc">A dark card showing operational resilience as an advantage of multi-agent systems.</desc>
+  <rect width="900" height="480" fill="#07182b"/>
+  <path d="M70 54 H830 V426 H70 Z" fill="none" stroke="#ff5b5f" stroke-width="8"/>
+  <path d="M70 92 C182 44 310 49 422 54" fill="none" stroke="#ff5b5f" stroke-width="8" stroke-linecap="round"/>
+  <g fill="none" stroke="#ff5b5f" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M477 296 C555 267 591 199 558 137 C548 171 521 184 495 185 C511 151 499 115 464 88 C456 142 410 159 386 199 C361 240 391 284 477 296 Z"/>
+    <path d="M448 260 C485 248 504 212 488 180 C478 199 460 207 443 209 C454 190 449 169 426 151 C422 186 394 201 386 228 C378 255 405 274 448 260 Z"/>
+    <path d="M249 190 H347 M553 190 H652"/>
+    <path d="M286 150 L246 190 L286 230"/>
+    <path d="M615 150 L655 190 L615 230"/>
+    <circle cx="225" cy="190" r="16"/>
+    <circle cx="675" cy="190" r="16"/>
+  </g>
+  <text x="450" y="348" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" text-anchor="middle">Operational</text>
+  <text x="450" y="402" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" text-anchor="middle">Resilience</text>
+</svg>

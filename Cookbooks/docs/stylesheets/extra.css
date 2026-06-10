@@ -1,0 +1,50 @@
+:root {
+  --md-primary-fg-color: #2f3a45;
+  --md-primary-fg-color--light: #3b4753;
+  --md-primary-fg-color--dark: #232b33;
+  --md-accent-fg-color: #5c8d89;
+  --md-typeset-a-color: #5c8d89;
+}
+
+.md-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.6rem;
+  width: auto;
+}
+
+.md-main__inner {
+  max-width: 1400px;
+}
+
+.md-sidebar--primary {
+  display: none;
+}
+
+.md-content {
+  margin-left: 0;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 400;
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.md-typeset pre > code {
+  border-radius: 8px;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover,
+.md-nav__link--active,
+.md-nav__link:hover {
+  color: #5c8d89 !important;
+}
