@@ -2,7 +2,7 @@
 site_name: AI Agent Cookbook for WxCC
 site_description: A practical guide for building secure, governed, and production-ready AI agents in WxCC
 site_author: Chandramouli Vaithiyanathan
-site_url: https://webexsamples.github.io/webex-ai-agents/
+site_url: https://ciscoaiscg.github.io/webex-cx-ai/
 docs_dir: docs
 copyright: Copyright &copy; 2026 Cisco Systems Inc. All Rights Reserved.
 
