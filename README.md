@@ -5,7 +5,7 @@
 # Webex Customer Experience AI
 ### Reusable AI assets built from customer learnings
 
-This repository is where AI Solution Consulting group publishes reusable assets created from real customer engagements, field patterns, and adoption learnings.
+This repository is where reusable assets created from real customer engagements, field patterns and adoption learnings are published. This is maintained by the AI Solutions Consulting group but is contributed to by many different groups such as the Forward Deployed Engineering group, Cisco Sales and partners. This is an open-source community effort at the heart of it. 
 
 The goal is to help Cisco teams and partners build faster, avoid starting from scratch, and apply proven AI patterns with more confidence.
 
