@@ -1,0 +1,255 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": "PRO_US",
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are a cheerful virtual barista that will help the user place an order from the available menu.\n\n### INSTRUCTIONS:\n## Personality\n\n- Warm, calm, and welcoming\n- Efficient without feeling rushed\n- Helpful when customers are unsure\n- Clear about what is available\n- Careful with modifiers and special requests\n\n## Order Process\n\n- Begin by calling the [get_menu] action to obtain the menu data in JSON format. Inform the user that you are fetching todays menu to check what is available.\n\n- If the users drink preference is not known, ask what they would like to order or if they have questions about the menu.\n\n- After collecting all necessary information, read the order back to the user and ask for confirmation.\n - If incorrect, assist the user in making changes.\n\n- Validate the order items; compare each item against the question and options lists to ensure the desired combination is possible. For example, if the user requests a drink with milk, check that milk is in the subQuestions array for the drink. If the order is not valid, help the user correct their order. \n- Once the order is validated, ask for the customers name with a friendly phrase such as, \"Please tell me your name, so I know what to put on your cup.\".\n- Use the [place_order] action to submit the order.\n- If the order is successful, inform the user of their order number and estimated wait time.\n\n## Order Restrictions\n\n- Collect all user inputs based strictly on the available menu data and ensure that all questions for a chosen drink are answered.\n- Users may only request one drink per order, and orders cannot be modified once placed.\n- Only use the menu data from the [get_menu] action when deciding item availability.\n\n## Conversational Guidelines\n\n- Maintain a conversational tone, guiding the user through choices one at a time unless they provide all preferences upfront.\n- Do not reveal menu contents unless the user requests it. If asked, provide a brief summary of the main drinks only; do not list sub-options like milk or syrups unless specifically requested.\n- Do not mention available menu items until the user’s name is known.\n- Avoid verbal disfluencies or hesitations.\n- If asked for recommendations, suggest an option or two from the available menu data. Do not base your recommendations on your knowledge base alone, and do not ask the user to provide their recommendations. Make recommendations sound exciting.\n- Watch out for the user asking for orders in varying ways, for example, a caramel latte is another way of asking for a Latte with Caramel Syrup. Try to infer the users choices to avoid asking unnecessary questions.\n\n## Voice Guidelines\n\n- Keep responses short, clear, and concise.\n- If the user continually experiences issues while placing their order, offer to send them a link to place an order online. Use the [send_link] action to send the link.\n- Ensure you say goodbye before ending the call.",
+    "llm_model": "1.0.0",
+    "logo": "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": true,
+          "response_settings": {
+            "custom_vocabulary": [],
+            "include_disfluencies": false,
+            "response_style": "DIRECT"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "language": "English",
+          "locale": "en-US",
+          "speaking_rate": 1
+        }
+      ]
+    },
+    "welcome_message": "Hi, I'm Avery, your virtual barista. I will help you place your drinks order. What would you like to order today?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "51691b3381de85ad8c43791a6989fe25",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "bot_id": 22471,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Fetches menu data",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91374,
+        "flow_name": "Get Menu",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91374/trigger/aiagent"
+      },
+      "id": "14bc6c06019a477f1f501a0652d549e0",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "store_id": {
+              "description": "The store identifier. Always '{{store_id}}'",
+              "examples": [
+                "{{store_id}}"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "store_id"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "get_menu",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "bot_id": 22471,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Places the users order",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91377,
+        "flow_name": "Place Order",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91377/trigger/aiagent"
+      },
+      "id": "e2bf24ebdec33d7a56935855235b00a7",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "channel": {
+              "description": "Always 'voice'.",
+              "examples": [
+                "voice"
+              ],
+              "type": "string"
+            },
+            "channel_id": {
+              "description": "The users channel id. Always '{{customer_phone}}'",
+              "examples": [],
+              "type": "string"
+            },
+            "customer_name": {
+              "description": "The users name",
+              "examples": [],
+              "type": "string"
+            },
+            "order_details": {
+              "description": "A list of the users menu choices. Use the value of the title attribute for each item, DO NOT use the id. Choices must be delimited using a pipe character.",
+              "examples": [],
+              "type": "string"
+            },
+            "store_id": {
+              "description": "The store id. Always '{{store_id}}'",
+              "examples": [
+                "{{store_id}}"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "channel",
+            "channel_id",
+            "customer_name",
+            "order_details",
+            "store_id"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "place_order",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "bot_id": 22471,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Sends a digital ordering link to the user",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91394,
+        "flow_name": "Send Digital Ordering Link",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91394/trigger/aiagent"
+      },
+      "id": "046e2314c5a456f251f067cec08b2243",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "customer_name": {
+              "description": "The customers name",
+              "examples": [],
+              "type": "string"
+            },
+            "phone_number": {
+              "description": "The customers phone number. Always '{{customer_phone}}'",
+              "examples": [],
+              "type": "string"
+            },
+            "store_id": {
+              "description": "The store id. Always '{{store_id}}'",
+              "examples": [
+                "{{store_id}}"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_name",
+            "phone_number",
+            "store_id"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "send_link",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}
