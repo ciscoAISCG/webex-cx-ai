@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Data driven ordering agent flow</title>
+  <desc id="desc">A caller orders a drink with Avery, the AI agent fetches a JSON menu, validates options, places the order, can send a digital link, and hands off to a human agent only when requested.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7fbff; }
+      .card { fill: #ffffff; stroke: #b8d7ee; stroke-width: 2; }
+      .teal { fill: #e7fbf6; stroke: #77cbbb; stroke-width: 2; }
+      .green { fill: #ecf8ed; stroke: #8ccf95; stroke-width: 2; }
+      .soft { fill: #e8f5ff; }
+      .dark { fill: #17233c; font-family: Arial, Helvetica, sans-serif; }
+      .muted { fill: #52606d; font-family: Arial, Helvetica, sans-serif; }
+      .pill { fill: #184e77; }
+      .pillText { fill: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700; }
+      .title { font-size: 25px; font-weight: 700; }
+      .body { font-size: 17px; }
+      .arrow { stroke: #277da1; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="22" markerHeight="22" refX="5" refY="11" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M5,5 L17,11 L5,17 Z" fill="#277da1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="520" rx="28"/>
+  <text class="dark title" x="54" y="52">Data Driven Ordering Agent</text>
+  <text class="muted body" x="54" y="82">Avery builds a drink order from structured JSON menu data.</text>
+
+  <rect class="card" x="55" y="145" width="220" height="190" rx="20"/>
+  <circle class="soft" cx="124" cy="204" r="34"/>
+  <circle fill="#277da1" cx="124" cy="194" r="13"/>
+  <path fill="#277da1" d="M96 236c6-23 50-23 56 0v7H96z"/>
+  <text class="dark title" x="88" y="280">Caller</text>
+  <text class="muted body" x="88" y="309">Orders a drink</text>
+
+  <path class="arrow" d="M275 240 H350"/>
+  <rect class="pill" x="286" y="204" width="110" height="30" rx="15"/>
+  <text class="pillText" x="311" y="225">order</text>
+
+  <rect class="teal" x="360" y="125" width="285" height="230" rx="20"/>
+  <rect fill="#ffffff" x="426" y="164" width="154" height="88" rx="14"/>
+  <circle fill="#77cbbb" cx="464" cy="208" r="20"/>
+  <path fill="none" stroke="#17233c" stroke-width="5" stroke-linecap="round" d="M505 196h42M505 215h30"/>
+  <text class="dark title" x="432" y="292">Avery</text>
+  <text class="dark title" x="432" y="321">Ordering Agent</text>
+
+  <path class="arrow" d="M645 194 H760"/>
+  <rect class="pill" x="665" y="158" width="100" height="30" rx="15"/>
+  <text class="pillText" x="687" y="179">menu</text>
+
+  <rect class="card" x="780" y="110" width="175" height="120" rx="20"/>
+  <text class="dark title" x="824" y="160">JSON</text>
+  <text class="dark title" x="812" y="190">Menu</text>
+
+  <path class="arrow" d="M645 265 H760"/>
+  <rect class="pill" x="660" y="228" width="110" height="30" rx="15"/>
+  <text class="pillText" x="681" y="249">validate</text>
+
+  <rect class="green" x="780" y="255" width="175" height="120" rx="20"/>
+  <path fill="none" stroke="#2f7d39" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" d="M817 314l28 28 58-66"/>
+  <text class="dark title" x="805" y="343">Order</text>
+  <text class="dark title" x="801" y="372">Placed</text>
+
+  <path class="arrow" d="M505 355 V420"/>
+  <rect class="pill" x="525" y="380" width="128" height="30" rx="15"/>
+  <text class="pillText" x="548" y="401">send link</text>
+
+  <rect class="card" x="360" y="425" width="285" height="70" rx="20"/>
+  <text class="dark title" x="416" y="469">Digital Ordering</text>
+
+  <path class="arrow" d="M645 326 C790 398 875 438 970 442"/>
+  <rect class="pill" x="738" y="374" width="154" height="30" rx="15"/>
+  <text class="pillText" x="756" y="395">human request</text>
+
+  <rect class="card" x="985" y="400" width="165" height="82" rx="20"/>
+  <text class="dark title" x="1020" y="438">Human</text>
+  <text class="dark title" x="1020" y="466">Agent</text>
+</svg>
