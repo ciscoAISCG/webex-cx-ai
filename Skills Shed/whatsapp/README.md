@@ -1,7 +1,10 @@
-# whatsapp
+# WhatsApp SIP Gateway
 
-This skill guides an assistant through building a WhatsApp Business Calling SIP gateway that connects Meta WhatsApp voice calls to Cisco Webex Contact Center. It covers the end-to-end path from Meta WABA/SIP enablement through AWS, FreeSWITCH, TLS, SRTP, codec transcoding, Webex Control Hub trunk setup, Contact Center routing, deployment, verification, and troubleshooting.
+This skill guides an assistant through building, deploying, and troubleshooting a Meta WhatsApp Business Calling SIP-mode gateway that bridges to Cisco Webex Contact Center or a Webex AI Agent through FreeSWITCH, Docker, and AWS EC2.
 
-## Skill
+It includes the production lessons from the first working build, including the Meta/Webex number split, SDES-SRTP, Opus-to-PCMU/PCMA transcoding, Webex trunk registration, PAI/RPID caller identity, and the `silence_stream://500` cold-call warmup fix.
+
+## Files
 
 - [SKILL.md](./SKILL.md)
+- [agents/openai.yaml](./agents/openai.yaml)

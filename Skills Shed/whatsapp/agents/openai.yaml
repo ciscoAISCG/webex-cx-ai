@@ -1,0 +1,4 @@
+interface:
+  display_name: "WhatsApp SIP Gateway"
+  short_description: "Meta WhatsApp Calling to Webex CC via FreeSWITCH."
+  default_prompt: "Use $whatsapp to build, deploy, or troubleshoot a WhatsApp-to-Webex SIP gateway."

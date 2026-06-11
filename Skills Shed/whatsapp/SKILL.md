@@ -1,6 +1,6 @@
 ---
 name: whatsapp
-description: Use when someone asks to build a whatsapp business calling API.  It will involve building a SIP proxy to translate between Meta and Cisco Webex calls through a SIP proxy.
+description: Use when someone needs to build, configure, deploy, verify, or troubleshoot a Meta WhatsApp Business Calling SIP-mode gateway that bridges to Cisco Webex Contact Center or a Webex AI Agent through FreeSWITCH, Docker, and AWS EC2.
 ---
 
 # Skill: WhatsApp Business Calling → Cisco Webex CC via SIP Gateway
@@ -8,6 +8,16 @@ description: Use when someone asks to build a whatsapp business calling API.  It
 ## When to Activate This Skill
 
 Use this skill when a user asks to connect Meta WhatsApp voice calls to Cisco Webex Contact Center, set up a SIP proxy for Meta Business Calling, or route WhatsApp callers to a Webex AI agent or human agents. Walk them through the entire journey from scratch. Do not assume anything is already set up.
+
+## Hard-Won Production Lessons
+
+- Meta-facing calls use SIP mode, Opus, TLS 5061, and SDES-SRTP. Do not switch Meta to DTLS.
+- Webex-facing calls use PCMU/PCMA only. Do not offer G.722 for this gateway; it caused ASR/AI-agent quality problems and the module is not compiled in the known build.
+- The Meta WhatsApp Business number and the Webex CC entry point DID are different numbers. FreeSWITCH dials the Webex entry point DID, not the public WhatsApp number.
+- Keep `caller-id-in-from=false` on the `cisco_webex` gateway. The real WhatsApp caller number goes in PAI/RPID headers.
+- For the AI-agent greeting to fire reliably, answer the Meta leg first, then play 500ms of silence with `playback silence_stream://500`, then bridge to Webex. Passive `sleep(500)` can stall on a cold first call.
+- Do not add SIP OPTIONS ping to the Meta inbound gateway; it broke inbound behavior in testing. Webex OPTIONS keepalive is OK and useful.
+
 
 ---
 
@@ -32,7 +42,7 @@ Meta WhatsApp SIP and Cisco Webex CC are fundamentally incompatible:
 
 |            | Meta WhatsApp SIP           | Cisco Webex CC                 |
 | ---------- | --------------------------- | ------------------------------ |
-| Codec      | Opus/48kHz only             | G.711 PCMU/PCMA 8kHz (no Opus) |
+| Codec      | Opus/48kHz only             | G.711 PCMU/PCMA 8kHz (no Opus, no G.722) |
 | Re-INVITEs | Not supported               | Fully supported                |
 | SRTP       | SDES mandatory              | SDES                           |
 | SIP Auth   | Digest challenge per INVITE | Registration-based trunk       |
@@ -342,7 +352,11 @@ This profile faces Webex CC on port 5062.
       <param name="outbound-proxy" value="$${cisco_outbound_proxy}"/>
       <param name="register" value="true"/>
       <param name="register-transport" value="tls"/>
-      <param name="expire-seconds" value="3600"/>
+      <param name="expire-seconds" value="300"/>
+      <param name="retry-seconds" value="30"/>
+      <param name="ping" value="25"/>
+      <param name="ping-min" value="1"/>
+      <param name="ping-max" value="3"/>
       <param name="caller-id-in-from" value="false"/>
     </gateway>
   </gateways>
@@ -353,8 +367,8 @@ This profile faces Webex CC on port 5062.
     <param name="tls-sip-port" value="$${cisco_tls_port}"/>
     <param name="tls-cert-dir" value="/tmp/cisco-ssl"/>
     <param name="tls-version" value="tlsv1.2"/>
-    <param name="inbound-codec-prefs" value="G722,PCMU,PCMA"/>
-    <param name="outbound-codec-prefs" value="G722,PCMU,PCMA"/>
+    <param name="inbound-codec-prefs" value="PCMU,PCMA"/>
+    <param name="outbound-codec-prefs" value="PCMU,PCMA"/>
     <param name="rtp-secure-media" value="mandatory"/>
     <param name="rtp-secure-media-outbound" value="true"/>
     <param name="disable-transfer" value="false"/>
@@ -411,9 +425,9 @@ Every inbound call from Meta runs through this dialplan.
     <!-- Entry Point DID from vars.xml — NOT the Meta WhatsApp Business number -->
     <action application="set" data="webex_ep=$${webex_entry_point_number}"/>
 
-    <!-- answer + 500ms sleep required: AI agent greeting does not fire without this timing -->
+    <!-- answer + 500ms active silence required: AI agent greeting does not fire reliably without this timing -->
     <action application="answer"/>
-    <action application="sleep" data="500"/>
+    <action application="playback" data="silence_stream://500"/>
 
     <action application="log" data="NOTICE Bridging to Webex: sip:${webex_ep}@$${cisco_sip_host};tgrp=$${cisco_trunk_otg}"/>
 
@@ -429,7 +443,7 @@ Every inbound call from Meta runs through this dialplan.
 
 Key behaviors explained:
 
-- `answer` before `bridge`: FreeSWITCH answers the Meta leg first (sends 200 OK, establishes SRTP with Meta), waits 500ms, then bridges to Webex. Without this timing the AI agent greeting does not fire.
+- `answer` before `bridge`: FreeSWITCH answers the Meta leg first (sends 200 OK, establishes SRTP with Meta), plays 500ms of active silence, then bridges to Webex. Active silence fixed the cold first-call stall where passive `sleep(500)` never advanced to the Webex bridge.
 - `bypass_media=false`: required for Opus↔PCMU transcoding. If set to true, FreeSWITCH passes media through without touching it — no transcoding.
 - `sip_renegotiate_codec_on_reinvite=false`: if Webex sends a re-INVITE to change codec, FreeSWITCH handles it on the Webex leg only and does not propagate a re-INVITE toward Meta.
 - `tgrp` and `trunk-context` in bridge: required in the Request-URI. Webex uses these to route the call to the correct CC tenant and entry point.
@@ -512,7 +526,7 @@ docker exec sip-gateway-freeswitch fs_cli -x "sofia global siptrace off"
 | Meta INVITEs land on wrong profile            | Port 5062 set in Meta Graph API instead of 5061                        | Re-run Meta API call with `"port": 5061`                                                                                                                                              |
 | cisco_webex shows NOREG                       | Wrong credentials or password regenerated in Control Hub               | Control Hub → trunk → Retrieve Username and Reset Password → copy both → update vars.xml → rebuild                                                                                    |
 | One-way or no audio                           | Docker bridge networking active                                        | Confirm `network_mode: host` in docker-compose.yml for both services                                                                                                                  |
-| AI agent greeting never plays                 | Missing answer/sleep before bridge                                     | Confirm dialplan has `answer` then `sleep` data="500" before `bridge`                                                                                                                 |
+| AI agent greeting never plays or cold first call answers but never bridges | Missing answer plus active silence before bridge, or old passive sleep stall | Confirm dialplan has `answer` then `playback` data="silence_stream://500" before `bridge` |
 | `customer_phone` shows trunk label in CC flow | Dual Identity Support OFF on Webex trunk                               | Control Hub → trunk details → enable Dual Identity Support                                                                                                                            |
 | Password stopped working                      | "Retrieve Username and Reset Password" was clicked                     | Click again, copy new credentials, update vars.xml, rebuild immediately                                                                                                               |
 
