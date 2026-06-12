@@ -4,7 +4,7 @@
   "id": "6a25d5867612bd69e9731c64",
   "flowType": "FLOW",
   "name": "ServiceNow_Voice_Flow",
-  "description": "Minimal voice entry flow for the ServiceNow AI Agent. After import, rebind VirtualAgentV2 to the imported ServiceNow AI Agent and replace the demo queue with your target handoff queue.",
+  "description": "Minimal voice entry flow for the ServiceNow KB + Incident AI Agent. After import, rebind VirtualAgentV2 to the imported ServiceNow KB + Incident AI Agent and replace the demo queue with your target handoff queue.",
   "comment": "",
   "variables": [],
   "process": {
@@ -48,9 +48,9 @@
           "virtualAgentId": "69d04df970dd46a9246121f9",
           "pitch": "0.0",
           "_renderRequestTimestamp": 1780864389714,
-          "virtualAgentId:name": "ServiceNow_AI_Agent(rebind-after-import)",
+          "virtualAgentId:name": "ServiceNow_KB_Incident_AI_Agent(rebind-after-import)",
           "terminationDelay": 15,
-          "virtualAgentId_name": "ServiceNow_AI_Agent(rebind-after-import)",
+          "virtualAgentId_name": "ServiceNow_KB_Incident_AI_Agent(rebind-after-import)",
           "activityName": "ivr-virtualassistantvoice",
           "connector:type": null,
           "virtualAgentId:type": null,
@@ -310,7 +310,7 @@
           "virtualAgentId": "69d04df970dd46a9246121f9",
           "pitch": "0.0",
           "_renderRequestTimestamp": 1780864389714,
-          "virtualAgentId:name": "ServiceNow_AI_Agent(rebind-after-import)",
+          "virtualAgentId:name": "ServiceNow_KB_Incident_AI_Agent(rebind-after-import)",
           "terminationDelay": 15,
           "activityName": "ivr-virtualassistantvoice",
           "connector:type": null,
@@ -324,7 +324,7 @@
           "recordAutonomous": false,
           "flowDecryptAccess": false,
           "activityType": "core",
-          "virtualAgentId_name": "ServiceNow_AI_Agent(rebind-after-import)"
+          "virtualAgentId_name": "ServiceNow_KB_Incident_AI_Agent(rebind-after-import)"
         }
       },
       "2a5adfd3-e1ce-405e-8247-0820f3bf8edb": {

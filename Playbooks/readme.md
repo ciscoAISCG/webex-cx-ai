@@ -28,7 +28,7 @@ Each template typically includes:
 | [Data_Driven_Ordering](Data_Driven_Ordering/README.md) | Autonomous voice AI agent that uses a structured JSON menu to guide, validate, and place a configurable drink order, with Webex Connect fulfillment and digital-ordering fallback. |
 | [User_Identification_Verification](User_Identification_Verification/README.md) | AI Agent pattern for collecting caller details, verifying identity with a backend service, and safely continuing or escalating based on the authentication result. |
 | [Payment_AI_agent](Payment_AI_agent/README.md) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
-| [ServiceNow_AI_Agent](ServiceNow_AI_Agent/README.md) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
+| [ServiceNow KB + Incident AI Agent With MCP](ServiceNow_KB_Incident_AI_Agent/README.md) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
 | [Visual_Appointment_Confirmation](Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 
 > Contributing a new template? Drop it in its own subfolder with a `README.md` that follows the same structure (overview, architecture, deployment steps, sample data, security notes).
