@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">ServiceNow KB + Incident AI Agent With MCP</title>
+  <desc id="desc">A left-to-right storyboard showing a user, Webex AI Agent, ServiceNow MCP server, and ServiceNow knowledge or incident outcome.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7ff"/>
+      <stop offset="0.62" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#eafaf4"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="13" flood-color="#12324a" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#2176d2"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="560" rx="28" fill="url(#bg)"/>
+
+  <text x="64" y="70" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#17324d">ServiceNow KB + Incident AI Agent With MCP</text>
+  <text x="64" y="110" font-family="Inter, Arial, sans-serif" font-size="20" fill="#516678">Search knowledge first, then open or update incidents through MCP-backed ServiceNow actions.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="170" width="220" height="275" rx="24" fill="#ffffff"/>
+    <circle cx="170" cy="245" r="48" fill="#ffcf9f"/>
+    <path d="M121 244 Q170 171 219 244 Q209 190 170 190 Q131 190 121 244Z" fill="#26334d"/>
+    <circle cx="153" cy="247" r="5" fill="#1d2435"/>
+    <circle cx="187" cy="247" r="5" fill="#1d2435"/>
+    <path d="M153 274 Q170 288 189 274" fill="none" stroke="#1d2435" stroke-width="5" stroke-linecap="round"/>
+    <rect x="92" y="330" width="156" height="50" rx="14" fill="#eef7ff"/>
+    <text x="170" y="352" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#17324d">User asks</text>
+    <text x="170" y="374" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" fill="#536879">for support</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="390" y="160" width="220" height="295" rx="24" fill="#ffffff"/>
+    <rect x="430" y="205" width="140" height="110" rx="20" fill="#edf6ff" stroke="#8fc3f5" stroke-width="4"/>
+    <circle cx="500" cy="258" r="34" fill="#5e8df5"/>
+    <circle cx="486" cy="250" r="5" fill="#ffffff"/>
+    <circle cx="514" cy="250" r="5" fill="#ffffff"/>
+    <path d="M484 273 Q500 285 517 273" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <path d="M433 345 h134" stroke="#d7e6f4" stroke-width="10" stroke-linecap="round"/>
+    <path d="M455 372 h90" stroke="#d7e6f4" stroke-width="10" stroke-linecap="round"/>
+    <text x="500" y="414" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#17324d">Webex AI Agent</text>
+    <text x="500" y="437" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" fill="#536879">knowledge-first logic</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="720" y="170" width="220" height="275" rx="24" fill="#ffffff"/>
+    <rect x="762" y="214" width="136" height="54" rx="16" fill="#e9f8f0" stroke="#62c99c" stroke-width="4"/>
+    <rect x="762" y="292" width="136" height="54" rx="16" fill="#eef7ff" stroke="#8fc3f5" stroke-width="4"/>
+    <path d="M830 268 v24" stroke="#2176d2" stroke-width="7" stroke-linecap="round"/>
+    <path d="M812 280 h36" stroke="#2176d2" stroke-width="7" stroke-linecap="round"/>
+    <text x="830" y="247" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#17324d">MCP</text>
+    <text x="830" y="325" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#17324d">Tools</text>
+    <text x="830" y="407" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#17324d">ServiceNow MCP</text>
+    <text x="830" y="430" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" fill="#536879">fast action surface</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1040" y="160" width="200" height="295" rx="24" fill="#ffffff"/>
+    <rect x="1070" y="205" width="140" height="55" rx="14" fill="#e9f8f0"/>
+    <rect x="1070" y="282" width="140" height="55" rx="14" fill="#eef7ff"/>
+    <rect x="1070" y="359" width="140" height="55" rx="14" fill="#fff7e8"/>
+    <text x="1140" y="239" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#17324d">KB article</text>
+    <text x="1140" y="316" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#17324d">Incident</text>
+    <text x="1140" y="393" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#17324d">Handoff</text>
+    <text x="1140" y="438" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" fill="#536879">ServiceNow outcome</text>
+  </g>
+
+  <path d="M296 318 L374 318" fill="none" stroke="#2176d2" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+  <path d="M626 318 L704 318" fill="none" stroke="#2176d2" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+  <path d="M956 318 L1024 318" fill="none" stroke="#2176d2" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800">
+    <rect x="309" y="262" width="72" height="34" rx="17" fill="#ffffff" stroke="#c8ddf7" stroke-width="2"/>
+    <text x="345" y="284" text-anchor="middle" fill="#2176d2">intent</text>
+    <rect x="637" y="262" width="84" height="34" rx="17" fill="#ffffff" stroke="#c8ddf7" stroke-width="2"/>
+    <text x="679" y="284" text-anchor="middle" fill="#2176d2">tool call</text>
+    <rect x="968" y="262" width="70" height="34" rx="17" fill="#ffffff" stroke="#c8ddf7" stroke-width="2"/>
+    <text x="1003" y="284" text-anchor="middle" fill="#2176d2">result</text>
+  </g>
+</svg>
