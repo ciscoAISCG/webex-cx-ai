@@ -1,0 +1,444 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": "PRO_US",
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are a customer service agent that helps report incidents.\n\n### INSTRUCTIONS:\n1. Call [create_incident_v1] to create new incidents. Ask for exact address or nearest intersection if incident s associated with a street.\n\n2. When referencing an existing incident, always call [get_incident_v1] first\n   to confirm it exists and retrieve its current state before attempting any update.\n\n3. Never delete an incident without explicit confirmation from the customer\n    or the agent supervisor.\n\n4. When updating an incident, only pass the fields that need to change.\n    Do not overwrite fields that were not part of the conversation.\n\n5. Always confirm back to the customer with the incident number after\n    create or update operations so they have a reference.",
+    "llm_model": "1.0.0",
+    "logo": "https://studio.aiagent-us1.cisco.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": true,
+          "response_settings": {
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "gender": "FEMALE",
+          "language": "English",
+          "locale": "en-US",
+          "speaking_rate": 1
+        }
+      ]
+    },
+    "welcome_message": "Welcome to the Frisco City Municipal Office, how can I help you today?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "71211a6fe5af2a20d7befc083e2d5ee6",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 68823,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Create a new incident in ServiceNow.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/c95902b092f34b96bd5e656fa111d6dc.jpg",
+        "server_id": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_name": "ServiceNow",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/servicenow_v1/mcp"
+      },
+      "id": "678c46e6e8988c4bdb2c6a7de71add6d",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "caller_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Username of the person reporting the issue."
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Full details of the issue."
+            },
+            "impact": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": "2",
+              "description": "1=High, 2=Medium, 3=Low. Defaults to 2."
+            },
+            "short_description": {
+              "description": "Brief one-line summary of the issue (required).",
+              "type": "string"
+            },
+            "urgency": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": "2",
+              "description": "1=High, 2=Medium, 3=Low. Defaults to 2."
+            }
+          },
+          "required": [
+            "short_description"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "create_incident_v1",
+      "slots_view": "editor",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 68823,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Search ServiceNow incidents by keyword.\n\nSearches short_description and description fields for matching incidents.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/c95902b092f34b96bd5e656fa111d6dc.jpg",
+        "server_id": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_name": "ServiceNow",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/servicenow_v1/mcp"
+      },
+      "id": "e76a42581817b055e8eba9d9c717c84c",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "keyword": {
+              "description": "Text to search for across incident descriptions.",
+              "type": "string"
+            },
+            "limit": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": 10,
+              "description": "Max results to return. Defaults to 10, max 50."
+            },
+            "state": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by state: 1=New, 2=In Progress, 3=On Hold,\n     6=Resolved, 7=Closed. Omit to return all states."
+            }
+          },
+          "required": [
+            "keyword"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "search_incidents_v1",
+      "slots_view": "editor",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 68823,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Update an existing ServiceNow incident by incident number.\n\nOnly fields you provide will be updated — omitted fields are unchanged.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/c95902b092f34b96bd5e656fa111d6dc.jpg",
+        "server_id": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_name": "ServiceNow",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/servicenow_v1/mcp"
+      },
+      "id": "965c1e38ab97de23e45c0b78f81f1425",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "assignment_group": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Name or sys_id of the group to assign to."
+            },
+            "close_notes": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Resolution notes (required by SN when closing)."
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Updated full details."
+            },
+            "impact": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "1=High, 2=Medium, 3=Low."
+            },
+            "incident_number": {
+              "description": "The incident number to update (e.g. INC0010001).",
+              "type": "string"
+            },
+            "short_description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Updated one-line summary."
+            },
+            "state": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "1=New, 2=In Progress, 3=On Hold, 6=Resolved, 7=Closed."
+            },
+            "urgency": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "1=High, 2=Medium, 3=Low."
+            }
+          },
+          "required": [
+            "incident_number"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "update_incident_v1",
+      "slots_view": "editor",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 68823,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Delete a ServiceNow incident by incident number.\n\nLooks up the incident by number, then permanently deletes it.\nThis action cannot be undone. Requires admin or sufficient role\non the ServiceNow instance.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/c95902b092f34b96bd5e656fa111d6dc.jpg",
+        "server_id": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_name": "ServiceNow",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/servicenow_v1/mcp"
+      },
+      "id": "6f21560ca5918532a558e52e7835ed73",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "incident_number": {
+              "description": "The incident number to delete (e.g. INC0010001).",
+              "type": "string"
+            }
+          },
+          "required": [
+            "incident_number"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "delete_incident_v1",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 68823,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Search the ServiceNow Knowledge Base for articles matching a query.\n\nUse this before creating an incident — if a KB article resolves\nthe issue, share it with the user instead of opening a ticket.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "customHeaderAuth"
+        },
+        "output_entities": {
+          "parameters": {
+            "additionalProperties": true,
+            "type": "object"
+          }
+        },
+        "serverId": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/c95902b092f34b96bd5e656fa111d6dc.jpg",
+        "server_id": "baeareiaywqctyyuac4wzaof2be26vifiaqggpkwrubhvsxknzqdw53gptu",
+        "server_name": "ServiceNow",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://www.primarydemo.com/servicenow_v1/mcp"
+      },
+      "id": "ec45d9754c94815644ce202f61446e25",
+      "input_entities": {
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional — filter by KB category (e.g. \"Software\", \"Hardware\").\n      Leave empty to search all categories."
+            },
+            "limit": {
+              "default": 5,
+              "description": "Max articles to return (default 5, max 10).",
+              "type": "integer"
+            },
+            "query": {
+              "description": "Search term or issue description.\n   Examples: \"VPN not connecting\", \"password reset\", \"printer offline\"",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "search_knowledge_base_v1",
+      "slots_view": "editor",
+      "system_tool": false
+    }
+  ]
+}
