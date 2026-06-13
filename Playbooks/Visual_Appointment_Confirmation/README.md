@@ -49,7 +49,7 @@ For experienced users who want to configure it manually:
 | MCP server URL | `https://www.primarydemo.com/visual_appointment_v1/mcp` |
 | Transport | `Streamable HTTP` |
 | Auth type | Custom header auth |
-| Header key/value | Use the demo access credentials issued by the SCG owner. Do not publish the secret value. |
+| Header key/value | Use `X-MCP-Token` with a 24-hour demo token generated at [MCP Factory](https://www.primarydemo.com/mcp-factory). Do not publish the secret value. |
 | Studio tools to add | `appt_draft_and_notify`, `appt_modify`, `appt_confirm`, `appt_cancel`, `appt_nudge`, `appt_get_draft` |
 
 This demo backend is for lab/demo use only. Do not use production customer data.
@@ -146,14 +146,14 @@ Flow Designer owns voice entry and routing. AI Agent Studio owns the conversatio
 
 - Fastest path to value.
 - Intended for internal demos, workshops, and quick customer previews.
-- Requires demo access credentials configured as custom header auth in Control Hub.
+- Requires an `X-MCP-Token` 24-hour demo token from [MCP Factory](https://www.primarydemo.com/mcp-factory), configured as custom header auth in Control Hub.
 - Should be rate-limited and logged by non-sensitive metadata such as action name, timestamp, status, and playbook instance.
 - Do not use production customer data.
 - Do not promise production availability or retention behavior.
 
 Suggested demo controls:
 
-- Per-demo or per-partner custom header token.
+- Self-service `X-MCP-Token` values expire after 24 hours.
 - Optional non-secret header such as `X-Playbook-Instance`.
 - Rate limits per token.
 - Minimal logs that avoid full names, phone numbers, appointment notes, or message bodies.
@@ -261,7 +261,7 @@ After import, rebind the `VirtualAgentV2` activity to the imported Visual Appoin
 
 Before publishing externally:
 
-1. Decide whether to expose the SCG-hosted demo MCP endpoint or replace it with a request-for-access placeholder.
+1. Confirm the SCG-hosted demo MCP endpoint and [MCP Factory](https://www.primarydemo.com/mcp-factory) 24-hour token process are still the intended access path.
 2. Decide whether to preserve the imported demo queue name for import fidelity or sanitize it before publication.
 3. Decide whether to preserve importability exactly or sanitize tenant metadata before customer-facing publication.
 4. Add screenshots or a short test transcript with sensitive data removed.

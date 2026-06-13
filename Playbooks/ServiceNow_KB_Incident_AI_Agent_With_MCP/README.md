@@ -65,7 +65,7 @@ In the MCP server Authentication tab, choose custom header authentication and ad
 
 | Header | Value |
 |---|---|
-| `X-MCP-Token` | Contact the playbook admin for a temporary demo token. |
+| `X-MCP-Token` | Generate a 24-hour demo token at [MCP Factory](https://www.primarydemo.com/mcp-factory). |
 | `X-ServiceNow-Instance-Url` | `<your_instance_url>` |
 | `X-ServiceNow-Username` | `<your_username>` |
 | `X-ServiceNow-Password` | `<your_password>` |
@@ -76,7 +76,8 @@ Use a ServiceNow developer instance or disposable lab instance for the first tes
 
 ### Header Checklist
 
-- Contact the playbook admin for the temporary `X-MCP-Token` value.
+- Open [MCP Factory](https://www.primarydemo.com/mcp-factory) and generate a 24-hour demo token.
+- Use that token as the `X-MCP-Token` custom header value.
 - Create or open a ServiceNow developer instance.
 - Confirm your ServiceNow user has permission to search KB articles and create, search, update, or delete incidents as needed for the demo.
 - Add all four custom headers in Control Hub.
@@ -128,7 +129,7 @@ The key behavior is knowledge first. If the ServiceNow Knowledge Base resolves t
 
 - Import the AI Agent Studio export.
 - Onboard or select the hosted ServiceNow MCP server in Control Hub.
-- Add the SCG MCP auth header without exposing the secret value.
+- Generate a 24-hour demo token from [MCP Factory](https://www.primarydemo.com/mcp-factory) and add it as the `X-MCP-Token` custom header value without exposing it in screenshots or docs.
 - Add `X-ServiceNow-Instance-Url`, `X-ServiceNow-Username`, and `X-ServiceNow-Password` for your ServiceNow developer instance.
 - Bind the five ServiceNow MCP tools in AI Agent Studio.
 - Import the Flow Designer voice export.
@@ -258,14 +259,14 @@ After import, rebind the `VirtualAgentV2` activity to the imported ServiceNow AI
 
 - The current agent instructions mention calling `get_incident_v1` before updates, but the export does not include a `get_incident_v1` tool. Add that tool or adjust the instruction before publishing.
 - The Flow Designer export is included, but it still requires tenant-specific AI Agent and queue rebinding after import.
-- Decide whether the public playbook should expose the demo MCP URL or replace it with a request-for-access placeholder.
+- Confirm the public playbook should expose the demo MCP URL and [MCP Factory](https://www.primarydemo.com/mcp-factory) 24-hour token process.
 - Decide whether `delete_incident_v1` should remain in customer-facing demos.
 
 ### Publishing Notes
 
 Before publishing externally:
 
-1. Confirm the MCP server URL and access process.
+1. Confirm the MCP server URL and 24-hour token access process.
 2. Confirm whether the raw Studio export should remain importable as-is or be sanitized.
 3. Confirm the Flow Designer export imports cleanly in a target tenant after rebinding the AI Agent and queue.
 4. Run the playbook inspector and JSON validation.
