@@ -49,12 +49,12 @@ Use templates when you need to:
 
 | Template | Description |
 |---|---|
-| [Directory_Routing](Directory_Routing/README.md) | Autonomous voice AI agent that classifies caller requests as person or department lookups, uses directory knowledge base resources, extracts the returned phone number, and transfers or falls back to the operator path. |
-| [Data_Driven_Ordering](Data_Driven_Ordering/README.md) | Autonomous voice AI agent that uses a structured JSON menu to guide, validate, and place a configurable drink order, with Webex Connect fulfillment and digital-ordering fallback. |
-| [User_Identification_Verification](User_Identification_Verification/README.md) | AI Agent pattern for collecting caller details, verifying identity with a backend service, and safely continuing or escalating based on the authentication result. |
-| [Payment_AI_agent](Payment_AI_agent/README.md) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
-| [ServiceNow KB + Incident AI Agent With MCP](ServiceNow_KB_Incident_AI_Agent_With_MCP/README.md) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
-| [Visual_Appointment_Confirmation](Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
+| [Directory_Routing]([Directory_Routing/README.md](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/Directory_Routing/README.md)) | Autonomous voice AI agent that classifies caller requests as person or department lookups, uses directory knowledge base resources, extracts the returned phone number, and transfers or falls back to the operator path. |
+| [Data_Driven_Ordering]([Data_Driven_Ordering/README.md](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/Data_Driven_Ordering/README.md)) | Autonomous voice AI agent that uses a structured JSON menu to guide, validate, and place a configurable drink order, with Webex Connect fulfillment and digital-ordering fallback. |
+| [User_Identification_Verification]([User_Identification_Verification/README.md](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/User_Identification_Verification/README.md)) | AI Agent pattern for collecting caller details, verifying identity with a backend service, and safely continuing or escalating based on the authentication result. |
+| [Payment_AI_agent]([Payment_AI_agent/README.md](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/Payment_AI_agent/README.md)) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
+| [ServiceNow KB + Incident AI Agent With MCP]([ServiceNow_KB_Incident_AI_Agent_With_MCP/README.md](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/ServiceNow_KB_Incident_AI_Agent_With_MCP/README.md)) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
+| [Visual_Appointment_Confirmation]([Visual_Appointment_Confirmation/README.md](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/Visual_Appointment_Confirmation/README.md)) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 
 [Browse templates and playbooks](./playbooks)
 
