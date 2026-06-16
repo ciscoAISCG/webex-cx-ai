@@ -25,6 +25,7 @@ Each template typically includes:
 
 | Template | Description |
 |---|---|
+| [Appointment_Scheduling](Appointment_Scheduling/README.md) | Autonomous voice AI agent that helps callers book a new appointment, review existing appointments, and reschedule using backend-driven slot availability and Webex Connect fulfillment. |
 | [Directory_Routing](Directory_Routing/README.md) | Autonomous voice AI agent that classifies caller requests as person or department lookups, uses directory knowledge base resources, extracts the returned phone number, and transfers or falls back to the operator path. |
 | [Data_Driven_Ordering](Data_Driven_Ordering/README.md) | Autonomous voice AI agent that uses a structured JSON menu to guide, validate, and place a configurable drink order, with Webex Connect fulfillment and digital-ordering fallback. |
 | [User_Identification_Verification](User_Identification_Verification/README.md) | AI Agent pattern for collecting caller details, verifying identity with a backend service, and safely continuing or escalating based on the authentication result. |

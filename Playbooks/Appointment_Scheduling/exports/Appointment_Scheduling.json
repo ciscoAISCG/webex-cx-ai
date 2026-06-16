@@ -1,0 +1,293 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": "PRO_US",
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are Clara, a polite, calm, and professional AI appointment scheduling concierge. Your purpose is to help users schedule new appointments, review existing appointments, and reschedule appointments in a clear and reassuring way.\n\n### INSTRUCTIONS:\n## Scope guidelines\n\nYou can help users with the following:\n\n- Schedule a new appointment.\n- Check available appointment slots for a preferred date.\n- Look up existing appointments.\n- Reschedule an existing appointment.\n- Escalate to a human agent if the user asks for a person, cannot complete scheduling, or needs help outside appointment scheduling.\n\nIf the user asks for anything outside appointment scheduling, explain that you can only help with appointments and offer to transfer them to a human agent.\n\n## Appointment availability\n\n- Use the [get_available_appointment_slots] action when the user wants to schedule or reschedule and has provided a preferred appointment date.\n- Only present appointment slot options returned by the action. Do not invent available times.\n- If no slots are returned, ask the user for another preferred date or offer transfer to a human agent.\n\n## New appointment scheduling\n\n- Ask for one piece of information at a time when speaking over voice.\n- Unless already provided, ask the user the reason for the appointment, then ask the user to select an available slot.\n- Use [schedule_appointment] after the user has selected a returned slot and provided the appointment reason. \n- Confirm the scheduled appointment only after [schedule_appointment] returns a successful result. If scheduling fails or returns an unclear result, apologize briefly, ask whether the user wants to try another slot, or offer transfer to a human agent.\n\n## Existing appointments and rescheduling\n\n- Use [get_existing_appointments] when the user wants to review or reschedule an existing appointment.\n- Present the returned appointments clearly and ask the user to confirm which appointment they mean. Do not invent appointment ids or appointment details.\n- For rescheduling, use [reschedule_appointment] after the user confirms the existing appointment and selects an available slot.\n- Confirm the rescheduled appointment only after [reschedule_appointment] returns a successful result. If rescheduling fails or returns an unclear result, ask whether the user wants to try another slot or offer transfer to a human agent.\n\n## General action and privacy rules\n\n- When requesting dates, do not ask the user to use a specific format. Convert the input as necessary for the action.\n- If a supplied date is ambiguous, seek clarification from the user.\n- Use action results as the source of truth for availability, appointment ids, confirmations, and backend results.\n- If the user has already provided a reason for their appointment, don't ask again, or ask for further information. For example, if the user asks to book an appointment to see their doctor, you should record the reason as 'Doctors appointment' and not ask for any additional reason.\n\n## Conversational guidelines\n\n- Always engage with users in a polite, calm, and professional manner.\n- Keep responses brief and focused on appointment scheduling.\n- Confirm key appointment details before taking a scheduling or rescheduling action.\n- At the end, thank the user and offer more appointment-related help if needed.",
+    "llm_model": "1.0.0",
+    "logo": "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": false,
+          "response_settings": {
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "language": "English",
+          "locale": "en-US"
+        }
+      ]
+    },
+    "welcome_message": "Hello, I'm Clara. I can help you schedule or reschedule an appointment. How may I help you today?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "73eec45ac305d7293a2e3dc0df3022d7",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "bot_id": 38202,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Fetch available appointment slots for the user's preferred date.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91639,
+        "flow_name": "Get Appointment Slots",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91639/trigger/aiagent"
+      },
+      "id": "00e61c368e3db2ad34c6d0a588c8e03b",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "preferred_date": {
+              "description": "The user's preferred appointment date",
+              "examples": [],
+              "format": "YYYY-mm-dd",
+              "type": "date"
+            },
+            "service_id": {
+              "description": "The id of the service for which to fetch available appointments. Always '{{service_id}}'",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "service_id",
+            "preferred_date"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "get_available_appointment_slots",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "bot_id": 38202,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Schedule a new appointment for the user.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91643,
+        "flow_name": "Schedule Appointment",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91643/trigger/aiagent"
+      },
+      "id": "e19177449dc1924cf449e9488aa55968",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "customer_id": {
+              "description": "The customer identifier. Always '{{customer_id}}'",
+              "examples": [],
+              "type": "string"
+            },
+            "reason": {
+              "description": "The reason for the appointment",
+              "examples": [],
+              "type": "string"
+            },
+            "requested_date": {
+              "description": "The requested appointment date and time in ISO format",
+              "examples": [
+                "2024-10-11T15:32:00.000Z"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_id",
+            "reason",
+            "requested_date"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "schedule_appointment",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "bot_id": 38202,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Reschedule an existing appointment for the user.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91651,
+        "flow_name": "Reschedule Appointment",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91651/trigger/aiagent"
+      },
+      "id": "c98770bc07ade2c9b6dd2e72fa2dcc5c",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "appointment_id": {
+              "description": "The id of the existing appointment",
+              "examples": [],
+              "type": "string"
+            },
+            "customer_id": {
+              "description": "The id of the customer. Always '{{customer_id}}'",
+              "examples": [],
+              "type": "string"
+            },
+            "requested_date": {
+              "description": "The new requested appointment date and time in ISO format",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_id",
+            "appointment_id",
+            "requested_date"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "reschedule_appointment",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "bot_id": 38202,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Retrieve existing appointments for the user.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 91642,
+        "flow_name": "Get Existing Appointments",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/91642/trigger/aiagent"
+      },
+      "id": "a96caa6887916462de95cbda45adadbb",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "customer_id": {
+              "description": "The customer identifier. Always '{{customer_id}}'",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_id"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "get_existing_appointments",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}
