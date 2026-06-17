@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webex AI Agent Creator"
+  short_description: "Design Webex AI agents and setup steps"
+  default_prompt: "Use $webex-ai-agent-creator to design a Webex AI Agent Studio assistant for appointment booking."
