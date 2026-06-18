@@ -95,11 +95,13 @@ Use skills when you want an assistant to help with:
 - Executive narrative drafting
 - Build review and improvement
 
-| Skill | Description |
-| ---- | ---- |
-| [Whatsapp](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Skills%20Shed/whatsapp) | Skill workspace for WhatsApp-related guidance and reusable assistant instructions. |
-| [AI Calculator](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Skills%20Shed/AI%20Calculator/SKILL.md) | The AI Calculator quantifies the financial impact of AI in a contact center. It takes current-state metrics (call volume, AHT, agent salary, occupancy, FCR, digital volume) plus a set of AI optimization levers, and returns annual savings, agent (FTE) reduction, a per-lever savings breakdown, and a step-by-step calculation trace. Results render on screen and export to PDF/PPTX. |
-| [Webex MCP Onboarding](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Skills%20Shed/webex-mcp-onboarding) | Guided assistant skill for onboarding MCP servers into Webex Developer Portal, Control Hub Agentic Apps, and AI Agent Studio. |
+| Skill | Purpose |
+| --- | --- |
+| [WhatsApp SIP Gateway](./whatsapp/) | Build, deploy, and troubleshoot a Meta WhatsApp Calling SIP gateway for Cisco Webex Contact Center and Webex AI Agents. |
+| [AI Calculator](./AI%20Calculator/) | Skill workspace for ROI CC Calculations. |
+| [Webex MCP Onboarding](./webex-mcp-onboarding/) | Guided assistant skill for onboarding MCP servers into Webex Developer Portal, Control Hub Agentic Apps, and AI Agent Studio. |
+| [AI Agent Creator](https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Skills%20Shed/webex-ai-agent-creator) | A skill for helping create an AI Agent using all of the best practices. |
+
 
 [Browse the Skills Shed](./Skills%20Shed)
 
