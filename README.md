@@ -160,7 +160,7 @@ Before adding something new, check whether an existing asset should be improved 
 
 ## About
 
-This repository is maintained by AI SCG as a publishing library for reusable AI assets based on customer learnings.
+This repository is maintained by AI SCG as a publishing library for reusable AI assets based on customer learnings. It is contributed to by multiple teams including the Forward Deployed Engineering team, Sales Engineering team and others. 
 
 It is built for teams that need to build, adapt and scale AI use cases faster.
 
