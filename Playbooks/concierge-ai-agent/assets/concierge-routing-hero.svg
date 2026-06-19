@@ -1,0 +1,52 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="28" fill="#F4FAFC"/>
+  <rect x="40" y="40" width="1120" height="440" rx="24" fill="white" stroke="#D7E8EE" stroke-width="2"/>
+
+  <rect x="80" y="165" width="210" height="150" rx="24" fill="#E8F6FB" stroke="#77C9DE" stroke-width="2"/>
+  <circle cx="145" cy="220" r="26" fill="#77C9DE"/>
+  <rect x="118" y="252" width="54" height="26" rx="13" fill="#77C9DE"/>
+  <text x="185" y="215" fill="#123B4A" font-family="Arial, sans-serif" font-size="22" font-weight="700">User asks</text>
+  <text x="185" y="244" fill="#123B4A" font-family="Arial, sans-serif" font-size="22" font-weight="700">a question</text>
+  <text x="115" y="355" fill="#3C6B79" font-family="Arial, sans-serif" font-size="18">Any Cisco solution request</text>
+
+  <rect x="390" y="125" width="300" height="230" rx="28" fill="#EAF7F2" stroke="#7FD0A7" stroke-width="2"/>
+  <rect x="435" y="155" width="210" height="54" rx="16" fill="white" stroke="#A8DFC1" stroke-width="2"/>
+  <text x="460" y="190" fill="#11523A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Concierge Agent</text>
+  <rect x="435" y="228" width="210" height="34" rx="17" fill="#DDF5E8"/>
+  <text x="462" y="250" fill="#11523A" font-family="Arial, sans-serif" font-size="16" font-weight="700">Classify topic</text>
+  <rect x="435" y="274" width="210" height="34" rx="17" fill="#DDF5E8"/>
+  <text x="454" y="296" fill="#11523A" font-family="Arial, sans-serif" font-size="16" font-weight="700">Ask one clarifier</text>
+  <rect x="435" y="320" width="210" height="34" rx="17" fill="#DDF5E8"/>
+  <text x="468" y="342" fill="#11523A" font-family="Arial, sans-serif" font-size="16" font-weight="700">Hand off cleanly</text>
+
+  <rect x="800" y="85" width="280" height="90" rx="22" fill="#EEF2FF" stroke="#9CB2F4" stroke-width="2"/>
+  <text x="835" y="125" fill="#273E7A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Contact Center</text>
+  <text x="835" y="152" fill="#4A5F99" font-family="Arial, sans-serif" font-size="16">Queues, IVR, agents, reporting</text>
+
+  <rect x="800" y="215" width="280" height="90" rx="22" fill="#EEF9FF" stroke="#8ACDEA" stroke-width="2"/>
+  <text x="835" y="255" fill="#184F69" font-family="Arial, sans-serif" font-size="22" font-weight="700">Webex AI Agent</text>
+  <text x="835" y="282" fill="#487B92" font-family="Arial, sans-serif" font-size="16">Instructions, tools, KB use</text>
+
+  <rect x="800" y="345" width="280" height="90" rx="22" fill="#EFFAF5" stroke="#8FD8AF" stroke-width="2"/>
+  <text x="835" y="385" fill="#175339" font-family="Arial, sans-serif" font-size="22" font-weight="700">Webex Connect</text>
+  <text x="835" y="412" fill="#4D7F68" font-family="Arial, sans-serif" font-size="16">Flows, APIs, orchestration</text>
+
+  <path d="M290 240H360" stroke="#2A7F9E" stroke-width="8" stroke-linecap="round"/>
+  <path d="M345 225L370 240L345 255" fill="none" stroke="#2A7F9E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="285" y="185" width="90" height="34" rx="17" fill="white" stroke="#B7D8E5"/>
+  <text x="304" y="207" fill="#2A6478" font-family="Arial, sans-serif" font-size="15" font-weight="700">Route intent</text>
+
+  <path d="M690 130H760" stroke="#2A7F9E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M748 118L770 130L748 142" fill="none" stroke="#2A7F9E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M690 240H760" stroke="#2A7F9E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M748 228L770 240L748 252" fill="none" stroke="#2A7F9E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M690 350H760" stroke="#2A7F9E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M748 338L770 350L748 362" fill="none" stroke="#2A7F9E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="678" y="88" width="95" height="30" rx="15" fill="white" stroke="#B7D8E5"/>
+  <text x="699" y="108" fill="#2A6478" font-family="Arial, sans-serif" font-size="14" font-weight="700">Best-fit route</text>
+  <rect x="678" y="198" width="95" height="30" rx="15" fill="white" stroke="#B7D8E5"/>
+  <text x="696" y="218" fill="#2A6478" font-family="Arial, sans-serif" font-size="14" font-weight="700">Prompt path</text>
+  <rect x="678" y="308" width="95" height="30" rx="15" fill="white" stroke="#B7D8E5"/>
+  <text x="688" y="328" fill="#2A6478" font-family="Arial, sans-serif" font-size="14" font-weight="700">Flow path</text>
+</svg>

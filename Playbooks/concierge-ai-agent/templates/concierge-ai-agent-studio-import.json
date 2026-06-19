@@ -1,0 +1,161 @@
+﻿{
+    "bot_type":  "virtualagent",
+    "configuration":  {
+                          "ai_engine":  "PRO_US",
+                          "default_language":  "en-US",
+                          "kb_ids":  [
+
+                                     ],
+                          "llm_agent_description":  "The goal of this AI agent is to help users reach the right specialist AI agent quickly and with minimal friction. It identifies whether a request belongs to Contact Center, Webex AI Agent, or Webex Connect, asks a brief clarifying question when needed, and routes the conversation to the correct expert without inventing specialist answers itself.\n\n### INSTRUCTIONS:\n### Identity and Role\n\nYou are the Concierge Routing Assistant for Cisco solution questions. Your purpose is to identify the user\u0027s topic and route the conversation to the most appropriate expert AI agent.\n\n### Objective\n\nHelp the user reach the correct specialist AI agent quickly and clearly. You should classify the request, ask a short clarifying question when needed, and transfer the conversation cleanly. You are not the deep domain expert.\n\n### Supported Domains\n\nYou support routing for these domains only:\n\n- Contact Center\n- Webex AI Agent\n- Webex Connect\n\n### Core Behavior\n\n- Read the user\u0027s message and determine the most likely domain.\n- If the topic is clear, route to the correct expert AI agent.\n- If the topic is unclear or overlaps multiple domains, ask one concise clarifying question.\n- If the request is outside the supported domains, explain the supported areas and offer escalation.\n- Preserve a short summary of the user\u0027s request for transfer when needed.\n- Do not invent system behavior, action outcomes, or specialist answers.\n\n### Routing Rules\n\n- Route Contact Center questions to the Contact Center expert agent.\n- Route Webex AI Agent questions to the Webex AI Agent expert agent.\n- Route Webex Connect questions to the Webex Connect expert agent.\n- If a request spans multiple domains, route based on the user\u0027s primary intended outcome.\n- If confidence is low, ask one short clarifying question before routing.\n\n### Action Usage\\n\\n- Classify the user\u0027s request from the conversation without relying on a separate classification action.\\n- Ask one concise clarifying question yourself when routing is ambiguous or overlaps multiple domains.\\n- Classify the user\u0027s topic from the conversation and only use handoff_to_expert_agent after a topic has been identified with enough confidence.\n- Use Agent Handover when the topic is unsupported, routing repeatedly fails, or the user asks for a person.\n- Never claim a transfer or escalation succeeded unless the action confirms success.\n\n### Constraints\n\n- Do not provide deep specialist guidance yourself.\n- Do not answer outside the supported domains.\n- Do not fabricate action results.\n- Do not pretend to have transferred the user if the transfer action did not succeed.\n- Do not ask multiple clarifying questions in a row unless the workflow explicitly requires it.\n\n### Style\n\n- Be brief, calm, and helpful.\n- Tell the user which specialist will help and why.\n- Keep clarifying questions short and focused.\n- Use simple language and avoid internal system jargon unless the user is already using it.\n\n### Missing Information and Fallbacks\n\n- If the user\u0027s request is too vague, ask one focused question to clarify the domain.\n- If the user does not answer clearly after clarification, choose the best-fit domain only if the request still has a clear probable owner.\n- If no supported domain is appropriate, offer escalation to a human or supported fallback path.",
+                          "llm_model":  "1.0.0",
+                          "logo":  "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+                          "timezone":  "Europe/London",
+                          "voice_settings":  {
+                                                 "advance_settings":  {
+                                                                          "global":  {
+                                                                                         "delays_and_interruptions":  {
+                                                                                                                          "caller_turn_timeout":  1500,
+                                                                                                                          "custom_no_input":  10,
+                                                                                                                          "customer_interruption":  true,
+                                                                                                                          "eos_sensitivity":  500,
+                                                                                                                          "fulfilment_timeout":  30,
+                                                                                                                          "optimized_barge_in":  true,
+                                                                                                                          "slots_additional_delay":  800
+                                                                                                                      },
+                                                                                         "dtmf_settings":  {
+                                                                                                               "max_length":  16,
+                                                                                                               "term_char":  "#",
+                                                                                                               "timeout_between_digits":  5,
+                                                                                                               "turn_on_dtmf":  true
+                                                                                                           },
+                                                                                         "is_customized":  false,
+                                                                                         "response_settings":  {
+                                                                                                                   "custom_vocabulary":  [
+
+                                                                                                                                         ],
+                                                                                                                   "include_disfluencies":  true,
+                                                                                                                   "response_style":  "ACTIVE"
+                                                                                                               }
+                                                                                     }
+                                                                      },
+                                                 "voices":  [
+
+                                                            ]
+                                             },
+                          "welcome_message":  "Hello, I\u0027m the concierge assistant. I can help direct your question to the right specialist for Contact Center, Webex AI Agent, or Webex Connect. Please tell me what you need help with, and I\u0027ll route you to the best expert."
+                      },
+    "tools":  [
+                  {
+                      "capability":  "slot_filling",
+                      "description":  "Escalate the conversation to a human agent if the user asks for it.",
+                      "enabled":  true,
+                      "fulfillment":  {
+
+                                      },
+                      "id":  "6912a7778c5851e98f22618b7a13f04a",
+                      "name":  "Agent handover",
+                      "slots":  [
+
+                                ],
+                      "slots_view":  "table",
+                      "system_tool":  true
+                  },
+                  {
+                      "action_type":  "transfer",
+                      "bot_id":  73791,
+                      "capability":  "custom_transfer",
+                      "description":  "Transfer the conversation to the correct expert AI agent after topic identification and include a concise handoff summary.",
+                      "enabled":  true,
+                      "exit_details":  {
+                                           "announce_transfer":  true,
+                                           "type":  "custom_transfer"
+                                       },
+                      "fulfillment":  {
+                                          "authentication":  {
+                                                                 "service_key":  "",
+                                                                 "type":  "ci_bearer_token"
+                                                             },
+                                          "exit_details":  {
+                                                               "announce_transfer":  true,
+                                                               "type":  "custom_transfer"
+                                                           },
+                                          "flow_builder":  "connect",
+                                          "flow_id":  "",
+                                          "flow_name":  "",
+                                          "output_entities":  {
+                                                                  "parameters":  {
+                                                                                     "properties":  {
+
+                                                                                                    },
+                                                                                     "required":  [
+
+                                                                                                  ],
+                                                                                     "secure":  [
+
+                                                                                                ],
+                                                                                     "type":  "object"
+                                                                                 }
+                                                              },
+                                          "output_entities_format":  "table",
+                                          "output_entities_text":  "",
+                                          "output_entities_view":  "table",
+                                          "service_id":  "",
+                                          "service_name":  "",
+                                          "type":  "flow",
+                                          "webhook_url":  ""
+                                      },
+                      "id":  "70d0fe85f38d3bc09be37c3cdb4c5ea6",
+                      "input_entities":  {
+                                             "parameters":  {
+                                                                "properties":  {
+                                                                                   "conversation_summary":  {
+                                                                                                                "description":  "Optional short summary of the conversation collected before handoff.",
+                                                                                                                "examples":  [
+
+                                                                                                                             ],
+                                                                                                                "type":  "string"
+                                                                                                            },
+                                                                                   "handoff_reason":  {
+                                                                                                          "description":  "Why the concierge selected this expert agent for the user.",
+                                                                                                          "examples":  [
+
+                                                                                                                       ],
+                                                                                                          "type":  "string"
+                                                                                                      },
+                                                                                   "target_agent":  {
+                                                                                                        "description":  "The expert AI agent that should receive the conversation.",
+                                                                                                        "enum":  [
+                                                                                                                     "Agent1",
+                                                                                                                     "Agent2"
+                                                                                                                 ],
+                                                                                                        "examples":  [
+
+                                                                                                                     ],
+                                                                                                        "type":  "custom_list"
+                                                                                                    },
+                                                                                   "user_message":  {
+                                                                                                        "description":  "The user\u0027s latest message or the key request to pass during handoff.",
+                                                                                                        "examples":  [
+
+                                                                                                                     ],
+                                                                                                        "type":  "string"
+                                                                                                    }
+                                                                               },
+                                                                "required":  [
+                                                                                 "user_message",
+                                                                                 "target_agent",
+                                                                                 "handoff_reason"
+                                                                             ],
+                                                                "secure":  [
+
+                                                                           ],
+                                                                "type":  "object"
+                                                            }
+                                         },
+                      "name":  "handoff_to_expert_agent",
+                      "skip_greetings_match_voice":  true,
+                      "slots_view":  "table",
+                      "system_tool":  false
+                  }
+              ]
+}
