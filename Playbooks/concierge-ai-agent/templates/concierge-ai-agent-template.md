@@ -145,7 +145,7 @@ Use placeholder names first, then replace them with production names:
 - `webex_ai_agent_expert`
 - `webex_connect_expert`
 
-If you use a transfer action with a fixed target list, replace generic placeholders such as `Agent1` and `Agent2` with meaningful expert agent names before publishing the template.
+If you use a transfer action with a fixed target list, replace generic placeholders such as `contact_center_expert`,`webex_ai_agent_expert` and `webex_connect_expert` with meaningful expert agent names before publishing the template.
 
 ## 9. Suggested Routing Knowledge Base Structure
 

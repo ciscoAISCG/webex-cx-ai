@@ -124,10 +124,7 @@
                                                                                                       },
                                                                                    "target_agent":  {
                                                                                                         "description":  "The expert AI agent that should receive the conversation.",
-                                                                                                        "enum":  [
-                                                                                                                     "Agent1",
-                                                                                                                     "Agent2"
-                                                                                                                 ],
+                                                                                                        "enum":  ["contact_center_expert", "webex_ai_agent_expert","webex_connect_expert"],
                                                                                                         "examples":  [
 
                                                                                                                      ],

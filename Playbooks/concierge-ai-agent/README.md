@@ -24,7 +24,7 @@ flowchart LR
    - `handoff_to_expert_agent` as a transfer action
    - `Agent handover` for human escalation
 6. Let the agent classify the topic and ask a single routing clarifier directly from its instructions rather than separate fulfillment-backed actions.
-7. Replace any placeholder transfer targets such as `Agent1` and `Agent2` with the real expert agent names used in your tenant.
+7. Replace any placeholder transfer targets such as `contact_center_expert`, `webex_ai_agent_expert` and `webex_connect_expert` with the real expert agent names used in your tenant.
 8. Test one request for each domain:
    - Contact Center
    - Webex AI Agent
