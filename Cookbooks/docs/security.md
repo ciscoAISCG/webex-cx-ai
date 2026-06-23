@@ -432,3 +432,27 @@ Authorization boundary: The model should not be treated as an authorization auth
 Memory/context boundary: Conversation history and contextual data should be limited to what is needed for the current interaction. Sensitive or unnecessary data should be minimized, masked, or excluded from prompts and retrieval context.
 Planning boundary: The LLM may help interpret intent or propose the next step, but critical workflow execution should be handled through structured actions, validated parameters, business rules, and backend systems.
 Validation and sanitization: Data from untrusted sources should be controlled through prompt guardrails, content filtering, knowledge-source curation, schema validation, entity masking/redaction, authorization checks, and human approval for high-risk actions.
+
+10. How are governance mechanisms implemented in the development, deployment, and lifecycle management processes of AI/LLM solutions to ensure data quality, model accuracy, performance monitoring, ethical compliance, and regulatory compliance?
+
+
+Governance is implemented through a combination of responsible AI review, secure development practices, model evaluation, runtime monitoring, data controls, and customer-configurable operational oversight.
+Development governance: AI-powered features are reviewed against responsible AI principles such as transparency, fairness, accountability, privacy, security, and reliability. These reviews are incorporated into the product development lifecycle alongside security, privacy, and human-rights design processes.
+Data quality controls: Data used by the AI solution should be approved, relevant, current, and scoped to the intended use case. Knowledge sources should be curated before ingestion, with stale, duplicate, sensitive, contradictory, or unauthorized content removed.
+Model accuracy controls: Models are evaluated through benchmarking, testing, human review, quality assurance, and ongoing assessment. Outputs are monitored for hallucinations, unsafe behavior, escalation failures, and quality issues. Customers are also responsible for validating agent behavior based on their configured prompts, knowledge sources, and actions.
+Performance monitoring: Operational telemetry is used to monitor model/service performance, availability, latency, and regional health. Session analytics and review tools support investigation of failed interactions, handoffs, flagged sessions, and recurring issues.
+Ethical compliance: Ethical governance includes AI impact assessment, safety and fairness review, bias consideration, vendor security/safety assessment, guardrails, content filtering, and human escalation for sensitive or high-risk interactions.
+Regulatory compliance: Compliance is supported through tenant isolation, data minimization, retention controls, encryption, access control, audit/session records, vendor governance, and alignment with applicable security and privacy frameworks. Specific regulatory obligations depend on the customer’s industry, region, configuration, and contractual requirements.
+
+
+11. What policies, standards, and controls are defined to prevent risks related to model design, data and content management (copyright/license compliance), authorization, monitoring, and output accuracy in AI/LLM usage?
+
+
+Controls are defined across responsible AI governance, secure development, data protection, access control, monitoring, and human oversight.
+Model design controls: AI features are reviewed through responsible AI, security, privacy, and safety processes. Model selection and deployment consider quality, latency, cost, safety, fairness, and reliability. Models are tested before deployment and assessed over time for performance and accuracy.
+Data and content management: Knowledge sources should be approved, current, relevant, and scoped to the intended use case. Stale, duplicate, contradictory, sensitive, or unauthorized content should be removed before ingestion. Customer content is not used to train or improve general LLM models unless explicitly permitted for a specific governed purpose.
+Copyright/license compliance: Only content that the customer owns, licenses, or is authorized to use should be uploaded, connected, or extracted into knowledge sources. Public website extraction should be limited to approved owned or permitted content. Copyright and licensing validation remains a customer content-governance responsibility.
+Authorization controls: Access should be enforced through tenant isolation, role-based access, scoped agent configuration, approved knowledge sources, and allowlisted actions/tools. The LLM should not be treated as the authorization authority; backend systems and workflows should enforce permissions.
+Tool/action controls: Actions should be explicitly configured and limited to the agent’s purpose. Parameters should be validated through schemas, workflows, or backend systems before execution. Sensitive, irreversible, or high-risk actions should require human approval or handoff.
+Monitoring controls: Runtime monitoring includes telemetry, session analytics, flagged interactions, health indicators, handoff/error markers, and review workflows. These controls help detect unsafe behavior, recurring failures, prompt attacks, hallucinations, and quality degradation.
+Output accuracy controls: Accuracy is managed through curated knowledge, narrow agent goals, grounding, testing, content filtering, human review, session review, and escalation when the model is uncertain or the request is outside scope.
