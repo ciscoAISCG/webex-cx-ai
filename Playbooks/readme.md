@@ -31,6 +31,7 @@ Each template typically includes:
 | [Order_Tracking](Order_Tracking/README.md) | Autonomous voice AI agent that uses one backend lookup contract to answer order-status, delivery, delay, and tracking-progress questions, with trusted customer context and human escalation when needed. |
 | [User_Identification_Verification](User_Identification_Verification/README.md) | AI Agent pattern for collecting caller details, verifying identity with a backend service, and safely continuing or escalating based on the authentication result. |
 | [Payment_AI_agent](Payment_AI_agent/README.md) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
+| [Payment_AI_Agent_Scripted](Payment_AI_Agent_Scripted/README.md) | Scripted voice AI agent for hospital payment journeys, using Flow Designer state events and subflows for balance lookup and payment completion. |
 | [ServiceNow KB + Incident AI Agent With MCP](ServiceNow_KB_Incident_AI_Agent_With_MCP/README.md) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
 | [Visual_Appointment_Confirmation](Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 
