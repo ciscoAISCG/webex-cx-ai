@@ -1,0 +1,2010 @@
+{
+  "agent_handover_setting": {
+    "consecutive_count": {
+      "enabled": false,
+      "value": 3
+    },
+    "fallback_count": {
+      "enabled": false,
+      "value": 3
+    },
+    "handover_after_retries": false,
+    "partial_match_count": {
+      "enabled": false,
+      "value": 3
+    },
+    "response_flag": true
+  },
+  "algorithm": {
+    "algo_configuration": {
+      "infer_configuration": {
+        "spellcheck_in_inference": true
+      },
+      "n_results": 3,
+      "n_results_partial_entity": 3,
+      "n_results_related_entity": 3,
+      "slots_before_intents": true,
+      "threshold_diff_score": 0.02,
+      "threshold_min_score": 0.05,
+      "threshold_partial_entity": 0.3,
+      "threshold_related_entity": 0.6,
+      "threshold_values": [
+        -0.2,
+        -0.15,
+        -0.1,
+        -0.05,
+        0,
+        0.05,
+        0.1,
+        0.15,
+        0.2
+      ]
+    },
+    "entity_recognition": false,
+    "id": "scriptedagent",
+    "is_third_party": false
+  },
+  "allow_agent_handover": false,
+  "allow_curation": true,
+  "allow_feedback": false,
+  "bot_metadata": {
+    "locale": "en_GB",
+    "timezone": "America/Los_Angeles"
+  },
+  "bot_type": "mlbot",
+  "curation_settings": {
+    "agent_handover": {
+      "enabled": true
+    },
+    "downvoted": {
+      "enabled": true
+    },
+    "fallback": {
+      "enabled": true,
+      "none_in_fallback_rule": {
+        "enabled": false
+      }
+    },
+    "from_session": {
+      "enabled": true
+    },
+    "low_confidence": {
+      "enabled": true,
+      "low_confidence_score": 0.4,
+      "recommended_low_confidence_score": 0.6
+    },
+    "partial_match": {
+      "enabled": true
+    }
+  },
+  "default_language": "en-US",
+  "description": "\"Hi, thanks for calling the Hospital Payment Line — this is Remy. I can help you check your balance or take a payment over the phone. To get started, are you calling to check your payment balance, or to make a payment?\"",
+  "entities": [
+    {
+      "auto_complete": false,
+      "color": "#d17e5a",
+      "data": {
+        "length": 6
+      },
+      "name": "patientID",
+      "roles": [],
+      "secure": false,
+      "system_entity": false,
+      "type": "digits"
+    },
+    {
+      "auto_complete": false,
+      "color": "#8d9fb6",
+      "data": {
+        "output_format": "mm/dd/YYYY"
+      },
+      "name": "dateOfBirth",
+      "roles": [],
+      "secure": false,
+      "system_entity": false,
+      "type": "date"
+    },
+    {
+      "auto_complete": false,
+      "color": "#e528e9",
+      "data": {
+        "length": 3
+      },
+      "name": "CVV",
+      "roles": [],
+      "secure": false,
+      "system_entity": false,
+      "type": "digits"
+    },
+    {
+      "auto_complete": false,
+      "color": "#b07ff2",
+      "data": {
+        "length": 16
+      },
+      "name": "CardNumber",
+      "roles": [],
+      "secure": false,
+      "system_entity": false,
+      "type": "digits"
+    },
+    {
+      "auto_complete": false,
+      "color": "#f2fc76",
+      "data": {
+        "pattern": "^(0[1-9]|1[0-2])\\/([0-9]{2})$"
+      },
+      "name": "expiryDate",
+      "roles": [],
+      "secure": false,
+      "system_entity": false,
+      "type": "regex"
+    }
+  ],
+  "error_message": "you have reached a custom error message",
+  "first_message": "",
+  "intents": [
+    {
+      "entities": [],
+      "intent_description": "Provide assistance and information about the bot's capabilities when the user requests help or asks what the bot can do.",
+      "intent_id": "help",
+      "name": "Help",
+      "reset_state": true,
+      "template_key": "Help message",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "What can you do?"
+            },
+            {
+              "entities": [],
+              "utterance": "How can you help?"
+            },
+            {
+              "entities": [],
+              "utterance": "Help"
+            },
+            {
+              "entities": [],
+              "utterance": "What do you do?"
+            },
+            {
+              "entities": [],
+              "utterance": "Could you please help me"
+            },
+            {
+              "entities": [],
+              "utterance": "What assistance can you provide?"
+            },
+            {
+              "entities": [],
+              "utterance": "I would like some help, please."
+            },
+            {
+              "entities": [],
+              "utterance": "Would you be able to help me?"
+            },
+            {
+              "entities": [],
+              "utterance": "Could you kindly assist me?"
+            },
+            {
+              "entities": [],
+              "utterance": "Can you provide details on how you may assist?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "entities": [],
+      "intent_description": "Handle user input that doesn't match any other defined intent, providing a fallback response to keep the conversation flowing.",
+      "intent_id": "none",
+      "name": "Default fallback intent",
+      "reset_state": true,
+      "template_key": "Fallback message",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": []
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Acknowledge and respond appropriately when the user is ending the conversation with a farewell or departure expression.",
+      "intent_id": "good_bye",
+      "name": "Goodbye",
+      "reset_state": true,
+      "template_key": "Goodbye",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Goodbye"
+            },
+            {
+              "entities": [],
+              "utterance": "Adieu"
+            },
+            {
+              "entities": [],
+              "utterance": "Adios"
+            },
+            {
+              "entities": [],
+              "utterance": "Bye"
+            },
+            {
+              "entities": [],
+              "utterance": "Good bye"
+            },
+            {
+              "entities": [],
+              "utterance": "Catch you later"
+            },
+            {
+              "entities": [],
+              "utterance": "G2G"
+            },
+            {
+              "entities": [],
+              "utterance": "Ciao"
+            },
+            {
+              "entities": [],
+              "utterance": "CYA"
+            },
+            {
+              "entities": [],
+              "utterance": "C-ya"
+            },
+            {
+              "entities": [],
+              "utterance": "Fare thee well"
+            },
+            {
+              "entities": [],
+              "utterance": "Catch ya later"
+            },
+            {
+              "entities": [],
+              "utterance": "gotta go"
+            },
+            {
+              "entities": [],
+              "utterance": "See you later"
+            },
+            {
+              "entities": [],
+              "utterance": "See ya later"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Respond appropriately when the user initiates conversation with a greeting or salutation, including hellos, time-based greetings, and casual farewells.",
+      "intent_id": "greetings",
+      "name": "Greetings",
+      "reset_state": true,
+      "template_key": "Greetings",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Hello"
+            },
+            {
+              "entities": [],
+              "utterance": "Hello there"
+            },
+            {
+              "entities": [],
+              "utterance": "Ahoy"
+            },
+            {
+              "entities": [],
+              "utterance": "Hey pal"
+            },
+            {
+              "entities": [],
+              "utterance": "Greetings and salutations"
+            },
+            {
+              "entities": [],
+              "utterance": "G'day"
+            },
+            {
+              "entities": [],
+              "utterance": "Good day"
+            },
+            {
+              "entities": [],
+              "utterance": "Heya"
+            },
+            {
+              "entities": [],
+              "utterance": "Well hey there"
+            },
+            {
+              "entities": [],
+              "utterance": "Yo dude"
+            },
+            {
+              "entities": [],
+              "utterance": "Hey-hey"
+            },
+            {
+              "entities": [],
+              "utterance": "Hi"
+            },
+            {
+              "entities": [],
+              "utterance": "Hi there!"
+            },
+            {
+              "entities": [],
+              "utterance": "Hiya"
+            },
+            {
+              "entities": [],
+              "utterance": "Howdy"
+            },
+            {
+              "entities": [],
+              "utterance": "evenin"
+            },
+            {
+              "entities": [],
+              "utterance": "Good evening"
+            },
+            {
+              "entities": [],
+              "utterance": "Good morning sunshine"
+            },
+            {
+              "entities": [],
+              "utterance": "Mornin'"
+            },
+            {
+              "entities": [],
+              "utterance": "Good morning"
+            },
+            {
+              "entities": [],
+              "utterance": "Good night"
+            },
+            {
+              "entities": [],
+              "utterance": "G'night"
+            },
+            {
+              "entities": [],
+              "utterance": "Sweet dreams"
+            },
+            {
+              "entities": [],
+              "utterance": "Nighty night"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Handle user feedback indicating dissatisfaction with the bot's response, including complaints about inaccuracy, irrelevance, confusion, or general unhelpfulness.",
+      "intent_id": "not_helpful",
+      "name": "Not helpful",
+      "reset_state": true,
+      "template_key": "Not helpful",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "That was unhelpful"
+            },
+            {
+              "entities": [],
+              "utterance": "That's inaccurate"
+            },
+            {
+              "entities": [],
+              "utterance": "That was a terrible answer"
+            },
+            {
+              "entities": [],
+              "utterance": "That wasn't True"
+            },
+            {
+              "entities": [],
+              "utterance": "Not what I asked"
+            },
+            {
+              "entities": [],
+              "utterance": "That's not a good answer"
+            },
+            {
+              "entities": [],
+              "utterance": "That's not relevant"
+            },
+            {
+              "entities": [],
+              "utterance": "Not True"
+            },
+            {
+              "entities": [],
+              "utterance": "Not even close"
+            },
+            {
+              "entities": [],
+              "utterance": "That was a stupid answer"
+            },
+            {
+              "entities": [],
+              "utterance": "Inaccurate"
+            },
+            {
+              "entities": [],
+              "utterance": "False"
+            },
+            {
+              "entities": [],
+              "utterance": "That's wrong"
+            },
+            {
+              "entities": [],
+              "utterance": "Answers are not very good"
+            },
+            {
+              "entities": [],
+              "utterance": "Answers are irrelevant"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses aren't relevant"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses are unTrue"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses are dumb"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses are stupid"
+            },
+            {
+              "entities": [],
+              "utterance": "Didn't answer my question"
+            },
+            {
+              "entities": [],
+              "utterance": "Wrong answer"
+            },
+            {
+              "entities": [],
+              "utterance": "Explain yourself"
+            },
+            {
+              "entities": [],
+              "utterance": "I'm confused"
+            },
+            {
+              "entities": [],
+              "utterance": "I don't understand"
+            },
+            {
+              "entities": [],
+              "utterance": "I don't get it"
+            },
+            {
+              "entities": [],
+              "utterance": "That made no sense"
+            },
+            {
+              "entities": [],
+              "utterance": "That didn't make sense"
+            },
+            {
+              "entities": [],
+              "utterance": "You are confusing me"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Acknowledge and respond appropriately when the user expresses gratitude or thanks.",
+      "intent_id": "thank_you",
+      "name": "Thank you",
+      "reset_state": true,
+      "template_key": "Thank you",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Thank you"
+            },
+            {
+              "entities": [],
+              "utterance": "Many thanks"
+            },
+            {
+              "entities": [],
+              "utterance": "Kthx"
+            },
+            {
+              "entities": [],
+              "utterance": "I appreciate that"
+            },
+            {
+              "entities": [],
+              "utterance": "Thx"
+            },
+            {
+              "entities": [],
+              "utterance": "Thnx"
+            },
+            {
+              "entities": [],
+              "utterance": "Thanks bot"
+            },
+            {
+              "entities": [],
+              "utterance": "Thanks a lot"
+            },
+            {
+              "entities": [],
+              "utterance": "Thank you"
+            },
+            {
+              "entities": [],
+              "utterance": "Thanks"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "end_conversation": true,
+      "entities": [],
+      "intent_description": "Escalate the conversation to a human agent when the user requests to speak with a real person or human support.",
+      "intent_id": "agent",
+      "name": "Talk to an agent",
+      "reset_state": true,
+      "template_key": "Agent handover",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Can I talk to a human?"
+            },
+            {
+              "entities": [],
+              "utterance": "agent"
+            },
+            {
+              "entities": [],
+              "utterance": "human"
+            },
+            {
+              "entities": [],
+              "utterance": "Connect me to a human"
+            },
+            {
+              "entities": [],
+              "utterance": "Chat with agent"
+            },
+            {
+              "entities": [],
+              "utterance": "Can I speak with someone?"
+            },
+            {
+              "entities": [],
+              "utterance": "I need to speak to a person"
+            },
+            {
+              "entities": [],
+              "utterance": "Please transfer me to a human agent"
+            },
+            {
+              "entities": [],
+              "utterance": "I want to talk to support"
+            },
+            {
+              "entities": [],
+              "utterance": "Can you connect me to a real person?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "description": "",
+      "end_conversation": false,
+      "entities": [
+        {
+          "counter": 2,
+          "entity_name": "patientID",
+          "required": true,
+          "role_name": "",
+          "template_key": "patientIDEntityResponse"
+        },
+        {
+          "counter": 2,
+          "entity_name": "dateOfBirth",
+          "required": true,
+          "role_name": "",
+          "template_key": "dateOfBirthEntityResponse"
+        }
+      ],
+      "entry_context": [],
+      "exit_context": [],
+      "intent_description": "Check the payment balance of patients",
+      "intent_id": "1",
+      "name": "Payment Balance",
+      "reset_state": false,
+      "restart_template": "",
+      "template_key": "Payment_Balance_Response",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "are_utterances_harmful": false,
+          "utterances": [
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "I would like to check my balance"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "74215f1ec14d4836aaf63ffbe5f5034b",
+              "utterance": "Can you tell me how much I owe on my hospital bill?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "74215f1ec14d4836aaf63ffbe5f5034b",
+              "utterance": "I'd like to know my current payment balance for my medical services."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "Can you provide me with the current outstanding balance on my account?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "I'd like to find out how much I still owe for my treatment."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "Please let me know my payment balance for the hospital charges."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "What is the remaining balance on my medical bill?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "Could you check my account for any outstanding payments?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "I need to know the total amount owed for my hospital visit."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "Can you confirm the balance due on my healthcare expenses?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f2aec4ddbdcd48b0979f3d99eb399af0",
+              "utterance": "What’s my current payment status for the services I've received?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "description": "",
+      "end_conversation": false,
+      "entities": [
+        {
+          "counter": 2,
+          "entity_name": "patientID",
+          "required": true,
+          "role_name": "",
+          "template_key": "patientIDEntityResponse"
+        },
+        {
+          "counter": 2,
+          "entity_name": "dateOfBirth",
+          "required": true,
+          "role_name": "",
+          "template_key": "dateOfBirthEntityResponse"
+        }
+      ],
+      "entry_context": [],
+      "exit_context": [],
+      "intent_description": "Used to make hospital payment balance",
+      "intent_id": "2",
+      "name": "Make_Payment",
+      "reset_state": false,
+      "restart_template": "",
+      "template_key": "make_Payment_Response",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "are_utterances_harmful": false,
+          "utterances": [
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "I would like to make payment"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "I need to settle my hospital bill, please."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "Can you help me process my payment for the hospital?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "I'm here to pay my medical expenses."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "I'd like to go ahead and make my hospital payment."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "Could you assist me in completing my payment for the hospital services?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "I want to take care of my hospital charges now."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "Can we finalize my payment for the medical treatment I received?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "I’m ready to make my payment for the hospital visit."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "How do I go about paying my hospital bill?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "06b6cb25ebd14c868c14953840429efe",
+              "utterance": "I’d like to process the payment for my recent hospital visit."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "description": "",
+      "end_conversation": false,
+      "entities": [
+        {
+          "counter": 2,
+          "entity_name": "CardNumber",
+          "required": true,
+          "role_name": "",
+          "template_key": "cardNumberEntityCollectionResponse"
+        },
+        {
+          "counter": 2,
+          "entity_name": "CVV",
+          "required": true,
+          "role_name": "",
+          "template_key": "cvvEntityResponse"
+        },
+        {
+          "counter": 2,
+          "entity_name": "expiryDate",
+          "required": true,
+          "role_name": "",
+          "template_key": "expiryDateResponse"
+        }
+      ],
+      "entry_context": [],
+      "exit_context": [],
+      "intent_description": "used to collect payment details",
+      "intent_id": "3",
+      "name": "collectPaymentDetails",
+      "reset_state": false,
+      "restart_template": "",
+      "template_key": "collectPaymentDetailsResponse",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "are_utterances_harmful": false,
+          "utterances": [
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "details"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "Could you provide your payment information?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "I need your billing details to proceed."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "Please share your payment method with us."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "Can you give me the details related to your payment?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "I require your payment specifics to move forward."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "Would you mind entering your payment credentials?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "Let's gather your payment information."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "What payment details do you want to provide?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "Please input your billing information for processing."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f3f7aa10297844daba577b161c78ad70",
+              "utterance": "I'd appreciate your payment details when you're ready."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "language": "en",
+  "languages": {
+    "en-US": true
+  },
+  "logo": "https://studio.aiagent-us1.cisco.com/static/assets/img/bot-logo/default-mlbot.svg",
+  "responses": {
+    "templates": {
+      "Agent handover": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Please wait while I redirect you to one of our team member."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Entity suggestion": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Choose one of the following or provide your own"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Fallback message": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Sorry, I am unable to understand your message. Could you please rephrase it?"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Goodbye": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Goodbye and take care!"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Greetings": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Hello there."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Help message": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Hey, this is one of the sample intents which can be recognised. Intents are the user scenarios or flows which the bot can complete, while entities are the parameter which are required to complete and intent. Go ahead and configure a new intent to get started."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Not helpful": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Sorry,  I hear that wasn't able to help you. Please try asking a different question."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Partial match": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Sorry, I was unable to understand your query accurately. Could you select which intent you were referring to?"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Payment_Balance_Response": {
+        "updated_at": 1781728977773,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response on Payment Balance Response"
+                      },
+                      "text": [
+                        "Thank you for the details, Let me check your balance one moment"
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {
+                                "dateOfBirth": "${entity.dateOfBirth}",
+                                "patientID": "${entity.patientID}"
+                              }
+                            },
+                            "Event_Name": "Payment_Balance_Response_custom_Event"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Response suggestion": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "You can also see the results for"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Thank you": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "You're welcome, take care!"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Welcome message": {
+        "updated_at": 1781729676699,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "\"Hi, thanks for calling the Hospital Payment Line — this is Remy. I can help you check your balance or take a payment over the phone. To get started, are you calling to check your payment balance, or to make a payment?\""
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Hello, I am a new Task bot. I can help you complete tasks by defining intents which you want the user to complete."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "announceBalanceResponse": {
+        "updated_at": 1782161009897,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [
+                {
+                  "actions": {
+                    "voice": [
+                      {
+                        "speech_settings": {
+                          "allow_dtmf": false,
+                          "barge_in": true,
+                          "dtmf_config": {
+                            "allow_voice": true,
+                            "dtmf_length": "",
+                            "inter_digit_timeout_in_ms": 5000,
+                            "termchar": ""
+                          },
+                          "timeout_in_ms": 10000,
+                          "timeout_response": "Please configure your timeout response"
+                        },
+                        "text": [
+                          "<speak>\n   your balance is\n  <say-as interpret-as=\"currency\" language=\"en-US\">USD${eventStore.paymentBalance}</say-as>. Thanks and have a great Day\n</speak>\n\n"
+                        ],
+                        "type": "response"
+                      },
+                      {
+                        "payload": [
+                          {
+                            "Execute_Request": {
+                              "Data": {
+                                "Params": {}
+                              },
+                              "Event_Name": "Bye"
+                            }
+                          }
+                        ],
+                        "type": "response"
+                      }
+                    ],
+                    "web": [
+                      {
+                        "text": [
+                          "Please configure your message."
+                        ],
+                        "type": "response"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "and": [
+                      {
+                        "or": [
+                          {
+                            "===": [
+                              {
+                                "var": "lastdfState.model_state.intent.name"
+                              },
+                              "Payment Balance"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "name": "checkIfbalanceIntent"
+                },
+                {
+                  "actions": {
+                    "voice": [
+                      {
+                        "speech_settings": {
+                          "allow_dtmf": false,
+                          "barge_in": true,
+                          "dtmf_config": {
+                            "allow_voice": true,
+                            "dtmf_length": "",
+                            "inter_digit_timeout_in_ms": 5000,
+                            "termchar": ""
+                          },
+                          "timeout_in_ms": 10000,
+                          "timeout_response": "Please configure your timeout response"
+                        },
+                        "text": [
+                          "<speak>\n   your balance is\n  <say-as interpret-as=\"currency\" language=\"en-US\">USD${eventStore.paymentBalance}</say-as>.\n Let me continue processing your payment.\n</speak>"
+                        ],
+                        "type": "response"
+                      },
+                      {
+                        "payload": [
+                          {
+                            "Execute_Request": {
+                              "Data": {
+                                "Params": {
+                                  "intent": "collectPaymentDetails"
+                                }
+                              },
+                              "Event_Name": "state_update"
+                            }
+                          }
+                        ],
+                        "type": "response"
+                      }
+                    ],
+                    "web": [
+                      {
+                        "text": [
+                          "Please configure your message."
+                        ],
+                        "type": "response"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "and": [
+                      {
+                        "or": [
+                          {
+                            "===": [
+                              {
+                                "var": "lastdfState.model_state.intent.name"
+                              },
+                              "Make_Payment"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "or": [
+                          {
+                            "==": [
+                              {
+                                "var": "eventStore.paymentBalance"
+                              },
+                              true
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "name": "checkIfPaymentIntent"
+                }
+              ],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response "
+                      },
+                      "text": [
+                        "There is an issue while checking your balance, Let me transfer you to an agent.\n"
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {}
+                            },
+                            "Event_Name": "Escalated"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "cardNumberEntityCollectionResponse": {
+        "updated_at": 1781810002122,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Please provide your card number"
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "collectPaymentDetailsResponse": {
+        "updated_at": 1782264365417,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Thanks for the details, one moment while I process your payment"
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {
+                                "CVV": "${entity.CVV}",
+                                "CardNumber": "${entity.CardNumber}",
+                                "expiryDate": "${entity.expiryDate}"
+                              }
+                            },
+                            "Event_Name": "collectPaymentDetails_customEvent"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "cvvEntityResponse": {
+        "updated_at": 1781810034037,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Please provide your CVV"
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "dateOfBirthEntityResponse": {
+        "updated_at": 1782153723711,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please provide your date of birth"
+                      },
+                      "text": [
+                        "Please provide your date of birth, For example you can say 4th october 1990"
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "expiryDateResponse": {
+        "updated_at": 1781810063680,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Please provide expiry date"
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "make_Payment_Response": {
+        "updated_at": 1781808364518,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response in make Payment Response"
+                      },
+                      "text": [
+                        "Thanks for the details let me check your balance before processing payment."
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {
+                                "dateOfBirth": "${entity.dateOfBirth}",
+                                "patientID": "${entity.patientID}"
+                              }
+                            },
+                            "Event_Name": "make_Payment_Custom_Event"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "patientIDEntityResponse": {
+        "updated_at": 1781727794070,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please provide your patientID"
+                      },
+                      "text": [
+                        "Please provide your patientID"
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "paymentResultResponse": {
+        "updated_at": 1781811799615,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Thankyou, your payment processing ${eventStore.status}, Good bye."
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {}
+                            },
+                            "Event_Name": "Bye"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      }
+    },
+    "workflow": {
+      "events": {
+        "Payment_Balance_Response": {
+          "action": {
+            "template": "Payment_Balance_Response",
+            "type": "response"
+          }
+        },
+        "Reset context": {
+          "action": {
+            "type": "reset_context"
+          }
+        },
+        "Reset slots": {
+          "action": {
+            "type": "reset_slots"
+          }
+        },
+        "announceBalanceResponse": {
+          "action": {
+            "template": "announceBalanceResponse",
+            "type": "response"
+          }
+        },
+        "cardNumberEntityCollectionResponse": {
+          "action": {
+            "template": "cardNumberEntityCollectionResponse",
+            "type": "response"
+          }
+        },
+        "collectPaymentDetailsResponse": {
+          "action": {
+            "template": "collectPaymentDetailsResponse",
+            "type": "response"
+          }
+        },
+        "cvvEntityResponse": {
+          "action": {
+            "template": "cvvEntityResponse",
+            "type": "response"
+          }
+        },
+        "dateOfBirthEntityResponse": {
+          "action": {
+            "template": "dateOfBirthEntityResponse",
+            "type": "response"
+          }
+        },
+        "expiryDateResponse": {
+          "action": {
+            "template": "expiryDateResponse",
+            "type": "response"
+          }
+        },
+        "make_Payment_Response": {
+          "action": {
+            "template": "make_Payment_Response",
+            "type": "response"
+          }
+        },
+        "patientIDEntityResponse": {
+          "action": {
+            "template": "patientIDEntityResponse",
+            "type": "response"
+          }
+        },
+        "paymentResultResponse": {
+          "action": {
+            "template": "paymentResultResponse",
+            "type": "response"
+          }
+        }
+      },
+      "logic": "",
+      "static_events": [
+        "Reset slots",
+        "Reset context"
+      ],
+      "type": "workflow_event"
+    }
+  },
+  "test_cases": [
+    {
+      "callbacks": [],
+      "child_template": false,
+      "expected_language": "en-US",
+      "expected_template": "Template to match with",
+      "intent": "",
+      "is_selected": true,
+      "new_room": true,
+      "user_message": "The message to test on"
+    }
+  ],
+  "test_cases_callbacks": false,
+  "test_cases_partial_match_success": true,
+  "voice_settings": {
+    "voices": []
+  }
+}
