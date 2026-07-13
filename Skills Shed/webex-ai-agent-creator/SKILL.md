@@ -14,6 +14,7 @@ Read these references before producing the final artifact:
 - `references/prompt-design-principles.md` for Cisco AI prompt-writing rules.
 - `references/webex-ai-agent-studio-setup.md` for Webex AI Agent Studio access and setup guidance.
 - `references/ai-agent-studio-json-import.md` when the user wants an import-ready AI Agent Studio JSON file.
+- `references/webex-ai-agent.schema.json` when the user wants an import-ready AI Agent Studio JSON file, action or tool definitions, or a structural validation pass against the generated agent JSON.
 
 ## Workflow
 
@@ -75,6 +76,7 @@ Hello, you have reached the clinic booking assistant. I can help you book an app
 
 6. Generate an import-ready JSON file when requested.
    - Use the structure in `references/ai-agent-studio-json-import.md`.
+   - Use `references/webex-ai-agent.schema.json` as the structural source of truth for the JSON shape and supported action entity types.
    - Include `bot_type`, `configuration`, and `tools` top-level keys.
    - Put the agent goal and generated agent instructions in `configuration.llm_agent_description`.
    - Format `configuration.llm_agent_description` as: agent goal text, then a blank line, then the literal separator `### INSTRUCTIONS:`, then the detailed AI agent instructions.
@@ -82,12 +84,18 @@ Hello, you have reached the clinic booking assistant. I can help you book an app
    - Include voice settings when the channel is voice.
    - Include an `Agent handover` system tool by default.
    - Convert each recommended action into a tool entry with `input_entities.parameters.properties` and `required` fields.
+   - Restrict generated action entity definitions to the supported schema types: `string`, `number`, `date`, `time`, `phone`, `regex`, and `custom_list`.
    - Always use placeholders for Webex Connect service name, Webex Connect service ID, flow IDs, webhook URLs, preferred voice, and whether backend actions are real, mocked, or routed through Webex Connect flows. The user must create flows and tenant-specific resources manually and replace these placeholders after generation.
    - Use a valid IANA timezone value in `configuration.timezone`, such as `Europe/London` or `America/Los_Angeles`. Do not use a placeholder for timezone because AI Agent Studio validates this field during import.
    - Always set `configuration.kb_ids` to an empty array. Do not generate placeholder knowledge base IDs because incorrect KB IDs can cause import or UI errors.
    - Keep action names exactly aligned between the instructions and JSON tools.
    - If creating a local artifact, name it with a safe slug such as `<agent-name>-ai-agent-studio-import.json`.
    - Always include the full file location of any generated or updated JSON artifact in the final response.
+
+7. Validate generated AI agent JSON as a final pass.
+   - If a JSON file is generated or updated, validate it against `references/webex-ai-agent.schema.json` before delivering it to the user.
+   - Fix any schema mismatches before finalizing the artifact.
+   - Report that the JSON was validated against the schema in the final response.
 
 ## Final Output
 
@@ -102,4 +110,4 @@ Deliver these sections:
 7. Webex AI Agent Studio Setup Guide
 8. Import-Ready JSON File, when requested
 
-Keep the final result practical and implementation-oriented. If key details are unknown, make reasonable placeholders explicit instead of blocking, unless the missing detail changes the action design materially. When a JSON file is generated or updated, always provide its full file location.
+Keep the final result practical and implementation-oriented. If key details are unknown, make reasonable placeholders explicit instead of blocking, unless the missing detail changes the action design materially. When a JSON file is generated or updated, always provide its full file location and say whether it passed schema validation.

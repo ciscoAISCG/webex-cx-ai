@@ -2,6 +2,8 @@
 
 Use this guidance when generating a JSON file that can be imported into Webex AI Agent Studio. This structure is based on exported AI Agent Studio sample files.
 
+Use `references/webex-ai-agent.schema.json` as the source of truth for the overall JSON structure and supported action entity types. This document provides the practical authoring guidance that sits alongside the schema.
+
 ## Top-Level Structure
 
 Generate a JSON object with these top-level keys:
@@ -134,6 +136,20 @@ For each business action, generate a tool entry:
 }
 ```
 
+## Supported action entity types
+
+The schema currently supports these input entity `type` values for action parameters:
+
+- `string`
+- `number`
+- `date`
+- `time`
+- `phone`
+- `regex`
+- `custom_list`
+
+Use the schema file as the final reference for which companion attributes are expected for each type, such as `format`, `pattern`, or `enum`.
+
 ## Generation Rules
 
 - Generate valid JSON only in the artifact file. Do not include comments or Markdown fences in the file.
@@ -147,7 +163,8 @@ For each business action, generate a tool entry:
 - Use a valid IANA timezone value in `configuration.timezone`, such as `Europe/London` or `America/Los_Angeles`. Do not use a placeholder for timezone because AI Agent Studio validates this field during import.
 - Use unique generated placeholder tool IDs so the JSON remains structurally valid.
 - Use `flow_id: 0`, empty `service_id`, placeholder `webhook_url`, and descriptive placeholder `flow_name` values for Webex Connect details.
-- Represent action parameters in `input_entities.parameters.properties`, using JSON Schema-compatible property definitions.
+- Represent action parameters in `input_entities.parameters.properties`, using schema-compatible property definitions.
 - Include optional parameters in `properties` but not in `required`.
 - Do not invent real Epic, Webex Connect, service, flow, webhook, or knowledge base IDs.
-- Tell the user that they must manually create the required Webex Connect flows, services, voice settings, and backend routing before replacing placeholders and using the JSON beyond a draft/demo import. If they need a different timezone or knowledge sources, they should update them manually in Studio after import.
+- Validate the final generated JSON against `references/webex-ai-agent.schema.json` before delivering it, and fix any mismatches.
+- Tell the user that they must manually create the required Webex Connect flows, services, voice settings, and backend routing before replacing placeholders and using the JSON beyond a draft or demo import. If they need a different timezone or knowledge sources, they should update them manually in Studio after import.
