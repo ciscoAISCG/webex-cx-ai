@@ -95,6 +95,7 @@ nav:
   - model-context-protocol: model-context-protocol.md
   - Agent2Agent: a2a.md
   - Scripted AI Agent Design: scripted-ai-agent-design.md
+  - AI QM: ai-quality-management-playbook.md
   - Knowledge and RAG: knowledge-and-rag.md
   - Testing and Evaluation: testing-and-evaluation.md
   - PreBuilt_AIAgent: agent-template.md
