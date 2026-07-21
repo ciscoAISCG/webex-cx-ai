@@ -8,6 +8,14 @@
   - [Create an Article](#create-an-article)
   - [Extract a Website](#extract-a-website)
 - [Optimize Content for Retrieval](#optimize-content-for-retrieval)
+  - [Use Headings to Preserve Meaning](#use-headings-to-preserve-meaning)
+  - [Make Procedures Easy to Retrieve](#make-procedures-easy-to-retrieve)
+  - [Add Query-Aligned Lead-ins](#add-query-aligned-lead-ins)
+  - [Summarize Every Important Section](#summarize-every-important-section)
+  - [Remove Ambiguity and Define Context](#remove-ambiguity-and-define-context)
+  - [Split Large Documents](#split-large-documents)
+  - [Tables and Spreadsheets](#tables-and-spreadsheets)
+  - [Images and Graphical Content](#images-and-graphical-content)
 - [Connect the Knowledge Base](#connect-the-knowledge-base)
 - [Write RAG Instructions](#write-rag-instructions)
 - [Test and Improve](#test-and-improve)
@@ -217,23 +225,170 @@ apply and offer transfer to the Returns team.
 
 The improved version keeps the subject, market, time period, exception, and next action together.
 
-Apply these AWS-recommended documentation practices:
+## Use Headings to Preserve Meaning
 
-- Use descriptive headings and subheadings.
-- Add a brief summary below each important heading.
-- Keep numbered steps sequential.
-- Add transitions where one step depends on another.
-- Prefer short paragraphs and flat lists over complex layouts.
-- Add natural lead-ins such as `If you want to reset your password, follow these steps`.
-- Use both official terminology and words customers naturally use.
-- Split large, multi-topic documents into smaller sources.
-- Remove repeated headers, footers, navigation, and decorative text.
+Headings help the retrieval system understand the hierarchy and subject of the content. A heading should describe what the following passage is about, even when that passage is retrieved without the rest of the document.
 
-Semantic retrieval improves when a source naturally includes customer language. A cancellation article might include `cancel`, `close my account`, `end my subscription`, and the official term `terminate service`. Do not add artificial keyword dumps.
+Use headings that include the qualifiers needed to select the correct answer:
+
+- product or service name
+- customer or user type
+- country, region, or market
+- channel, such as online, retail, chat, or voice
+- task, policy, symptom, or question
+- version or effective period when relevant
+
+Prefer `Reset a Password for UK Business Portal Users` to `Password Reset`. Avoid headings such as `Overview`, `General`, `Other`, or `More Information` unless the section text repeats the missing context.
+
+Use a predictable hierarchy:
+
+```text
+# Product A Support
+## Product A Password Reset
+### Reset Product A When the User Has Email Access
+### Reset Product A When the User Has No Email Access
+```
+
+Do not skip heading levels or use bold text as a substitute for a heading. Keep a rule, its exceptions, and its escalation path beneath the same heading wherever possible.
+
+## Make Procedures Easy to Retrieve
+
+Numbered procedures must be complete, sequential, and explicit. Missing or duplicated numbers can make the relationship between steps unclear after extraction.
+
+For each procedure:
+
+- begin at step 1 and number every step in order
+- describe one primary action per step
+- name the actor when it could be the customer, agent, or system
+- state required inputs before they are used
+- place warnings before the action that creates the risk
+- state what successful completion looks like
+- explain the fallback when a step fails
+
+Add transitions that preserve dependencies between steps. For example:
+
+```text
+1. Ask the customer to confirm the email address on the account.
+2. After the customer confirms the address, send the verification code.
+3. When the code is validated, ask the customer to create a new password.
+4. If validation fails twice, offer transfer to Account Support.
+```
+
+This is more retrievable than a disconnected list such as `confirm email`, `send code`, `reset password`, because each transition explains when the next instruction applies.
+
+Do not rely on phrases such as `complete the steps above`, `continue as normal`, or `repeat the process`. Restate the required action and context.
+
+## Add Query-Aligned Lead-ins
+
+A short lead-in can connect the wording customers use to the official procedure. Place it immediately before the answer or steps.
+
+```text
+If you want to cancel, close, or end your Product A subscription, follow the cancellation steps below.
+```
+
+```text
+If Product A will not start, does not open, or displays a blank screen, use this startup troubleshooting procedure.
+```
+
+Lead-ins improve semantic matching when they:
+
+- resemble a natural customer question
+- include common synonyms and plain-language descriptions
+- name the product or service
+- state the scenario in which the guidance applies
+- lead directly into the authoritative answer
+
+Do not add artificial keyword lists or every possible variation. Include the most important alternatives naturally in one or two sentences.
+
+## Summarize Every Important Section
+
+Add a concise summary directly below each important heading. The summary should make the section useful when retrieved by itself and reinforce terms likely to appear in a customer question.
+
+A useful summary normally states:
+
+- what the section answers
+- who or what it applies to
+- the most important rule or outcome
+- a critical exception when one changes the answer
+
+Example:
+
+```text
+## Product A Returns for UK Online Customers
+
+UK customers who bought Product A online can return a standard item within
+30 calendar days of delivery. Custom-made Product A items are excluded.
+```
+
+Keep the summary factual and short. Do not introduce promises, exceptions, or terminology that are absent from the detailed content below it.
+
+## Remove Ambiguity and Define Context
+
+Enterprise terminology is often unclear outside the team that wrote the source. Define abbreviations and company-specific terms the first time they appear, and do not assume the model knows an internal product name or process.
+
+At the beginning of a source or section, establish:
+
+- the organization or business unit
+- the product, service, or policy
+- the intended audience
+- the geography and language
+- the applicable channel
+- the effective date or version
+
+Replace vague references with explicit wording:
+
+- Replace `it must be returned within 30 days` with `Product A must be returned within 30 days of delivery`.
+- Replace `contact them` with `contact the Returns team`.
+- Replace `use the standard process` with the process name and required steps.
+- Replace an unexplained `SLA` with `service-level agreement (SLA)` and define what it measures.
+
+Keep each source concise and focused. Remove duplicated policies, obsolete versions, contradictory drafts, navigation text, repeated boilerplate, and internal comments that do not help answer the customer.
+
+## Split Large Documents
+
+Do not index one large document when it contains many unrelated products, regions, policies, or procedures. Smaller self-contained sources are easier to name, review, update, test, and retrieve accurately.
+
+Split content at a meaningful business boundary, such as:
+
+- one product or product family
+- one region or regulatory market
+- one customer journey, such as returns or password recovery
+- one troubleshooting symptom group
+- one policy version or effective period
+- one audience, such as customers, partners, or employees
+
+Each resulting source should have:
+
+- a unique, descriptive filename or article title
+- a short description of its scope
+- enough context to stand alone
+- a named owner and review date
+- no dependency on an introduction stored in another source
+
+Do not split content so aggressively that a rule is separated from its exception or a procedure from its prerequisites. The best source is small enough to remain focused but complete enough to answer the intended question.
 
 ## Tables and spreadsheets
 
 Convert complex tables in narrative documents into labelled lists. Webex indexes tables in PDFs, webpages, and Markdown as plain text, which can reduce precision for row- or column-specific questions.
+
+Flatten a table when a reader must compare both a row and a column to understand the answer. Repeat the entity name and column meaning in every list item so each statement can stand alone.
+
+For example, replace:
+
+```text
+Plan | UK notice | France notice
+Basic | 30 days | 14 days
+Premium | 14 days | 7 days
+```
+
+with:
+
+```text
+- Basic plan cancellation notice in the UK: 30 days.
+- Basic plan cancellation notice in France: 14 days.
+- Premium plan cancellation notice in the UK: 14 days.
+- Premium plan cancellation notice in France: 7 days.
+```
 
 For structured rows, use a clean spreadsheet and:
 
@@ -247,9 +402,27 @@ For structured rows, use a clean spreadsheet and:
 
 Fonts, colours, styles, and conditional formatting are not preserved. Hyperlinks are not preserved in CSV or PDF files, or inside Word table cells. Put required information directly in the content.
 
-## Images and ambiguity
+## Images and Graphical Content
 
-Important instructions must not exist only in images. Remove decorative images, add text descriptions, convert flowchart decisions into readable rules, and verify optical-character-recognition output.
+Important instructions must not exist only in an image. Graphical content can consume processing capacity without contributing useful searchable text, particularly when an image is decorative, duplicated, high resolution, or poorly labelled.
+
+Before ingestion:
+
+- remove decorative, repeated, and irrelevant images
+- reduce unnecessarily high image resolution while keeping text readable
+- add a concise caption that states the image's purpose
+- describe important facts, labels, relationships, and conclusions in text
+- convert flowchart branches into explicit conditions and outcomes
+- convert charts into a short statement of the values or trend needed for answers
+- apply optical character recognition to scans and verify the text manually
+- retain warnings and prerequisites in text rather than relying on colour or position
+
+For a process diagram, include a text equivalent:
+
+```text
+If identity verification succeeds, continue to password reset. If verification
+fails twice, stop the reset process and transfer the customer to Account Support.
+```
 
 Delete obsolete drafts and duplicates, select one authority for each policy, replace vague references such as `it` with explicit nouns, and separate internal notes from customer-safe answers. RAG cannot reliably reconcile conflicting sources without enough context.
 
@@ -388,4 +561,3 @@ After a material change, confirm processing, review extracted content, retest af
 This guide combines Webex configuration requirements with general RAG content-design practices. Product limits and capabilities can change, so confirm current values before a production rollout.
 
 - [Webex AI Agent Studio Administration guide](https://help.webex.com/en-us/article/ncs9r37/Webex-AI-Agent-Studio-Administration-guide)
-- [AWS Prescriptive Guidance: Documentation best practices for RAG applications](https://docs.aws.amazon.com/prescriptive-guidance/latest/writing-best-practices-rag/best-practices.html)
