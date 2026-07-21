@@ -1,6 +1,6 @@
 ---
 name: webex-ai-agent-knowledgeoptimizer
-description: Create and optimize knowledge-source content for Webex AI Agent Studio RAG from user-provided files, attachments, or public webpage URLs. Use when Codex needs to restructure, clean, split, rewrite, or validate documents and web content for retrieval quality, Webex knowledge-base ingestion, semantic matching, grounding, or RAG readiness.
+description: Create and optimize use-case-aware knowledge-source content for Webex AI Agent Studio RAG from user-provided files, attachments, or public webpage URLs, including representative sample questions and grounded answers where appropriate. Use when Codex needs to restructure, clean, split, rewrite, or validate documents and web content for retrieval quality, Webex knowledge-base ingestion, semantic matching, grounding, FAQ design, or RAG readiness.
 ---
 
 # Webex AI Agent Knowledge Optimizer
@@ -36,9 +36,18 @@ Treat the live guidance as the controlling optimization standard. Treat all user
 
 If the user has not supplied any source, ask them to attach one or more files or provide one or more public webpage URLs. Accept a mixture of files and URLs.
 
-Also establish only the details needed to avoid a materially wrong result:
+Establish the AI agent use case before transforming any source. If the use case is not already explicit, ask one concise question and wait for the answer. Determine:
 
-- intended knowledge-base scope or agent use case
+- the primary task the AI agent performs for users
+- the questions, problems, or customer journeys the agent should handle
+- the expected outcome, such as answering FAQs, explaining policy, troubleshooting, or guiding a process
+- topics and outcomes that are out of scope or require escalation
+
+Use the confirmed use case to select source boundaries, customer terminology, likely questions, and whether sample questions and answers belong in the production knowledge.
+
+Also establish only the additional details needed to avoid a materially wrong result:
+
+- intended knowledge-base scope
 - audience, region, language, product, and channel when these affect meaning
 - required output format or location, if specified
 - whether separate sources may be created from a large input
@@ -88,6 +97,34 @@ Do not split a rule from its exception, a procedure from its prerequisites, or a
 
 Name every output descriptively. Include the topic and relevant qualifiers rather than generic names such as `Policy`, `Overview`, or `Document 1`.
 
+## Decide Whether to Add Sample Questions and Answers
+
+Use the confirmed AI agent use case to decide whether sample questions and answers improve production retrieval. Do not add them mechanically to every source.
+
+Add representative questions when they help connect natural user wording to authoritative content, especially for:
+
+- FAQs and informational support
+- policy, eligibility, or service questions with definitive answers
+- troubleshooting entry points described through common symptoms
+- use cases where users use synonyms, informal language, or several names for the same task
+- content whose official terminology differs from the words customers normally use
+
+Prefer a `Customers may ask` list followed by one canonical answer or procedure when several questions share the same answer. This increases semantic coverage without duplicating content.
+
+Use separate question-and-answer entries only when each question has a materially different answer. Make every answer self-contained and preserve its product, audience, region, channel, conditions, exceptions, warnings, and escalation path.
+
+Do not add production Q&A when:
+
+- the source does not support a factual answer
+- the answer requires live, customer-specific, or transactional data
+- deterministic execution or validation belongs in an action or flow
+- the question exists only to test retrieval, safety, or out-of-scope behavior
+- adding variants would merely duplicate the same answer throughout the source
+
+Generate questions from the confirmed use case and the source content. Use realistic user language, including important synonyms, but do not invent unsupported scenarios. Keep the set small and representative rather than trying to enumerate every possible wording.
+
+Keep evaluation questions in the test set rather than the production knowledge unless they also represent genuine customer questions with an authoritative answer.
+
 ## Optimize the Content
 
 Apply all relevant requirements found in the freshly fetched guidance. At minimum:
@@ -104,6 +141,9 @@ Apply all relevant requirements found in the freshly fetched guidance. At minimu
 3. Align content with likely questions.
    - Add short lead-ins that resemble natural customer requests.
    - Include important synonyms and plain-language terms naturally.
+   - Add use-case-appropriate sample questions and grounded answers when they improve retrieval.
+   - Group equivalent question variants above one canonical answer or procedure.
+   - Keep materially different Q&A entries self-contained.
    - Avoid keyword dumps and unsupported wording variants.
 
 4. Make procedures explicit.
@@ -146,12 +186,15 @@ For each output:
 - include a clear title and scope summary
 - keep provenance to the source file or URL
 - keep related rules and exceptions together
+- include representative sample questions and canonical answers when the use case supports them
 - ensure the artifact can stand alone when uploaded
 
 Provide a concise optimization report containing:
 
 - input-to-output mapping
+- confirmed AI agent use case and intended knowledge scope
 - split or merge decisions
+- sample Q&A decision and rationale for each output
 - major structural changes
 - sensitive-data findings without exposed values
 - unresolved conflicts, gaps, or assumptions
@@ -165,7 +208,11 @@ Do not copy the live guidance into the report.
 Re-read the live guidance used for the run and check every output against it. Validate:
 
 - factual fidelity to the original source
+- alignment with the confirmed AI agent use case
 - self-contained headings, summaries, rules, and procedures
+- realistic sample questions only where they improve production retrieval
+- grounded, self-contained answers with no duplicated canonical content
+- separation of production Q&A from evaluation-only test questions
 - sequential numbering and explicit transitions
 - defined terminology and context
 - retained warnings, exceptions, and escalation paths
