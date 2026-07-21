@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webex AI Agent Knowledge Optimizer"
+  short_description: "Optimize source content for Webex AI Agent RAG"
+  default_prompt: "Use $webex-ai-agent-knowledgeoptimizer to optimize my files or webpages for a Webex AI Agent Studio knowledge base."
