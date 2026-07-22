@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1020" viewBox="0 0 1440 1020">
+<defs>
+<marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+<path d="M 0 0 L 10 4 L 0 8 z" fill="#1e1e1e" />
+</marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff" />
+<rect x="1070.00" y="40.00" width="90.00" height="32.00" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="2" opacity="1" />
+<rect x="1172.00" y="40.00" width="115.00" height="32.00" rx="8" fill="#f3d9fa" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="1300.00" y="40.00" width="100.00" height="32.00" rx="8" fill="#fff9db" stroke="#f59f00" stroke-width="2" opacity="1" />
+<rect x="40.00" y="132.00" width="1360.00" height="185.00" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="2" opacity="1" />
+<rect x="72.00" y="210.00" width="155.00" height="62.00" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="2" opacity="1" />
+<rect x="282.00" y="210.00" width="180.00" height="62.00" rx="8" fill="#f3d9fa" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="518.00" y="202.00" width="205.00" height="78.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="780.00" y="202.00" width="215.00" height="78.00" rx="8" fill="#fff9db" stroke="#f59f00" stroke-width="2" opacity="1" />
+<rect x="1050.00" y="202.00" width="225.00" height="78.00" rx="8" fill="#fff9db" stroke="#f59f00" stroke-width="2" opacity="1" />
+<polyline points="227.00,241.00 282.00,241.00" fill="none" stroke="#1e1e1e" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="462.00,241.00 518.00,241.00" fill="none" stroke="#1e1e1e" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="723.00,241.00 780.00,241.00" fill="none" stroke="#1e1e1e" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="995.00,241.00 1050.00,241.00" fill="none" stroke="#1e1e1e" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<rect x="40.00" y="392.00" width="1360.00" height="122.00" rx="8" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" opacity="1" />
+<rect x="240.00" y="427.00" width="205.00" height="58.00" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2" opacity="1" />
+<rect x="500.00" y="427.00" width="180.00" height="58.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="735.00" y="427.00" width="190.00" height="58.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="980.00" y="427.00" width="225.00" height="58.00" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2" opacity="1" />
+<rect x="1250.00" y="427.00" width="115.00" height="58.00" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2" opacity="1" />
+<polyline points="1162.00,280.00 1162.00,348.00 342.00,348.00 342.00,427.00" fill="none" stroke="#2f9e44" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="445.00,456.00 500.00,456.00" fill="none" stroke="#2f9e44" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="680.00,456.00 735.00,456.00" fill="none" stroke="#2f9e44" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="925.00,456.00 980.00,456.00" fill="none" stroke="#2f9e44" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="1205.00,456.00 1250.00,456.00" fill="none" stroke="#2f9e44" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<rect x="40.00" y="552.00" width="1360.00" height="132.00" rx="8" fill="#fff9db" stroke="#f59f00" stroke-width="2" opacity="1" />
+<rect x="240.00" y="589.00" width="205.00" height="58.00" rx="8" fill="#ffffff" stroke="#f59f00" stroke-width="2" opacity="1" />
+<rect x="500.00" y="589.00" width="180.00" height="58.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="735.00" y="589.00" width="190.00" height="58.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="980.00" y="582.00" width="225.00" height="72.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="1250.00" y="589.00" width="115.00" height="58.00" rx="8" fill="#ffffff" stroke="#f59f00" stroke-width="2" opacity="1" />
+<polyline points="1105.00,280.00 1105.00,532.00 342.00,532.00 342.00,589.00" fill="none" stroke="#f59f00" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="445.00,618.00 500.00,618.00" fill="none" stroke="#f59f00" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="680.00,618.00 735.00,618.00" fill="none" stroke="#f59f00" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="925.00,618.00 980.00,618.00" fill="none" stroke="#f59f00" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="1205.00,618.00 1250.00,618.00" fill="none" stroke="#f59f00" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<rect x="40.00" y="722.00" width="1360.00" height="132.00" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="2" opacity="1" />
+<rect x="240.00" y="759.00" width="205.00" height="58.00" rx="8" fill="#ffffff" stroke="#c92a2a" stroke-width="2" opacity="1" />
+<rect x="500.00" y="759.00" width="180.00" height="58.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="735.00" y="752.00" width="190.00" height="72.00" rx="8" fill="#ffffff" stroke="#862e9c" stroke-width="2" opacity="1" />
+<rect x="980.00" y="759.00" width="225.00" height="58.00" rx="8" fill="#ffffff" stroke="#c92a2a" stroke-width="2" opacity="1" />
+<rect x="1250.00" y="759.00" width="115.00" height="58.00" rx="8" fill="#ffffff" stroke="#c92a2a" stroke-width="2" opacity="1" />
+<polyline points="1308.00,647.00 1308.00,707.00 342.00,707.00 342.00,759.00" fill="none" stroke="#c92a2a" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="445.00,788.00 500.00,788.00" fill="none" stroke="#c92a2a" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="680.00,788.00 735.00,788.00" fill="none" stroke="#c92a2a" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="925.00,788.00 980.00,788.00" fill="none" stroke="#c92a2a" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<polyline points="1205.00,788.00 1250.00,788.00" fill="none" stroke="#c92a2a" stroke-width="2" opacity="1" marker-end="url(#arrowhead)" />
+<rect x="40.00" y="892.00" width="1360.00" height="88.00" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="2" opacity="1" />
+<rect x="225.00" y="922.00" width="245.00" height="38.00" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2" opacity="1" />
+<rect x="495.00" y="922.00" width="255.00" height="38.00" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2" opacity="1" />
+<rect x="775.00" y="922.00" width="210.00" height="38.00" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2" opacity="1" />
+<rect x="1010.00" y="922.00" width="260.00" height="38.00" rx="8" fill="#ffffff" stroke="#495057" stroke-width="2" opacity="1" />
+<text x="40.00" y="40.00" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#1e1e1e" text-anchor="start"><tspan x="40.00" dy="30.00">Departmental Routing AI Agent Scripted - Clean Flow</tspan></text>
+<text x="42.00" y="82.00" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#495057" text-anchor="start"><tspan x="42.00" dy="14.00">Common start, then three clear outcomes: route to department, retry once, or escalate after two No responses.</tspan></text>
+<text x="1115.00" y="49.00" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1115.00" dy="12.00">Caller</tspan></text>
+<text x="1229.50" y="49.00" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1229.50" dy="12.00">WxCC Flow</tspan></text>
+<text x="1350.00" y="49.00" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1350.00" dy="12.00">AI Agent</tspan></text>
+<text x="64.00" y="150.00" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="64.00" dy="22.00">Common Start</tspan></text>
+<text x="149.50" y="219.00" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#1e1e1e" text-anchor="middle"><tspan x="149.50" dy="15.00">Caller calls</tspan><tspan x="149.50" dy="18.00">hospital line</tspan></text>
+<text x="372.00" y="219.00" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="372.00" dy="14.00">Voice flow starts</tspan><tspan x="372.00" dy="16.80">AI Agent activity</tspan></text>
+<text x="620.50" y="211.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="620.50" dy="13.00">state_update</tspan><tspan x="620.50" dy="15.60">intent=Identify_Department</tspan></text>
+<text x="887.50" y="211.00" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="887.50" dy="14.00">Identify_Department</tspan><tspan x="887.50" dy="16.80">collect departmentName</tspan></text>
+<text x="1162.50" y="211.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="14" fill="#1e1e1e" text-anchor="middle"><tspan x="1162.50" dy="14.00">Confirm department</tspan><tspan x="1162.50" dy="16.80">${entity.departmentName}</tspan></text>
+<text x="42.00" y="347.00" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#1e1e1e" text-anchor="start"><tspan x="42.00" dy="22.00">Outcome Paths Returned From The AI Agent</tspan></text>
+<text x="64.00" y="414.00" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="64.00" dy="18.00">Success Path</tspan></text>
+<text x="342.50" y="436.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="342.50" dy="13.00">Yes custom event</tspan><tspan x="342.50" dy="15.60">MetaData.departmentName</tspan></text>
+<text x="590.00" y="436.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.00" dy="13.00">Case_State_event</tspan><tspan x="590.00" dy="15.60">StateEventName = Yes</tspan></text>
+<text x="830.00" y="436.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="830.00" dy="13.00">Parse_department_name</tspan><tspan x="830.00" dy="15.60">read MetaData</tspan></text>
+<text x="1092.50" y="436.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="1092.50" dy="13.00">QueueContact_e4i_d6h</tspan><tspan x="1092.50" dy="15.60">queueName = departmentName</tspan></text>
+<text x="1307.50" y="436.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="1307.50" dy="13.00">Caller reaches</tspan><tspan x="1307.50" dy="15.60">department</tspan></text>
+<text x="1145.00" y="327.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2f9e44" text-anchor="middle"><tspan x="1145.00" dy="13.00">Yes</tspan></text>
+<text x="64.00" y="575.00" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="64.00" dy="18.00">Retry Path</tspan></text>
+<text x="342.50" y="598.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="342.50" dy="13.00">No custom event</tspan><tspan x="342.50" dy="15.60">reset slots enabled</tspan></text>
+<text x="590.00" y="598.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.00" dy="13.00">Case_State_event</tspan><tspan x="590.00" dy="15.60">StateEventName = No</tspan></text>
+<text x="830.00" y="598.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="830.00" dy="13.00">incrementCounter</tspan><tspan x="830.00" dy="15.60">counter = 1</tspan></text>
+<text x="1092.50" y="591.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1092.50" dy="12.00">findDepartmentAgain</tspan><tspan x="1092.50" dy="14.40">state_update + context</tspan><tspan x="1092.50" dy="14.40">5 turns</tspan></text>
+<text x="1307.50" y="598.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="1307.50" dy="13.00">Ask for</tspan><tspan x="1307.50" dy="15.60">department again</tspan></text>
+<text x="1089.00" y="512.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#f59f00" text-anchor="middle"><tspan x="1089.00" dy="13.00">No once</tspan></text>
+<text x="64.00" y="745.00" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="64.00" dy="18.00">Escalation Path</tspan></text>
+<text x="342.50" y="768.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="342.50" dy="13.00">Second No event</tspan><tspan x="342.50" dy="15.60">slots clear again</tspan></text>
+<text x="590.00" y="768.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="590.00" dy="13.00">counter = 2</tspan><tspan x="590.00" dy="15.60">max reached</tspan></text>
+<text x="830.00" y="761.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="830.00" dy="12.00">No_response</tspan><tspan x="830.00" dy="14.40">eventDataJson</tspan><tspan x="830.00" dy="14.40">escalate=yes</tspan></text>
+<text x="1092.50" y="768.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="1092.50" dy="13.00">AI Agent sends</tspan><tspan x="1092.50" dy="15.60">customEscalation</tspan></text>
+<text x="1307.50" y="768.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1e1e1e" text-anchor="middle"><tspan x="1307.50" dy="13.00">Live-agent</tspan><tspan x="1307.50" dy="15.60">assistance</tspan></text>
+<text x="1241.00" y="687.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#c92a2a" text-anchor="middle"><tspan x="1241.00" dy="13.00">No second time</tspan></text>
+<text x="64.00" y="910.00" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1e1e1e" text-anchor="start"><tspan x="64.00" dy="18.00">Key Checks</tspan></text>
+<text x="347.50" y="931.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="347.50" dy="12.00">StateEventName drives the case node</tspan></text>
+<text x="622.50" y="931.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="622.50" dy="12.00">MetaData.departmentName becomes queueName</tspan></text>
+<text x="880.00" y="931.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="880.00" dy="12.00">No intent clears entity slots</tspan></text>
+<text x="1140.00" y="931.00" font-family="&quot;Cascadia Code&quot;, Menlo, Consolas, monospace" font-size="12" fill="#1e1e1e" text-anchor="middle"><tspan x="1140.00" dy="12.00">Department values must match queues</tspan></text>
+</svg>
