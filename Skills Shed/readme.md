@@ -9,4 +9,5 @@ Personal-assistant skills for repeatable Webex CX AI workflows.
 | [WhatsApp SIP Gateway](./whatsapp/) | Build, deploy, and troubleshoot a Meta WhatsApp Calling SIP gateway for Cisco Webex Contact Center and Webex AI Agents. |
 | [AI Calculator](./AI%20Calculator/) | Skill workspace for ROI CC Calculations. |
 | [Webex MCP Onboarding](./webex-mcp-onboarding/) | Guided assistant skill for onboarding MCP servers into Webex Developer Portal, Control Hub Agentic Apps, and AI Agent Studio. |
+| [AWS SigV4 MCP Onboarding](./aws-sigv4-mcp-onboarding/) | Securely validate and connect AWS IAM SigV4-protected AgentCore MCP servers to Codex and other STDIO-capable MCP clients. |
 | [AI Agent Creator](https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Skills%20Shed/webex-ai-agent-creator) | A skill for helping create an AI Agent using all of the best practices. |
