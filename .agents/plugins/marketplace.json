@@ -1,0 +1,20 @@
+{
+  "name": "ai-scg",
+  "interface": {
+    "displayName": "AI SCG"
+  },
+  "plugins": [
+    {
+      "name": "scg-update-lab",
+      "source": {
+        "source": "local",
+        "path": "./Plugins/scg-update-lab"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "DeveloperTools"
+    }
+  ]
+}

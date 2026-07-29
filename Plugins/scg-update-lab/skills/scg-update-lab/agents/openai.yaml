@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCG Plugin Update Lab"
+  short_description: "Verify isolated marketplace plugin updates safely"
+  default_prompt: "Use $scg-update-lab to report the installed lab release and verify its isolated update state."
