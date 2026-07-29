@@ -34,7 +34,7 @@ flowchart LR
 
 New to MCP onboarding for Webex AI Agent Studio? Use the guided onboarding skill to walk through Developer Portal registration, Control Hub authorization, tool enablement, Studio action binding, and validation.
 
-<a href="../../Skills%20Shed/webex-mcp-onboarding/" style="display:inline-block;background:#1f6feb;color:#ffffff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;">Open Skills Shed: Webex MCP onboarding skill</a>
+<a href="../../Skills/webex-mcp-onboarding/" style="display:inline-block;background:#1f6feb;color:#ffffff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;">Open Skills Shed: Webex MCP onboarding skill</a>
 
 After opening or installing that skill in your assistant of choice, such as Codex, ask:
 
@@ -100,7 +100,7 @@ The demo moment: if speech recognition hears `Niko` as `Nico`, the caller sees t
 | [visual_appointment.json](visual_appointment.json) | Webex AI Agent Studio export | Autonomous AI Agent with voice-oriented instructions and MCP appointment tools. |
 | [Visual_Appointment_Confirmation.json](Visual_Appointment_Confirmation.json) | Webex Contact Center Flow Designer export | Voice entry flow that routes a caller into the imported AI Agent and falls back to a queue. |
 | MCP backend | External dependency | SMS-backed appointment draft, modify, confirm, nudge, cancel, and get-draft actions. |
-| [Webex MCP onboarding skill](../../Skills%20Shed/webex-mcp-onboarding/) | Companion guided setup asset | Step-by-step help for Developer Portal registration, Control Hub Agentic Apps, Studio MCP action binding, and validation. |
+| [Webex MCP onboarding skill](../../Skills/webex-mcp-onboarding/) | Companion guided setup asset | Step-by-step help for Developer Portal registration, Control Hub Agentic Apps, Studio MCP action binding, and validation. |
 
 </details>
 
