@@ -27,7 +27,7 @@ The repository is organised around three asset types:
 ```text
 templates/       Pre-built use cases and reusable starting points
 cookbooks/       Best practices, how-to guides, and build patterns
-skills shed/          Personal-assistant skills for specialist AI workflows
+Skills/          Personal-assistant skills for specialist AI workflows
 mcp factory/    MCP endpoints for various integrations
 ```
 
@@ -97,13 +97,13 @@ Use skills when you want an assistant to help with:
 
 | Skill | Purpose |
 | --- | --- |
-| [WhatsApp SIP Gateway](./whatsapp/) | Build, deploy, and troubleshoot a Meta WhatsApp Calling SIP gateway for Cisco Webex Contact Center and Webex AI Agents. |
-| [AI Calculator](./AI%20Calculator/) | Skill workspace for ROI CC Calculations. |
-| [Webex MCP Onboarding](./webex-mcp-onboarding/) | Guided assistant skill for onboarding MCP servers into Webex Developer Portal, Control Hub Agentic Apps, and AI Agent Studio. |
-| [AI Agent Creator](https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Skills%20Shed/webex-ai-agent-creator) | A skill for helping create an AI Agent using all of the best practices. |
+| [WhatsApp SIP Gateway](./Skills/whatsapp/) | Build, deploy, and troubleshoot a Meta WhatsApp Calling SIP gateway for Cisco Webex Contact Center and Webex AI Agents. |
+| [AI Calculator](./Skills/AI%20Calculator/) | Skill workspace for ROI CC Calculations. |
+| [Webex MCP Onboarding](./Skills/webex-mcp-onboarding/) | Guided assistant skill for onboarding MCP servers into Webex Developer Portal, Control Hub Agentic Apps, and AI Agent Studio. |
+| [AI Agent Creator](./Skills/webex-ai-agent-creator/) | A skill for helping create an AI Agent using all of the best practices. |
 
 
-[Browse the Skills Shed](./Skills%20Shed)
+[Browse the Skills Shed](./Skills/)
 
 ---
 
@@ -123,7 +123,7 @@ Choose the asset type based on the job you need to do.
 | --- | --- |
 | Build from a proven starting point | `templates/` |
 | Learn how to build or adapt something | `cookbooks/` |
-| Make your AI assistant an expert in a repeatable task | `skills/` |
+| Make your AI assistant an expert in a repeatable task | `Skills/` |
 | Package a customer learning for others | `cookbooks/` or `templates/` |
 
 Clone the repository:
@@ -138,7 +138,7 @@ Then open the relevant asset folder:
 ```bash
 cd templates
 cd ../cookbooks
-cd ../skills
+cd ../Skills
 ```
 
 
