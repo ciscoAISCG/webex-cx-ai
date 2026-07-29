@@ -1,0 +1,22 @@
+{
+  "name": "scg-update-lab",
+  "version": "0.1.0+codex.lab-v1",
+  "description": "Isolated prototype for validating AI SCG plugin marketplace updates.",
+  "author": {
+    "name": "AI SCG"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SCG Plugin Update Lab",
+    "shortDescription": "Verify isolated marketplace updates safely.",
+    "longDescription": "A non-production AI SCG test plugin used only to prove marketplace installation and same-identity version replacement without changing any working SCG skill or plugin.",
+    "developerName": "AI SCG",
+    "category": "DeveloperTools",
+    "capabilities": [
+      "Report the installed lab release",
+      "Verify skill-content replacement",
+      "Exercise isolated marketplace update workflows"
+    ],
+    "defaultPrompt": "Using SCG Plugin Update Lab, report the installed release and verify that this is the isolated test plugin."
+  }
+}

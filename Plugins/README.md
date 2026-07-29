@@ -2,9 +2,11 @@
 
 Installable AI SCG plugin packages will be published here.
 
-No plugins have been published yet.
+| Plugin | Status | Purpose |
+| --- | --- | --- |
+| [SCG Plugin Update Lab](./scg-update-lab/) | Experimental | Safely validates marketplace installation and same-identity updates in a disposable Codex environment. |
 
-Each future plugin will use its own folder:
+Each plugin uses its own folder:
 
 ```text
 Plugins/
