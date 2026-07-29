@@ -9,37 +9,39 @@ This repository is where reusable assets created from real customer engagements,
 
 The goal is to help Cisco teams and partners build faster, avoid starting from scratch, and apply proven AI patterns with more confidence.
 
-[Start Here](#start-here) · [Templates](#templates) · [Cookbooks](#cookbooks) · [Skills](#skills-for-personal-assistants) · [Contributing](#contributing)
+[Start Here](#start-here) · [Playbooks](#playbooks) · [Cookbooks](#cookbooks) · [Skills](#skills) · [Plugins](#plugins) · [MCP Factory](#mcp-factory) · [Contributing](#contributing)
 
 ---
 
 ## Asset Library
 
-The repository is organised around three asset types:
+The repository is organised around five asset types:
 
 | Asset | What It Is | When To Use It |
 | --- | --- | --- |
-| Templates | Pre-built use cases and structures that help consumers build quickly. | Use when you want a working starting point for a customer scenario, demo, workflow, or solution pattern. |
+| Playbooks | Complete, repeatable use cases with setup, testing, and deployment guidance. | Use when you want a working starting point for a customer scenario, demo, workflow, or solution pattern. |
 | Cookbooks | Best practices, build guidance, examples, and how-to material. | Use when you need to understand how to build, adapt, validate, or improve an AI use case. |
-| Skills for personal assistants | Instructions that turn your AI assistants into specialised experts who can build along with you. | Use when you want claude/codex/gemini to behave like to help in your config, best practices and other aspects of Webex CX AI portfolio. They will already know everything in the best practices, the cookbooks and so on. Let them build for you. |
+| Skills | Standalone instructions that turn AI assistants into specialised experts for repeatable workflows. | Use when you want Codex, Claude, Gemini, or another compatible assistant to follow proven SCG guidance. |
+| Plugins | Installable bundles that can combine skills with MCP connections, scripts, hooks, and supporting assets. | Use when you want to install and share a complete SCG capability. |
 | MCP Factory | Templates for MCP endpoints that can be used for demo, POC or production purposes. | Use when you want to have a reference implementation for an MCP integration with 3rd party systems. |
 
 ```text
-templates/       Pre-built use cases and reusable starting points
-cookbooks/       Best practices, how-to guides, and build patterns
-Skills/          Personal-assistant skills for specialist AI workflows
-mcp factory/    MCP endpoints for various integrations
+Playbooks/      Complete use cases and reusable starting points
+Cookbooks/      Best practices, how-to guides, and build patterns
+Skills/         Standalone skills for specialist AI workflows
+Plugins/        Installable bundles of skills, tools, and supporting assets
+MCP Factory/    MCP endpoint templates and reference implementations
 ```
 
 ---
 
-## Templates
+## Playbooks
 
-Templates are pre-built use cases that help teams move quickly from idea to execution.
+Playbooks are complete, repeatable use cases that help teams move quickly from idea to execution.
 
-They are designed to give consumers a practical starting point: the structure, flow, components, prompts, or configuration pattern needed to build a specific AI use case without rebuilding the basics.
+They provide a practical starting point: the structure, flow, components, prompts, configuration, and deployment guidance needed to build a specific AI use case without rebuilding the basics.
 
-Use templates when you need to:
+Use playbooks when you need to:
 
 - Build a customer use case quickly.
 - Recreate a proven demo or workflow.
@@ -56,7 +58,7 @@ Use templates when you need to:
 | [ServiceNow KB + Incident AI Agent With MCP](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/ServiceNow_KB_Incident_AI_Agent_With_MCP/README.md) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
 | [Visual_Appointment_Confirmation](https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Playbooks/Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 
-[Browse templates and playbooks](./playbooks)
+[Browse playbooks](./Playbooks/)
 
 ---
 
@@ -74,13 +76,13 @@ Use cookbooks when you need to:
 - Learn how to scope, structure, test, or refine an AI workflow.
 - Translate a customer requirement into a working AI pattern.
 
-[Browse cookbooks](./cookbooks)
+[Browse cookbooks](./Cookbooks/)
 
 ---
 
-## Skills For Personal Assistants
+## Skills
 
-Skills turn a personal AI assistant into a specialised expert for a repeatable task.
+Skills are standalone workflows that turn a personal AI assistant into a specialised expert for a repeatable task.
 
 They package domain knowledge, instructions, guardrails, and working patterns so an assistant can help build with you, not just answer questions. The intent is to make personal assistants more useful in day-to-day AI work: faster to brief, more consistent in output, and better aligned to proven SCG patterns.
 
@@ -107,6 +109,23 @@ Use skills when you want an assistant to help with:
 
 ---
 
+## Plugins
+
+Plugins are installable bundles that package one or more capabilities for easy distribution.
+
+Unlike a standalone skill, a plugin can combine skills with MCP connections, scripts, hooks, and supporting assets. Use plugins when you want to:
+
+- Install a complete SCG capability.
+- Combine guided workflows with connected tools.
+- Share a versioned package with a team.
+- Provide one consistent installation and update path.
+
+No plugins have been published yet.
+
+[Browse plugins](./Plugins/)
+
+---
+
 ## MCP Factory
 
 Explore a number of MCP endpoints that you can use and deploy as part of your POCs or in production. This is a set of MCP endpoints that the team has used or developed and is shared here so that you can deploy this MCP endpoint yourself in your environment for your testing or production purposes 
@@ -121,24 +140,28 @@ Choose the asset type based on the job you need to do.
 
 | If you need to... | Start with... |
 | --- | --- |
-| Build from a proven starting point | `templates/` |
-| Learn how to build or adapt something | `cookbooks/` |
+| Build from a proven starting point | `Playbooks/` |
+| Learn how to build or adapt something | `Cookbooks/` |
 | Make your AI assistant an expert in a repeatable task | `Skills/` |
-| Package a customer learning for others | `cookbooks/` or `templates/` |
+| Install a complete SCG capability | `Plugins/` |
+| Build or deploy an MCP reference implementation | `MCP Factory/` |
+| Package a customer learning for others | `Cookbooks/` or `Playbooks/` |
 
 Clone the repository:
 
 ```bash
-git clone <REPOSITORY_URL>
-cd ai-scg-assets
+git clone https://github.com/ciscoAISCG/webex-cx-ai.git
+cd webex-cx-ai
 ```
 
 Then open the relevant asset folder:
 
 ```bash
-cd templates
-cd ../cookbooks
+cd Playbooks
+cd ../Cookbooks
 cd ../Skills
+cd ../Plugins
+cd "../MCP Factory"
 ```
 
 
