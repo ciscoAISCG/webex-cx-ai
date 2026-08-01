@@ -1,6 +1,6 @@
 {
   "name": "scg-update-lab",
-  "version": "0.1.0+codex.lab-v1",
+  "version": "0.1.0+codex.lab-v2",
   "description": "Isolated prototype for validating AI SCG plugin marketplace updates.",
   "author": {
     "name": "AI SCG"

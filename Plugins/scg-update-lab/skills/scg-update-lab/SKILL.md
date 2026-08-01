@@ -14,8 +14,8 @@ server.
 Return these two values exactly:
 
 ```text
-LAB_RELEASE=v1
-LAB_MESSAGE=Initial marketplace installation is active.
+LAB_RELEASE=v2
+LAB_MESSAGE=Marketplace update replacement is active.
 ```
 
 State that the values belong to the isolated SCG Plugin Update Lab, not a
