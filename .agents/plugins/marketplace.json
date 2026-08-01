@@ -1,7 +1,7 @@
 {
   "name": "ai-scg",
   "interface": {
-    "displayName": "AI SCG Skills & Plugins Marketplace"
+    "displayName": "AI SCG Plugin Marketplace"
   },
   "plugins": [
     {
