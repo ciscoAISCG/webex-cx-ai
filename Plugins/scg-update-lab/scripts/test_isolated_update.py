@@ -15,8 +15,8 @@ import tempfile
 PLUGIN = "scg-update-lab"
 MARKETPLACE = "ai-scg"
 SELECTOR = f"{PLUGIN}@{MARKETPLACE}"
-V1 = "0.1.0+codex.lab-v1"
-V2 = "0.1.0+codex.lab-v2"
+CURRENT_VERSION = "0.1.0+codex.lab-v2"
+NEXT_VERSION = "0.1.0+codex.lab-v3"
 
 
 def run(command: list[str], env: dict[str, str]) -> subprocess.CompletedProcess[str]:
@@ -52,13 +52,15 @@ def assert_installed_version(
     return output
 
 
-def promote_disposable_copy_to_v2(marketplace_root: Path) -> None:
+def promote_disposable_copy_to_next_release(marketplace_root: Path) -> None:
     plugin_root = marketplace_root / "Plugins" / PLUGIN
     manifest_path = plugin_root / ".codex-plugin" / "plugin.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("version") != V1:
-        raise RuntimeError(f"Expected disposable source version {V1}")
-    manifest["version"] = V2
+    if manifest.get("version") != CURRENT_VERSION:
+        raise RuntimeError(
+            f"Expected disposable source version {CURRENT_VERSION}"
+        )
+    manifest["version"] = NEXT_VERSION
     manifest_path.write_text(
         json.dumps(manifest, indent=2) + "\n",
         encoding="utf-8",
@@ -66,23 +68,23 @@ def promote_disposable_copy_to_v2(marketplace_root: Path) -> None:
 
     skill_path = plugin_root / "skills" / PLUGIN / "SKILL.md"
     skill = skill_path.read_text(encoding="utf-8")
-    skill = skill.replace("LAB_RELEASE=v1", "LAB_RELEASE=v2")
+    skill = skill.replace("LAB_RELEASE=v2", "LAB_RELEASE=v3")
     skill = skill.replace(
-        "LAB_MESSAGE=Initial marketplace installation is active.",
         "LAB_MESSAGE=Marketplace update replacement is active.",
+        "LAB_MESSAGE=Second marketplace update replacement is active.",
     )
     skill_path.write_text(skill, encoding="utf-8")
 
 
-def assert_installed_skill_is_v2(isolated_codex_home: Path) -> None:
+def assert_installed_skill_is_next_release(isolated_codex_home: Path) -> None:
     matching = [
         path
         for path in isolated_codex_home.rglob("SKILL.md")
         if path.parent.name == PLUGIN
-        and "LAB_RELEASE=v2" in path.read_text(encoding="utf-8")
+        and "LAB_RELEASE=v3" in path.read_text(encoding="utf-8")
     ]
     if not matching:
-        raise RuntimeError("Updated v2 skill content was not installed")
+        raise RuntimeError("Updated next-release skill content was not installed")
 
 
 def main() -> int:
@@ -127,16 +129,16 @@ def main() -> int:
             env,
         )
 
-        print(f"2/6 Installing {V1}")
+        print(f"2/6 Installing {CURRENT_VERSION}")
         run([codex_bin, "plugin", "add", SELECTOR], env)
-        assert_installed_version(codex_bin, env, V1)
+        assert_installed_version(codex_bin, env, CURRENT_VERSION)
 
-        print("3/6 Publishing v2 only into the disposable marketplace")
-        promote_disposable_copy_to_v2(disposable_marketplace)
+        print("3/6 Publishing the next release only in the disposable marketplace")
+        promote_disposable_copy_to_next_release(disposable_marketplace)
 
-        print(f"4/6 Reinstalling the same identity as {V2}")
+        print(f"4/6 Reinstalling the same identity as {NEXT_VERSION}")
         run([codex_bin, "plugin", "add", SELECTOR], env)
-        plugin_list = assert_installed_version(codex_bin, env, V2)
+        plugin_list = assert_installed_version(codex_bin, env, NEXT_VERSION)
 
         print("5/6 Confirming one identity and updated skill content")
         selector_count = len(
@@ -146,14 +148,14 @@ def main() -> int:
             raise RuntimeError(
                 f"Expected one installed identity, found {selector_count}"
             )
-        assert_installed_skill_is_v2(isolated_codex_home)
+        assert_installed_skill_is_next_release(isolated_codex_home)
 
         print("6/6 Confirming production identities were never registered")
         if "scg-library@" in plugin_list or "scg-airtable@" in plugin_list:
             raise RuntimeError("A production plugin appeared in the isolated test home")
 
-    print("\nPASS: v1 was replaced by v2 under one lab plugin identity.")
-    print("PASS: the updated v2 skill content was installed.")
+    print("\nPASS: the current release was replaced under one plugin identity.")
+    print("PASS: the next-release skill content was installed.")
     print("PASS: no production SCG plugin was registered in the test home.")
     return 0
 
