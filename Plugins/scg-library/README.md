@@ -12,34 +12,58 @@ data is stored in Airtable, but users interact with it as the SCG Library.
 
 No Airtable PAT, Auth0 client secret, Render secret, or MCP bearer token is included.
 
-## User installation
+## Installation
 
-Add the AI SCG marketplace once, then install the plugin from that marketplace:
+> [!IMPORTANT]
+> **Copy and paste the prompt below into Codex.**
+>
+> Codex performs the marketplace, configuration, and plugin installation. You
+> complete Auth0 verification in the secure browser and restart Codex when
+> instructed.
+
+```text
+Install the SCG Library plugin from the AI SCG marketplace in
+ciscoAISCG/webex-cx-ai using branch main. Read the live plugin README first. Do
+not ask me to run terminal commands; perform the required Codex plugin-management
+steps yourself. If the ai-scg marketplace is not configured, add it. Preserve
+all unrelated Codex configuration and ensure the top-level setting
+mcp_oauth_callback_port = 5555 is present. Install only scg-library, verify its
+source and installed version, and do not access SCG Library business data yet.
+Tell me when to fully quit and reopen Codex and give me the exact first-use
+prompt.
+```
+
+The user may need to approve the scoped edit to Codex configuration. Codex must
+preserve every unrelated setting. After installation, fully quit and reopen
+Codex, start a new task, and ask:
+
+> Using SCG Library, check my access and list the available data collections.
+
+Codex opens Auth0 for email OTP and consent when authentication is required. The
+user enters the email and OTP only in the Auth0 browser—not in Codex. The remote
+server automatically records a verified first-time `@cisco.com` user as Active;
+other verified domains are Pending until an administrator approves them.
+Returning approved users normally continue without another onboarding step,
+and administrators can revoke access at any time.
+
+<details>
+<summary>Manual installation fallback</summary>
+
+Use these commands only when Codex cannot perform the installation directly:
 
 ```bash
 codex plugin marketplace add https://github.com/ciscoAISCG/webex-cx-ai.git
 codex plugin add scg-library@ai-scg
 ```
 
-The marketplace is the maintained source for future plugin releases. Before the
-first authentication, confirm this top-level Codex setting exists in
-`~/.codex/config.toml` without changing unrelated configuration:
+Before authentication, ensure this top-level setting exists in
+`~/.codex/config.toml`:
 
 ```toml
 mcp_oauth_callback_port = 5555
 ```
 
-After installation, fully quit and reopen Codex, start a new task, and ask:
-
-> Using SCG Library, find information about ...
-
-Codex opens Auth0 for email OTP and consent when authentication is required. The
-remote server automatically records a verified first-time `@cisco.com` user as
-Active and then runs the read-only query. Other verified domains are recorded as
-Pending until an administrator changes the row to Active. Returning approved
-users normally continue without another onboarding step; rotating refresh
-tokens prevent daily reconnects. An administrator can block access by setting
-the user's registry Status to Revoked.
+</details>
 
 ## Updates
 
@@ -48,15 +72,28 @@ Use the canonical [AI SCG marketplace update instructions](../README.md#consumer
 ## Authentication recovery
 
 If Codex reports `Not logged in`, `Auth required`, or an expired Auth0 session,
-start a fresh login instead of reinstalling the plugin or changing the Airtable
+paste this request instead of reinstalling the plugin or changing the access
 registry:
+
+```text
+Reconnect SCG Library authentication. Do not ask me to run terminal commands;
+start the required Codex MCP login yourself with the airtable:read and
+offline_access scopes. Wait for the Auth0 browser flow to complete, preserve my
+existing plugin and configuration, and tell me when to fully restart Codex.
+```
+
+The user completes email OTP and consent only in the Auth0 browser. The OTP email
+is sent after the fresh login begins. Deleting a registry row does not sign the
+user out of Auth0; administrators use `Status = Revoked` to block access.
+
+<details>
+<summary>Manual authentication fallback</summary>
 
 ```bash
 codex mcp login scg-library --scopes airtable:read,offline_access
 ```
 
-The OTP email is sent only after this login flow starts. Deleting a registry row
-does not sign the user out of Auth0; use `Status = Revoked` to block access.
+</details>
 
 ## Read-only tools
 

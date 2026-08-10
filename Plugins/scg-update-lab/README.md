@@ -4,6 +4,19 @@ This non-production plugin proves the AI SCG marketplace installation and
 update workflow without modifying any working SCG skill, plugin, MCP server, or
 configuration.
 
+## Installation
+
+> [!IMPORTANT]
+> **Copy and paste the prompt below into Codex.**
+
+```text
+Install scg-update-lab from the AI SCG marketplace in
+ciscoAISCG/webex-cx-ai using branch main. Do not ask me to run terminal
+commands; perform the plugin-management steps yourself. If the ai-scg
+marketplace is not configured, add it. Install only scg-update-lab, verify its
+source and installed version, and tell me when to start a new Codex task.
+```
+
 ## Isolation guarantees
 
 - Unique plugin identity: `scg-update-lab`
