@@ -4,16 +4,21 @@ Personal-assistant skills for repeatable Webex CX AI workflows.
 
 > **Marketplace or standalone?** Put a standalone, manually installed skill in
 > `Skills/`. To distribute a skill through the AI SCG Plugin Marketplace,
-> package it as a plugin by following the [Plugins contributor guide](../Plugins/README.md#contributors-ask-codex).
+> package it as a plugin by following the [Plugins contributor guide](../Plugins/README.md#contributors-start-here).
 
-## Contributors: ask Codex
+## Contributors: start here
 
-Give Codex your files or describe the workflow, then say:
+> [!IMPORTANT]
+> **Copy and paste the prompt below into Codex.**
+>
+> Give Codex your files or describe the workflow first.
 
-> Create or update this as a standalone AI SCG skill in the `Skills/` folder of
-> `ciscoAISCG/webex-cx-ai`. Read and follow the repository's `AGENTS.md`. Ask me
-> only for missing product decisions, then validate the skill and prepare a
-> feature-branch pull request. Do not merge it.
+```text
+Create or update this as a standalone AI SCG skill in ciscoAISCG/webex-cx-ai.
+Read and follow the repository's AGENTS.md instructions. Ask me only for missing
+product decisions, validate the skill, and prepare a feature-branch pull
+request. Do not merge it.
+```
 
 Codex should handle the folder structure, `SKILL.md`, supporting files,
 validation, and GitHub workflow. The contributor only needs to review and merge
