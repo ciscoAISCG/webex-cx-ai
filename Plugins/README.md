@@ -44,3 +44,4 @@ For a skill that does not need marketplace distribution, use the
 | Plugin | Status | Purpose |
 | --- | --- | --- |
 | [SCG Plugin Update Lab](./scg-update-lab/) | Experimental | Safely validates marketplace installation and same-identity updates in a disposable Codex environment. |
+| [SCG Library](./scg-library/) | Available | Securely queries the read-only SCG business-data library with Auth0 identity verification, Cisco-domain auto-approval, and administrator-controlled external access. |
