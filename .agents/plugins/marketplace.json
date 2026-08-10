@@ -15,6 +15,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "DeveloperTools"
+    },
+    {
+      "name": "scg-library",
+      "source": {
+        "source": "local",
+        "path": "./Plugins/scg-library"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }
