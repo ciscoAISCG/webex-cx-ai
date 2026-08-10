@@ -17,20 +17,32 @@ Plugin MCP tools may be deferred instead of appearing in the task's initial tool
 
 Only report a connector-loading failure after this focused discovery attempt returns no matching tool or the discovered tool produces an actual startup error. Preserve and report the safe startup error instead of claiming that the user's configuration is correct without evidence.
 
-If the actual startup error is `Auth required`, do not direct the user to
-Codex Settings or Connectors. This plugin's remote MCP authentication is
-managed by the Codex CLI. Explain that no Airtable data was accessed, then run
-or guide this exact recovery:
+Treat all of these results as the same recoverable authentication state:
+
+- `Auth required`
+- `Not logged in`
+- `authentication_required`
+- an expired or timed-out OAuth/Auth0 session
+- no usable stored OAuth credentials
+
+Do not stop after reporting one of these messages, claim a specific token
+lifetime caused it without evidence, or direct the user to Codex Settings or
+Connectors. This plugin's remote MCP authentication is managed by the Codex
+CLI. Explain that no SCG Library business data was accessed, then run this
+exact recovery command directly when terminal execution is available. If it is
+not available, give the user the command without asking them for credentials:
 
 ```bash
 codex mcp login scg-library --scopes airtable:read,offline_access
 ```
 
-Wait for the browser email OTP and consent flow to complete successfully. Then
-the user must fully quit Codex with `Cmd-Q` on macOS or Exit on Windows, reopen
-it, start a new task, and retry. Closing only the window or starting another
-task without restarting the app does not reload the MCP session. Do not report
-the recovery as complete until the login command exits successfully.
+Wait for the browser email OTP and consent flow to complete successfully. The
+OTP email is triggered by this fresh login flow, not by deleting an Airtable
+registry row. Then the user must fully quit Codex with `Cmd-Q` on macOS or Exit
+on Windows, reopen it, start a new task, and retry. Closing only the window or
+starting another task without restarting the app does not reload the MCP
+session. Do not report the recovery as complete until the login command exits
+successfully.
 
 ## First-use check
 
