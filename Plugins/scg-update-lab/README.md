@@ -27,3 +27,7 @@ copy to the next release, reinstalls the same identity, and verifies that only
 one lab plugin is present.
 
 Do not add working SCG plugins or production connections to this lab.
+
+## Updates
+
+Use the canonical [AI SCG marketplace update instructions](../README.md#consumers-check-for-updates).

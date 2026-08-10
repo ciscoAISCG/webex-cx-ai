@@ -41,6 +41,10 @@ users normally continue without another onboarding step; rotating refresh
 tokens prevent daily reconnects. An administrator can block access by setting
 the user's registry Status to Revoked.
 
+## Updates
+
+Use the canonical [AI SCG marketplace update instructions](../README.md#consumers-check-for-updates).
+
 ## Read-only tools
 
 - `get_my_airtable_access_v1`
