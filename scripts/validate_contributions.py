@@ -143,6 +143,17 @@ def _validate_plugin(
     manifest = _read_json(manifest_path, errors)
     if manifest is None:
         return name, plugin_dir
+
+    plugin_readme = plugin_dir / "README.md"
+    if not plugin_readme.is_file():
+        errors.append(f"Plugin '{name}' is missing README.md")
+    elif "../README.md#consumers-check-for-updates" not in plugin_readme.read_text(
+        encoding="utf-8"
+    ):
+        errors.append(
+            f"Plugin '{name}' README.md must link to the canonical update instructions"
+        )
+
     if manifest.get("name") != name:
         errors.append(f"Manifest name in {manifest_path} must be '{name}'")
     version = manifest.get("version")

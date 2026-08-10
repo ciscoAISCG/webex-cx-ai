@@ -6,6 +6,12 @@ Personal-assistant skills for repeatable Webex CX AI workflows.
 > `Skills/`. To distribute a skill through the AI SCG Plugin Marketplace,
 > package it as a plugin by following the [Plugins contributor guide](../Plugins/README.md#contributors-start-here).
 
+Skills installed through a marketplace plugin update with that plugin. A
+manually installed standalone skill is not covered by the marketplace update
+workflow and must be compared with its source and reinstalled manually. For an
+easy consumer update path, distribute the skill as a plugin and use the
+[marketplace update instructions](../Plugins/README.md#consumers-check-for-updates).
+
 ## Contributors: start here
 
 > [!IMPORTANT]

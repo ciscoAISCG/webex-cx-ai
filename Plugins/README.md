@@ -2,6 +2,24 @@
 
 Installable packages distributed through the AI SCG Plugin Marketplace.
 
+## Consumers: check for updates
+
+> [!IMPORTANT]
+> **Copy and paste the prompt below into Codex.**
+>
+> This checks only AI SCG plugins you already installed. It does not install
+> new plugins.
+
+```text
+Check my installed AI SCG marketplace plugins for updates. Refresh the ai-scg
+marketplace first. Update only plugins I already have installed; do not install
+any new plugins. Report what changed and tell me whether I need to start a new
+task to load the updates.
+```
+
+Skills packaged inside a plugin update with that plugin. If nothing has
+changed, Codex should report that all installed AI SCG plugins are up to date.
+
 ## Contributors: start here
 
 > [!IMPORTANT]

@@ -61,6 +61,10 @@ class ContributionValidatorTests(unittest.TestCase):
             ),
         )
         self._write(
+            "Plugins/example-plugin/README.md",
+            "[Update instructions](../README.md#consumers-check-for-updates)\n",
+        )
+        self._write(
             "Plugins/example-plugin/skills/example-skill/SKILL.md",
             "---\nname: example-skill\ndescription: Example skill.\n---\n",
         )
@@ -100,6 +104,12 @@ class ContributionValidatorTests(unittest.TestCase):
         manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
         errors, _, _ = validate_repository(self.root)
         self.assertTrue(any("invalid semantic version" in error for error in errors))
+
+    def test_missing_update_link_is_rejected(self) -> None:
+        readme_path = self.root / "Plugins/example-plugin/README.md"
+        readme_path.write_text("# Example plugin\n", encoding="utf-8")
+        errors, _, _ = validate_repository(self.root)
+        self.assertTrue(any("canonical update instructions" in error for error in errors))
 
     def test_unlisted_plugin_folder_is_rejected(self) -> None:
         self._write(
