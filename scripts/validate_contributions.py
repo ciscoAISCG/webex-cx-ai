@@ -147,12 +147,21 @@ def _validate_plugin(
     plugin_readme = plugin_dir / "README.md"
     if not plugin_readme.is_file():
         errors.append(f"Plugin '{name}' is missing README.md")
-    elif "../README.md#consumers-check-for-updates" not in plugin_readme.read_text(
-        encoding="utf-8"
-    ):
-        errors.append(
-            f"Plugin '{name}' README.md must link to the canonical update instructions"
+    else:
+        plugin_readme_text = plugin_readme.read_text(encoding="utf-8")
+        installation = re.search(
+            r"^## Installation\s*$.*?(?=^## |\Z)",
+            plugin_readme_text,
+            flags=re.MULTILINE | re.DOTALL,
         )
+        if installation is None or "```text" not in installation.group(0):
+            errors.append(
+                f"Plugin '{name}' README.md must include a natural-language Installation prompt"
+            )
+        if "../README.md#consumers-check-for-updates" not in plugin_readme_text:
+            errors.append(
+                f"Plugin '{name}' README.md must link to the canonical update instructions"
+            )
 
     if manifest.get("name") != name:
         errors.append(f"Manifest name in {manifest_path} must be '{name}'")

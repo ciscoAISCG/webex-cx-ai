@@ -2,6 +2,29 @@
 
 Installable packages distributed through the AI SCG Plugin Marketplace.
 
+## Consumers: install a plugin
+
+> [!IMPORTANT]
+> **Replace `<plugin-name>` and paste the prompt into Codex.**
+>
+> Codex performs the technical installation. You may still need to approve a
+> protected local change, complete secure browser authentication, or restart
+> Codex when the plugin requires it.
+
+```text
+Install the <plugin-name> plugin from the AI SCG marketplace in
+ciscoAISCG/webex-cx-ai using branch main. Read the plugin's README first and
+complete its required Codex setup. Do not ask me to run terminal commands;
+perform the plugin-management and configuration steps yourself. If the ai-scg
+marketplace is not configured, add it. Install only the requested plugin,
+preserve unrelated configuration, verify the installed source and version, and
+report any human-only authentication or restart steps.
+```
+
+Browse the [available plugins](#available-plugins), open the plugin README for
+plugin-specific requirements, and replace `<plugin-name>` with its marketplace
+name.
+
 ## Consumers: check for updates
 
 > [!IMPORTANT]

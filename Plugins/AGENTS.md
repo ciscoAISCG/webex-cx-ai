@@ -23,8 +23,12 @@ apply. All paths below are relative to the repository root.
 - For a new plugin, add exactly one matching entry to
   `.agents/plugins/marketplace.json` with a `./Plugins/<plugin-name>` source.
 - Add a new plugin to the table in `Plugins/README.md`.
-- Give every plugin a `README.md` that links to the canonical consumer update
-  instructions at `../README.md#consumers-check-for-updates`.
+- Give every plugin a `README.md` with an `Installation` section containing a
+  copyable natural-language Codex prompt. Make Codex perform the technical
+  installation and state only unavoidable human actions such as protected
+  approvals, browser authentication, or restart.
+- Link every plugin README to the canonical consumer update instructions at
+  `../README.md#consumers-check-for-updates`.
 - For an update, preserve the folder, manifest name, and marketplace identity.
   Update the contents and increment the manifest version; never create a
   numbered replacement folder.
