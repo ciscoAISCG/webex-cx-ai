@@ -23,6 +23,11 @@ REQUIRED_INTERFACE_FIELDS = (
     "developerName",
     "category",
 )
+REQUIRED_INSTRUCTION_FILES = (
+    "AGENTS.md",
+    "Plugins/AGENTS.md",
+    "Skills/AGENTS.md",
+)
 
 
 def _read_json(path: Path, errors: list[str]) -> dict[str, Any] | None:
@@ -209,6 +214,13 @@ def _validate_plugin(
 def validate_repository(repo_root: Path) -> tuple[list[str], int, int]:
     repo_root = repo_root.resolve()
     errors: list[str] = []
+    for relative_path in REQUIRED_INSTRUCTION_FILES:
+        instruction_path = repo_root / relative_path
+        if not instruction_path.is_file():
+            errors.append(f"Missing required Codex instructions: {relative_path}")
+        elif not instruction_path.read_text(encoding="utf-8").strip():
+            errors.append(f"Codex instructions must not be empty: {relative_path}")
+
     marketplace_path = repo_root / ".agents" / "plugins" / "marketplace.json"
     marketplace = _read_json(marketplace_path, errors)
     plugin_names: set[str] = set()

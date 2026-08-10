@@ -15,6 +15,9 @@ class ContributionValidatorTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp_dir = tempfile.TemporaryDirectory()
         self.root = Path(self.temp_dir.name)
+        self._write("AGENTS.md", "# Repository instructions\n")
+        self._write("Plugins/AGENTS.md", "# Plugin instructions\n")
+        self._write("Skills/AGENTS.md", "# Skill instructions\n")
         self._write(
             ".agents/plugins/marketplace.json",
             json.dumps(
@@ -84,6 +87,11 @@ class ContributionValidatorTests(unittest.TestCase):
         (self.root / "Plugins/example-plugin/.codex-plugin/plugin.json").unlink()
         errors, _, _ = validate_repository(self.root)
         self.assertTrue(any("Missing required file" in error for error in errors))
+
+    def test_missing_scoped_instructions_are_rejected(self) -> None:
+        (self.root / "Plugins/AGENTS.md").unlink()
+        errors, _, _ = validate_repository(self.root)
+        self.assertTrue(any("Missing required Codex instructions" in error for error in errors))
 
     def test_invalid_version_is_rejected(self) -> None:
         manifest_path = self.root / "Plugins/example-plugin/.codex-plugin/plugin.json"
