@@ -11,9 +11,9 @@ Personal-assistant skills for repeatable Webex CX AI workflows.
 Give Codex your files or describe the workflow, then say:
 
 > Create or update this as a standalone AI SCG skill in the `Skills/` folder of
-> `ciscoAISCG/webex-cx-ai`. Follow the existing repository conventions, validate
-> the skill, scan it for secrets and customer data, and prepare a feature-branch
-> pull request. Do not merge it.
+> `ciscoAISCG/webex-cx-ai`. Read and follow the repository's `AGENTS.md`. Ask me
+> only for missing product decisions, then validate the skill and prepare a
+> feature-branch pull request. Do not merge it.
 
 Codex should handle the folder structure, `SKILL.md`, supporting files,
 validation, and GitHub workflow. The contributor only needs to review and merge

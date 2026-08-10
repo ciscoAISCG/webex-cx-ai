@@ -7,10 +7,9 @@ Installable packages distributed through the AI SCG Plugin Marketplace.
 Give Codex the skill or capability you want to share, then say:
 
 > Package or update this as an AI SCG marketplace plugin in the `Plugins/`
-> folder of `ciscoAISCG/webex-cx-ai`. For a new plugin, create the required
-> manifest and marketplace entry. For an update, preserve its existing identity
-> and increase its version. Validate everything, scan for secrets and customer
-> data, and prepare a feature-branch pull request. Do not merge it.
+> folder of `ciscoAISCG/webex-cx-ai`. Read and follow the repository's
+> `AGENTS.md`. Ask me only for missing product decisions, then validate the
+> package and prepare a feature-branch pull request. Do not merge it.
 
 Codex should handle the package structure, manifest, marketplace registration,
 versioning, validation, and GitHub workflow. The contributor only needs to
