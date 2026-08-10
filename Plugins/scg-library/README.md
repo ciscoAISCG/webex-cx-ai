@@ -45,6 +45,19 @@ the user's registry Status to Revoked.
 
 Use the canonical [AI SCG marketplace update instructions](../README.md#consumers-check-for-updates).
 
+## Authentication recovery
+
+If Codex reports `Not logged in`, `Auth required`, or an expired Auth0 session,
+start a fresh login instead of reinstalling the plugin or changing the Airtable
+registry:
+
+```bash
+codex mcp login scg-library --scopes airtable:read,offline_access
+```
+
+The OTP email is sent only after this login flow starts. Deleting a registry row
+does not sign the user out of Auth0; use `Status = Revoked` to block access.
+
 ## Read-only tools
 
 - `get_my_airtable_access_v1`
