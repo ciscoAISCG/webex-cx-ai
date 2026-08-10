@@ -2,10 +2,22 @@
 
 Installable packages distributed through the AI SCG Plugin Marketplace.
 
-## Contributors: publish a marketplace plugin
+## Contributors: ask Codex
 
-Every marketplace contribution must be a plugin. A plugin may contain only one
-skill, but it still requires this package structure:
+Give Codex the skill or capability you want to share, then say:
+
+> Package or update this as an AI SCG marketplace plugin in the `Plugins/`
+> folder of `ciscoAISCG/webex-cx-ai`. For a new plugin, create the required
+> manifest and marketplace entry. For an update, preserve its existing identity
+> and increase its version. Validate everything, scan for secrets and customer
+> data, and prepare a feature-branch pull request. Do not merge it.
+
+Codex should handle the package structure, manifest, marketplace registration,
+versioning, validation, and GitHub workflow. The contributor only needs to
+review and merge the pull request.
+
+A plugin may contain only one skill. Codex will still create the required
+installable package structure:
 
 ```text
 Plugins/<plugin-name>/
@@ -16,25 +28,12 @@ Plugins/<plugin-name>/
         └── SKILL.md
 ```
 
-- Keep the plugin folder name and manifest `name` identical and lower-case
-  hyphenated.
-- Give every plugin a valid semantic `version` in
-  `.codex-plugin/plugin.json`.
-- For a new plugin, add one entry to
-  [the marketplace catalog](../.agents/plugins/marketplace.json).
-- For an update, keep the same folder, plugin name, and catalog entry; update
-  the contents and increase the manifest version. Do not create a numbered
-  replacement folder.
-- Validate the manifest and bundled skills, remove secrets and customer data,
-  and submit the change through a feature branch and pull request.
-
-Suggested Codex request:
-
-> Package this skill as an AI SCG marketplace plugin named `<plugin-name>` and
-> prepare a feature-branch pull request.
+For updates, Codex must keep the same folder, manifest name, and
+[marketplace entry](../.agents/plugins/marketplace.json). It updates the contents
+and version rather than creating a numbered replacement plugin.
 
 For a skill that does not need marketplace distribution, use the
-[Skills contributor guide](../Skills/readme.md#contributors-build-a-standalone-skill).
+[Skills contributor guide](../Skills/readme.md#contributors-ask-codex).
 
 ## Available plugins
 
