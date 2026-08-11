@@ -1,6 +1,6 @@
 {
   "name": "scg-library",
-  "version": "0.1.0+codex.20260810214657",
+  "version": "0.1.0+codex.20260811192001",
   "description": "Secure, read-only access to the SCG Library from Codex.",
   "author": {
     "name": "AI SCG"
