@@ -1,6 +1,6 @@
 ---
 name: scg-library
-description: Securely query and authenticate to the SCG Library from Codex. Use when a user asks an SCG business-data question, checks or reconnects their SCG Library access, needs first-use Auth0 guidance, lists or describes available data collections, searches across the wide underlying Airtable dataset, finds matching customer or opportunity records, requests counts or summaries, or retrieves one complete record. The bundled remote MCP is read-only, authenticates through Auth0 email, auto-approves verified Cisco identities, requires administrator approval for other domains, and honors revocation.
+description: Securely query the SCG Library from Codex. Use when a user asks an SCG business-data question, checks their SCG Library access, lists or describes available data collections, searches across the wide underlying Airtable dataset, finds matching customer or opportunity records, requests counts or summaries, or retrieves one complete record. The bundled remote MCP is read-only, authenticates through Auth0 email, auto-approves verified Cisco identities, requires administrator approval for other domains, and honors revocation.
 ---
 
 # SCG Library
@@ -25,41 +25,24 @@ Treat all of these results as the same recoverable authentication state:
 - an expired or timed-out OAuth/Auth0 session
 - no usable stored OAuth credentials
 
-## Single OAuth transaction rule
-
-Codex app authentication is the primary path. A tool-triggered, app-managed
-Auth0 window and `codex mcp login` are separate OAuth transactions. Never start
-both for one authentication attempt.
-
-When the initial access tool call opens an Auth0 window inside Codex:
-
-1. Stop initiating authentication elsewhere and wait for the user to finish
-   that one window.
-2. Do not run `codex mcp login`, open the authorization URL manually, or call
-   the access tool again while the browser flow is active.
-3. After the browser reports success, retry `get_my_airtable_access_v1` once.
-   Continue if it returns an access status. If Codex has not reloaded the MCP
-   credentials, tell the user to fully quit and reopen Codex, then retry in a
-   new task.
-
-Do not stop after merely reporting `Auth required`, claim a specific token
+Do not stop after reporting one of these messages, claim a specific token
 lifetime caused it without evidence, or direct the user to Codex Settings or
-Connectors. If no app-managed Auth0 window opened, or that single transaction
-failed and no SCG Library OAuth window remains active, explain that the fallback
-opens the computer's default browser and then run this exact command when
-terminal execution is available:
+Connectors. This plugin's remote MCP authentication is managed by the Codex
+CLI. Explain that no SCG Library business data was accessed, then run this
+exact recovery command directly when terminal execution is available. If it is
+not available, give the user the command without asking them for credentials:
 
 ```bash
 codex mcp login scg-library --scopes airtable:read,offline_access
 ```
 
-If terminal execution is unavailable, provide that command without requesting
-credentials. Wait for the system-browser email OTP and consent flow to complete
-successfully. The OTP email is triggered by the fresh login flow, not by
-deleting an Airtable registry row. After command-line login, the user must fully
-quit Codex with `Cmd-Q` on macOS or Exit on Windows, reopen it, start a new task,
-and retry. Closing only the window does not reload the MCP session. Do not report
-command-line recovery as complete until the login command exits successfully.
+Wait for the browser email OTP and consent flow to complete successfully. The
+OTP email is triggered by this fresh login flow, not by deleting an Airtable
+registry row. Then the user must fully quit Codex with `Cmd-Q` on macOS or Exit
+on Windows, reopen it, start a new task, and retry. Closing only the window or
+starting another task without restarting the app does not reload the MCP
+session. Do not report the recovery as complete until the login command exits
+successfully.
 
 ## First-use check
 
@@ -90,8 +73,7 @@ enter both directly in the Auth0 browser flow.
 For a user's first SCG Library request in a task:
 
 1. Call `get_my_airtable_access_v1`.
-2. If app-managed Auth0 prompts, follow the single OAuth transaction rule and
-   let the user complete email OTP and consent in that browser only.
+2. If Auth0 prompts, let the user complete email OTP and consent in the browser.
 3. A verified first-time `@cisco.com` user is registered as `Active`. Every
    other verified domain is registered as `Pending` for administrator approval.
 4. Continue when the tool returns `status: active`.
