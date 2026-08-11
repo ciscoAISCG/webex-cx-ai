@@ -17,9 +17,8 @@ No Airtable PAT, Auth0 client secret, Render secret, or MCP bearer token is incl
 > [!IMPORTANT]
 > **Copy and paste the prompt below into Codex.**
 >
-> Codex performs the marketplace, configuration, and plugin installation. You
-> complete Auth0 verification in the secure browser and restart Codex when
-> instructed.
+> Codex performs the marketplace, configuration, and plugin installation.
+> Authentication begins only after the restart and first SCG Library request.
 
 ```text
 Install the SCG Library plugin from the AI SCG marketplace in
@@ -28,9 +27,9 @@ not ask me to run terminal commands; perform the required Codex plugin-managemen
 steps yourself. If the ai-scg marketplace is not configured, add it. Preserve
 all unrelated Codex configuration and ensure the top-level setting
 mcp_oauth_callback_port = 5555 is present. Install only scg-library, verify its
-source and installed version, and do not access SCG Library business data yet.
-Tell me when to fully quit and reopen Codex and give me the exact first-use
-prompt.
+source and installed version, and do not start MCP authentication or access SCG
+Library business data during installation. Tell me when to fully quit and reopen
+Codex and give me the exact first-use prompt.
 ```
 
 The user may need to approve the scoped edit to Codex configuration. Codex must
@@ -39,12 +38,14 @@ Codex, start a new task, and ask:
 
 > Using SCG Library, check my access and list the available data collections.
 
-Codex opens Auth0 for email OTP and consent when authentication is required. The
-user enters the email and OTP only in the Auth0 browser—not in Codex. The remote
-server automatically records a verified first-time `@cisco.com` user as Active;
-other verified domains are Pending until an administrator approves them.
-Returning approved users normally continue without another onboarding step,
-and administrators can revoke access at any time.
+The first request starts one app-managed Auth0 transaction in Codex. While that
+secure browser flow is open, Codex must not also run `codex mcp login` or open a
+second OAuth transaction. The user enters the email and OTP only in the Auth0
+browser—not in the conversation. The remote server automatically records a
+verified first-time `@cisco.com` user as Active; other verified domains are
+Pending until an administrator approves them. Returning approved users normally
+continue without another onboarding step, and administrators can revoke access
+at any time.
 
 <details>
 <summary>Manual installation fallback</summary>
@@ -76,10 +77,14 @@ paste this request instead of reinstalling the plugin or changing the access
 registry:
 
 ```text
-Reconnect SCG Library authentication. Do not ask me to run terminal commands;
-start the required Codex MCP login yourself with the airtable:read and
-offline_access scopes. Wait for the Auth0 browser flow to complete, preserve my
-existing plugin and configuration, and tell me when to fully restart Codex.
+Reconnect SCG Library authentication without reinstalling anything. Start by
+checking my SCG Library access once so Codex can open its app-managed Auth0
+browser. If that browser opens, wait for me to finish it and do not also run
+codex mcp login. Use the command-line MCP login with airtable:read and
+offline_access only if no app-managed authentication window opened or that
+single flow failed. Before using the fallback, confirm no other SCG Library
+OAuth transaction remains open. Preserve my plugin and unrelated configuration,
+and tell me whether a full Codex restart is required.
 ```
 
 The user completes email OTP and consent only in the Auth0 browser. The OTP email
@@ -87,7 +92,11 @@ is sent after the fresh login begins. Deleting a registry row does not sign the
 user out of Auth0; administrators use `Status = Revoked` to block access.
 
 <details>
-<summary>Manual authentication fallback</summary>
+<summary>System-browser authentication fallback</summary>
+
+Use this only when the app-managed Auth0 window did not open or failed. It opens
+the computer's default browser. Never run it while an embedded Codex Auth0 flow
+is active.
 
 ```bash
 codex mcp login scg-library --scopes airtable:read,offline_access
