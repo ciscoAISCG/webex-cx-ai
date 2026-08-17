@@ -5,20 +5,26 @@ Installable packages distributed through the AI SCG Plugin Marketplace.
 ## Consumers: install a plugin
 
 > [!IMPORTANT]
-> **Replace `<plugin-name>` and paste the prompt into Codex.**
+> **First set the Codex task permission to `Ask for Approval`. Then replace
+> `<plugin-name>` and paste the prompt into Codex.**
 >
-> Codex performs the technical installation. You may still need to approve a
-> protected local change, complete secure browser authentication, or restart
-> Codex when the plugin requires it.
+> This applies to every AI SCG marketplace plugin. Installation updates your
+> local Codex configuration, so Codex must be able to request your approval.
+> If the task is set to `Approve for me`, installation may stop with a
+> read-only `.codex` directory error.
 
 ```text
 Install the <plugin-name> plugin from the AI SCG marketplace in
-ciscoAISCG/webex-cx-ai using branch main. Read the plugin's README first and
-complete its required Codex setup. Do not ask me to run terminal commands;
-perform the plugin-management and configuration steps yourself. If the ai-scg
-marketplace is not configured, add it. Install only the requested plugin,
-preserve unrelated configuration, verify the installed source and version, and
-report any human-only authentication or restart steps.
+ciscoAISCG/webex-cx-ai using branch main. Before beginning, confirm this task
+can request approval to update the local Codex configuration. If protected-write
+approval is unavailable, stop and tell me to set the task permission to Ask for
+Approval. Do not use sudo, change filesystem permissions, or attempt another
+workaround. Read the plugin's README first and complete its required Codex
+setup. Do not ask me to run terminal commands; perform the plugin-management
+and configuration steps yourself. If the ai-scg marketplace is not configured,
+add it. Install only the requested plugin, preserve unrelated configuration,
+verify the installed source and version, and report any human-only approval,
+authentication, or restart steps.
 ```
 
 Browse the [available plugins](#available-plugins), open the plugin README for
