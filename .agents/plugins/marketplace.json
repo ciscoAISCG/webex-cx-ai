@@ -5,18 +5,6 @@
   },
   "plugins": [
     {
-      "name": "scg-update-lab",
-      "source": {
-        "source": "local",
-        "path": "./Plugins/scg-update-lab"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "DeveloperTools"
-    },
-    {
       "name": "scg-library",
       "source": {
         "source": "local",
