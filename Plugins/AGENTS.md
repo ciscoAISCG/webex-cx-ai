@@ -27,6 +27,11 @@ apply. All paths below are relative to the repository root.
   copyable natural-language Codex prompt. Make Codex perform the technical
   installation and state only unavoidable human actions such as protected
   approvals, browser authentication, or restart.
+- Make every installation section tell the user to set the Codex task
+  permission to `Ask for Approval`. The copyable prompt must check whether
+  protected-write approval is available and, when it is not, stop with that
+  exact instruction instead of suggesting `sudo`, permission changes, or other
+  workarounds.
 - Link every plugin README to the canonical consumer update instructions at
   `../README.md#consumers-check-for-updates`.
 - For an update, preserve the folder, manifest name, and marketplace identity.
