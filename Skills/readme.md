@@ -10,7 +10,7 @@ Skills installed through a marketplace plugin update with that plugin. A
 manually installed standalone skill is not covered by the marketplace update
 workflow and must be compared with its source and reinstalled manually. For an
 easy consumer update path, distribute the skill as a plugin and use the
-[marketplace update instructions](../Plugins/README.md#consumers-check-for-updates).
+[marketplace update instructions](../Plugins/README.md#update-my-plugins).
 
 ## Contributors: start here
 

@@ -33,7 +33,7 @@ apply. All paths below are relative to the repository root.
   exact instruction instead of suggesting `sudo`, permission changes, or other
   workarounds.
 - Link every plugin README to the canonical consumer update instructions at
-  `../README.md#consumers-check-for-updates`.
+  `../README.md#update-my-plugins`.
 - For an update, preserve the folder, manifest name, and marketplace identity.
   Update the contents and increment the manifest version; never create a
   numbered replacement folder.
