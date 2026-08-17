@@ -38,6 +38,13 @@ any new plugins. Report what changed and tell me whether I need to start a new
 task to load the updates.
 ```
 
+## Available plugins
+
+| Plugin | Status | Purpose |
+| --- | --- | --- |
+| [SCG Plugin Update Lab](./scg-update-lab/) | Experimental | Safely validates marketplace installation and same-identity updates in a disposable Codex environment. |
+| [SCG Library](./scg-library/) | Available | Securely queries the read-only SCG business-data library with Auth0 identity verification, Cisco-domain auto-approval, and administrator-controlled external access. |
+
 ---
 
 <details>
@@ -81,10 +88,3 @@ For a skill that does not need marketplace distribution, use the
 [Skills contributor guide](../Skills/readme.md#contributors-start-here).
 
 </details>
-
-## Available plugins
-
-| Plugin | Status | Purpose |
-| --- | --- | --- |
-| [SCG Plugin Update Lab](./scg-update-lab/) | Experimental | Safely validates marketplace installation and same-identity updates in a disposable Codex environment. |
-| [SCG Library](./scg-library/) | Available | Securely queries the read-only SCG business-data library with Auth0 identity verification, Cisco-domain auto-approval, and administrator-controlled external access. |
