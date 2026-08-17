@@ -120,9 +120,6 @@ Unlike a standalone skill, a plugin can combine skills with MCP connections, scr
 - Share a versioned package with a team.
 - Provide one consistent installation and update path.
 
-The first entry is the experimental [SCG Plugin Update Lab](./Plugins/scg-update-lab/),
-which validates marketplace update mechanics in a disposable Codex environment.
-
 [Install an AI SCG marketplace plugin](./Plugins/README.md#install-a-plugin) ·
 [Check installed plugins for updates](./Plugins/README.md#update-my-plugins)
 
