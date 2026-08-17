@@ -2,16 +2,11 @@
 
 Installable packages distributed through the AI SCG Plugin Marketplace.
 
-## Consumers: install a plugin
+## Install a Plugin
 
 > [!IMPORTANT]
-> **First set the Codex task permission to `Ask for Approval`. Then replace
-> `<plugin-name>` and paste the prompt into Codex.**
->
-> This applies to every AI SCG marketplace plugin. Installation updates your
-> local Codex configuration, so Codex must be able to request your approval.
-> If the task is set to `Approve for me`, installation may stop with a
-> read-only `.codex` directory error.
+> **Set the Codex task permission to `Ask for Approval`, replace
+> `<plugin-name>`, and paste this into Codex:**
 
 ```text
 Install the <plugin-name> plugin from the AI SCG marketplace in
@@ -23,22 +18,19 @@ workaround. Read the plugin's README first and complete its required Codex
 setup. Do not ask me to run terminal commands; perform the plugin-management
 and configuration steps yourself. If the ai-scg marketplace is not configured,
 add it. Install only the requested plugin, preserve unrelated configuration,
-verify the installed source and version, and report any human-only approval,
-authentication, or restart steps.
+verify the installed source and version, and guide me through only the
+unavoidable human approval, authentication, or restart steps.
 ```
 
 Browse the [available plugins](#available-plugins), open the plugin README for
 plugin-specific requirements, and replace `<plugin-name>` with its marketplace
 name.
 
-## Consumers: check for updates
+## Update My Plugins
 
 > [!IMPORTANT]
 > **Copy and paste the prompt below into Codex.**
 >
-> This checks only AI SCG plugins you already installed. It does not install
-> new plugins.
-
 ```text
 Check my installed AI SCG marketplace plugins for updates. Refresh the ai-scg
 marketplace first. Update only plugins I already have installed; do not install
@@ -46,10 +38,12 @@ any new plugins. Report what changed and tell me whether I need to start a new
 task to load the updates.
 ```
 
-Skills packaged inside a plugin update with that plugin. If nothing has
-changed, Codex should report that all installed AI SCG plugins are up to date.
+---
 
-## Contributors: start here
+<details>
+<summary><strong>Contributing a plugin?</strong></summary>
+
+### Let Codex Package It
 
 > [!IMPORTANT]
 > **Copy and paste the prompt below into Codex.**
@@ -85,6 +79,8 @@ and version rather than creating a numbered replacement plugin.
 
 For a skill that does not need marketplace distribution, use the
 [Skills contributor guide](../Skills/readme.md#contributors-start-here).
+
+</details>
 
 ## Available plugins
 

@@ -62,9 +62,10 @@ class ContributionValidatorTests(unittest.TestCase):
         )
         self._write(
             "Plugins/example-plugin/README.md",
-            "## Installation\n\n```text\nInstall example-plugin.\n```\n\n"
+            "## Installation\n\nAsk for Approval.\n\n"
+            "```text\nInstall example-plugin.\n```\n\n"
             "## Updates\n\n"
-            "[Update instructions](../README.md#consumers-check-for-updates)\n",
+            "[Update instructions](../README.md#update-my-plugins)\n",
         )
         self._write(
             "Plugins/example-plugin/skills/example-skill/SKILL.md",
@@ -117,11 +118,21 @@ class ContributionValidatorTests(unittest.TestCase):
         readme_path = self.root / "Plugins/example-plugin/README.md"
         readme_path.write_text(
             "## Installation\n\nRun a terminal command.\n\n"
-            "[Update instructions](../README.md#consumers-check-for-updates)\n",
+            "[Update instructions](../README.md#update-my-plugins)\n",
             encoding="utf-8",
         )
         errors, _, _ = validate_repository(self.root)
         self.assertTrue(any("natural-language Installation prompt" in error for error in errors))
+
+    def test_missing_approval_prerequisite_is_rejected(self) -> None:
+        readme_path = self.root / "Plugins/example-plugin/README.md"
+        readme_path.write_text(
+            "## Installation\n\n```text\nInstall example-plugin.\n```\n\n"
+            "[Update instructions](../README.md#update-my-plugins)\n",
+            encoding="utf-8",
+        )
+        errors, _, _ = validate_repository(self.root)
+        self.assertTrue(any("Ask for Approval prerequisite" in error for error in errors))
 
     def test_unlisted_plugin_folder_is_rejected(self) -> None:
         self._write(

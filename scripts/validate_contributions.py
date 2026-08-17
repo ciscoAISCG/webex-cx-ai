@@ -158,7 +158,11 @@ def _validate_plugin(
             errors.append(
                 f"Plugin '{name}' README.md must include a natural-language Installation prompt"
             )
-        if "../README.md#consumers-check-for-updates" not in plugin_readme_text:
+        elif "Ask for Approval" not in installation.group(0):
+            errors.append(
+                f"Plugin '{name}' README.md must include the Ask for Approval prerequisite"
+            )
+        if "../README.md#update-my-plugins" not in plugin_readme_text:
             errors.append(
                 f"Plugin '{name}' README.md must link to the canonical update instructions"
             )

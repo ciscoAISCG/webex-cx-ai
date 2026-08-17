@@ -15,18 +15,17 @@ No Airtable PAT, Auth0 client secret, Render secret, or MCP bearer token is incl
 ## Installation
 
 > [!IMPORTANT]
-> **Copy and paste the prompt below into Codex.**
->
-> Codex performs the marketplace, configuration, and plugin installation. You
-> complete Auth0 verification in the secure browser and restart Codex when
-> instructed.
+> **Set the Codex task permission to `Ask for Approval`, then copy and paste:**
 
 ```text
 Install the SCG Library plugin from the AI SCG marketplace in
-ciscoAISCG/webex-cx-ai using branch main. Read the live plugin README first. Do
-not ask me to run terminal commands; perform the required Codex plugin-management
-steps yourself. If the ai-scg marketplace is not configured, add it. Preserve
-all unrelated Codex configuration and ensure the top-level setting
+ciscoAISCG/webex-cx-ai using branch main. Before beginning, confirm this task
+can request approval to update the local Codex configuration. If approval is
+unavailable, stop and tell me to set the task permission to Ask for Approval.
+Do not use sudo or change filesystem permissions. Read the live plugin README
+first. Do not ask me to run terminal commands; perform the required Codex
+plugin-management steps yourself. If the ai-scg marketplace is not configured,
+add it. Preserve all unrelated Codex configuration and ensure the top-level setting
 mcp_oauth_callback_port = 5555 is present. Install only scg-library, verify its
 source and installed version, and do not access SCG Library business data yet.
 Tell me when to fully quit and reopen Codex and give me the exact first-use
@@ -67,7 +66,7 @@ mcp_oauth_callback_port = 5555
 
 ## Updates
 
-Use the canonical [AI SCG marketplace update instructions](../README.md#consumers-check-for-updates).
+Use the canonical [AI SCG marketplace update instructions](../README.md#update-my-plugins).
 
 ## Authentication recovery
 
