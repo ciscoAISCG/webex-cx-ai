@@ -70,41 +70,29 @@ Use the canonical [AI SCG marketplace update instructions](../README.md#update-m
 
 ## Authentication recovery
 
-If Codex reports `Not logged in`, `Auth required`, or an expired Auth0 session,
-paste this request instead of reinstalling the plugin or changing the access
-registry:
+For any SCG Library login, reconnect, expired-session, or wrong-identity
+problem, copy and paste:
 
 ```text
-Reconnect SCG Library authentication. Do not ask me to run terminal commands;
-start the required Codex MCP login yourself with the airtable:read and
-offline_access scopes. Wait for the Auth0 browser flow to complete, preserve my
-existing plugin and configuration, and tell me when to fully restart Codex.
+Fix my SCG Library authentication. Preserve the installed plugin, AI SCG
+marketplace, Codex configuration, Auth0 user, and SCG access registry. Do not
+ask me to run terminal commands. Diagnose the authentication state and perform
+the least disruptive recovery. Use a normal scg-library MCP reconnect first.
+Only if Auth0 repeatedly shows the wrong or stale email identity, I am
+switching identities, or a major Auth0 change requires a clean session, log
+out of the scg-library MCP and clear only the Auth0 site session for
+scg-library.primarydemo.com. Never clear my complete browser history, cache,
+or cookies or sign me out of Cisco, Microsoft, or Google; use a private browser
+window if a safe site-only reset is unavailable. Start the required login with
+the airtable:read and offline_access scopes. Let me enter my email, OTP, and
+consent only in the Auth0 browser. After login succeeds, tell me to fully quit
+and reopen Codex before checking access. Do not reinstall the plugin or delete
+or modify any user or registry record.
 ```
 
 The user completes email OTP and consent only in the Auth0 browser. The OTP email
 is sent after the fresh login begins. Deleting a registry row does not sign the
 user out of Auth0; administrators use `Status = Revoked` to block access.
-
-### Clean reset for a stale or wrong identity
-
-Use this only when Auth0 keeps showing the wrong email identity, the user is
-intentionally switching identities, or an administrator made a major Auth0
-application, connection, or tenant change. It is not needed for an ordinary
-expired session.
-
-```text
-Cleanly reset my SCG Library authentication. Preserve the installed plugin,
-AI SCG marketplace, Codex configuration, and SCG access registry. First log
-out of the scg-library MCP. Clear only the Auth0 site session for
-scg-library.primarydemo.com; never clear my complete browser history, cache,
-or cookies, and do not sign me out of Cisco, Microsoft, or Google. If that
-site-only reset cannot be done safely, tell me to use a private browser window
-for the new login. Then start a new scg-library MCP login with the
-airtable:read and offline_access scopes. Let me enter my email, OTP, and
-consent only in the Auth0 browser. After login succeeds, tell me to fully quit
-and reopen Codex before checking access. Do not reinstall the plugin, delete
-an Auth0 user, or modify the SCG access registry.
-```
 
 <details>
 <summary>Manual authentication fallback</summary>
