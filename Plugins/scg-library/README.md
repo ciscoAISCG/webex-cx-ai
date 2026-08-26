@@ -85,6 +85,27 @@ The user completes email OTP and consent only in the Auth0 browser. The OTP emai
 is sent after the fresh login begins. Deleting a registry row does not sign the
 user out of Auth0; administrators use `Status = Revoked` to block access.
 
+### Clean reset for a stale or wrong identity
+
+Use this only when Auth0 keeps showing the wrong email identity, the user is
+intentionally switching identities, or an administrator made a major Auth0
+application, connection, or tenant change. It is not needed for an ordinary
+expired session.
+
+```text
+Cleanly reset my SCG Library authentication. Preserve the installed plugin,
+AI SCG marketplace, Codex configuration, and SCG access registry. First log
+out of the scg-library MCP. Clear only the Auth0 site session for
+scg-library.primarydemo.com; never clear my complete browser history, cache,
+or cookies, and do not sign me out of Cisco, Microsoft, or Google. If that
+site-only reset cannot be done safely, tell me to use a private browser window
+for the new login. Then start a new scg-library MCP login with the
+airtable:read and offline_access scopes. Let me enter my email, OTP, and
+consent only in the Auth0 browser. After login succeeds, tell me to fully quit
+and reopen Codex before checking access. Do not reinstall the plugin, delete
+an Auth0 user, or modify the SCG access registry.
+```
+
 <details>
 <summary>Manual authentication fallback</summary>
 

@@ -44,6 +44,40 @@ starting another task without restarting the app does not reload the MCP
 session. Do not report the recovery as complete until the login command exits
 successfully.
 
+## Clean authentication reset
+
+Do not use a clean reset for an ordinary expired session, `Auth required`,
+`Not logged in`, or a routine reconnect. Use the normal recovery flow above in
+those cases.
+
+Use a clean reset only when at least one of these conditions is true:
+
+- Auth0 repeatedly presents the wrong or stale email identity.
+- The user explicitly wants to switch to another email identity.
+- An administrator made a major Auth0 application, connection, or tenant
+  change that requires a fresh browser session.
+- The user explicitly requests a clean-slate authentication test.
+
+For a clean reset:
+
+1. Preserve the installed plugin, AI SCG marketplace, Codex configuration,
+   Auth0 user, and SCG access-registry record.
+2. Run `codex mcp logout scg-library` directly when terminal execution is
+   available. Do not ask the user to run it unless execution is unavailable.
+3. Clear only the Auth0 site session for `scg-library.primarydemo.com`. Never
+   clear the user's complete browser history, cache, or cookies, and never use
+   a federated logout that signs the user out of Cisco, Microsoft, or Google.
+   If a safe site-only reset is unavailable or the stale identity remains,
+   instruct the user to use a private browser window for the new login.
+4. Run `codex mcp login scg-library --scopes airtable:read,offline_access`.
+5. Let the user enter their email, OTP, and consent only in the Auth0 browser.
+6. After the login command succeeds, tell the user to fully quit and reopen
+   Codex before calling `get_my_airtable_access_v1` in a new task.
+
+Do not reinstall the plugin, delete an Auth0 user, delete or modify the SCG
+access-registry record, or claim success until a fresh access check returns
+`status: active`.
+
 ## First-use check
 
 Before the first MCP call in a task, verify that Codex uses the registered Auth0 callback port:
