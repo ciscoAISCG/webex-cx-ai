@@ -30,7 +30,7 @@ flowchart LR
 | 7 | Test knowledge search before ticket creation. | Phone or Studio preview |
 
 > [!NOTE]
-> **Skills Shed helper:** [Open Webex MCP onboarding skill](../../Skills%20Shed/webex-mcp-onboarding/)
+> **Skills Shed helper:** [Open Webex MCP onboarding skill](../../Skills/webex-mcp-onboarding/)
 
 Ask the helper skill:
 
@@ -147,7 +147,7 @@ The key behavior is knowledge first. If the ServiceNow Knowledge Base resolves t
 | [servicenow_ai_agent.json](servicenow_ai_agent.json) | Webex AI Agent Studio export | Autonomous AI Agent configured with ServiceNow MCP actions. |
 | [servicenow_voice_flow.json](servicenow_voice_flow.json) | Webex Contact Center Flow Designer export | Minimal voice entry flow that routes a caller into the imported ServiceNow AI Agent and falls back to a queue. |
 | ServiceNow MCP backend | External dependency | Provides KB search and incident actions through Streamable HTTP MCP. |
-| [Webex MCP onboarding skill](../../Skills%20Shed/webex-mcp-onboarding/) | Companion guided setup asset | Step-by-step help for Developer Portal registration, Control Hub authorization, Studio action binding, and validation. |
+| [Webex MCP onboarding skill](../../Skills/webex-mcp-onboarding/) | Companion guided setup asset | Step-by-step help for Developer Portal registration, Control Hub authorization, Studio action binding, and validation. |
 
 </details>
 

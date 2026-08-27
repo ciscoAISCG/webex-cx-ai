@@ -1,0 +1,1548 @@
+{
+  "agent_handover_setting": {
+    "consecutive_count": {
+      "enabled": false,
+      "value": 3
+    },
+    "fallback_count": {
+      "enabled": false,
+      "value": 3
+    },
+    "handover_after_retries": false,
+    "partial_match_count": {
+      "enabled": false,
+      "value": 3
+    },
+    "response_flag": true
+  },
+  "algorithm": {
+    "algo_configuration": {
+      "infer_configuration": {
+        "spellcheck_in_inference": true
+      },
+      "n_results": 3,
+      "n_results_partial_entity": 3,
+      "n_results_related_entity": 3,
+      "slots_before_intents": true,
+      "threshold_diff_score": 0.02,
+      "threshold_min_score": 0.05,
+      "threshold_partial_entity": 0.3,
+      "threshold_related_entity": 0.6,
+      "threshold_values": [
+        -0.2,
+        -0.15,
+        -0.1,
+        -0.05,
+        0,
+        0.05,
+        0.1,
+        0.15,
+        0.2
+      ]
+    },
+    "entity_recognition": false,
+    "id": "scriptedagent",
+    "is_third_party": false
+  },
+  "allow_agent_handover": false,
+  "allow_curation": true,
+  "allow_feedback": false,
+  "bot_metadata": {
+    "locale": "en_GB",
+    "timezone": "America/New_York"
+  },
+  "bot_type": "mlbot",
+  "curation_settings": {
+    "agent_handover": {
+      "enabled": true
+    },
+    "downvoted": {
+      "enabled": true
+    },
+    "fallback": {
+      "enabled": true,
+      "none_in_fallback_rule": {
+        "enabled": false
+      }
+    },
+    "from_session": {
+      "enabled": true
+    },
+    "low_confidence": {
+      "enabled": true,
+      "low_confidence_score": 0.4,
+      "recommended_low_confidence_score": 0.66
+    },
+    "partial_match": {
+      "enabled": true
+    }
+  },
+  "default_language": "en-US",
+  "description": "",
+  "entities": [
+    {
+      "auto_complete": true,
+      "color": "#6f4f64",
+      "data": {
+        "values": [
+          {
+            "synonyms": [
+              "Heart Center",
+              "Cardiovascular Department",
+              "cardio"
+            ],
+            "value": "Cardiology"
+          },
+          {
+            "synonyms": [
+              "Medical Imaging",
+              "Diagnostic Imaging",
+              "Imaging Department"
+            ],
+            "value": "Radiology"
+          },
+          {
+            "synonyms": [
+              "Children's Department",
+              "Child Health Services",
+              "Pediatric Care Unit"
+            ],
+            "value": "Pediatrics"
+          }
+        ]
+      },
+      "name": "departmentName",
+      "roles": [],
+      "secure": false,
+      "system_entity": false,
+      "type": "custom"
+    }
+  ],
+  "error_message": "This is custom error message",
+  "first_message": "",
+  "intents": [
+    {
+      "entities": [],
+      "intent_description": "Provide assistance and information about the bot's capabilities when the user requests help or asks what the bot can do.",
+      "intent_id": "help",
+      "name": "Help",
+      "reset_state": true,
+      "template_key": "Help message",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "What can you do?"
+            },
+            {
+              "entities": [],
+              "utterance": "How can you help?"
+            },
+            {
+              "entities": [],
+              "utterance": "Help"
+            },
+            {
+              "entities": [],
+              "utterance": "What do you do?"
+            },
+            {
+              "entities": [],
+              "utterance": "Could you please help me"
+            },
+            {
+              "entities": [],
+              "utterance": "What assistance can you provide?"
+            },
+            {
+              "entities": [],
+              "utterance": "I would like some help, please."
+            },
+            {
+              "entities": [],
+              "utterance": "Would you be able to help me?"
+            },
+            {
+              "entities": [],
+              "utterance": "Could you kindly assist me?"
+            },
+            {
+              "entities": [],
+              "utterance": "Can you provide details on how you may assist?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "entities": [],
+      "intent_description": "Handle user input that doesn't match any other defined intent, providing a fallback response to keep the conversation flowing.",
+      "intent_id": "none",
+      "name": "Default fallback intent",
+      "reset_state": true,
+      "template_key": "Fallback message",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": []
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Acknowledge and respond appropriately when the user is ending the conversation with a farewell or departure expression.",
+      "intent_id": "good_bye",
+      "name": "Goodbye",
+      "reset_state": true,
+      "template_key": "Goodbye",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Goodbye"
+            },
+            {
+              "entities": [],
+              "utterance": "Adieu"
+            },
+            {
+              "entities": [],
+              "utterance": "Adios"
+            },
+            {
+              "entities": [],
+              "utterance": "Bye"
+            },
+            {
+              "entities": [],
+              "utterance": "Good bye"
+            },
+            {
+              "entities": [],
+              "utterance": "Catch you later"
+            },
+            {
+              "entities": [],
+              "utterance": "G2G"
+            },
+            {
+              "entities": [],
+              "utterance": "Ciao"
+            },
+            {
+              "entities": [],
+              "utterance": "CYA"
+            },
+            {
+              "entities": [],
+              "utterance": "C-ya"
+            },
+            {
+              "entities": [],
+              "utterance": "Fare thee well"
+            },
+            {
+              "entities": [],
+              "utterance": "Catch ya later"
+            },
+            {
+              "entities": [],
+              "utterance": "gotta go"
+            },
+            {
+              "entities": [],
+              "utterance": "See you later"
+            },
+            {
+              "entities": [],
+              "utterance": "See ya later"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Respond appropriately when the user initiates conversation with a greeting or salutation, including hellos, time-based greetings, and casual farewells.",
+      "intent_id": "greetings",
+      "name": "Greetings",
+      "reset_state": true,
+      "template_key": "Greetings",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Hello"
+            },
+            {
+              "entities": [],
+              "utterance": "Hello there"
+            },
+            {
+              "entities": [],
+              "utterance": "Ahoy"
+            },
+            {
+              "entities": [],
+              "utterance": "Hey pal"
+            },
+            {
+              "entities": [],
+              "utterance": "Greetings and salutations"
+            },
+            {
+              "entities": [],
+              "utterance": "G'day"
+            },
+            {
+              "entities": [],
+              "utterance": "Good day"
+            },
+            {
+              "entities": [],
+              "utterance": "Heya"
+            },
+            {
+              "entities": [],
+              "utterance": "Well hey there"
+            },
+            {
+              "entities": [],
+              "utterance": "Yo dude"
+            },
+            {
+              "entities": [],
+              "utterance": "Hey-hey"
+            },
+            {
+              "entities": [],
+              "utterance": "Hi"
+            },
+            {
+              "entities": [],
+              "utterance": "Hi there!"
+            },
+            {
+              "entities": [],
+              "utterance": "Hiya"
+            },
+            {
+              "entities": [],
+              "utterance": "Howdy"
+            },
+            {
+              "entities": [],
+              "utterance": "evenin"
+            },
+            {
+              "entities": [],
+              "utterance": "Good evening"
+            },
+            {
+              "entities": [],
+              "utterance": "Good morning sunshine"
+            },
+            {
+              "entities": [],
+              "utterance": "Mornin'"
+            },
+            {
+              "entities": [],
+              "utterance": "Good morning"
+            },
+            {
+              "entities": [],
+              "utterance": "Good night"
+            },
+            {
+              "entities": [],
+              "utterance": "G'night"
+            },
+            {
+              "entities": [],
+              "utterance": "Sweet dreams"
+            },
+            {
+              "entities": [],
+              "utterance": "Nighty night"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Handle user feedback indicating dissatisfaction with the bot's response, including complaints about inaccuracy, irrelevance, confusion, or general unhelpfulness.",
+      "intent_id": "not_helpful",
+      "name": "Not helpful",
+      "reset_state": true,
+      "template_key": "Not helpful",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "That was unhelpful"
+            },
+            {
+              "entities": [],
+              "utterance": "That's inaccurate"
+            },
+            {
+              "entities": [],
+              "utterance": "That was a terrible answer"
+            },
+            {
+              "entities": [],
+              "utterance": "That wasn't True"
+            },
+            {
+              "entities": [],
+              "utterance": "Not what I asked"
+            },
+            {
+              "entities": [],
+              "utterance": "That's not a good answer"
+            },
+            {
+              "entities": [],
+              "utterance": "That's not relevant"
+            },
+            {
+              "entities": [],
+              "utterance": "Not True"
+            },
+            {
+              "entities": [],
+              "utterance": "Not even close"
+            },
+            {
+              "entities": [],
+              "utterance": "That was a stupid answer"
+            },
+            {
+              "entities": [],
+              "utterance": "Inaccurate"
+            },
+            {
+              "entities": [],
+              "utterance": "False"
+            },
+            {
+              "entities": [],
+              "utterance": "That's wrong"
+            },
+            {
+              "entities": [],
+              "utterance": "Answers are not very good"
+            },
+            {
+              "entities": [],
+              "utterance": "Answers are irrelevant"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses aren't relevant"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses are unTrue"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses are dumb"
+            },
+            {
+              "entities": [],
+              "utterance": "Responses are stupid"
+            },
+            {
+              "entities": [],
+              "utterance": "Didn't answer my question"
+            },
+            {
+              "entities": [],
+              "utterance": "Wrong answer"
+            },
+            {
+              "entities": [],
+              "utterance": "Explain yourself"
+            },
+            {
+              "entities": [],
+              "utterance": "I'm confused"
+            },
+            {
+              "entities": [],
+              "utterance": "I don't understand"
+            },
+            {
+              "entities": [],
+              "utterance": "I don't get it"
+            },
+            {
+              "entities": [],
+              "utterance": "That made no sense"
+            },
+            {
+              "entities": [],
+              "utterance": "That didn't make sense"
+            },
+            {
+              "entities": [],
+              "utterance": "You are confusing me"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "entities": [],
+      "intent_description": "Acknowledge and respond appropriately when the user expresses gratitude or thanks.",
+      "intent_id": "thank_you",
+      "name": "Thank you",
+      "reset_state": true,
+      "template_key": "Thank you",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Thank you"
+            },
+            {
+              "entities": [],
+              "utterance": "Many thanks"
+            },
+            {
+              "entities": [],
+              "utterance": "Kthx"
+            },
+            {
+              "entities": [],
+              "utterance": "I appreciate that"
+            },
+            {
+              "entities": [],
+              "utterance": "Thx"
+            },
+            {
+              "entities": [],
+              "utterance": "Thnx"
+            },
+            {
+              "entities": [],
+              "utterance": "Thanks bot"
+            },
+            {
+              "entities": [],
+              "utterance": "Thanks a lot"
+            },
+            {
+              "entities": [],
+              "utterance": "Thank you"
+            },
+            {
+              "entities": [],
+              "utterance": "Thanks"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "end_conversation": true,
+      "entities": [],
+      "intent_description": "Escalate the conversation to a human agent when the user requests to speak with a real person or human support.",
+      "intent_id": "agent",
+      "name": "Talk to an agent",
+      "reset_state": true,
+      "template_key": "Agent handover",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "utterance": "Can I talk to a human?"
+            },
+            {
+              "entities": [],
+              "utterance": "agent"
+            },
+            {
+              "entities": [],
+              "utterance": "human"
+            },
+            {
+              "entities": [],
+              "utterance": "Connect me to a human"
+            },
+            {
+              "entities": [],
+              "utterance": "Chat with agent"
+            },
+            {
+              "entities": [],
+              "utterance": "Can I speak with someone?"
+            },
+            {
+              "entities": [],
+              "utterance": "I need to speak to a person"
+            },
+            {
+              "entities": [],
+              "utterance": "Please transfer me to a human agent"
+            },
+            {
+              "entities": [],
+              "utterance": "I want to talk to support"
+            },
+            {
+              "entities": [],
+              "utterance": "Can you connect me to a real person?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "description": "",
+      "end_conversation": false,
+      "entities": [
+        {
+          "counter": 2,
+          "entity_name": "departmentName",
+          "required": true,
+          "role_name": "",
+          "template_key": "departmentName_entity_response"
+        }
+      ],
+      "entry_context": [],
+      "exit_context": [
+        {
+          "duration": 5,
+          "name": "departmentIdentified"
+        }
+      ],
+      "intent_description": "Intent to find out the department",
+      "intent_id": "1",
+      "name": "Identify_Department",
+      "reset_state": false,
+      "restart_template": "",
+      "template_key": "Identify_Department_Response",
+      "update_slots": true,
+      "variants": {
+        "en-US": {
+          "are_utterances_harmful": false,
+          "utterances": [
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "I am calling about cardiology"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "I need to reach the oncology department."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "Could you connect me with the pediatrics office?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "I’m looking to speak with someone in radiology."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "Please put me through to the orthopedic department."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "I'd like to discuss my case with the neurology team."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "Can I talk to someone from the women's health division?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "I would like to inquire about the gastroenterology services."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "I'd appreciate it if you could transfer me to the mental health department."
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "Can you help me get in touch with the dermatology specialists?"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "40fb8122f64642a5981d925693b30314",
+              "utterance": "I need to talk to the urology clinic, please."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "description": "Caller says yes",
+      "end_conversation": false,
+      "entities": [],
+      "entry_context": [
+        "departmentIdentified"
+      ],
+      "exit_context": [],
+      "intent_description": "Intent to honor yes from caller",
+      "intent_id": "2",
+      "name": "Yes",
+      "reset_state": false,
+      "restart_template": "",
+      "template_key": "Yes_response",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "utterances": [
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "yes"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Absolutely!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Of course!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Sure thing!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "You bet!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Definitely!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "For sure!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "I agree!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Sounds good!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Right on!"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "f1ddc00de86a463fb80af3a707507096",
+              "utterance": "Indeed!"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "auto_complete_entities": false,
+      "description": "",
+      "end_conversation": false,
+      "entities": [],
+      "entry_context": [
+        "departmentIdentified"
+      ],
+      "exit_context": [],
+      "intent_description": "Caller confirming No",
+      "intent_id": "3",
+      "name": "No",
+      "reset_state": true,
+      "restart_template": "",
+      "template_key": "No_response",
+      "update_slots": false,
+      "variants": {
+        "en-US": {
+          "are_utterances_harmful": false,
+          "utterances": [
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "Nope"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "Not at all"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "Absolutely not"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "No way"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "No thanks"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "Definitely not"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "Nope, not interested"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "Negative"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "I'm going to pass"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "That’s a no from me"
+            },
+            {
+              "entities": [],
+              "generated": true,
+              "transaction_id": "48b0293b38204f368760ad4364f9a06c",
+              "utterance": "I decline"
+            },
+            {
+              "entities": [],
+              "utterance": "No."
+            },
+            {
+              "entities": [],
+              "generated": false,
+              "utterance": "no"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "language": "en",
+  "languages": {
+    "en-US": true
+  },
+  "logo": "https://studio.aiagent-us1.cisco.com/static/assets/img/bot-logo/default-mlbot.svg",
+  "responses": {
+    "templates": {
+      "Agent handover": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Please wait while I redirect you to one of our team member."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Entity suggestion": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Choose one of the following or provide your own"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Fallback message": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Sorry, I am unable to understand your message. Could you please rephrase it?"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Goodbye": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Goodbye and take care!"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Greetings": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Hello there."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Help message": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Hey, this is one of the sample intents which can be recognised. Intents are the user scenarios or flows which the bot can complete, while entities are the parameter which are required to complete and intent. Go ahead and configure a new intent to get started."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Identify_Department_Response": {
+        "updated_at": 1783369167722,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Could you confirm if would like to talk to ${entity.departmentName} department ?"
+                      },
+                      "text": [
+                        "you would like to talk to ${entity.departmentName} department. is that right ? "
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "No_response": {
+        "updated_at": 1783376557686,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [
+                {
+                  "actions": {
+                    "voice": [
+                      {
+                        "speech_settings": {
+                          "allow_dtmf": false,
+                          "barge_in": true,
+                          "dtmf_config": {
+                            "allow_voice": true,
+                            "dtmf_length": "",
+                            "inter_digit_timeout_in_ms": 5000,
+                            "termchar": ""
+                          },
+                          "timeout_in_ms": 10000,
+                          "timeout_response": "Please configure your timeout response"
+                        },
+                        "text": [
+                          "Sorry we are unable to identify your department, Let me transfer you to live agent to assist."
+                        ],
+                        "type": "response"
+                      },
+                      {
+                        "payload": [
+                          {
+                            "Execute_Request": {
+                              "Data": {
+                                "Params": {}
+                              },
+                              "Event_Name": "customEscalation"
+                            }
+                          }
+                        ],
+                        "type": "response"
+                      }
+                    ],
+                    "web": [
+                      {
+                        "text": [
+                          "Please configure your message."
+                        ],
+                        "type": "response"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "and": [
+                      {
+                        "or": [
+                          {
+                            "===": [
+                              {
+                                "var": "eventStore.escalate"
+                              },
+                              "yes"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "name": "retryExceeded?"
+                }
+              ],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Lets try again. ${eventStore.retryExceeded}"
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {}
+                            },
+                            "Event_Name": "No"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Not helpful": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Sorry,  I hear that wasn't able to help you. Please try asking a different question."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Partial match": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Sorry, I was unable to understand your query accurately. Could you select which intent you were referring to?"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Response suggestion": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "You can also see the results for"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Thank you": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "You're welcome, take care!"
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Welcome message": {
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "web": [
+                    {
+                      "text": [
+                        "Hello, I am a new Task bot. I can help you complete tasks by defining intents which you want the user to complete."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "Yes_response": {
+        "updated_at": 1783367078420,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Thank you, transferring you to ${entity.departmentName} now."
+                      ],
+                      "type": "response"
+                    },
+                    {
+                      "payload": [
+                        {
+                          "Execute_Request": {
+                            "Data": {
+                              "Params": {
+                                "departmentName": "${entity.departmentName}"
+                              }
+                            },
+                            "Event_Name": "Yes"
+                          }
+                        }
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      },
+      "departmentName_entity_response": {
+        "updated_at": 1783375037323,
+        "variants": {
+          "en-US": {
+            "logic": "",
+            "paths": {
+              "configurable": [
+                {
+                  "actions": {
+                    "voice": [
+                      {
+                        "speech_settings": {
+                          "allow_dtmf": false,
+                          "barge_in": true,
+                          "dtmf_config": {
+                            "allow_voice": true,
+                            "dtmf_length": "",
+                            "inter_digit_timeout_in_ms": 5000,
+                            "termchar": ""
+                          },
+                          "timeout_in_ms": 10000,
+                          "timeout_response": "Please configure your timeout response"
+                        },
+                        "text": [
+                          "Could you tell me the department you would like to be transferred to?"
+                        ],
+                        "type": "response"
+                      }
+                    ],
+                    "web": [
+                      {
+                        "text": [
+                          "Please configure your message."
+                        ],
+                        "type": "response"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "and": [
+                      {
+                        "or": [
+                          {
+                            "==": [
+                              {
+                                "var": "lastdfState.context.findDepartmentAgain"
+                              },
+                              true
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "name": "repeat_context_exists?"
+                }
+              ],
+              "default": {
+                "actions": {
+                  "voice": [
+                    {
+                      "speech_settings": {
+                        "allow_dtmf": false,
+                        "barge_in": true,
+                        "dtmf_config": {
+                          "allow_voice": true,
+                          "dtmf_length": "",
+                          "inter_digit_timeout_in_ms": 5000,
+                          "termchar": ""
+                        },
+                        "timeout_in_ms": 10000,
+                        "timeout_response": "Please configure your timeout response"
+                      },
+                      "text": [
+                        "Hello, Welcome to SCG hospital. which department would you like to talk to ?"
+                      ],
+                      "type": "response"
+                    }
+                  ],
+                  "web": [
+                    {
+                      "text": [
+                        "Please configure your message."
+                      ],
+                      "type": "response"
+                    }
+                  ]
+                }
+              }
+            },
+            "response_type": "paths",
+            "send_response_in_default_language": false
+          }
+        }
+      }
+    },
+    "workflow": {
+      "events": {
+        "No_response": {
+          "action": {
+            "template": "No_response",
+            "type": "response"
+          }
+        },
+        "Reset context": {
+          "action": {
+            "type": "reset_context"
+          }
+        },
+        "Reset slots": {
+          "action": {
+            "type": "reset_slots"
+          }
+        }
+      },
+      "logic": "",
+      "static_events": [
+        "Reset slots",
+        "Reset context"
+      ],
+      "type": "workflow_event"
+    }
+  },
+  "test_cases": [
+    {
+      "callbacks": [],
+      "child_template": false,
+      "expected_language": "en-US",
+      "expected_template": "Template to match with",
+      "intent": "",
+      "is_selected": true,
+      "new_room": true,
+      "user_message": "The message to test on"
+    }
+  ],
+  "test_cases_callbacks": false,
+  "test_cases_partial_match_success": true,
+  "voice_settings": {
+    "voices": [
+      {
+        "displayName": "en-US-Maria",
+        "language": "English",
+        "locale": "en-US"
+      }
+    ]
+  }
+}

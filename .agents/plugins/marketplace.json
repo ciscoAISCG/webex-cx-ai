@@ -1,0 +1,20 @@
+{
+  "name": "ai-scg",
+  "interface": {
+    "displayName": "AI SCG Plugin Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "scg-library",
+      "source": {
+        "source": "local",
+        "path": "./Plugins/scg-library"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
