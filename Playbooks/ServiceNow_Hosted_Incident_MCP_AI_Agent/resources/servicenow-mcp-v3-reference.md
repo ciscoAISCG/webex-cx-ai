@@ -12,7 +12,7 @@ V3 consolidates the self-contained v2 resources into five concise resources. No 
 | GET | `/incidents/{incident_number}?caller_id=...` | `resources/lookup_incident.js` | One incident object |
 | GET | `/incidents?caller_id=...` | `resources/list_incidents.js` | Array of incident objects |
 
-For the ServiceNow MCP Console Request Schema field, use [`create_incident.schema.json`](../exports/servicenow/v3/schemas/create_incident.schema.json) for creation and [`update_incident.schema.json`](../exports/servicenow/v3/schemas/update_incident.schema.json) for updates. These are OpenAPI 3.0.1 Schema Objects describing raw JSON request bodies, not complete OpenAPI documents. Do not associate a request schema with a GET resource: GET path and query inputs are configured on the resource separately. A complete OpenAPI document is intentionally not included in this reference package.
+For the ServiceNow MCP Console Request Schema field, use [`create_incident.schema.json`](../exports/servicenow/schemas/create_incident.schema.json) for creation and [`update_incident.schema.json`](../exports/servicenow/schemas/update_incident.schema.json) for updates. These are OpenAPI 3.0.1 Schema Objects describing raw JSON request bodies, not complete OpenAPI documents. Do not associate a request schema with a GET resource: GET path and query inputs are configured on the resource separately. A complete OpenAPI document is intentionally not included in this reference package.
 
 When creating the schema record in ServiceNow, set `API` to the same Scripted REST API record used by the `create_incident` resource:
 

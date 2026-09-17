@@ -77,22 +77,22 @@ The included create and update schemas describe the flat ServiceNow HTTP bodies.
 |---|---|
 | [`Incident_Management_AI_Agent.json`](exports/Incident_Management_AI_Agent.json) | Autonomous voice AI Agent export with five ServiceNow-hosted MCP tools and the built-in Agent handover tool. It contains sanitized MCP URL, server ID, and environment placeholders that must be rebound after import. |
 | [`Incident_Management_AI_Flow.json`](exports/Incident_Management_AI_Flow.json) | Webex Contact Center telephony flow that invokes the autonomous Agent, disconnects on `ENDED`, and sends `ESCALATE` or `error` outcomes to a placeholder handoff queue. Rebind the organization, Agent, flow, and queue identifiers. |
-| [`create_incident.schema.json`](exports/servicenow/v3/schemas/create_incident.schema.json) | ServiceNow v3 request-body schema for `POST /incidents`, including confirmation, trusted caller reference, issue details, impact/scope values, and idempotency input. |
-| [`update_incident.schema.json`](exports/servicenow/v3/schemas/update_incident.schema.json) | ServiceNow v3 request-body schema for `PUT /incidents/{incident_number}`. The resource enforces the different requirements for update, resolve, and close operations. |
+| [`create_incident.schema.json`](exports/servicenow/schemas/create_incident.schema.json) | ServiceNow request-body schema for `POST /incidents`, including confirmation, trusted caller reference, issue details, impact/scope values, and idempotency input. |
+| [`update_incident.schema.json`](exports/servicenow/schemas/update_incident.schema.json) | ServiceNow request-body schema for `PUT /incidents/{incident_number}`. The resource enforces the different requirements for update, resolve, and close operations. |
 
 ## ServiceNow Reference Implementation
 
-The JavaScript resources under [`exports/servicenow/v3/resources/`](exports/servicenow/v3/resources/) are a self-contained reference implementation for a controlled ServiceNow Scripted REST API. They use `GlideRecordSecure`, allowlisted fields, caller ownership filters, confirmation flags, redaction, and idempotency support.
+The JavaScript resources under [`exports/servicenow/resources/`](exports/servicenow/resources/) are a self-contained reference implementation for a controlled ServiceNow Scripted REST API. They use `GlideRecordSecure`, allowlisted fields, caller ownership filters, confirmation flags, redaction, and idempotency support.
 
 They are not required when the target tenant already has an equivalent ServiceNow-hosted MCP server. Validate all ServiceNow state values, ACLs, role mappings, required fields, and identity binding in a nonproduction instance before activation.
 
 | Reference file | Purpose |
 |---|---|
-| [`lookup_user.js`](exports/servicenow/v3/resources/lookup_user.js) | Resolve one active user by employee ID. |
-| [`lookup_incident.js`](exports/servicenow/v3/resources/lookup_incident.js) | Retrieve one caller-owned incident. |
-| [`list_incidents.js`](exports/servicenow/v3/resources/list_incidents.js) | List caller-owned incidents. |
-| [`create_incident.js`](exports/servicenow/v3/resources/create_incident.js) | Create a confirmed incident with allowlisted fields. |
-| [`update_incident.js`](exports/servicenow/v3/resources/update_incident.js) | Append an update or perform a configured resolve/close transition. |
+| [`lookup_user.js`](exports/servicenow/resources/lookup_user.js) | Resolve one active user by employee ID. |
+| [`lookup_incident.js`](exports/servicenow/resources/lookup_incident.js) | Retrieve one caller-owned incident. |
+| [`list_incidents.js`](exports/servicenow/resources/list_incidents.js) | List caller-owned incidents. |
+| [`create_incident.js`](exports/servicenow/resources/create_incident.js) | Create a confirmed incident with allowlisted fields. |
+| [`update_incident.js`](exports/servicenow/resources/update_incident.js) | Append an update or perform a configured resolve/close transition. |
 
 ## Test Script
 
