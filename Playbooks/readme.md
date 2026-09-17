@@ -34,6 +34,7 @@ Each template typically includes:
 | [Payment_AI_agent](Payment_AI_agent/README.md) | Autonomous voice AI agent ("Remy") that lets patients check a hospital balance and pay by credit card end-to-end, with safe escalation to a human billing specialist. |
 | [Payment_AI_Agent_Scripted](Payment_AI_Agent_Scripted/README.md) | Scripted voice AI agent for hospital payment journeys, using Flow Designer state events and subflows for balance lookup and payment completion. |
 | [ServiceNow KB + Incident AI Agent With MCP](ServiceNow_KB_Incident_AI_Agent_With_MCP/README.md) | Autonomous voice AI agent that uses MCP to search the ServiceNow Knowledge Base first, then create, search, update, or delete incidents when a ticket is needed. |
+| [ServiceNow Hosted Incident MCP AI Agent](ServiceNow_Hosted_Incident_MCP_AI_Agent/README.md) | Autonomous voice AI agent that connects directly to a ServiceNow-hosted MCP server to verify employees and create, retrieve, update, resolve, or close authorized incidents. |
 | [Visual_Appointment_Confirmation](Visual_Appointment_Confirmation/README.md) | Autonomous voice AI agent that collects appointment details, sends an SMS summary for visual review, and confirms the booking only after the caller approves or corrects the details. |
 
 > Contributing a new template? Drop it in its own subfolder with a `README.md` that follows the same structure (overview, architecture, deployment steps, sample data, security notes).
