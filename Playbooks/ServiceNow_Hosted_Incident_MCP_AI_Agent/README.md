@@ -15,7 +15,8 @@ The package is derived from a Qualcomm implementation, but the runtime wording a
 | 3 | Rebind the MCP server ID, server URL, authentication connection, and all five MCP tools in the imported agent. | AI Agent Studio |
 | 4 | Import [`Incident_Management_AI_Flow.json`](exports/Incident_Management_AI_Flow.json). | Flow Designer |
 | 5 | Rebind the AI Agent activity and human handoff queue. The flow disconnects completed calls and queues escalation or error paths. | Flow Designer |
-| 6 | Publish only to a test entry point and run the test script. | Webex Contact Center / Phone |
+| 6 | If the target MCP server is being built from the reference implementation, install the five ServiceNow resources and schemas in [`servicenow-mcp-v3-reference.md`](resources/servicenow-mcp-v3-reference.md). | ServiceNow |
+| 7 | Publish only to a test entry point and run the test script. | Webex Contact Center / Phone |
 
 ## What the Agent Does
 
@@ -66,7 +67,9 @@ The `caller_id` value must come from trusted session context, a signed identity 
 
 ## Request Body and Export Wrapper
 
-The Agent export represents MCP body parameters under a `request_body` input object. Configure the target hosted MCP tool according to its published contract; do not add a second `request_body` property to the HTTP body.
+The AI Agent export represents MCP body parameters under a `request_body` input object. That is the Agent Studio tool mapping. The ServiceNow Scripted REST resource receives the contents of that object as the raw JSON HTTP body; the body itself must not contain a second `request_body` property.
+
+The included create and update schemas describe the flat ServiceNow HTTP bodies. The `update` resource uses one explicit operation: `update`, `resolve`, or `close`.
 
 ## Export Files
 
@@ -74,6 +77,22 @@ The Agent export represents MCP body parameters under a `request_body` input obj
 |---|---|
 | [`Incident_Management_AI_Agent.json`](exports/Incident_Management_AI_Agent.json) | Autonomous voice AI Agent export with five ServiceNow-hosted MCP tools and the built-in Agent handover tool. It contains sanitized MCP URL, server ID, and environment placeholders that must be rebound after import. |
 | [`Incident_Management_AI_Flow.json`](exports/Incident_Management_AI_Flow.json) | Webex Contact Center telephony flow that invokes the autonomous Agent, disconnects on `ENDED`, and sends `ESCALATE` or `error` outcomes to a placeholder handoff queue. Rebind the organization, Agent, flow, and queue identifiers. |
+| [`create_incident.schema.json`](exports/servicenow/v3/schemas/create_incident.schema.json) | ServiceNow v3 request-body schema for `POST /incidents`, including confirmation, trusted caller reference, issue details, impact/scope values, and idempotency input. |
+| [`update_incident.schema.json`](exports/servicenow/v3/schemas/update_incident.schema.json) | ServiceNow v3 request-body schema for `PUT /incidents/{incident_number}`. The resource enforces the different requirements for update, resolve, and close operations. |
+
+## ServiceNow Reference Implementation
+
+The JavaScript resources under [`exports/servicenow/v3/resources/`](exports/servicenow/v3/resources/) are a self-contained reference implementation for a controlled ServiceNow Scripted REST API. They use `GlideRecordSecure`, allowlisted fields, caller ownership filters, confirmation flags, redaction, and idempotency support.
+
+They are not required when the target tenant already has an equivalent ServiceNow-hosted MCP server. Validate all ServiceNow state values, ACLs, role mappings, required fields, and identity binding in a nonproduction instance before activation.
+
+| Reference file | Purpose |
+|---|---|
+| [`lookup_user.js`](exports/servicenow/v3/resources/lookup_user.js) | Resolve one active user by employee ID. |
+| [`lookup_incident.js`](exports/servicenow/v3/resources/lookup_incident.js) | Retrieve one caller-owned incident. |
+| [`list_incidents.js`](exports/servicenow/v3/resources/list_incidents.js) | List caller-owned incidents. |
+| [`create_incident.js`](exports/servicenow/v3/resources/create_incident.js) | Create a confirmed incident with allowlisted fields. |
+| [`update_incident.js`](exports/servicenow/v3/resources/update_incident.js) | Append an update or perform a configured resolve/close transition. |
 
 ## Test Script
 
@@ -111,6 +130,7 @@ The full scenario set is in [`test-cases.md`](resources/test-cases.md).
 
 ## Known Limitations
 
+- The package does not include a complete OpenAPI document; it includes only the two ServiceNow request schemas needed by the reference resources.
 - ServiceNow state codes, close codes, ACLs, and field availability vary by instance and require tenant validation.
 - Direct closure may need to be changed to a resolution request according to the target service-desk policy.
 - Runtime validation still requires an AI Agent Studio tenant, Flow Designer tenant, ServiceNow-hosted MCP server, and nonproduction ServiceNow data.
@@ -118,4 +138,5 @@ The full scenario set is in [`test-cases.md`](resources/test-cases.md).
 ## Source and Companion Resources
 
 - [Agent prompt](resources/incident_management_agent_prompt.md)
+- [ServiceNow MCP v3 reference notes](resources/servicenow-mcp-v3-reference.md)
 - [Synthetic test cases](resources/test-cases.md)

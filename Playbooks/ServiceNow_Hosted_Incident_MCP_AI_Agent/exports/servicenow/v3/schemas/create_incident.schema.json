@@ -1,0 +1,103 @@
+{
+  "title": "Create ServiceNow incident payload",
+  "description": "Flat JSON body for POST /incidents; do not wrap fields in request_body. Create an incident after caller confirmation. Use a trusted 32-character caller_id, valid scope and impact enum values, and a semicolon-delimited string for attempted_steps. Do not include credentials, secrets, tokens, passwords, PINs, or unnecessary personal information.",
+  "type": "object",
+  "properties": {
+    "caller_id": {
+      "type": "string",
+      "description": "Trusted ServiceNow sys_user.sys_id for the authenticated caller. Do not generate or infer this value.",
+      "pattern": "^[0-9a-fA-F]{32}$",
+      "example": "46d4c3b0e1a24c1a9b3b2d4e5f6a7b8c"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Plain-language issue summary without credentials, secrets, employee ID, unsupported diagnosis, or invented facts.",
+      "minLength": 5,
+      "maxLength": 160,
+      "example": "External monitor has no display"
+    },
+    "description": {
+      "type": "string",
+      "description": "Redacted incident details: symptoms, exact error if known, timing, scope, impact, and troubleshooting attempted.",
+      "minLength": 10,
+      "maxLength": 4000,
+      "example": "The external monitor stopped displaying this morning. The laptop display works."
+    },
+    "work_notes": {
+      "type": "string",
+      "description": "Optional internal ServiceNow work note. Do not include credentials, secrets, or unnecessary personal information.",
+      "minLength": 2,
+      "maxLength": 4000,
+      "example": "Initial triage was completed by the AI agent."
+    },
+    "affected_item": {
+      "type": "string",
+      "description": "Caller-stated affected device, application, or service. Omit when unknown; do not infer a configuration item.",
+      "maxLength": 160,
+      "example": "External monitor"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Exact caller-stated error text after removing credentials or secrets.",
+      "maxLength": 500,
+      "example": "No signal"
+    },
+    "started_when": {
+      "type": "string",
+      "description": "Caller-stated time or relative period when the issue began. Do not invent a timestamp.",
+      "maxLength": 100,
+      "example": "This morning"
+    },
+    "affected_scope": {
+      "type": "string",
+      "description": "Scope explicitly supported by the caller's description. Use single_user when only the caller is affected, multiple_users when several users are affected, site_or_service for a site-wide or service-wide issue, or unknown when the scope is not established. The backend maps this to ServiceNow impact.",
+      "enum": [
+        "single_user",
+        "multiple_users",
+        "site_or_service",
+        "unknown"
+      ],
+      "example": "single_user"
+    },
+    "business_impact": {
+      "type": "string",
+      "description": "Caller-stated work impact. Use work_blocked when the caller is unable to do any work, work_degraded when work is impaired but still possible, not_blocked when work is unaffected, or unknown when the impact is not established. The backend maps this to ServiceNow urgency.",
+      "enum": [
+        "work_blocked",
+        "work_degraded",
+        "not_blocked",
+        "unknown"
+      ],
+      "example": "work_degraded"
+    },
+    "attempted_steps": {
+      "type": "string",
+      "description": "Troubleshooting steps already attempted, in order. Separate multiple steps with semicolons; whitespace around separators is ignored.",
+      "maxLength": 3099,
+      "example": "Reconnected the cable; Restarted the dock"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "description": "Optional client-generated key used to recognize a repeated create request for the same caller. X-Idempotency-Key or X-Request-ID headers may be used instead.",
+      "minLength": 1,
+      "maxLength": 100,
+      "example": "example-incident-0001"
+    },
+    "caller_confirmed": {
+      "type": "boolean",
+      "description": "True only after the caller explicitly confirms the final incident summary and asks to create it.",
+      "enum": [
+        true
+      ]
+    }
+  },
+  "required": [
+    "caller_id",
+    "short_description",
+    "description",
+    "affected_scope",
+    "business_impact",
+    "caller_confirmed"
+  ],
+  "additionalProperties": false
+}
