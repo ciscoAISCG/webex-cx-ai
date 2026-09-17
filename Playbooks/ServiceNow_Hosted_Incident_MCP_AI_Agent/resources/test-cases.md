@@ -34,10 +34,10 @@ Use only synthetic records in a nonproduction ServiceNow instance. Capture the s
 
 ## Validation checks
 
-- Parse the Agent and Flow export JSON files.
+- Parse all Action schema JSON files.
 - Confirm every prompt capability maps to exactly one configured Action.
 - Confirm all five fulfillment flows enforce verified session context server-side.
-- Confirm input validation is enforced by the hosted MCP server/backend because Agent Studio does not enforce every contract rule.
+- Confirm input validation is repeated in Connect/backend because Studio does not enforce every JSON Schema keyword.
 - Confirm the integration account cannot query arbitrary users or update arbitrary incident fields.
 - Confirm logs and traces redact employee IDs, credentials, secrets, and ServiceNow authorization headers.
 - Confirm the prompt plus goal remains below the configured Studio limit after any edits.
