@@ -27,6 +27,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "webex-ai-agent-knowledgeoptimizer",
+      "source": {
+        "source": "local",
+        "path": "./Plugins/webex-ai-agent-knowledgeoptimizer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }
