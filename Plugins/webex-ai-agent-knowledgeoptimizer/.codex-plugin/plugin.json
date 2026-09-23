@@ -1,0 +1,22 @@
+{
+  "name": "webex-ai-agent-knowledgeoptimizer",
+  "version": "0.1.0",
+  "description": "Create and optimize use-case-aware knowledge content for Webex AI Agent Studio retrieval-augmented generation.",
+  "author": {
+    "name": "Cisco AI SCG"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Webex AI Agent Knowledge Optimizer",
+    "shortDescription": "Optimize content for Webex AI Agent RAG",
+    "longDescription": "Transform files and public webpages into grounded, retrieval-friendly Webex AI Agent Studio knowledge artifacts while preserving source meaning, context, procedures, warnings, and escalation paths.",
+    "developerName": "Cisco AI SCG",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "Optimize my files for a Webex AI Agent knowledge base.",
+      "Make this source document retrieval-friendly for Webex RAG.",
+      "Review this knowledge artifact for grounding and RAG readiness."
+    ]
+  }
+}
