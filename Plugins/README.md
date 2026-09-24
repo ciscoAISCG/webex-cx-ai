@@ -43,6 +43,8 @@ task to load the updates.
 | Plugin | Status | Purpose |
 | --- | --- | --- |
 | [SCG Library](./scg-library/) | Available | Securely queries the read-only SCG business-data library with Auth0 identity verification, Cisco-domain auto-approval, and administrator-controlled external access. |
+| [Webex AI Agent Creator](./webex-ai-agent-creator/) | Available | Designs Webex AI Agent Studio assistants with grounded instructions, action definitions, setup guidance, and import-ready JSON support. |
+| [Webex AI Agent Knowledge Optimizer](./webex-ai-agent-knowledgeoptimizer/) | Available | Optimizes source content for grounded, retrieval-friendly Webex AI Agent Studio knowledge bases. |
 
 ---
 
