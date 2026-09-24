@@ -14,6 +14,8 @@ If no SVG exists, validate the image format another way or open it visually.
 
 ## Content Checks
 
+- README contains a `Playbook Metadata` table with `Vertical`, `Channel`, and `Complexity`.
+- Metadata values match the controlled lists in `SKILL.md`; use `Unknown` when a value is not known.
 - README links resolve or are clearly marked as placeholders.
 - Recommended path is visible without expanding sections.
 - Advanced details are collapsed.
@@ -32,3 +34,9 @@ rg -n "token|secret|password|bearer|api[_-]?key|orgId|tenant|queue|@|\\+1" Playb
 ```
 
 Review the matches manually. Some words, like `token` or `queue`, may be legitimate when described generically.
+
+For repository-wide metadata validation, run:
+
+```bash
+python scripts/validate_playbook_metadata.py Playbooks
+```
