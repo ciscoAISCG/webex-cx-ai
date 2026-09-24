@@ -1,5 +1,15 @@
 # Appointment Scheduling - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 A reference implementation of an autonomous voice AI agent built on Webex Contact Center that helps callers schedule a new appointment, review existing appointments, and reschedule an existing booking.
 
 The agent is **Clara**, a polite and professional appointment scheduling concierge. Clara checks live availability for a preferred date, presents returned appointment options, confirms the selected slot, and uses Webex Connect workflows to schedule or reschedule the booking.

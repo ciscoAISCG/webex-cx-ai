@@ -43,6 +43,9 @@ jobs:
       - name: Generate playbook card catalog
         run: python scripts/generate_playbook_catalog.py
 
+      - name: Validate playbook metadata
+        run: python Plugins/scg-playbook/scripts/validate_playbook_metadata.py Playbooks
+
       - name: Generate plugin, skill, and MCP card catalogs
         run: python scripts/generate_resource_catalogs.py
 

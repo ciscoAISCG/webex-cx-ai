@@ -1,5 +1,15 @@
 # Order Tracking - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 A reference implementation of an autonomous voice AI agent built on Webex Contact Center that helps callers check the current state of an order using backend tracking, delivery, and fulfillment data.
 
 The agent is **Nora**, a polite and efficient order tracking assistant. Nora retrieves order details from a backend workflow, explains the latest status in clear customer language, answers follow-up questions about delivery and delay information, and escalates to a human agent when tracking alone is not enough.

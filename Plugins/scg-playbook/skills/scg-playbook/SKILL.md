@@ -18,14 +18,19 @@ The playbook should feel like a guided starter kit, not a long manual. Lead with
 3. Inspect any Studio or Flow Designer JSON with `scripts/inspect_playbook.py`.
 4. Choose one recommended setup path. Put alternatives in collapsed sections.
 5. For any simple visual or hero image, load `references/visual-standard.md` and apply the arrow-safety rules before delivering the asset.
-6. Build or refresh `Playbooks/<Playbook_Folder>/` with README, exports, and assets.
-7. Validate before calling it done: JSON, SVG/assets, links, security cleanup, import notes, and visual overlap checks.
+6. Capture the required playbook metadata in the README using the controlled values below. Use `Unknown` when the value is not known.
+7. Build or refresh `Playbooks/<Playbook_Folder>/` with README, exports, and assets.
+8. Validate before calling it done: metadata, JSON, SVG/assets, links, security cleanup, import notes, and visual overlap checks.
 
 ## SCG Playbook Shape
 
 Every playbook should include:
 
 - A short title and one plain-language promise.
+- A `Playbook Metadata` section with exactly one value for each required field:
+  - `Vertical`: `Education`, `Energy Utilities`, `Financial Services`, `Government`, `Health Care`, `Hospitality Hotels And Leisure`, `Manufacturing`, `Media Entertainment`, `Not For Profit`, `Professional Services`, `Retail`, `Service Provider`, `Technical Services`, `Technology`, `Transportation`, `Wholesale Distribution`, or `Unknown`.
+  - `Channel`: `Voice`, `Chat`, `SMS`, `Email`, `Whatsapp`, `RCS`, `Apple Messages for Business`, `Custom`, or `Unknown`.
+  - `Complexity`: `Beginner`, `Intermediate`, `Advanced`, or `Unknown`.
 - A friendly hero visual that explains the use case at a glance and has no arrows or labels crossing text.
 - `Try It Fast`: the shortest successful setup path.
 - A setup checklist with the recommended path visible.
@@ -35,6 +40,18 @@ Every playbook should include:
 - If the README includes a `Files In This Playbook` section, list only files or dependencies needed to run, import, or configure the playbook. Do not list diagrams, hero visuals, screenshots, or other files from `assets/` in that section.
 
 If the playbook starts to read like a reference document, move the detail into `<details>` sections or a separate file.
+
+Use this exact README block for the metadata:
+
+```markdown
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+```
 
 ## Reference Guide
 

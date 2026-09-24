@@ -1,5 +1,15 @@
 # Data Driven Ordering - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 A reference implementation of an autonomous voice AI agent built on Webex Contact Center that helps a caller place an order from a structured JSON catalogue.
 
 The agent is **Avery**, a cheerful virtual barista. Avery fetches the available menu, follows the catalogue structure to ask the right questions, validates the caller's choices against the menu data, places the order, and can send a digital ordering link if the caller needs another path.

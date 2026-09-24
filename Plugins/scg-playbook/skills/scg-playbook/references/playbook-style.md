@@ -6,12 +6,15 @@ SCG playbooks should lower the friction to try a use case. They should not feel 
 
 1. Title with the use case name.
 2. One or two sentences that explain the outcome.
-3. Hero visual.
-4. `Try It Fast` section with the recommended path.
-5. Setup checklist.
-6. Test script.
-7. Troubleshooting or validation.
-8. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+3. `Playbook Metadata` table with Vertical, Channel, and Complexity.
+4. Hero visual.
+5. `Try It Fast` section with the recommended path.
+6. Setup checklist.
+7. Test script.
+8. Troubleshooting or validation.
+9. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+
+Use `Unknown` when a metadata value is not known. Do not invent a vertical, channel, or complexity level.
 
 ## Files In This Playbook
 

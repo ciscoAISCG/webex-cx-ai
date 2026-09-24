@@ -1,5 +1,15 @@
 # Visual Appointment Confirmation - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 Voice AI can mishear important details. This playbook shows a simple fix: collect appointment details by voice, send the caller an SMS summary to visually review, then confirm the appointment only after the caller approves it by voice.
 
 Use the recommended demo path first. Production MCP and Webex Connect options are available below, but they are not required for the first try.
