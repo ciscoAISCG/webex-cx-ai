@@ -11,9 +11,9 @@ theme:
   logo: assets/cisco-logo.png
   favicon: assets/cisco-logo.png
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.instant
+    - navigation.sections
+    - navigation.path
     - navigation.top
     - navigation.footer
     - search.suggest
@@ -88,15 +88,30 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - Architecture: architecture.md
-  - Security: security.md
-  - multi-agent-strategy: multi-agent-strategy.md
-  - model-context-protocol: model-context-protocol.md
-  - Agent2Agent: a2a.md
-  - Scripted AI Agent Design: scripted-ai-agent-design.md
-  - AI QM: ai-quality-management-playbook.md
-  - Knowledge and RAG: knowledge-and-rag.md
-  - Testing and Evaluation: testing-and-evaluation.md
-  - PreBuilt_AIAgent: agent-template.md
-  - Glossary: glossary.md
+  - Start Here:
+      - Getting Started: getting-started.md
+      - Architecture: architecture.md
+      - Glossary: glossary.md
+  - Agent Design:
+      - Prompt Design: prompt-design.md
+      - Scripted AI Agent Design: scripted-ai-agent-design.md
+      - Multi-Agent Strategy: multi-agent-strategy.md
+      - Agent2Agent: a2a.md
+  - Knowledge and Tools:
+      - Knowledge and RAG: knowledge-and-rag.md
+      - Model Context Protocol: model-context-protocol.md
+      - Pre-built AI Agent: agent-template.md
+  - Quality and Operations:
+      - Security: security.md
+      - AI Agent Security FAQ: webex-ai-agent-security-faq.md
+      - AI Quality Management: ai-quality-management-playbook.md
+      - Testing and Evaluation: testing-and-evaluation.md
+      - Deployment and Operations: deployment-and-operations.md
+      - Human Handoff: human-handoff.md
+      - Governance: governance.md
+      - Common Pitfalls: common-pitfalls.md
+  - Explore AI SCG:
+      - Plugins: plugins.md
+      - Playbooks: playbooks.md
+      - Skills: skills.md
+      - MCP Factory: mcp-factory.md
