@@ -1,5 +1,13 @@
 # Procedure-Guided AI Agent Pattern
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
 A reference implementation of an AI agent that uses an approved procedure catalogue to make controlled service decisions across industries.
 
 The key pattern is simple and reusable: the agent reasons over approved procedure names, descriptions, applicability criteria, and selection guidance alongside the customer's request, selects the best-fit `procedure_id`, then retrieves full guidance using that ID. It applies that guidance to determine which actions to call, reasons over their results, and continues only through allowed procedure steps.

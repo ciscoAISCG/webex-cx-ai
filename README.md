@@ -107,9 +107,12 @@ Use skills when you want an assistant to help with:
 | [AI Calculator](./Skills/AI%20Calculator/) | Skill workspace for ROI CC Calculations. |
 | [Webex MCP Onboarding](./Skills/webex-mcp-onboarding/) | Guided assistant skill for onboarding MCP servers into Webex Developer Portal, Control Hub Agentic Apps, and AI Agent Studio. |
 | [AI Agent Creator](./Skills/webex-ai-agent-creator/) | A skill for helping create an AI Agent using all of the best practices. |
+| [AI Agent Creator plugin](./Plugins/webex-ai-agent-creator/) | A Codex plugin for creating Webex AI Agent Studio assistants using Cisco AI prompt-design best practices. |
+| [AI Agent Knowledge Optimizer plugin](./Plugins/webex-ai-agent-knowledgeoptimizer/) | A Codex plugin for optimizing source content for Webex AI Agent Studio RAG. |
+| [SCG Playbook plugin](./Plugins/scg-playbook/) | A Codex plugin for creating visual-first, reusable Webex CX AI playbooks. |
 
 
-[Browse the Skills Shed](./Skills/)
+[Browse Skills](./Skills/)
 
 ---
 

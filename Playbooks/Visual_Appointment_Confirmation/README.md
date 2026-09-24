@@ -1,5 +1,15 @@
 # Visual Appointment Confirmation - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 Voice AI can mishear important details. This playbook shows a simple fix: collect appointment details by voice, send the caller an SMS summary to visually review, then confirm the appointment only after the caller approves it by voice.
 
 Use the recommended demo path first. Production MCP and Webex Connect options are available below, but they are not required for the first try.
@@ -22,7 +32,7 @@ flowchart LR
 |---|---|---|
 | 1 | Import [visual_appointment.json](visual_appointment.json). | AI Agent Studio |
 | 2 | Import [Visual_Appointment_Confirmation.json](Visual_Appointment_Confirmation.json). | Flow Designer |
-| 3 | Onboard the demo MCP backend. | Skills Shed or manual setup |
+| 3 | Onboard the demo MCP backend. | Skills or manual setup |
 | 4 | Rebind `VirtualAgentV2` to the imported AI Agent. | Flow Designer |
 | 5 | Replace the imported queue with your test queue. | Flow Designer |
 | 6 | Publish to a test entry point or test DID. | Flow Designer |
@@ -34,7 +44,7 @@ flowchart LR
 
 New to MCP onboarding for Webex AI Agent Studio? Use the guided onboarding skill to walk through Developer Portal registration, Control Hub authorization, tool enablement, Studio action binding, and validation.
 
-<a href="../../Skills/webex-mcp-onboarding/" style="display:inline-block;background:#1f6feb;color:#ffffff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;">Open Skills Shed: Webex MCP onboarding skill</a>
+<a href="../../Skills/webex-mcp-onboarding/" style="display:inline-block;background:#1f6feb;color:#ffffff;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;">Open Skills: Webex MCP onboarding skill</a>
 
 After opening or installing that skill in your assistant of choice, such as Codex, ask:
 

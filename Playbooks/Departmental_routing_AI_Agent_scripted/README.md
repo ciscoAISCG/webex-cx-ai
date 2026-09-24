@@ -1,5 +1,13 @@
 # Departmental Routing AI Agent Scripted
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
 ## 1. Introduction Of Use Case
 
 This playbook contains a scripted Webex Contact Center AI Agent use case for hospital departmental routing. The caller tells the AI Agent which department they want to reach, confirms the detected department, and is then routed by the Webex CC voice flow to the matching queue.

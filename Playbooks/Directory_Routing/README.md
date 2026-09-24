@@ -1,5 +1,15 @@
 # Directory Routing - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 A reference playbook for a Children's Medical Center of Dallas phone directory agent. The agent quickly classifies each caller request as either a person-name lookup or a department/service lookup, searches the correct directory, and connects the caller to the right number.
 
 The exports in this folder are sanitized working examples. Rebind tenant-specific IDs, queues, functions, knowledge bases, phone numbers, and agent references before importing into another environment.

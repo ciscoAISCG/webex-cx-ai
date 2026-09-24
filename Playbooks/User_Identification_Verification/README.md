@@ -1,5 +1,15 @@
 # User Identification and Verification - Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 A reference implementation of an autonomous voice AI agent built on Webex Contact Center that verifies a caller's identity before protected support or self-service journeys continue.
 
 The agent runs on the Webex CC Autonomous AI Agent platform, uses a Webex Connect workflow to perform authentication, and is wired into a reusable voice flow with escalation to a human agent.

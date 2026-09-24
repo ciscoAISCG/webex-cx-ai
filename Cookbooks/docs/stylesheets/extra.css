@@ -20,12 +20,87 @@
   max-width: 1400px;
 }
 
-.md-sidebar--primary {
-  display: none;
+/* Make the sidebar hierarchy easy to scan. */
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__link {
+  margin-top: 0.7rem;
+  padding: 0.55rem 0.65rem;
+  border-left: 3px solid var(--md-accent-fg-color);
+  border-radius: 0.2rem;
+  background: rgba(92, 141, 137, 0.1);
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
 }
 
-.md-content {
-  margin-left: 0;
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item--section > nav > .md-nav__list {
+  margin-left: 0.6rem;
+  padding-left: 0.65rem;
+  border-left: 1px solid rgba(92, 141, 137, 0.35);
+}
+
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item--section > nav > .md-nav__list > .md-nav__item > .md-nav__link {
+  padding-left: 0.25rem;
+}
+
+.playbook-grid,
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.playbook-card,
+.catalog-card {
+  display: flex;
+  min-height: 13rem;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.2rem;
+  border: 1px solid rgba(92, 141, 137, 0.32);
+  border-radius: 0.7rem;
+  background: rgba(92, 141, 137, 0.07);
+  color: var(--md-default-fg-color) !important;
+  text-decoration: none !important;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.playbook-card:hover,
+.catalog-card:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0.4rem 1.2rem rgba(47, 58, 69, 0.16);
+  transform: translateY(-2px);
+}
+
+.playbook-card__eyebrow,
+.catalog-card__eyebrow {
+  color: var(--md-accent-fg-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.playbook-card h2,
+.catalog-card h2 {
+  margin: 0;
+  color: var(--md-primary-fg-color);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.playbook-card p,
+.catalog-card p {
+  flex: 1;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.playbook-card__link,
+.catalog-card__link {
+  color: var(--md-accent-fg-color);
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .md-typeset h1,

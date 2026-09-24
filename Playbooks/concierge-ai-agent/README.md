@@ -1,5 +1,13 @@
 ﻿# Concierge Routing Agent Basic Template
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
 Build a simple front-door AI agent that classifies user questions and routes them to the right specialist for Contact Center, Webex AI Agent, or Webex Connect.
 
 This playbook is an internal starter kit. It gives you a lightweight concierge-agent pattern, a ready-to-paste instruction template, a transfer-based AI Agent Studio JSON import, a routing KB starter, and a short validation path so you can get the first version running quickly.

@@ -1,5 +1,13 @@
 # ServiceNow Hosted Incident MCP AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
 This reusable Webex Contact Center playbook connects an autonomous voice AI Agent directly to a ServiceNow-hosted MCP server. The agent verifies an employee, retrieves authorized incidents, creates incidents, appends updates, resolves or closes incidents, and hands off unsafe or unsupported requests to a human queue.
 
 The package is derived from a Qualcomm implementation, but the runtime wording and exported environment bindings are sanitized for reuse. It does not use a separate Webex Connect fulfillment layer or an external MCP wrapper around ServiceNow.

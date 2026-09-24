@@ -1,5 +1,15 @@
 # Hospital Payment Line — Webex Contact Center Autonomous AI Agent
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 A reference implementation of an **autonomous voice AI agent** built on **Webex Contact Center** that lets patients call in to **check their outstanding hospital balance** and **pay it by credit card** — end-to-end, without a human agent — while safely escalating anything out of scope.
 
 The agent is named **Remy**, runs on the Webex CC **Autonomous AI Agent (AI Agent Studio)** platform, and is wired into a voice flow that uses one main flow two subflows as fulfillment back-ends.

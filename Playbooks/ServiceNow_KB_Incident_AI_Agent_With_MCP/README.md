@@ -1,5 +1,15 @@
 # ServiceNow KB + Incident AI Agent With MCP
 
+## Playbook Metadata
+
+| Field | Value |
+|---|---|
+| Vertical | Unknown |
+| Channel | Unknown |
+| Complexity | Unknown |
+
+
+
 This playbook shows how quickly a Webex AI Agent can use an MCP server to work with ServiceNow. The agent searches the ServiceNow Knowledge Base first, then creates, searches, updates, or deletes incidents through MCP-backed actions when a ticket is really needed.
 
 Audience: both internal sales/SE teams and customer teams evaluating how fast MCP can turn an existing system into AI-agent actions without waiting for a full production connector program.
@@ -30,7 +40,7 @@ flowchart LR
 | 7 | Test knowledge search before ticket creation. | Phone or Studio preview |
 
 > [!NOTE]
-> **Skills Shed helper:** [Open Webex MCP onboarding skill](../../Skills/webex-mcp-onboarding/)
+> **Skills helper:** [Open Webex MCP onboarding skill](../../Skills/webex-mcp-onboarding/)
 
 Ask the helper skill:
 
