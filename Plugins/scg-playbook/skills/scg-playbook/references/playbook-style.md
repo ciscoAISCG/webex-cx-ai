@@ -7,14 +7,27 @@ SCG playbooks should lower the friction to try a use case. They should not feel 
 1. Title with the use case name.
 2. One or two sentences that explain the outcome.
 3. `Playbook Metadata` table with Vertical, Channel, and Complexity.
-4. Hero visual.
-5. `Try It Fast` section with the recommended path.
-6. Setup checklist.
-7. Test script.
-8. Troubleshooting or validation.
-9. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+4. `Downloadable Content Files` index with links to supplied original files.
+5. Hero visual.
+6. `Try It Fast` section with the recommended path.
+7. Setup checklist.
+8. Test script.
+9. Troubleshooting or validation.
+10. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
 
 Use `Unknown` when a metadata value is not known. Do not invent a vertical, channel, or complexity level.
+
+## Downloadable Content Files
+
+Every playbook should account for these five content-file categories:
+
+- Webex Contact Center Voice Flows
+- Webex Contact Center Fulfilment Flows
+- Webex Connect Fulfilment Flows
+- AI Agent Export JSON
+- Sample Knowledge Base Files
+
+Preserve each supplied original file under `content/` or `downloads/` and link it from the `Downloadable Content Files` section. Use `Not provided` for a category that was not supplied. This section is an asset index, not a source for generated content: do not quote, summarize, parse, transform, or derive content from these files unless the user explicitly authorizes it.
 
 ## Files In This Playbook
 
@@ -26,6 +39,8 @@ Include examples:
 - Flow Designer JSON exports.
 - Required backend services or external dependencies.
 - Companion skills when they are part of setup.
+
+Downloadable content files belong in the separate `Downloadable Content Files` section. Include them in `Files In This Playbook` only when a file is actually required to run, import, or configure the playbook.
 
 Do not include examples:
 

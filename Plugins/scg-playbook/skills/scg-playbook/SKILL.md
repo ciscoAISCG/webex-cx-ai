@@ -14,13 +14,20 @@ The playbook should feel like a guided starter kit, not a long manual. Lead with
 ## First Move
 
 1. Identify the audience: `internal`, `customer`, or `both`.
-2. Inventory the artifacts: AI Agent Studio JSON, Flow Designer JSON, Webex Connect flows, MCP details, screenshots, backend services, sample prompts, and test data.
-3. Inspect any Studio or Flow Designer JSON with `scripts/inspect_playbook.py`.
+2. Ask for or inventory these downloadable content-file categories:
+   - Webex Contact Center Voice Flows
+   - Webex Contact Center Fulfilment Flows
+   - Webex Connect Fulfilment Flows
+   - AI Agent Export JSON
+   - Sample Knowledge Base Files
+   Store supplied originals unchanged under `content/` or `downloads/`. Treat them as downloadable package content only: do not inspect, summarize, transform, or use them to generate the README, diagrams, prompts, or other playbook content unless the user explicitly authorizes a named file or category.
+3. If the user explicitly authorizes using an AI Agent Studio or Flow Designer JSON as a source, inspect it with `scripts/inspect_playbook.py`. Otherwise, preserve it as downloadable content only.
 4. Choose one recommended setup path. Put alternatives in collapsed sections.
 5. For any simple visual or hero image, load `references/visual-standard.md` and apply the arrow-safety rules before delivering the asset.
 6. Capture the required playbook metadata in the README using the controlled values below. Use `Unknown` when the value is not known.
-7. Build or refresh `Playbooks/<Playbook_Folder>/` with README, exports, and assets.
-8. Validate before calling it done: metadata, JSON, SVG/assets, links, security cleanup, import notes, and visual overlap checks.
+7. Build or refresh `Playbooks/<Playbook_Folder>/` with README, exports, content files, and assets.
+8. Add a `Downloadable Content Files` section to the README that accounts for all five categories and links every supplied original file.
+9. Validate before calling it done: metadata, downloadable content links, JSON, SVG/assets, links, security cleanup, import notes, and visual overlap checks.
 
 ## SCG Playbook Shape
 
@@ -32,6 +39,7 @@ Every playbook should include:
   - `Channel`: `Voice`, `Chat`, `SMS`, `Email`, `Whatsapp`, `RCS`, `Apple Messages for Business`, `Custom`, or `Unknown`.
   - `Complexity`: `Beginner`, `Intermediate`, `Advanced`, or `Unknown`.
 - A friendly hero visual that explains the use case at a glance and has no arrows or labels crossing text.
+- A `Downloadable Content Files` section listing the five requested categories and relative download links for every supplied file. Mark a category `Not provided` when no file was supplied.
 - `Try It Fast`: the shortest successful setup path.
 - A setup checklist with the recommended path visible.
 - A test script that lets the reader prove the use case works.
@@ -51,6 +59,22 @@ Use this exact README block for the metadata:
 | Vertical | Unknown |
 | Channel | Unknown |
 | Complexity | Unknown |
+```
+
+Use this structure for the downloadable content index. Replace each placeholder with one or more relative links to the unchanged files under `content/` or `downloads/`; use `Not provided` when a category was not supplied.
+
+```markdown
+## Downloadable Content Files
+
+These files are included for download and reference. They were not used to generate this playbook unless explicitly authorized by the user.
+
+| Category | Files |
+|---|---|
+| Webex Contact Center Voice Flows | Not provided |
+| Webex Contact Center Fulfilment Flows | Not provided |
+| Webex Connect Fulfilment Flows | Not provided |
+| AI Agent Export JSON | Not provided |
+| Sample Knowledge Base Files | Not provided |
 ```
 
 ## Reference Guide
