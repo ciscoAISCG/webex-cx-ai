@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "webex-cx-ai-github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/readonly",
+      "bearer_token_env_var": "GITHUB_PAT_TOKEN",
+      "default_tools_approval_mode": "prompt"
+    }
+  }
+}

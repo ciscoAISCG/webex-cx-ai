@@ -1,0 +1,27 @@
+{
+  "name": "webex-cx-ai-github-reader",
+  "version": "0.1.0",
+  "description": "Read and query the ciscoAISCG/webex-cx-ai repository, issues, and pull requests through GitHub's read-only MCP server.",
+  "author": {
+    "name": "AI SCG"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Webex CX AI GitHub Reader",
+    "shortDescription": "Read the Webex CX AI GitHub repo",
+    "longDescription": "Search and summarize files, issues, and pull requests in ciscoAISCG/webex-cx-ai using GitHub's hosted read-only MCP endpoint and each installer's own fine-grained GitHub token.",
+    "developerName": "AI SCG",
+    "category": "Productivity",
+    "capabilities": [
+      "Read-only repository file search and retrieval",
+      "Read-only issues and pull request queries",
+      "Per-installer fine-grained GitHub token authentication"
+    ],
+    "defaultPrompt": [
+      "Find the playbooks in ciscoAISCG/webex-cx-ai related to appointment scheduling.",
+      "Summarize open pull requests in ciscoAISCG/webex-cx-ai.",
+      "Search ciscoAISCG/webex-cx-ai for the Webex Connect MCP setup guidance."
+    ]
+  }
+}
