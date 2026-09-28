@@ -6,16 +6,15 @@ SCG playbooks should lower the friction to try a use case. They should not feel 
 
 1. Title with the use case name.
 2. One or two sentences that explain the outcome.
-3. `Playbook Metadata` table with Vertical, Channel, and Complexity.
-4. `Downloadable Content Files` index with links to supplied original files.
-5. Hero visual.
-6. `Try It Fast` section with the recommended path.
-7. Setup checklist.
-8. Test script.
-9. Troubleshooting or validation.
-10. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+3. `Downloadable Content Files` index with links to supplied original files.
+4. Hero visual.
+5. `Try It Fast` section with the recommended path.
+6. Setup checklist.
+7. Test script.
+8. Troubleshooting or validation.
+9. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
 
-Use `Unknown` when a metadata value is not known. Do not invent a vertical, channel, or complexity level.
+Keep classifications, complexity, ownership, and other catalog metadata in the playbook's schema-v2 `manifest.yaml`. Do not add a duplicate metadata table to the README. Use only taxonomy values from `Playbooks/taxonomy.yaml`.
 
 ## Downloadable Content Files
 
