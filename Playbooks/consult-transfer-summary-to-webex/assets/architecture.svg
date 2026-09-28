@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-labelledby="title description">
+  <title id="title">Webex Contact Center consult summary delivery architecture</title>
+  <desc id="description">A consult event reaches a hosted listener. The listener obtains the MID_CALL summary and consult destination, resolves the destination with Webex Calling, and sends a direct message to the selected Webex App user.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#eef7f5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#3477a9"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #122b42; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #49657a; }
+      .box-title { font: 700 21px Arial, sans-serif; fill: #122b42; }
+      .box-text { font: 400 16px Arial, sans-serif; fill: #3e5a6d; }
+      .step { font: 700 15px Arial, sans-serif; fill: #ffffff; }
+      .arrow-label { font: 600 14px Arial, sans-serif; fill: #3477a9; }
+    </style>
+  </defs>
+  <rect width="1600" height="720" fill="url(#background)"/>
+  <text x="80" y="76" class="title">Consult summary delivery to the selected Webex App user</text>
+  <text x="80" y="108" class="subtitle">Validated POC flow for Webex Contact Center voice consults</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="235" width="250" height="190" rx="20" fill="#ffffff" stroke="#c9dce9"/>
+    <circle cx="110" cy="275" r="20" fill="#1684b8"/>
+    <text x="104" y="281" class="step">1</text>
+    <text x="145" y="282" class="box-title">Agent Desktop</text>
+    <text x="100" y="329" class="box-text">Agent starts a consult</text>
+    <text x="100" y="356" class="box-text">to an organization user</text>
+    <text x="100" y="395" class="box-text">Trigger: task:consulting</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="405" y="185" width="350" height="290" rx="20" fill="#ffffff" stroke="#b8d9d0"/>
+    <circle cx="445" cy="225" r="20" fill="#2b9d83"/>
+    <text x="439" y="231" class="step">2</text>
+    <text x="480" y="232" class="box-title">Hosted HTTPS listener</text>
+    <text x="435" y="280" class="box-text">Example: AWS Lambda Function URL</text>
+    <text x="435" y="319" class="box-text">• Validate event and taskId</text>
+    <text x="435" y="348" class="box-text">• Request MID_CALL summary</text>
+    <text x="435" y="377" class="box-text">• Query task-leg destination</text>
+    <text x="435" y="406" class="box-text">• Apply extension-length rule</text>
+    <text x="435" y="435" class="box-text">• Format the Webex message</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="850" y="130" width="300" height="160" rx="20" fill="#ffffff" stroke="#c9dce9"/>
+    <circle cx="890" cy="170" r="20" fill="#1684b8"/>
+    <text x="884" y="176" class="step">3</text>
+    <text x="925" y="177" class="box-title">Webex CC APIs</text>
+    <text x="880" y="224" class="box-text">Agent Summaries API</text>
+    <text x="880" y="253" class="box-text">Search API / task legs</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="850" y="360" width="300" height="160" rx="20" fill="#ffffff" stroke="#c9dce9"/>
+    <circle cx="890" cy="400" r="20" fill="#1684b8"/>
+    <text x="884" y="406" class="step">4</text>
+    <text x="925" y="407" class="box-title">Webex Calling API</text>
+    <text x="880" y="454" class="box-text">Extension or PSTN number</text>
+    <text x="880" y="483" class="box-text">→ person owner ID</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1265" y="235" width="265" height="190" rx="20" fill="#ffffff" stroke="#d3c9ec"/>
+    <circle cx="1305" cy="275" r="20" fill="#7155b7"/>
+    <text x="1299" y="281" class="step">5</text>
+    <text x="1340" y="282" class="box-title">Webex App</text>
+    <text x="1295" y="329" class="box-text">POST /v1/messages</text>
+    <text x="1295" y="356" class="box-text">Direct summary to the</text>
+    <text x="1295" y="383" class="box-text">resolved consult recipient</text>
+  </g>
+
+  <path d="M320 330 H405" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="326" y="312" class="arrow-label">Webhook</text>
+  <path d="M755 270 C800 270 800 210 850 210" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M850 250 C800 250 800 310 755 310" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M755 390 H850" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M850 480 C805 480 805 430 755 430" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="800" y="472" text-anchor="middle" class="arrow-label">owner.id</text>
+  <path d="M755 330 H1265" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1010" y="315" text-anchor="middle" class="arrow-label">POST /v1/messages</text>
+
+  <g>
+    <rect x="405" y="560" width="745" height="92" rx="16" fill="#16324f"/>
+    <text x="435" y="596" style="font:700 17px Arial,sans-serif;fill:#ffffff">OAuth Integration credential (server-side)</text>
+    <text x="435" y="626" style="font:400 15px Arial,sans-serif;fill:#d8e8f3">Contact Center read + Calling admin read + Messaging write; setup scope used to register the webhook</text>
+  </g>
+</svg>

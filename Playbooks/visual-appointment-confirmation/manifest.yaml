@@ -1,0 +1,45 @@
+schema_version: 2
+id: visual-appointment-confirmation
+title: "Visual Appointment Confirmation"
+summary: "Send appointment details by SMS for caller review and confirm only after the caller approves or corrects them by voice."
+
+classification:
+  channels:
+    - voice
+    - sms
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - scheduling
+    - proactive-notifications
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: intermediate
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - appointment-review
+  - sms-confirmation
+  - visual-confirmation
+
+artifacts:
+  exports:
+    - Visual_Appointment_Confirmation.json
+    - visual_appointment.json
+  diagrams:
+    - assets/voice-visual-confirmation.svg
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

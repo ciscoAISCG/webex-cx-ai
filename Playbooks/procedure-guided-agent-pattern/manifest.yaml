@@ -1,0 +1,49 @@
+schema_version: 2
+id: procedure-guided-agent-pattern
+title: "Procedure-Guided AI Agent Pattern"
+summary: "Select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results."
+
+classification:
+  channels:
+    []
+  features:
+    - ai-agent-autonomous-digital
+  customer_journeys:
+    - customer-service
+  integrations:
+    - mcp
+
+complexity: advanced
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - procedure-catalogue
+  - bounded-agent
+  - controlled-actions
+
+artifacts:
+  diagrams:
+    - assets/procedure-guided-agent-pattern.svg
+  exports:
+    - exports/Authenticate_Customer.workflow
+    - exports/Fetch_Account_Details.workflow
+    - exports/Fetch_Procedure_Catalog.workflow
+    - exports/Fetch_Procedure_Guidance.workflow
+    - exports/Procedure_Guided_Agent.json
+    - exports/Procedure_Guided_Agent_Voice_Flow.json
+    - exports/Raise_Issue_Ticket.workflow
+    - exports/Send_Customer_Communication.workflow
+    - exports/Submit_Financial_Service_Action.workflow
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

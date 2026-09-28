@@ -1,0 +1,44 @@
+schema_version: 2
+id: servicenow-kb-incident-ai-agent-with-mcp
+title: "ServiceNow Knowledge and Incident Agent with MCP"
+summary: "Search ServiceNow knowledge first, then create, find, update, or delete incidents through MCP-backed actions when needed."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - knowledge-support
+    - case-management
+  integrations:
+    - mcp
+    - service-now
+
+complexity: advanced
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - incident-management
+  - knowledge-base
+  - mcp
+
+artifacts:
+  diagrams:
+    - assets/servicenow-ai-agent-mcp.svg
+  exports:
+    - servicenow_ai_agent.json
+    - servicenow_voice_flow.json
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

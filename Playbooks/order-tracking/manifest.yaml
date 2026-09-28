@@ -1,0 +1,47 @@
+schema_version: 2
+id: order-tracking
+title: "Order Tracking"
+summary: "Retrieve order, delivery, and fulfillment status from a backend workflow and explain the result with human escalation when needed."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - order-management
+    - self-service
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: intermediate
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - delivery-status
+  - fulfillment
+  - tracking
+
+artifacts:
+  documentation:
+    - Workflow_Response_Contract.md
+  diagrams:
+    - assets/order-tracking-flow.svg
+  exports:
+    - exports/Get_Order_Details.workflow
+    - exports/Order_Tracking_Agent.json
+    - exports/Order_Tracking_Voice_Flow.json
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

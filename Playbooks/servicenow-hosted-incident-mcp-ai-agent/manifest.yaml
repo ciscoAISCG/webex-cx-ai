@@ -1,0 +1,56 @@
+schema_version: 2
+id: servicenow-hosted-incident-mcp-ai-agent
+title: "ServiceNow-Hosted Incident MCP AI Agent"
+summary: "Verify an employee and manage authorized ServiceNow incidents through a ServiceNow-hosted MCP server, with safe human handoff."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - case-management
+    - authentication
+  integrations:
+    - mcp
+    - service-now
+
+complexity: advanced
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - incident-management
+  - service-now-hosted-mcp
+  - employee-verification
+
+artifacts:
+  diagrams:
+    - assets/servicenow-hosted-incident-mcp-workflow.svg
+  exports:
+    - exports/Incident_Management_AI_Agent.json
+    - exports/Incident_Management_AI_Flow.json
+    - exports/servicenow/schemas/create_incident.schema.json
+    - exports/servicenow/schemas/update_incident.schema.json
+  samples:
+    - exports/servicenow/resources/create_incident.js
+    - exports/servicenow/resources/list_incidents.js
+    - exports/servicenow/resources/lookup_incident.js
+    - exports/servicenow/resources/lookup_user.js
+    - exports/servicenow/resources/update_incident.js
+  documentation:
+    - resources/incident_management_agent_prompt.md
+    - resources/servicenow-mcp-v3-reference.md
+    - resources/test-cases.md
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

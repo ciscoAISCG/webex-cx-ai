@@ -49,6 +49,60 @@
   margin: 1.5rem 0 2rem;
 }
 
+.playbook-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  align-items: end;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(92, 141, 137, 0.32);
+  border-radius: 0.7rem;
+  background: rgba(92, 141, 137, 0.05);
+}
+
+.playbook-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.playbook-filter input,
+.playbook-filter select {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid rgba(47, 58, 69, 0.24);
+  border-radius: 0.35rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+}
+
+.playbook-filter__clear {
+  min-height: 2.5rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--md-accent-fg-color);
+  border-radius: 0.35rem;
+  background: transparent;
+  color: var(--md-accent-fg-color);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.playbook-filter__clear:hover {
+  background: rgba(92, 141, 137, 0.12);
+}
+
+.playbook-results {
+  margin: 0.75rem 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.82rem;
+}
+
 .playbook-card,
 .catalog-card {
   display: flex;
@@ -101,6 +155,15 @@
   color: var(--md-accent-fg-color);
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+.playbook-card__tags {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.78rem;
+}
+
+.playbook-card[hidden] {
+  display: none;
 }
 
 .md-typeset h1,
