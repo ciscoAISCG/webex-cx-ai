@@ -43,6 +43,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/playbooks.js
+
 plugins:
   - search
   - glightbox:

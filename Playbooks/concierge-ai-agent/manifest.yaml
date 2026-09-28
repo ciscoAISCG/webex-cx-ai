@@ -1,0 +1,45 @@
+schema_version: 2
+id: concierge-ai-agent
+title: "Concierge Routing Agent Template"
+summary: "Classify incoming questions and route them to a specialist using an AI Agent Studio import, prompt template, and routing knowledge-base starter."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - routing-transfer
+    - customer-service
+
+complexity: beginner
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - concierge
+  - specialist-routing
+  - starter-template
+
+artifacts:
+  diagrams:
+    - assets/concierge-routing-hero.svg
+  samples:
+    - docs/Concierge AI Agent Setup Guide.docx
+  exports:
+    - templates/concierge-ai-agent-studio-import.json
+  documentation:
+    - templates/concierge-ai-agent-template.md
+    - templates/routing-kb-starter.md
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

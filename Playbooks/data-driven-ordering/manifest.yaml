@@ -1,0 +1,50 @@
+schema_version: 2
+id: data-driven-ordering
+title: "Data-Driven Ordering"
+summary: "Guide callers through a structured menu, validate choices, place an order, and offer a digital fallback."
+
+classification:
+  verticals:
+    - retail
+  channels:
+    - voice
+    - sms
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - self-service
+    - order-management
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: intermediate
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - structured-menu
+  - digital-fallback
+  - webex-connect
+
+artifacts:
+  diagrams:
+    - assets/data-driven-ordering-flow.svg
+  exports:
+    - exports/Data_Driven_Ordering.json
+    - exports/Data_Driven_Ordering_Agent.json
+    - exports/Get_Menu.workflow
+    - exports/Place_Order.workflow
+    - exports/Send_Digital_Ordering_Link.workflow
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

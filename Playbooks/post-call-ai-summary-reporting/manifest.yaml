@@ -1,0 +1,42 @@
+schema_version: 2
+id: post-call-ai-summary-reporting
+title: Retrieve AI Assistant Post-Call Summaries for Supervisor Reporting
+summary: Retrieve AI Assistant wrap-up summaries after contact completion and expose selected fields through a historical Analyzer report for supervisor visibility.
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-assistant-wrap-up-summary
+  customer_journeys:
+    - customer-service
+  integrations:
+    - rest-api
+
+complexity: intermediate
+last_validated: "2026-08-03"
+
+ownership:
+  owner: Geovanny Olivares
+  maintaining_team: fde-team
+
+keywords:
+  - post-call-summary
+  - supervisor-desktop
+  - analyzer-report
+  - historical-reporting
+
+artifacts:
+  settings:
+    - settings/AI Summary CSR Report_2026-09-09-15-33-38.json
+  samples:
+    - images/ai-summary-reporting-subflow.png
+
+validation:
+  environment: Webex Contact Center voice tenant with AI Assistant wrap-up summaries, Flow Designer, Analyzer, and Supervisor Desktop
+  expected_result: The configured post-call summary fields are written to global variables, appear in the imported historical Analyzer report, and are visible to authorized supervisors in Supervisor Desktop.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true

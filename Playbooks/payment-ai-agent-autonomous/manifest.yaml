@@ -1,0 +1,46 @@
+schema_version: 2
+id: payment-ai-agent-autonomous
+title: "Hospital Payment Line (Autonomous)"
+summary: "Let patients check an outstanding hospital balance and pay by card through an autonomous voice AI agent with safe escalation."
+
+classification:
+  verticals:
+    - health-care
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - payments
+    - authentication
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: advanced
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - hospital-billing
+  - balance-lookup
+  - credit-card-payment
+
+artifacts:
+  exports:
+    - Payment_Agent.json
+    - Payment_Flow.json
+    - checkBalance.json
+    - makePayment.json
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

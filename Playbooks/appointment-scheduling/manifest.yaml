@@ -1,0 +1,48 @@
+schema_version: 2
+id: appointment-scheduling
+title: "Appointment Scheduling"
+summary: "Schedule, review, and reschedule appointments with an autonomous voice AI agent and Webex Connect fulfillment workflows."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - scheduling
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: intermediate
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - appointments
+  - booking
+  - rescheduling
+  - webex-connect
+
+artifacts:
+  diagrams:
+    - assets/appointment-scheduling-flow.svg
+  exports:
+    - exports/Appointment_Scheduling.json
+    - exports/Generic_Appointment_Scheduling.json
+    - exports/Get_Appointment_Slots.workflow
+    - exports/Get_Existing_Appointments.workflow
+    - exports/Reschedule_Appointment.workflow
+    - exports/Schedule_Appointment.workflow
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

@@ -1,0 +1,48 @@
+schema_version: 2
+id: directory-routing
+title: "Directory Routing"
+summary: "Classify a caller request as a person or department lookup, search directory resources, and transfer the caller to the matching destination."
+
+classification:
+  verticals:
+    - health-care
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - routing-transfer
+  integrations:
+    - database
+
+complexity: intermediate
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - directory
+  - person-lookup
+  - department-lookup
+
+artifacts:
+  diagrams:
+    - assets/directory-routing-workflow.svg
+  exports:
+    - exports/Directory_Routing_Agent.json
+    - exports/Directory_Routing_Flow.json
+    - exports/Extract_Phone_Function.json
+  samples:
+    - resources/Departments.csv
+    - resources/Employees.csv
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

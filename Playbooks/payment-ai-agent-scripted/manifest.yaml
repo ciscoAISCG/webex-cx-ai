@@ -1,0 +1,51 @@
+schema_version: 2
+id: payment-ai-agent-scripted
+title: "Hospital Payment Agent (Scripted)"
+summary: "Collect payment intent and caller details, then use voice-flow state events and subflows for balance lookup and payment processing."
+
+classification:
+  verticals:
+    - health-care
+  channels:
+    - voice
+  features:
+    - ai-agent-scripted-voice
+  customer_journeys:
+    - payments
+    - authentication
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: advanced
+last_validated: "2026-09-28"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - hospital-billing
+  - balance-lookup
+  - payment-processing
+
+artifacts:
+  diagrams:
+    - assets/payment-scripted-readable-flow.excalidraw
+    - assets/payment-scripted-readable-flow.svg
+  documentation:
+    - docs/payment_scripted_functionality_details.md
+  exports:
+    - exports/Payment_AI_Agent_Scripted.json
+    - exports/Payment_Flow_Scripted_voiceFlow.json
+    - exports/checkBalance_subflow.json
+    - exports/makePayment_subflow.json
+
+validation:
+  environment: "Public repository package review; runtime behavior was not retested in a customer tenant during this metadata standardization."
+  expected_result: "The playbook documentation and declared artifacts are present; validate runtime behavior in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

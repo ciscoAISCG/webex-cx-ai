@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title description">
+  <title id="title">Flow Designer consult summary delivery architecture</title>
+  <desc id="description">A Webex Contact Center PreDial event invokes a Webex Connect flow. The flow resolves the dialed number through Webex Identity, retrieves the MID_CALL summary from Webex Contact Center, and sends a direct message to the selected Webex App user.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#eef7f5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#3477a9"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #122b42; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #49657a; }
+      .box-title { font: 700 21px Arial, sans-serif; fill: #122b42; }
+      .box-text { font: 400 16px Arial, sans-serif; fill: #3e5a6d; }
+      .step { font: 700 15px Arial, sans-serif; fill: #ffffff; }
+      .arrow-label { font: 600 14px Arial, sans-serif; fill: #3477a9; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="760" fill="url(#background)"/>
+  <text x="70" y="72" class="title">Consult summary delivery to the selected Webex App user</text>
+  <text x="70" y="104" class="subtitle">Webex Contact Center PreDial event and Webex Connect flow</text>
+
+  <g filter="url(#shadow)">
+    <rect x="55" y="250" width="270" height="205" rx="20" fill="#ffffff" stroke="#c9dce9"/>
+    <circle cx="98" cy="292" r="21" fill="#1684b8"/>
+    <text x="93" y="298" class="step">1</text>
+    <text x="137" y="299" class="box-title">Agent Desktop</text>
+    <text x="86" y="346" class="box-text">Agent starts a consult</text>
+    <text x="86" y="374" class="box-text">or transfer to a user</text>
+    <text x="86" y="414" class="box-text">Event: PreDial</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="405" y="190" width="370" height="325" rx="20" fill="#ffffff" stroke="#b8d9d0"/>
+    <circle cx="448" cy="232" r="21" fill="#2b9d83"/>
+    <text x="443" y="238" class="step">2</text>
+    <text x="487" y="239" class="box-title">Webex Connect flow</text>
+    <text x="437" y="288" class="box-text">Webhook receives:</text>
+    <text x="437" y="318" class="box-text">• dialNumber</text>
+    <text x="437" y="348" class="box-text">• agentName</text>
+    <text x="437" y="378" class="box-text">• interaction ID</text>
+    <text x="437" y="426" class="box-text">Resolve user, request summary,</text>
+    <text x="437" y="456" class="box-text">and format the Webex message</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="875" y="130" width="320" height="175" rx="20" fill="#ffffff" stroke="#c9dce9"/>
+    <circle cx="918" cy="172" r="21" fill="#1684b8"/>
+    <text x="913" y="178" class="step">3</text>
+    <text x="957" y="179" class="box-title">Webex CC API</text>
+    <text x="907" y="226" class="box-text">Agent Summaries API</text>
+    <text x="907" y="256" class="box-text">taskId → MID_CALL fields</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="875" y="400" width="320" height="175" rx="20" fill="#ffffff" stroke="#c9dce9"/>
+    <circle cx="918" cy="442" r="21" fill="#1684b8"/>
+    <text x="913" y="448" class="step">4</text>
+    <text x="957" y="449" class="box-title">Webex Identity API</text>
+    <text x="907" y="496" class="box-text">SCIM Users lookup</text>
+    <text x="907" y="526" class="box-text">dialNumber → recipient email</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1305" y="250" width="250" height="205" rx="20" fill="#ffffff" stroke="#d3c9ec"/>
+    <circle cx="1348" cy="292" r="21" fill="#7155b7"/>
+    <text x="1343" y="298" class="step">5</text>
+    <text x="1387" y="299" class="box-title">Webex App</text>
+    <text x="1337" y="346" class="box-text">POST /v1/messages</text>
+    <text x="1337" y="376" class="box-text">Direct summary to the</text>
+    <text x="1337" y="406" class="box-text">resolved Webex user</text>
+  </g>
+
+  <path d="M325 352 H405" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="365" y="334" text-anchor="middle" class="arrow-label">Webhook</text>
+
+  <path d="M775 280 C825 280 825 215 875 215" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M875 255 C825 255 825 320 775 320" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="822" y="190" text-anchor="middle" class="arrow-label">summary request</text>
+  <text x="822" y="346" text-anchor="middle" class="arrow-label">MID_CALL fields</text>
+
+  <path d="M775 430 C825 430 825 487 875 487" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M875 527 C825 527 825 470 775 470" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="822" y="413" text-anchor="middle" class="arrow-label">DN lookup</text>
+  <text x="822" y="555" text-anchor="middle" class="arrow-label">recipient email</text>
+
+  <path d="M775 352 H1305" fill="none" stroke="#3477a9" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1040" y="333" text-anchor="middle" class="arrow-label">POST /v1/messages</text>
+
+  <g>
+    <rect x="405" y="635" width="790" height="90" rx="16" fill="#16324f"/>
+    <text x="438" y="671" style="font:700 17px Arial,sans-serif;fill:#ffffff">OAuth Integration credential (Webex Connect custom nodes)</text>
+    <text x="438" y="702" style="font:400 15px Arial,sans-serif;fill:#d8e8f3">Contact Center summary read + Identity people read + Messaging write</text>
+  </g>
+</svg>

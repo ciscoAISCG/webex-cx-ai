@@ -1,0 +1,19 @@
+{
+  "name": "call-summary-transfer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Webex Contact Center consulting webhook POC for forwarding MID_CALL summaries through Webex Messaging.",
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test .test-dist/test/*.test.js",
+    "quality": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.152",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.0"
+  }
+}
