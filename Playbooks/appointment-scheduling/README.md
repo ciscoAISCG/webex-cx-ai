@@ -1,13 +1,5 @@
 # Appointment Scheduling - Webex Contact Center Autonomous AI Agent
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Intermediate |
-
 ## Try It Fast
 
 ```mermaid

@@ -1,13 +1,5 @@
 ﻿# Concierge Routing Agent Basic Template
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Beginner |
-
 ## Try It Fast
 
 ```mermaid

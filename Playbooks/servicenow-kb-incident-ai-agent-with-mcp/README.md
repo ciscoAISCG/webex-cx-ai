@@ -1,13 +1,5 @@
 # ServiceNow KB + Incident AI Agent With MCP
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Advanced |
-
 ## Try It Fast
 
 ```mermaid

@@ -1,13 +1,5 @@
 # Payment AI Agent Scripted
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Health Care |
-| Channel | Voice |
-| Complexity | Advanced |
-
 ## 1. Introduction Of Use Case
 
 This playbook contains a scripted Webex Contact Center AI Agent use case for a hospital payment line. It supports two caller journeys:
