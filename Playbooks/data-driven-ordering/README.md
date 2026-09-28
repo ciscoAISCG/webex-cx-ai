@@ -1,13 +1,5 @@
 # Data Driven Ordering - Webex Contact Center Autonomous AI Agent
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Retail |
-| Channel | Voice |
-| Complexity | Intermediate |
-
 ## Try It Fast
 
 ```mermaid

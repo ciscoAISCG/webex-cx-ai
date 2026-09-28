@@ -1,13 +1,5 @@
 # Hospital Payment Line — Webex Contact Center Autonomous AI Agent
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Health Care |
-| Channel | Voice |
-| Complexity | Advanced |
-
 ## Contents
 
 | File | Type | Purpose |

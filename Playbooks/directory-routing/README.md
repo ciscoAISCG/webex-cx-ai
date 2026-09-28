@@ -1,13 +1,5 @@
 # Directory Routing - Webex Contact Center Autonomous AI Agent
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Health Care |
-| Channel | Voice |
-| Complexity | Intermediate |
-
 ## Architecture Diagram
 
 ![Directory routing architecture](assets/directory-routing-workflow.svg)

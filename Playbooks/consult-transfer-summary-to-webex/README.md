@@ -1,14 +1,5 @@
 # Send a Consult Summary to the Consulted Webex User
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Advanced |
-
-
 ## Summary
 
 This playbook sends the Webex Contact Center AI-generated `MID_CALL` summary directly to the Webex user selected for a voice consult. It solves the handoff gap where the consulted user receives the call but may not have the caller context already captured by the first agent.

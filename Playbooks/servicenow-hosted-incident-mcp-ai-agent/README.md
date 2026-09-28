@@ -1,13 +1,5 @@
 # ServiceNow Hosted Incident MCP AI Agent
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Advanced |
-
 ## Try It Fast
 
 | Step | Do this | Where |

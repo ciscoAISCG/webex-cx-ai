@@ -1,14 +1,5 @@
 # Send Mid Call Consult Summaries to Webex Users with Flow Designer Event
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Intermediate |
-
-
 ## Summary
 
 This playbook sends a Webex Contact Center AI-generated `MID_CALL` summary directly to the Webex user selected for a voice consultation or transfer.

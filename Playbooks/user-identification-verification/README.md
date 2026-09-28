@@ -1,13 +1,5 @@
 # User Identification and Verification - Webex Contact Center Autonomous AI Agent
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Advanced |
-
 ## Try It Fast
 
 ```mermaid

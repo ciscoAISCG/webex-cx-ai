@@ -1,14 +1,5 @@
 # Retrieve AI Assistant Post-Call Summaries for Supervisor Reporting
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Voice |
-| Complexity | Intermediate |
-
-
 ## Summary
 
 This playbook retrieves Webex Contact Center AI Assistant `POST_CALL` summaries after a voice interaction ends, stores five summary components in reportable global variables, and exposes them in a historical Analyzer report for supervisors.

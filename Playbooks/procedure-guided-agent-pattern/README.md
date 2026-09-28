@@ -1,13 +1,5 @@
 # Procedure-Guided AI Agent Pattern
 
-## Playbook Metadata
-
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Unknown |
-| Complexity | Advanced |
-
 ## Try It Fast
 
 ```mermaid
