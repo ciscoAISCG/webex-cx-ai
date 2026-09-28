@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Webex Contact Center call-summary transfer POC
+
+Parameters:
+  WebexAccessToken:
+    Type: String
+    NoEcho: true
+    Description: POC Webex token with summary, Calling Numbers and Messaging access
+  WxccApiBaseUrl:
+    Type: String
+    Default: https://api.wxcc-us1.cisco.com
+  WebexOrgId:
+    Type: String
+    Default: ""
+  ExtensionLength:
+    Type: Number
+    Default: 4
+    MinValue: 1
+    MaxValue: 9
+    Description: Number of trailing digits used as the internal extension
+  DryRun:
+    Type: String
+    AllowedValues: ["true", "false"]
+    Default: "true"
+
+Resources:
+  CallSummaryTransferFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs24.x
+      Architectures: [arm64]
+      Handler: index.handler
+      CodeUri: dist/
+      MemorySize: 256
+      Timeout: 30
+      Environment:
+        Variables:
+          WEBEX_ACCESS_TOKEN: !Ref WebexAccessToken
+          WXCC_API_BASE_URL: !Ref WxccApiBaseUrl
+          WEBEX_ORG_ID: !Ref WebexOrgId
+          EXTENSION_LENGTH: !Ref ExtensionLength
+          DRY_RUN: !Ref DryRun
+          LOG_WEBHOOK_BODY: "true"
+      FunctionUrlConfig:
+        AuthType: NONE
+  CallSummaryTransferLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${CallSummaryTransferFunction}
+      RetentionInDays: 7
+
+Outputs:
+  WebhookUrl:
+    Description: Register this HTTPS URL as the Webex Contact Center webhook destination
+    Value: !GetAtt CallSummaryTransferFunctionUrl.FunctionUrl

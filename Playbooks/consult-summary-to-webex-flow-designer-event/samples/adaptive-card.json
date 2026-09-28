@@ -1,0 +1,49 @@
+{
+  "toPersonEmail": "$(toPersonEmail)",
+  "markdown": "**Live consultation summary**\n\n**Reason:** $(reason)\n\n**Additional context:** $(additionalContext)\n\n**Actions taken:** $(keyActions)",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.3",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Live customer consultation",
+            "size": "Large",
+            "weight": "Bolder",
+            "color": "Accent",
+            "wrap": true
+          },
+          {
+            "type": "TextBlock",
+            "text": "An agent is requesting assistance with a live customer interaction.",
+            "wrap": true,
+            "spacing": "Small"
+          },
+          {
+            "type": "FactSet",
+            "separator": true,
+            "spacing": "Medium",
+            "facts": [
+              {
+                "title": "Reason",
+                "value": "$(reason)"
+              },
+              {
+                "title": "Additional context",
+                "value": "$(additionalContext)"
+              },
+              {
+                "title": "Actions taken",
+                "value": "$(keyActions)"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

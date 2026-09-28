@@ -1,0 +1,22 @@
+{
+  "name": "webex-ai-agent-creator",
+  "version": "0.1.0",
+  "description": "Design Webex AI Agent Studio assistants from business use cases, including production-ready instructions, action definitions, and setup guidance.",
+  "author": {
+    "name": "Cisco AI SCG"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Webex AI Agent Creator",
+    "shortDescription": "Design Webex AI agents and setup steps",
+    "longDescription": "Create implementation-ready Webex AI Agent Studio assistants with grounded instructions, action parameters, escalation behavior, import-ready JSON guidance, and tenant setup steps.",
+    "developerName": "Cisco AI SCG",
+    "category": "Productivity",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": [
+      "Design a Webex AI Agent Studio assistant for appointment booking.",
+      "Create actions and instructions for a Webex AI agent.",
+      "Prepare an import-ready Webex AI Agent Studio JSON draft."
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "SCG Playbook"
+  short_description: "Create visual-first SCG playbooks"
+  brand_color: "#1F6FEB"
+  default_prompt: "Use $scg-playbook to turn this Webex AI Agent or Contact Center use case into a visual-first SCG playbook."
+
+policy:
+  allow_implicit_invocation: true

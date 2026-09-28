@@ -1,0 +1,211 @@
+# Central metadata contract and controlled vocabulary for FDE playbooks.
+
+schema_version: 2
+
+metadata_contract:
+  required:
+    id:
+      type: slug
+      description: Stable lowercase identifier; must match the playbook folder name.
+
+    title:
+      type: string
+      description: Human-readable playbook title.
+
+    summary:
+      type: string
+      description: Short customer-safe description used in search results.
+
+    classification.features:
+      type: array
+      min_items: 1
+      values_from: facets.features
+      description: At least one approved AI feature is required.
+
+    classification.customer_journeys:
+      type: array
+      min_items: 1
+      values_from: facets.customer_journeys
+
+    complexity:
+      type: enum
+      values_from: facets.complexity
+
+    last_validated:
+      type: date
+      format: YYYY-MM-DD
+
+    ownership.owner:
+      type: string
+      description: GitHub login or approved owner identifier.
+
+    ownership.maintaining_team:
+      type: slug
+      description: Team responsible for maintenance and revalidation.
+
+  optional:
+    classification.verticals:
+      type: array
+      values_from: facets.verticals
+      description: Omit for an industry-neutral playbook.
+
+    classification.channels:
+      type: array
+      values_from: facets.channels
+      description: Omit when the playbook is not channel-specific.
+
+    classification.integrations:
+      type: array
+      values_from: facets.integrations
+      description: Omit when no external integration applies.
+
+    keywords:
+      type: array
+      item_type: slug
+      description: Search terms not represented by controlled facets.
+
+facets:
+  verticals:
+    - education
+    - energy-utilities
+    - financial-services
+    - government
+    - health-care
+    - hospitality-hotels-and-leisure
+    - manufacturing
+    - media-entertainment
+    - not-for-profit
+    - professional-services
+    - retail
+    - service-provider
+    - technical-services
+    - technology
+    - transportation
+    - wholesale-distribution
+
+  channels:
+    - voice
+    - chat
+    - sms
+    - email
+    - whatsapp
+    - facebook
+    - imessage
+    - social
+    - custom
+
+  features:
+    - ai-assistant-topic-analytics
+    - ai-assistant-suggested-responses
+    - ai-assistant-wrap-up-summary
+    - ai-quality-management
+    - ai-assistant-dropped-call-and-transfer-summary
+    - ai-assistant-agent-wellbeing
+    - ai-assistant-real-time-transcript
+    - ai-assistant-autocsat
+    - ai-agent-scripted-voice
+    - ai-agent-autonomous-voice
+    - ai-agent-scripted-digital
+    - ai-agent-autonomous-digital
+
+  customer_journeys:
+    - customer-service
+    - self-service
+    - scheduling
+    - authentication
+    - payments
+    - order-management
+    - case-management
+    - knowledge-support
+    - routing-transfer
+    - proactive-notifications
+
+  integrations:
+    - rest-api
+    - mcp
+    - service-now
+    - salesforce
+    - microsoft-dynamics
+    - custom-crm
+    - database
+    - webhook
+    - a2a
+
+  complexity:
+    - beginner
+    - intermediate
+    - advanced
+
+# Human-readable labels shown during classification confirmation. Manifests
+# always store the corresponding lowercase, hyphen-separated facet value.
+display_labels:
+  verticals:
+    education: Education
+    energy-utilities: Energy & Utilities
+    financial-services: Financial Services
+    government: Government
+    health-care: Health Care
+    hospitality-hotels-and-leisure: Hospitality, Hotels and Leisure
+    manufacturing: Manufacturing
+    media-entertainment: Media & Entertainment
+    not-for-profit: Not-for-Profit
+    professional-services: Professional Services
+    retail: Retail
+    service-provider: Service Provider
+    technical-services: Technical Services
+    technology: Technology
+    transportation: Transportation
+    wholesale-distribution: Wholesale Distribution
+
+  channels:
+    voice: Voice
+    chat: Chat
+    sms: SMS
+    email: Email
+    whatsapp: WhatsApp
+    facebook: Facebook
+    imessage: iMessage
+    social: Social
+    custom: Custom
+
+  features:
+    ai-assistant-topic-analytics: AI Assistant - Topic Analytics
+    ai-assistant-suggested-responses: AI Assistant - Suggested Responses
+    ai-assistant-wrap-up-summary: AI Assistant - Wrap-up Summary
+    ai-quality-management: AI - Quality Management
+    ai-assistant-dropped-call-and-transfer-summary: AI Assistant - Dropped Call and Transfer Summary
+    ai-assistant-agent-wellbeing: AI Assistant - Agent Wellbeing
+    ai-assistant-real-time-transcript: AI Assistant - Real-Time Transcript
+    ai-assistant-autocsat: AI Assistant - AutoCSAT
+    ai-agent-scripted-voice: AI Agent - Scripted (Voice)
+    ai-agent-autonomous-voice: AI Agent - Autonomous (Voice)
+    ai-agent-scripted-digital: AI Agent - Scripted (Digital)
+    ai-agent-autonomous-digital: AI Agent - Autonomous (Digital)
+
+  customer_journeys:
+    customer-service: Customer Service
+    self-service: Self-Service
+    scheduling: Scheduling
+    authentication: Authentication
+    payments: Payments
+    order-management: Order Management
+    case-management: Case Management
+    knowledge-support: Knowledge Support
+    routing-transfer: Routing & Transfer
+    proactive-notifications: Proactive Notifications
+
+  integrations:
+    rest-api: REST API
+    mcp: MCP
+    service-now: ServiceNow
+    salesforce: Salesforce
+    microsoft-dynamics: Microsoft Dynamics
+    custom-crm: Custom CRM
+    database: Database
+    webhook: Webhook
+    a2a: A2A
+
+  complexity:
+    beginner: Beginner
+    intermediate: Intermediate
+    advanced: Advanced

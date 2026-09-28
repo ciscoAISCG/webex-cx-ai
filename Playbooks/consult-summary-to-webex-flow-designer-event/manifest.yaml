@@ -1,0 +1,60 @@
+schema_version: 2
+id: consult-summary-to-webex-flow-designer-event
+title: Send Mid Call Consult Summaries to Webex Users with Flow Designer Event
+summary: Use a Webex Contact Center PreDial event and Webex Connect to resolve a consulted Webex user and send that person the MID_CALL summary as a direct Webex message.
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-assistant-dropped-call-and-transfer-summary
+    - ai-assistant-real-time-transcript
+  customer_journeys:
+    - routing-transfer
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: intermediate
+last_validated: "2026-09-23"
+
+ownership:
+  owner: dbokatov
+  maintaining_team: fde-team
+
+keywords:
+  - consult-transfer
+  - mid-call-summary
+  - flow-designer
+  - predial-event
+  - webex-connect
+  - webex-messaging
+  - ai-assistant-transfer-summary
+  - ai-assistant-mid-call-summary
+
+artifacts:
+  flows:
+    - assets/architecture.svg
+    - assets/webex-connect-flow-sanitized.png
+    - assets/predial-event-flow-sanitized.png
+  settings:
+    - assets/webex-integration-oauth-sanitized.png
+    - assets/dn-check-custom-node-sanitized.png
+    - assets/mid-call-summary-custom-node-sanitized.png
+    - assets/send-webex-message-custom-node-sanitized.png
+    - assets/ai-features-sanitized.png
+    - assets/start-media-stream-sanitized.png
+  samples:
+    - assets/send-webex-message-mapping-sanitized.png
+    - assets/webex-summary-sanitized.png
+    - samples/webhook-request.json
+    - samples/adaptive-card.json
+
+validation:
+  environment: Webex Contact Center voice tenant with AI Assistant MID_CALL summaries, real-time transcription, Webex Connect Flow Designer, and Webex Messaging
+  expected_result: When an agent starts a supported consult or transfer, the PreDial destination resolves to the intended Webex user and that user receives the interaction MID_CALL summary as a direct Webex message.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true

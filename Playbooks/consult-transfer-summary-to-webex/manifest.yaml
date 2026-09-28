@@ -1,0 +1,60 @@
+schema_version: 2
+id: consult-transfer-summary-to-webex
+title: Send a Webex Contact Center Consult Summary to the Consulted Webex User
+summary: Resolve the user selected for a voice consult and send that person the MID_CALL AI summary as a direct Webex message.
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-assistant-dropped-call-and-transfer-summary
+  customer_journeys:
+    - routing-transfer
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: advanced
+last_validated: "2026-09-02"
+
+ownership:
+  owner: dbokatov
+  maintaining_team: fde-team
+
+keywords:
+  - consult-transfer
+  - mid-call-summary
+  - webex-messaging
+  - ai-assistant-transfer-summary
+  - ai-assistant-mid-call-summary
+
+artifacts:
+  flows:
+    - assets/architecture.svg
+  settings:
+    - samples/lambda/.env.example
+    - samples/lambda/template.yaml
+  samples:
+    - assets/agent-consult-sanitized.png
+    - assets/webex-summary-sanitized.png
+    - downloads/call-summary-transfer-lambda.zip
+    - samples/lambda/.gitignore
+    - samples/lambda/esbuild.mjs
+    - samples/lambda/package.json
+    - samples/lambda/package-lock.json
+    - samples/lambda/README.md
+    - samples/lambda/sample-events/task-consulting.json
+    - samples/lambda/src/index.ts
+    - samples/lambda/tsconfig.json
+    - samples/lambda/tsconfig.test.json
+  tests:
+    - samples/lambda/test/index.test.ts
+
+validation:
+  environment: Webex Contact Center voice tenant with AI Assistant summaries, Webex Calling, Webex Messaging, and an AWS Lambda Function URL
+  expected_result: A task:consulting event resolves the intended person from the consult task leg and delivers the interaction MID_CALL summary as a direct Webex message.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true

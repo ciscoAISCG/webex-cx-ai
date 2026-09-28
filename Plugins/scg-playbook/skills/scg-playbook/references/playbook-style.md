@@ -1,0 +1,84 @@
+# Playbook Style
+
+SCG playbooks should lower the friction to try a use case. They should not feel like a product manual.
+
+## Recommended README Order
+
+1. Title with the use case name.
+2. One or two sentences that explain the outcome.
+3. `Playbook Metadata` table with Vertical, Channel, and Complexity.
+4. `Downloadable Content Files` index with links to supplied original files.
+5. Hero visual.
+6. `Try It Fast` section with the recommended path.
+7. Setup checklist.
+8. Test script.
+9. Troubleshooting or validation.
+10. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+
+Use `Unknown` when a metadata value is not known. Do not invent a vertical, channel, or complexity level.
+
+## Downloadable Content Files
+
+Every playbook should account for these five content-file categories:
+
+- Webex Contact Center Voice Flows
+- Webex Contact Center Fulfilment Flows
+- Webex Connect Fulfilment Flows
+- AI Agent Export JSON
+- Sample Knowledge Base Files
+
+Preserve each supplied original file under `content/` or `downloads/` and link it from the `Downloadable Content Files` section. Use `Not provided` for a category that was not supplied. This section is an asset index, not a source for generated content: do not quote, summarize, parse, transform, or derive content from these files unless the user explicitly authorizes it.
+
+## Files In This Playbook
+
+When a README includes a `Files In This Playbook` section or table, keep it focused on files and dependencies the reader must import, configure, or understand to run the playbook.
+
+Include examples:
+
+- AI Agent Studio JSON exports.
+- Flow Designer JSON exports.
+- Required backend services or external dependencies.
+- Companion skills when they are part of setup.
+
+Downloadable content files belong in the separate `Downloadable Content Files` section. Include them in `Files In This Playbook` only when a file is actually required to run, import, or configure the playbook.
+
+Do not include examples:
+
+- Hero diagrams.
+- Architecture diagrams.
+- Screenshots.
+- SVG, PNG, or other visual assets from `assets/`.
+
+Diagrams and images should still live in the repo when useful. Reference or display them where they help the README, but do not list them as playbook files.
+
+## Writing Rules
+
+- Use short sections and concrete verbs.
+- Put the easiest supported path first.
+- Do not present Option A, B, and C equally unless the user explicitly asks for a comparison playbook.
+- Use `<details>` blocks for material that is useful but not needed for the first successful run.
+- Avoid long background paragraphs. If context is necessary, put it after the quick path.
+- Use sample names, fake numbers, and demo-safe values.
+- Keep internal/customer notes separate when both audiences are supported.
+
+## Try It Fast Pattern
+
+Use this section to make the first win feel reachable:
+
+````markdown
+## Try It Fast
+
+```mermaid
+flowchart LR
+  A("Import agent") --> B("Import flow")
+  B --> C("Connect action")
+  C --> D("Run test")
+```
+
+1. Import the AI Agent Studio export.
+2. Import the Flow Designer export.
+3. Rebind tenant-specific references.
+4. Run the happy-path test.
+````
+
+When setup depends on a complex helper process, add a Skills CTA directly under the step.

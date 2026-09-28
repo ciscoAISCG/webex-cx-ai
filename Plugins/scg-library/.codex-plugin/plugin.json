@@ -1,0 +1,31 @@
+{
+  "name": "scg-library",
+  "version": "0.1.0+codex.20260826005554",
+  "description": "Secure, read-only access to the SCG Library from Codex.",
+  "author": {
+    "name": "AI SCG"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SCG Library",
+    "shortDescription": "Search the SCG Library securely.",
+    "longDescription": "Authenticates each user through Auth0, auto-approves exact Cisco-domain identities, requires administrator approval for other verified domains, honors revocation, and turns natural-language questions into read-only structured queries and summaries across the SCG business-data library.",
+    "developerName": "AI SCG",
+    "category": "Productivity",
+    "capabilities": [
+      "Auth0 email authentication",
+      "Cisco-domain auto-approval and external-domain approval",
+      "Administrator revocation",
+      "Read-only full-field SCG Library search",
+      "Structured filters and sorting",
+      "Accurate counts and grouped summaries",
+      "V1/V2 query benchmarking"
+    ],
+    "defaultPrompt": [
+      "Using SCG Library, list the available data collections.",
+      "Using SCG Library, tell me everything we know about a customer.",
+      "Using SCG Library, count and summarize records matching my question."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

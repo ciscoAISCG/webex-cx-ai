@@ -1,0 +1,62 @@
+<svg width="1400" height="700" viewBox="0 0 1400 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="700" fill="#F6FAFF"/>
+  <text x="40" y="70" fill="#1E2B5B" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Procedure-Guided AI Agent Pattern</text>
+  <text x="40" y="112" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="24">The agent pulls the catalogue, determines the best-fit procedure, retrieves its guidance, then follows it to resolve the query.</text>
+
+  <rect x="40" y="185" width="220" height="250" rx="24" fill="#FFFFFF" stroke="#B9D7F2" stroke-width="4"/>
+  <circle cx="150" cy="272" r="52" fill="#DDEBFA"/>
+  <circle cx="150" cy="254" r="22" fill="#2F7FA8"/>
+  <path d="M104 324C104 298.595 124.595 278 150 278C175.405 278 196 298.595 196 324V336H104V324Z" fill="#2F7FA8"/>
+  <text x="84" y="382" fill="#1E2B5B" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Customer</text>
+  <text x="84" y="418" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="20">States the request</text>
+
+  <rect x="500" y="165" width="260" height="270" rx="26" fill="#E9F8F3" stroke="#6FCAB8" stroke-width="4"/>
+  <rect x="572" y="228" width="118" height="92" rx="18" fill="#FFFFFF"/>
+  <circle cx="616" cy="275" r="24" fill="#73C7B8"/>
+  <rect x="658" y="248" width="54" height="10" rx="5" fill="#1E2B5B"/>
+  <rect x="658" y="273" width="54" height="10" rx="5" fill="#1E2B5B"/>
+  <text x="530" y="356" fill="#1E2B5B" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">AI Agent</text>
+  <text x="530" y="383" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="15">1. Pulls the catalogue</text>
+  <text x="530" y="402" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="15">2. Determines the procedure</text>
+  <text x="530" y="421" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="13">3. Retrieves guidance and follows it</text>
+
+  <rect x="950" y="150" width="260" height="165" rx="24" fill="#FFFFFF" stroke="#B9D7F2" stroke-width="4"/>
+  <rect x="1022" y="178" width="118" height="44" rx="12" fill="#EAF7F2" stroke="#88D39D" stroke-width="3"/>
+  <rect x="1044" y="194" width="74" height="8" rx="4" fill="#2D8C3C"/>
+  <text x="984" y="258" fill="#1E2B5B" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Procedure Catalogue</text>
+  <text x="984" y="282" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="16">Approved IDs and</text>
+  <text x="984" y="303" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="16">selection guidance</text>
+
+  <rect x="950" y="390" width="260" height="165" rx="24" fill="#FFFFFF" stroke="#B9D7F2" stroke-width="4"/>
+  <rect x="1022" y="418" width="118" height="44" rx="12" fill="#EAF7F2" stroke="#88D39D" stroke-width="3"/>
+  <rect x="1042" y="434" width="78" height="8" rx="4" fill="#2D8C3C"/>
+  <text x="984" y="498" fill="#1E2B5B" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Procedure Guidance</text>
+  <text x="984" y="522" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="16">Full steps for the</text>
+  <text x="984" y="543" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="16">selected procedure ID</text>
+
+  <rect x="640" y="500" width="250" height="150" rx="24" fill="#FFFFFF" stroke="#B9D7F2" stroke-width="4"/>
+  <rect x="810" y="520" width="46" height="42" rx="10" fill="#EAF7F2" stroke="#88D39D" stroke-width="3"/>
+  <path d="M821 541L831 551L846 531" stroke="#2D8C3C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="660" y="585" fill="#1E2B5B" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Resolve the Query</text>
+  <text x="660" y="615" fill="#5C6B82" font-family="Arial, Helvetica, sans-serif" font-size="14">Use facts, actions, or handover</text>
+
+  <line x1="260" y1="300" x2="472" y2="300" stroke="#2F7FA8" stroke-width="6"/>
+  <polygon points="500,300 472,286 472,314" fill="#2F7FA8"/>
+  <rect x="330" y="248" width="100" height="38" rx="19" fill="#20598C"/>
+  <text x="342" y="274" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">1. Request</text>
+
+  <line x1="760" y1="225" x2="922" y2="225" stroke="#2F7FA8" stroke-width="6"/>
+  <polygon points="950,225 922,211 922,239" fill="#2F7FA8"/>
+  <rect x="795" y="173" width="120" height="38" rx="19" fill="#20598C"/>
+  <text x="805" y="198" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">2. Pull Catalog</text>
+
+  <path d="M760 400H850V470H922" stroke="#2F7FA8" stroke-width="6" fill="none"/>
+  <polygon points="950,470 922,456 922,484" fill="#2F7FA8"/>
+  <rect x="765" y="362" width="118" height="30" rx="15" fill="#20598C"/>
+  <text x="777" y="382" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">3. Pull Procedure</text>
+
+  <path d="M700 435V472" stroke="#2F7FA8" stroke-width="6" fill="none"/>
+  <polygon points="700,500 686,472 714,472" fill="#2F7FA8"/>
+  <rect x="520" y="446" width="150" height="34" rx="17" fill="#20598C"/>
+  <text x="533" y="468" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">4. Follow Procedure</text>
+</svg>

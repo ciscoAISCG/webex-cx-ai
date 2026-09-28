@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "scg-library": {
+      "type": "http",
+      "url": "https://www.primarydemo.com/airtable_access_v1/mcp",
+      "tool_timeout_sec": 60,
+      "default_tools_approval_mode": "approve",
+      "oauth": {
+        "client_id": "tpc_qzEbV5uEVkfvYFvDx7jgUt"
+      }
+    }
+  }
+}
