@@ -24,20 +24,19 @@ The playbook should feel like a guided starter kit, not a long manual. Lead with
 3. If the user explicitly authorizes using an AI Agent Studio or Flow Designer JSON as a source, inspect it with `scripts/inspect_playbook.py`. Otherwise, preserve it as downloadable content only.
 4. Choose one recommended setup path. Put alternatives in collapsed sections.
 5. For any simple visual or hero image, load `references/visual-standard.md` and apply the arrow-safety rules before delivering the asset.
-6. Capture the required playbook metadata in the README using the controlled values below. Use `Unknown` when the value is not known.
-7. Build or refresh `Playbooks/<Playbook_Folder>/` with README, exports, content files, and assets.
+6. Read `Playbooks/taxonomy.yaml` and create a schema-v2 `manifest.yaml` for the playbook. Use only its approved facet values.
+7. Choose a lowercase kebab-case playbook ID and build or refresh `Playbooks/<playbook-id>/` with `manifest.yaml`, `README.md`, exports, content files, and assets. The manifest `id` must exactly match the folder name. When refreshing a legacy folder with another naming style, rename it and update its links and indexes in the same change; do not leave duplicate folders.
 8. Add a `Downloadable Content Files` section to the README that accounts for all five categories and links every supplied original file.
-9. Validate before calling it done: metadata, downloadable content links, JSON, SVG/assets, links, security cleanup, import notes, and visual overlap checks.
+9. Regenerate the Playbooks indexes from manifests with `python3 scripts/generate_playbook_catalog.py`. Do not edit generated index or website catalog files by hand.
+10. Validate before calling it done: the schema-v2 manifest, downloadable content links, JSON, SVG/assets, indexes, security cleanup, import notes, and visual overlap checks.
 
 ## SCG Playbook Shape
 
 Every playbook should include:
 
 - A short title and one plain-language promise.
-- A `Playbook Metadata` section with exactly one value for each required field:
-  - `Vertical`: `Education`, `Energy Utilities`, `Financial Services`, `Government`, `Health Care`, `Hospitality Hotels And Leisure`, `Manufacturing`, `Media Entertainment`, `Not For Profit`, `Professional Services`, `Retail`, `Service Provider`, `Technical Services`, `Technology`, `Transportation`, `Wholesale Distribution`, or `Unknown`.
-  - `Channel`: `Voice`, `Chat`, `SMS`, `Email`, `Whatsapp`, `RCS`, `Apple Messages for Business`, `Custom`, or `Unknown`.
-  - `Complexity`: `Beginner`, `Intermediate`, `Advanced`, or `Unknown`.
+- A schema-v2 `manifest.yaml` alongside the README. It supplies the searchable title, summary, classifications, complexity, validation date, and ownership.
+- A lowercase kebab-case folder name such as `concierge-ai-agent`; set `manifest.yaml`'s `id` to the exact same value.
 - A friendly hero visual that explains the use case at a glance and has no arrows or labels crossing text.
 - A `Downloadable Content Files` section listing the five requested categories and relative download links for every supplied file. Mark a category `Not provided` when no file was supplied.
 - `Try It Fast`: the shortest successful setup path.
@@ -49,17 +48,30 @@ Every playbook should include:
 
 If the playbook starts to read like a reference document, move the detail into `<details>` sections or a separate file.
 
-Use this exact README block for the metadata:
+Do not copy manifest fields into a `Playbook Metadata` table in the README. Keep classification and ownership data in `manifest.yaml`.
 
-```markdown
-## Playbook Metadata
+Use this schema-v2 manifest shape. Replace the sample ID, text, taxonomy values, date, owner, and maintaining team with values supported by the playbook and `Playbooks/taxonomy.yaml`:
 
-| Field | Value |
-|---|---|
-| Vertical | Unknown |
-| Channel | Unknown |
-| Complexity | Unknown |
+```yaml
+schema_version: 2
+id: concierge-ai-agent
+title: Concierge Routing Agent Template
+summary: Classify incoming questions and route them to a specialist.
+classification:
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - routing-transfer
+  channels:
+    - voice
+complexity: beginner
+last_validated: "2026-09-28"
+ownership:
+  owner: github-login
+  maintaining_team: ai-scg
 ```
+
+The example above illustrates the required structure; choose accurate values for each new playbook. Include `classification.verticals`, `classification.channels`, and `classification.integrations` only when applicable. `features` and `customer_journeys` must each contain at least one approved taxonomy value.
 
 Use this structure for the downloadable content index. Replace each placeholder with one or more relative links to the unchanged files under `content/` or `downloads/`; use `Not provided` when a category was not supplied.
 
@@ -87,6 +99,7 @@ Load only the reference needed for the current task:
 - `references/customer-cleanup.md`: names, secrets, tenant data, demo credentials, and customer-safe cleanup.
 - `references/validation-checklist.md`: commands and checks before delivery.
 - `references/github-packaging.md`: GitHub repo packaging expectations and PR flow.
+- `Playbooks/taxonomy.yaml`: canonical schema-v2 contract, facets, and display labels for the target repository.
 
 ## Output Modes
 
