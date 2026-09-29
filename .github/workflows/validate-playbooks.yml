@@ -2,14 +2,6 @@ name: Validate playbooks
 
 on:
   pull_request:
-    paths:
-      - "Playbooks/**"
-      - "Cookbooks/**"
-      - "scripts/generate_playbook_catalog.py"
-      - "scripts/import_fde_playbook.py"
-      - "tests/test_import_fde_playbook.py"
-      - "Plugins/scg-playbook/scripts/validate_playbook_metadata.py"
-      - ".github/workflows/validate-playbooks.yml"
   workflow_dispatch:
 
 permissions:
