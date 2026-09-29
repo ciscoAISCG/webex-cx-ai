@@ -21,6 +21,7 @@ Search across the collection or combine filters for vertical, channel, feature, 
       <select id="filter-channels" data-filter="channels">
         <option value="">Any</option>
       <option value="voice">Voice</option>
+      <option value="chat">Chat</option>
       <option value="sms">SMS</option>
       </select>
     </label>
@@ -33,6 +34,7 @@ Search across the collection or combine filters for vertical, channel, feature, 
       <option value="ai-assistant-real-time-transcript">AI Assistant - Real-Time Transcript</option>
       <option value="ai-agent-scripted-voice">AI Agent - Scripted (Voice)</option>
       <option value="ai-agent-autonomous-voice">AI Agent - Autonomous (Voice)</option>
+      <option value="ai-agent-scripted-digital">AI Agent - Scripted (Digital)</option>
       <option value="ai-agent-autonomous-digital">AI Agent - Autonomous (Digital)</option>
       </select>
     </label>
@@ -79,6 +81,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
 <p id="playbook-empty" hidden>No playbooks match these filters.</p>
 
 <div class="playbook-grid" id="playbook-grid">
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/ai-scg-publication-workflow-test" target="_blank" rel="noopener" data-verticals="" data-channels="chat" data-features="ai-agent-scripted-digital" data-customer_journeys="self-service" data-integrations="" data-complexity="beginner" data-search="ai scg publication workflow test a synthetic scripted digital self-service example used to verify the label-gated publication workflow from fde engagement to the ai scg repository. publication-test ci-cd github-actions scripted-digital self-service chat ai agent - scripted (digital) self-service beginner">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>AI SCG Publication Workflow Test</h2>
+    <p>A synthetic scripted digital self-service example used to verify the label-gated publication workflow from FDE Engagement to the AI SCG repository.</p>
+    <span class="playbook-card__tags">Self-Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/appointment-scheduling" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="scheduling" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="appointment scheduling schedule, review, and reschedule appointments with an autonomous voice ai agent and webex connect fulfillment workflows. appointments booking rescheduling webex-connect voice ai agent - autonomous (voice) scheduling rest api webhook intermediate">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>Appointment Scheduling</h2>

@@ -6,6 +6,7 @@ Browse by searching or filtering the [website catalog](../Cookbooks/docs/playboo
 
 | Playbook | Summary | Customer journey |
 |---|---|---|
+| [AI SCG Publication Workflow Test](ai-scg-publication-workflow-test/README.md) | A synthetic scripted digital self-service example used to verify the label-gated publication workflow from FDE Engagement to the AI SCG repository. | Self-Service |
 | [Appointment Scheduling](appointment-scheduling/README.md) | Schedule, review, and reschedule appointments with an autonomous voice AI agent and Webex Connect fulfillment workflows. | Scheduling |
 | [Concierge Routing Agent Template](concierge-ai-agent/README.md) | Classify incoming questions and route them to a specialist using an AI Agent Studio import, prompt template, and routing knowledge-base starter. | Routing & Transfer, Customer Service |
 | [Data-Driven Ordering](data-driven-ordering/README.md) | Guide callers through a structured menu, validate choices, place an order, and offer a digital fallback. | Self-Service, Order Management |

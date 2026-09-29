@@ -1,0 +1,35 @@
+schema_version: 2
+id: ai-scg-publication-workflow-test
+title: AI SCG Publication Workflow Test
+summary: A synthetic scripted digital self-service example used to verify the label-gated publication workflow from FDE Engagement to the AI SCG repository.
+
+classification:
+  channels:
+    - chat
+  features:
+    - ai-agent-scripted-digital
+  customer_journeys:
+    - self-service
+
+complexity: beginner
+last_validated: "2026-09-29"
+
+ownership:
+  owner: dbokatov
+  maintaining_team: fde-team
+
+keywords:
+  - publication-test
+  - ci-cd
+  - github-actions
+  - scripted-digital
+  - self-service
+
+validation:
+  environment: GitHub Actions test using the FDE Engagement and AI SCG repositories
+  expected_result: Merging the approved source PR with the publish:ai-scg label creates a draft pull request in ciscoAISCG/webex-cx-ai containing this playbook and the regenerated catalog.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true
