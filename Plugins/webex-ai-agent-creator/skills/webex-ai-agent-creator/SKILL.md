@@ -15,6 +15,7 @@ Read these references before producing the final artifact:
 - `references/webex-ai-agent-studio-setup.md` for Webex AI Agent Studio access and setup guidance.
 - `references/ai-agent-studio-json-import.md` when the user wants an import-ready AI Agent Studio JSON file.
 - `references/webex-ai-agent.schema.json` when the user wants an import-ready AI Agent Studio JSON file, action or tool definitions, or a structural validation pass against the generated agent JSON.
+- `references/mcp-tool-definitions.md` when the user opts to generate MCP server tool definitions for the recommended actions.
 
 ## Workflow
 
@@ -39,6 +40,7 @@ Read these references before producing the final artifact:
    - Expected success response.
    - Failure and fallback behavior.
    - Whether human escalation is required.
+   - When the action list is presented, ask whether the user also wants MCP server tool definitions for these actions. This is optional; continue with the agent design either way. If requested, follow `references/mcp-tool-definitions.md` and produce a companion MCP definition for each selected action.
 
 4. Generate AI agent instructions.
    - Apply https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Cookbooks/docs/prompt-design.md
@@ -97,6 +99,12 @@ Hello, you have reached the clinic booking assistant. I can help you book an app
    - Fix any schema mismatches before finalizing the artifact.
    - Report that the JSON was validated against the schema in the final response.
 
+8. Generate MCP tool definitions when requested.
+   - Keep MCP tool definitions separate from Webex AI Agent Studio JSON. They are different contracts and must not be presented as interchangeable formats.
+   - Produce a complete MCP Tool object for each requested action, including both `inputSchema` and `outputSchema` with definitions for every input and output field and nested entity.
+   - Follow `references/mcp-tool-definitions.md` for schema completeness, name alignment, unknown details, and output formatting.
+   - Make clear that the definitions describe the server's tool interface; they do not implement or deploy the MCP server or its backend fulfillment.
+
 ## Final Output
 
 Deliver these sections:
@@ -109,5 +117,6 @@ Deliver these sections:
 6. AI Agent Instructions
 7. Webex AI Agent Studio Setup Guide
 8. Import-Ready JSON File, when requested
+9. MCP Tool Definitions, when requested
 
 Keep the final result practical and implementation-oriented. If key details are unknown, make reasonable placeholders explicit instead of blocking, unless the missing detail changes the action design materially. When a JSON file is generated or updated, always provide its full file location and say whether it passed schema validation.
