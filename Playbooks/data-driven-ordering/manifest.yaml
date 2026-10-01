@@ -1,5 +1,6 @@
 schema_version: 2
 id: data-driven-ordering
+date_added: "2026-06-11"
 title: "Data-Driven Ordering"
 summary: "Guide callers through a structured menu, validate choices, place an order, and offer a digital fallback."
 

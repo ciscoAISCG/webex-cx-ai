@@ -1,5 +1,6 @@
 schema_version: 2
 id: consult-transfer-summary-to-webex
+date_added: "2026-09-28"
 title: Send a Webex Contact Center Consult Summary to the Consulted Webex User
 summary: Resolve the user selected for a voice consult and send that person the MID_CALL AI summary as a direct Webex message.
 

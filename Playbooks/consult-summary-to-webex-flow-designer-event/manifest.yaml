@@ -1,5 +1,6 @@
 schema_version: 2
 id: consult-summary-to-webex-flow-designer-event
+date_added: "2026-09-28"
 title: Send Mid Call Consult Summaries to Webex Users with Flow Designer Event
 summary: Use a Webex Contact Center PreDial event and Webex Connect to resolve a consulted Webex user and send that person the MID_CALL summary as a direct Webex message.
 

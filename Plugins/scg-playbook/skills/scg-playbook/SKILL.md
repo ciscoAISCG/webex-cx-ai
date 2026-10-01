@@ -1,6 +1,6 @@
 ---
 name: scg-playbook
-description: Create SCG-style, visual-first Webex CX AI Agent and Contact Center playbooks from AI Agent Studio exports, Flow Designer exports, Webex Connect or MCP setup notes, screenshots, and rough field notes. Use when AI SCG team members need a reusable Playbooks/playbook-folder package that is easy to adopt, with Try It Fast steps, SCG visuals, rounded Mermaid diagrams, Skills helper links, collapsible advanced details, customer/internal cleanup, validation, and GitHub-ready packaging.
+description: Create SCG-style, visual-first Webex CX AI Agent and Contact Center playbooks from AI Agent Studio exports, Flow Designer exports, Webex Connect or MCP setup notes, screenshots, and rough field notes. For new playbooks, ask for optional Watch Me video and Try Me demo URLs and add a generated Get Me exports link. Use when AI SCG team members need a reusable Playbooks/playbook-folder package that is easy to adopt, with Try It Fast steps, SCG visuals, rounded Mermaid diagrams, Skills helper links, collapsible advanced details, customer/internal cleanup, validation, and GitHub-ready packaging.
 metadata:
   short-description: Create visual-first SCG playbooks
 ---
@@ -13,29 +13,32 @@ The playbook should feel like a guided starter kit, not a long manual. Lead with
 
 ## First Move
 
-1. Identify the audience: `internal`, `customer`, or `both`.
-2. Ask for or inventory these downloadable content-file categories:
+1. For every new playbook, ask for a `Watch Me` URL to a use-case video and a `Try Me` URL to a live demo. Both are optional; accept either, both, or neither, and never invent URLs. Preserve or update these links in refresh mode only when the user asks.
+2. Identify the audience: `internal`, `customer`, or `both`.
+3. Ask for or inventory these downloadable content-file categories:
    - Webex Contact Center Voice Flows
    - Webex Contact Center Fulfilment Flows
    - Webex Connect Fulfilment Flows
    - AI Agent Export JSON
    - Sample Knowledge Base Files
    Store supplied originals unchanged under `content/` or `downloads/`. Treat them as downloadable package content only: do not inspect, summarize, transform, or use them to generate the README, diagrams, prompts, or other playbook content unless the user explicitly authorizes a named file or category.
-3. If the user explicitly authorizes using an AI Agent Studio or Flow Designer JSON as a source, inspect it with `scripts/inspect_playbook.py`. Otherwise, preserve it as downloadable content only.
-4. Choose one recommended setup path. Put alternatives in collapsed sections.
-5. For any simple visual or hero image, load `references/visual-standard.md` and apply the arrow-safety rules before delivering the asset.
-6. Read `Playbooks/taxonomy.yaml` and create a schema-v2 `manifest.yaml` for the playbook. Use only its approved facet values.
-7. Choose a lowercase kebab-case playbook ID and build or refresh `Playbooks/<playbook-id>/` with `manifest.yaml`, `README.md`, exports, content files, and assets. The manifest `id` must exactly match the folder name. When refreshing a legacy folder with another naming style, rename it and update its links and indexes in the same change; do not leave duplicate folders.
-8. Add a `Downloadable Content Files` section to the README that accounts for all five categories and links every supplied original file.
-9. Regenerate the Playbooks indexes from manifests with `python3 scripts/generate_playbook_catalog.py`. Do not edit generated index or website catalog files by hand.
-10. Validate before calling it done: the schema-v2 manifest, downloadable content links, JSON, SVG/assets, indexes, security cleanup, import notes, and visual overlap checks.
+4. If the user explicitly authorizes using an AI Agent Studio or Flow Designer JSON as a source, inspect it with `scripts/inspect_playbook.py`. Otherwise, preserve it as downloadable content only.
+5. Choose one recommended setup path. Put alternatives in collapsed sections.
+6. For any simple visual or hero image, load `references/visual-standard.md` and apply the arrow-safety rules before delivering the asset.
+7. Read `Playbooks/taxonomy.yaml` and create a schema-v2 `manifest.yaml` for the playbook. Use only its approved facet values.
+8. Choose a lowercase kebab-case playbook ID and build or refresh `Playbooks/<playbook-id>/` with `manifest.yaml`, `README.md`, an `exports/` folder, content files, and assets. The manifest `id` must exactly match the folder name. When refreshing a legacy folder with another naming style, rename it and update its links and indexes in the same change; do not leave duplicate folders.
+9. Put a three-action link row immediately after the README title: `Watch Me`, `Try Me`, and `Get Me`. Use the user-provided video and demo URLs when available; for either missing optional URL, keep its label and mark it `link not provided` without inventing a destination. Generate `Get Me` as the relative link `[Get Me](exports/)`. Ensure the exports folder exists and is tracked; if no export files are available yet, add `exports/README.md` explaining that no exports were supplied.
+10. Add a `Downloadable Content Files` section to the README that accounts for all five categories and links every supplied original file.
+11. Regenerate the Playbooks indexes from manifests with `python3 scripts/generate_playbook_catalog.py`. Do not edit generated index or website catalog files by hand.
+12. Validate before calling it done: the schema-v2 manifest, action links, downloadable content links, JSON, SVG/assets, indexes, security cleanup, import notes, and visual overlap checks.
 
 ## SCG Playbook Shape
 
 Every playbook should include:
 
 - A short title and one plain-language promise.
-- A schema-v2 `manifest.yaml` alongside the README. It supplies the searchable title, summary, classifications, complexity, validation date, and ownership.
+- A link row directly under the README title with `Watch Me`, `Try Me`, and `Get Me`. Ask for the video and live-demo URLs for each new playbook, but allow either to be unavailable; the `Get Me` link always targets the package's `exports/` folder.
+- A schema-v2 `manifest.yaml` alongside the README. It supplies the searchable title, summary, classifications, date added, complexity, validation date, and ownership.
 - A lowercase kebab-case folder name such as `concierge-ai-agent`; set `manifest.yaml`'s `id` to the exact same value.
 - A friendly hero visual that explains the use case at a glance and has no arrows or labels crossing text.
 - A `Downloadable Content Files` section listing the five requested categories and relative download links for every supplied file. Mark a category `Not provided` when no file was supplied.
@@ -50,11 +53,12 @@ If the playbook starts to read like a reference document, move the detail into `
 
 Do not copy manifest fields into a `Playbook Metadata` table in the README. Keep classification and ownership data in `manifest.yaml`.
 
-Use this schema-v2 manifest shape. Replace the sample ID, text, taxonomy values, date, owner, and maintaining team with values supported by the playbook and `Playbooks/taxonomy.yaml`:
+Use this schema-v2 manifest shape. Set `date_added` to the date the playbook first enters this repository; keep it unchanged when refreshing an existing playbook. Replace the sample ID, text, taxonomy values, validation date, owner, and maintaining team with values supported by the playbook and `Playbooks/taxonomy.yaml`:
 
 ```yaml
 schema_version: 2
 id: concierge-ai-agent
+date_added: "2026-09-28"
 title: Concierge Routing Agent Template
 summary: Classify incoming questions and route them to a specialist.
 classification:
@@ -70,6 +74,8 @@ ownership:
   owner: github-login
   maintaining_team: ai-scg
 ```
+
+The `date_added` field controls newest-first ordering in the generated playbook indexes. Set it when creating a playbook and preserve it during refreshes.
 
 The example above illustrates the required structure; choose accurate values for each new playbook. Include `classification.verticals`, `classification.channels`, and `classification.integrations` only when applicable. `features` and `customer_journeys` must each contain at least one approved taxonomy value.
 

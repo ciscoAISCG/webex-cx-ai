@@ -1,5 +1,6 @@
 schema_version: 2
 id: user-identification-verification
+date_added: "2026-06-09"
 title: "User Identification and Verification"
 summary: "Collect caller details, verify identity through a backend service, and continue protected journeys or escalate safely."
 

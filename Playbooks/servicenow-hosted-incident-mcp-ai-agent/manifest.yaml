@@ -1,5 +1,6 @@
 schema_version: 2
 id: servicenow-hosted-incident-mcp-ai-agent
+date_added: "2026-09-17"
 title: "ServiceNow-Hosted Incident MCP AI Agent"
 summary: "Verify an employee and manage authorized ServiceNow incidents through a ServiceNow-hosted MCP server, with safe human handoff."
 

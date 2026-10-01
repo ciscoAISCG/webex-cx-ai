@@ -1,5 +1,6 @@
 schema_version: 2
 id: order-tracking
+date_added: "2026-06-23"
 title: "Order Tracking"
 summary: "Retrieve order, delivery, and fulfillment status from a backend workflow and explain the result with human escalation when needed."
 

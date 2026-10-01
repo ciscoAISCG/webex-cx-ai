@@ -1,5 +1,6 @@
 schema_version: 2
 id: concierge-ai-agent
+date_added: "2026-06-19"
 title: "Concierge Routing Agent Template"
 summary: "Classify incoming questions and route them to a specialist using an AI Agent Studio import, prompt template, and routing knowledge-base starter."
 
