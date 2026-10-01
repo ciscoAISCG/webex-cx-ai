@@ -95,6 +95,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/configure-custom-data-custom-events-ai-agents" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="customer-service,self-service,routing-transfer" data-integrations="" data-complexity="intermediate" data-search="configure custom data and custom events for ai agents pass session data to an autonomous voice ai agent, handle source-flow action exits through vav2, parse metadata, and return fulfillment data to continue the same conversation. autonomous-voice custom-data custom-events eventdatajson handled-outcome stateeventname virtual-agent-v2 flow-designer voice ai agent - autonomous (voice) customer service self-service routing &amp; transfer intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Configure Custom Data and Custom Events for AI Agents</h2>
+    <p>Pass session data to an Autonomous Voice AI Agent, handle source-flow action exits through VAV2, parse MetaData, and return fulfillment data to continue the same conversation.</p>
+    <span class="playbook-card__tags">Customer Service · Self-Service · Routing &amp; Transfer</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/data-driven-ordering" target="_blank" rel="noopener" data-verticals="retail" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="self-service,order-management" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="data-driven ordering guide callers through a structured menu, validate choices, place an order, and offer a digital fallback. structured-menu digital-fallback webex-connect retail voice sms ai agent - autonomous (voice) self-service order management rest api webhook intermediate">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>Data-Driven Ordering</h2>
