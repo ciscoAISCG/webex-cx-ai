@@ -1,6 +1,6 @@
 # Webex AI Agent Creator Codex Plugin
 
-Design Webex AI Agent Studio assistants from business use cases, with grounded instructions, action parameters, escalation behavior, import-ready JSON guidance, and tenant setup steps.
+Design Webex AI Agent Studio assistants from business use cases, with grounded instructions, action parameters, escalation behavior, import-ready JSON guidance, optional MCP tool definitions with complete input and output schemas, and tenant setup steps.
 
 ## Installation
 
@@ -26,4 +26,4 @@ Use the canonical [AI SCG marketplace update instructions](../../README.md#updat
 
 ## Included skill
 
-- `webex-ai-agent-creator`: creates implementation-ready Webex AI Agent Studio plans, instructions, action designs, setup guidance, and schema-aware import drafts.
+- `webex-ai-agent-creator`: creates implementation-ready Webex AI Agent Studio plans, instructions, action designs, setup guidance, schema-aware import drafts, and optional MCP tool contracts with fully defined inputs and structured outputs.
