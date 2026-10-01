@@ -1,0 +1,55 @@
+schema_version: 2
+id: configure-custom-data-custom-events-ai-agents
+title: Configure Custom Data and Custom Events for AI Agents
+summary: Pass session data to an Autonomous Voice AI Agent, handle source-flow action exits through VAV2, parse MetaData, and return fulfillment data to continue the same conversation.
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - customer-service
+    - self-service
+    - routing-transfer
+
+complexity: intermediate
+last_validated: "2026-10-01"
+
+ownership:
+  owner: naveenkn
+  maintaining_team: fde-team
+
+keywords:
+  - autonomous-voice
+  - custom-data
+  - custom-events
+  - eventdatajson
+  - handled-outcome
+  - stateeventname
+  - virtual-agent-v2
+  - flow-designer
+
+artifacts:
+  flows:
+    - exports/naveenkn_AI_Agent_Flow_Draft.json
+  settings:
+    - exports/naveenkn_flowershop_LanguageChange.json
+    - assets/01-agent-action-slot-values.jpg
+    - assets/02-vav2-event-name-data-values.jpg
+    - assets/03-manage-in-source-flow.jpg
+    - assets/04-case-stateeventname.jpg
+    - assets/05-parse-metadata.jpg
+    - assets/06-set-variable-eventdatajson.jpg
+    - assets/08-set-variable-event-name.png
+  samples: []
+  tests: []
+
+validation:
+  environment: Webex Contact Center voice flow with Virtual Agent V2 and a voice AI Agent configured in Webex AI Agent Studio
+  expected_result: The source flow handles the action, returns the event name and fulfillment result through VAV2, and the same AI Agent conversation continues without repeating its welcome message.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true
