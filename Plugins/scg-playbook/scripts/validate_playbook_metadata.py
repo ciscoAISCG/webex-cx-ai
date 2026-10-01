@@ -61,6 +61,13 @@ def validate_values(
     except ValueError:
         errors.append(f"{manifest_path}: last_validated must use YYYY-MM-DD format")
 
+    added = manifest.get("date_added")
+    try:
+        if not isinstance(added, str) or date.fromisoformat(added).isoformat() != added:
+            raise ValueError
+    except ValueError:
+        errors.append(f"{manifest_path}: date_added must use YYYY-MM-DD format")
+
     ownership = manifest.get("ownership")
     if not isinstance(ownership, dict):
         ownership = {}

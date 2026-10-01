@@ -1,5 +1,6 @@
 schema_version: 2
 id: post-call-ai-summary-reporting
+date_added: "2026-09-28"
 title: Retrieve AI Assistant Post-Call Summaries for Supervisor Reporting
 summary: Retrieve AI Assistant wrap-up summaries after contact completion and expose selected fields through a historical Analyzer report for supervisor visibility.
 

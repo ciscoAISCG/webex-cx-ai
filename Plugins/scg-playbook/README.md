@@ -26,7 +26,7 @@ Use the canonical [AI SCG marketplace update instructions](../../README.md#updat
 
 ## Included skill
 
-- `scg-playbook`: packages Webex CX AI use cases as adoption-first playbooks with schema-v2 manifests, kebab-case folders, Try It Fast steps, visual guidance, rounded Mermaid diagrams, Skills links, customer-safe cleanup, and validation.
+- `scg-playbook`: packages Webex CX AI use cases as adoption-first playbooks with schema-v2 manifests, newest-first indexes, `Watch Me` / `Try Me` / `Get Me` links, Try It Fast steps, visual guidance, rounded Mermaid diagrams, Skills links, customer-safe cleanup, and validation.
 
 ## Supporting files
 

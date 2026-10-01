@@ -1,5 +1,6 @@
 schema_version: 2
 id: directory-routing
+date_added: "2026-06-11"
 title: "Directory Routing"
 summary: "Classify a caller request as a person or department lookup, search directory resources, and transfer the caller to the matching destination."
 

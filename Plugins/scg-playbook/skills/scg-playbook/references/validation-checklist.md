@@ -18,9 +18,11 @@ If no SVG exists, validate the image format another way or open it visually.
 
 - Each playbook folder uses lowercase kebab-case and contains both `manifest.yaml` and `README.md`.
 - `manifest.yaml` uses schema version 2, its `id` matches the folder name, and all classifications use values from `Playbooks/taxonomy.yaml`.
-- Required manifest fields are present: `id`, `title`, `summary`, non-empty `classification.features`, non-empty `classification.customer_journeys`, `complexity`, `last_validated`, `ownership.owner`, and `ownership.maintaining_team`.
+- Required manifest fields are present: `id`, `date_added`, `title`, `summary`, non-empty `classification.features`, non-empty `classification.customer_journeys`, `complexity`, `last_validated`, `ownership.owner`, and `ownership.maintaining_team`.
+- `date_added` records when the playbook first entered this repository and uses `YYYY-MM-DD` format; indexes display the newest playbooks first.
 - Optional `classification.verticals`, `classification.channels`, and `classification.integrations` contain only allowed taxonomy values when present.
 - README does not duplicate manifest classifications or complexity in a `Playbook Metadata` table.
+- README has a `Watch Me` / `Try Me` / `Get Me` action row immediately after its title. `Watch Me` and `Try Me` use supplied optional URLs or say `link not provided`; `Get Me` links to `exports/`, and that folder exists in the package.
 - README contains a `Downloadable Content Files` section covering Webex Contact Center Voice Flows, Webex Contact Center Fulfilment Flows, Webex Connect Fulfilment Flows, AI Agent Export JSON, and Sample Knowledge Base Files.
 - Every supplied content file is preserved unchanged under `content/` or `downloads/` and linked with a relative download link; categories without supplied files are marked `Not provided`.
 - The README clearly says downloadable content files were not used to generate playbook content unless the user explicitly authorized it.

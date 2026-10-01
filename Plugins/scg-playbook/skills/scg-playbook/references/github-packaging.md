@@ -8,7 +8,7 @@ Use this when the playbook is headed to the shared `ciscoAISCG/webex-cx-ai` repo
 Playbooks/
   taxonomy.yaml                 # shared repository taxonomy; do not copy into each package
   <playbook-id>/                 # lowercase kebab-case, e.g. concierge-ai-agent
-    manifest.yaml                # schema_version: 2; id must match <playbook-id>
+    manifest.yaml                # schema_version: 2; id and date_added are required
     README.md
     content/                     # optional original downloadable source files
     downloads/                   # optional original downloadable source files
@@ -18,7 +18,7 @@ Playbooks/
       <hero-or-diagram>.svg
 ```
 
-Optional files are fine when needed, but keep the first-run path obvious. The `manifest.yaml` is required; follow schema version 2 and the facets in `Playbooks/taxonomy.yaml`. Do not add a duplicate Playbook Metadata table to the README.
+Optional files are fine when needed, but keep the first-run path obvious. The `manifest.yaml` is required; follow schema version 2, add `date_added` in `YYYY-MM-DD` format, and use the facets in `Playbooks/taxonomy.yaml`. Do not add a duplicate Playbook Metadata table to the README.
 
 Keep useful diagrams and images in `assets/`, but do not list those visual assets in the README's `Files In This Playbook` section. That section is for importable/configuration-critical playbook files and required dependencies, not supporting visuals.
 

@@ -1,5 +1,6 @@
 schema_version: 2
 id: appointment-scheduling
+date_added: "2026-06-16"
 title: "Appointment Scheduling"
 summary: "Schedule, review, and reschedule appointments with an autonomous voice AI agent and Webex Connect fulfillment workflows."
 

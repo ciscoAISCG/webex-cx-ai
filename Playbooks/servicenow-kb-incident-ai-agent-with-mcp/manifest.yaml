@@ -1,5 +1,6 @@
 schema_version: 2
 id: servicenow-kb-incident-ai-agent-with-mcp
+date_added: "2026-06-11"
 title: "ServiceNow Knowledge and Incident Agent with MCP"
 summary: "Search ServiceNow knowledge first, then create, find, update, or delete incidents through MCP-backed actions when needed."
 

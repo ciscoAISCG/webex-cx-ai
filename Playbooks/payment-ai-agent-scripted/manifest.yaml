@@ -1,5 +1,6 @@
 schema_version: 2
 id: payment-ai-agent-scripted
+date_added: "2026-06-23"
 title: "Hospital Payment Agent (Scripted)"
 summary: "Collect payment intent and caller details, then use voice-flow state events and subflows for balance lookup and payment processing."
 

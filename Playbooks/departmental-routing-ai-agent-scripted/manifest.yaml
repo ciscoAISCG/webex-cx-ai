@@ -1,5 +1,6 @@
 schema_version: 2
 id: departmental-routing-ai-agent-scripted
+date_added: "2026-07-22"
 title: "Departmental Routing AI Agent (Scripted)"
 summary: "Collect and confirm a caller’s requested hospital department, then route the call to its matching queue with a scripted AI agent and voice flow."
 
