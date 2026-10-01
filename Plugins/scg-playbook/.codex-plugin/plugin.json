@@ -1,6 +1,6 @@
 {
   "name": "scg-playbook",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Create visual-first SCG playbooks for Webex CX AI Agent and Contact Center use cases.",
   "author": {
     "name": "Cisco AI SCG"
