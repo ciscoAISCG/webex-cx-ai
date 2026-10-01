@@ -561,3 +561,4 @@ After a material change, confirm processing, review extracted content, retest af
 This guide combines Webex configuration requirements with general RAG content-design practices. Product limits and capabilities can change, so confirm current values before a production rollout.
 
 - [Webex AI Agent Studio Administration guide](https://help.webex.com/en-us/article/ncs9r37/Webex-AI-Agent-Studio-Administration-guide)
+- [AWS Prescriptive Guidance: Documentation best practices for RAG applications](https://docs.aws.amazon.com/prescriptive-guidance/latest/writing-best-practices-rag/best-practices.html)
