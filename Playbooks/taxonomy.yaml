@@ -130,6 +130,7 @@ facets:
     - database
     - webhook
     - a2a
+    - jds
 
   complexity:
     - beginner
