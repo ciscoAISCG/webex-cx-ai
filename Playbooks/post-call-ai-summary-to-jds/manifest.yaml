@@ -1,0 +1,49 @@
+schema_version: 2
+id: post-call-ai-summary-to-jds
+date_added: "2026-10-06"
+title: Post-Call AI Assistant Summary to Customer Journey Data
+summary: Retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a Webex Contact Center Customer Journey Data project.
+
+classification:
+  verticals:
+    - wholesale-distribution
+  channels:
+    - voice
+  features:
+    - ai-assistant-real-time-transcript
+    - ai-assistant-wrap-up-summary
+  customer_journeys:
+    - customer-service
+  integrations:
+    - jds
+    - rest-api
+
+complexity: intermediate
+last_validated: "2026-10-06"
+
+ownership:
+  owner: dbokatov
+  maintaining_team: fde-team
+
+keywords:
+  - post-call-summary
+  - customer-journey-data
+  - jds-event
+  - flow-designer
+  - wrap-up
+
+artifacts:
+  flows:
+    - flows/PostCallSummary_toJDS_V3.json
+  settings: []
+  samples: []
+  tests: []
+
+validation:
+  environment: Webex Contact Center voice tenant with AI Assistant wrap-up summaries, Customer Journey Data enabled, Flow Designer, and an authenticated HTTP connector.
+  expected_result: After agent wrap-up completes, the subflow retrieves the interaction summary and posts the configured summary fields to the selected JDS project; the event is visible for the interaction in Supervisor Desktop.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true

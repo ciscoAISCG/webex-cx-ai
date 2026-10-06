@@ -1,0 +1,5361 @@
+{
+  "orgId": "",
+  "version": 7,
+  "id": "",
+  "flowType": "SUBFLOW",
+  "name": "PostCallSummary_toJDS_V3",
+  "description": "",
+  "comment": null,
+  "variables": [
+    {
+      "name": "taskId",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_INPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "timeNowString",
+      "description": "Properly ISO formatted string for posting event to JDS",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "orgID",
+      "description": "Org ID comes from the original flow",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_INPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "Response_JSON",
+      "description": "",
+      "id": "",
+      "type": "JSON",
+      "value": "{}",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "InitialContactReason",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "KeyActionsTaken",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "AdditionalContext",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "NextSteps",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "SummaryBody",
+      "description": "",
+      "id": "",
+      "type": "JSON",
+      "value": "{}",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "jds_workspaceId",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": "66a17c596830d075b53c69e0",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "bypass",
+      "description": "testing var",
+      "id": "",
+      "type": "BOOLEAN",
+      "value": "False",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "loop",
+      "description": "",
+      "id": "",
+      "type": "BOOLEAN",
+      "value": "True",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "api_body",
+      "description": "",
+      "id": "",
+      "type": "JSON",
+      "value": "{}",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "phoneNum",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_INPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "loopInt",
+      "description": "",
+      "id": "",
+      "type": "INTEGER",
+      "value": "0",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "timeEarlierInt",
+      "description": "Integer variable, used for defining the start of lookback period for Search API calls",
+      "id": "",
+      "type": "INTEGER",
+      "value": "0",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "timeNowInt",
+      "description": "End of the lookback period for Search API",
+      "id": "",
+      "type": "INTEGER",
+      "value": "0",
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "wrapupName",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "errorType",
+      "description": "Details the error as to why the flow didnt work",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "chosenWrapCode",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "agentId",
+      "description": "ID of the agent that answered the call. ",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_INPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "PostCallSummary_ID",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "additionalContactReasons",
+      "description": "",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_OUTPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "callDirection",
+      "description": "Call direction to set ANI/DNIS",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "origin",
+      "description": "Origin call leg from Search query",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "destination",
+      "description": "Destination call leg from Search query",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "agentName",
+      "description": "Last agent name sourced from Search API for CJDS write",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "ciUserId",
+      "description": "Common Identity UserId for the agent",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "SummariesDebug",
+      "description": "placeholder to check if there's a summary present",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    },
+    {
+      "name": "flow_orgId",
+      "description": "Org ID provided by flow",
+      "id": "",
+      "type": "STRING",
+      "value": null,
+      "isSecure": false,
+      "isCAD": false,
+      "desktopLabel": "",
+      "isAgentEditable": false,
+      "source": "SUBFLOW_INPUT",
+      "isReportable": false,
+      "overwrite": false,
+      "isExternalized": false,
+      "resourceType": "",
+      "__typename": "UIUserVariable"
+    }
+  ],
+  "process": {
+    "activities": {
+      "aa7c5bd6-f23b-4379-bb2a-9a57ddcf6a22": {
+        "id": "aa7c5bd6-f23b-4379-bb2a-9a57ddcf6a22",
+        "name": "StartSubflow",
+        "group": "start-subflow",
+        "properties": {
+          "activityId": "start-subflow",
+          "activityVersionNumber": null,
+          "name": "StartSubflow",
+          "activityName": "NewSubFlowStart",
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic"
+        }
+      },
+      "fa93c062-b8e8-4daa-ba62-3b84674d3d2a": {
+        "id": "fa93c062-b8e8-4daa-ba62-3b84674d3d2a",
+        "name": "Setup_vars",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "timeNowString",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "description": "Set up org-specific variables. Org ID and JDS Workspace should be your org-specific details. timeEarlierInt defines the start of a 15-minute lookback period for the search API (Epoch time in milliseconds). timeNowInt complements this with the current time. timeNowString defines the JDS expected time format.  \nPostCallSummaryID is set using the correct three sets of strings (org ID - Task ID - Agent ID)",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "Setup_vars",
+          "setTo": "set-to-literal",
+          "expr": "{{ now() | epoch(inMillis=true)  | date(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")  }}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{ now() | epoch(inMillis=true)  | date(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")  }}",
+              "id": "02ce1d76-eb79-4750-bc7d-ec471cd15710",
+              "literal": "{{ now() | epoch(inMillis=true)  | date(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")  }}",
+              "srcVariable": "timeNowString"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{orgID}}",
+              "id": "74f07232-a30b-4565-8606-d126958c37b6",
+              "literal": "{{orgID}}",
+              "srcVariable": "orgID"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "REPLACE_WITH_YOUR_JOURNEY_PROJECT_ID",
+              "id": "5c862427-10c4-4a3d-8c5a-86bd570ac447",
+              "literal": "REPLACE_WITH_YOUR_JOURNEY_PROJECT_ID",
+              "srcVariable": "jds_workspaceId"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{ now() | epoch(inMillis=true) }}",
+              "id": "77bc30f7-7f89-4dda-8edd-3cf55b22ad23",
+              "literal": "{{ now() | epoch(inMillis=true) }}",
+              "srcVariable": "timeNowInt"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{ now() | epoch(inMillis=true) - 900000 }}",
+              "id": "e807c47c-fcde-47c4-a6bf-693bfa418eab",
+              "literal": "{{ now() | epoch(inMillis=true) - 900000 }}",
+              "srcVariable": "timeEarlierInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "fd717a04-d2ea-4df0-a6ff-6339a421894a": {
+        "id": "fd717a04-d2ea-4df0-a6ff-6339a421894a",
+        "name": "GetSummary",
+        "group": "action",
+        "properties": {
+          "httpRequestHeaders": {},
+          "httpRequestMethod_type": null,
+          "authenticated": true,
+          "httpRequestBody": "{\n\"orgId\":\"{{orgID}}\",\n\"interactionId\":\"{{taskId}}\",\n\"searchType\":\"INTERACTION\"\n}",
+          "httpRequestPath": "/generated-summaries/search",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Retrieve post-call summary by interaction/task ID",
+          "httpRequestBodyFiles": null,
+          "contentType_name": "JSON",
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "Application/JSON",
+          "_renderRequestTimestamp": 1791281307217,
+          "contentType": "JSON",
+          "retryAttempts": 1,
+          "httpQueryParameters": {},
+          "httpContentType_name:name": "None",
+          "httpRequestBodyGQL": null,
+          "contentType:name": "JSON",
+          "contentType_type": null,
+          "activityName": "http-request-v2",
+          "httpContentType_type": null,
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod_name": "POST",
+          "httpContentType:name": "Application/JSON",
+          "httpRequestMethod": "POST",
+          "httpContentType:name:name": "None",
+          "outputVariableArray": [
+            {
+              "outputVariable": "SummaryBody",
+              "jsonPathExp": "$"
+            },
+            {
+              "outputVariable": "SummariesDebug",
+              "jsonPathExp": "$.summaries.POST_CALL"
+            }
+          ],
+          "httpContentType:type": null,
+          "connectorId_type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "GetSummary",
+          "httpRequestMethod:name": "POST",
+          "flowDecryptAccess": true,
+          "activityType": "logic",
+          "connectorId_name": "",
+          "httpContentType_name": "Application/JSON"
+        }
+      },
+      "9b25b63d-7e08-4bdf-9848-aa2dcd63b5d5": {
+        "id": "9b25b63d-7e08-4bdf-9848-aa2dcd63b5d5",
+        "name": "CheckSummSuccess",
+        "group": "enum-gateway",
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{GetSummary.httpStatusCode == 200 and SummariesDebug != \"\" }}",
+          "activityVersionNumber": null,
+          "name": "CheckSummSuccess",
+          "activityName": "condition-activity",
+          "description": "Did the API return a summary?",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic"
+        }
+      },
+      "71200037-22aa-41eb-99f7-a46b16c2a138": {
+        "id": "71200037-22aa-41eb-99f7-a46b16c2a138",
+        "name": "SetVariable_ivl",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "loopInt",
+          "srcVariableType": "INTEGER",
+          "activityName": "set-variable",
+          "description": "Increment loop counter\n",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_ivl",
+          "setTo": "set-to-literal",
+          "expr": "{{loopInt +1}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{loopInt +1}}",
+              "id": "81a53949-8d4f-4ac7-960a-34d37c427380",
+              "literal": "{{loopInt +1}}",
+              "srcVariable": "loopInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "3d7c57b3-5592-4c8f-a468-0d354626320b": {
+        "id": "3d7c57b3-5592-4c8f-a468-0d354626320b",
+        "name": "Loop_Counter",
+        "group": "enum-gateway",
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{loopInt < 3}}",
+          "activityVersionNumber": null,
+          "name": "Loop_Counter",
+          "activityName": "condition-activity",
+          "description": "Loop up to 3 times",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "1bc1f96b-ff94-4690-ab30-b27752d115e8": {
+        "id": "1bc1f96b-ff94-4690-ab30-b27752d115e8",
+        "name": "Wait_odl",
+        "group": "action",
+        "properties": {
+          "duration": "00:00:30",
+          "activityId": "wait-activity",
+          "activityVersionNumber": null,
+          "name": "Wait_odl",
+          "activityName": "wait-activity",
+          "description": "Wait 30 seconds in case summary isn't available",
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "7be74c99-9117-4e0f-bda7-a7885a4a534b": {
+        "id": "7be74c99-9117-4e0f-bda7-a7885a4a534b",
+        "name": "GetSearchAPI_mkk",
+        "group": "action",
+        "properties": {
+          "httpRequestHeaders": {},
+          "httpRequestMethod_type": null,
+          "authenticated": true,
+          "httpRequestBody": null,
+          "httpRequestPath": "/search?orgId={{orgID}}",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Check to see if wrapup has been applied.",
+          "httpRequestBodyFiles": null,
+          "contentType_name": "JSON",
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "GraphQL",
+          "_renderRequestTimestamp": 1791281307218,
+          "contentType": "JSON",
+          "retryAttempts": 1,
+          "httpQueryParameters": {},
+          "httpRequestBodyGQL": {
+            "query": "{\n  taskDetails(\n    from: {{timeEarlierInt}}\n    to: {{timeNowInt}}\n    filter: { id: { equals: \"{{taskId}}\" } }\n  ) {\n    tasks {\n      status\n      lastWrapupCodeName\n      origin\n      destination\n      direction\n      lastAgent {\n        id\n        name\n      }\n    }\n  }\n}",
+            "variables": ""
+          },
+          "contentType:name": "JSON",
+          "contentType_type": null,
+          "activityName": "http-request-v2",
+          "httpContentType_type": null,
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod_name": "POST",
+          "httpContentType:name": "GraphQL",
+          "httpRequestMethod": "POST",
+          "outputVariableArray": [
+            {
+              "outputVariable": "wrapupName",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].lastWrapupCodeName"
+            },
+            {
+              "outputVariable": "callDirection",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].direction"
+            },
+            {
+              "outputVariable": "destination",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].destination"
+            },
+            {
+              "outputVariable": "origin",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].origin"
+            },
+            {
+              "outputVariable": "agentId",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].lastAgent.id"
+            },
+            {
+              "outputVariable": "agentName",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].lastAgent.name"
+            }
+          ],
+          "httpContentType:type": null,
+          "connectorId_type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "GetSearchAPI_mkk",
+          "httpRequestMethod:name": "POST",
+          "flowDecryptAccess": true,
+          "activityType": "logic",
+          "connectorId_name": "",
+          "httpContentType_name": "GraphQL"
+        }
+      },
+      "ffc903ac-a542-427e-8044-d948e3145a1c": {
+        "id": "ffc903ac-a542-427e-8044-d948e3145a1c",
+        "name": "CheckSummSuccess_5th",
+        "group": "enum-gateway",
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{wrapupName != \"\"}}",
+          "activityVersionNumber": null,
+          "name": "CheckSummSuccess_5th",
+          "activityName": "condition-activity",
+          "description": "Was the wrap-up completed?",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "b1150957-0926-4084-a849-87017a62fa54": {
+        "id": "b1150957-0926-4084-a849-87017a62fa54",
+        "name": "Reset_Loop_and_SetVar",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "loopInt",
+          "srcVariableType": "INTEGER",
+          "activityName": "set-variable",
+          "description": "Reset loop counter and set post-call summary ID",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "Reset_Loop_and_SetVar",
+          "setTo": "set-to-literal",
+          "expr": "0",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "0",
+              "id": "fc026d31-f283-492c-9cba-f4a2cf79d618",
+              "literal": "0",
+              "srcVariable": "loopInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "d54be63b-92dd-4f27-83ce-20ba957484b4": {
+        "id": "d54be63b-92dd-4f27-83ce-20ba957484b4",
+        "name": "LoopCheck",
+        "group": "enum-gateway",
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{loopInt < 3}}",
+          "activityVersionNumber": null,
+          "name": "LoopCheck",
+          "activityName": "condition-activity",
+          "description": "Loop up to 3 times",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "cd6c7bdc-0996-4bb0-910c-6c2b49d0b439": {
+        "id": "cd6c7bdc-0996-4bb0-910c-6c2b49d0b439",
+        "name": "Wait_odl_rqo",
+        "group": "action",
+        "properties": {
+          "duration": "00:01:29",
+          "activityId": "wait-activity",
+          "activityVersionNumber": null,
+          "name": "Wait_odl_rqo",
+          "activityName": "wait-activity",
+          "description": "Wait 90 seconds for agent wrapup",
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "3954a637-f05d-44d4-bb76-067bb2341787": {
+        "id": "3954a637-f05d-44d4-bb76-067bb2341787",
+        "name": "SetVariable_ivl_sv8",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "loopInt",
+          "srcVariableType": "INTEGER",
+          "activityName": "set-variable",
+          "description": "Increment loop counter\n",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_ivl_sv8",
+          "setTo": "set-to-literal",
+          "expr": "{{loopInt +1}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{loopInt +1}}",
+              "id": "81a53949-8d4f-4ac7-960a-34d37c427380",
+              "literal": "{{loopInt +1}}",
+              "srcVariable": "loopInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "ea554cfe-3d8f-44ab-8f39-f62d40b3f50b": {
+        "id": "ea554cfe-3d8f-44ab-8f39-f62d40b3f50b",
+        "name": "SetVariable_m1y",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "errorType",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "description": "Defines error type before ending flow",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_m1y",
+          "setTo": "set-to-literal",
+          "expr": "Bad Search API or Wrapup Incomplete",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "Bad Search API or Wrapup Incomplete",
+              "id": "d2a2b4d7-b028-4eab-96f4-fd7cbd571ed9",
+              "literal": "Bad Search API or Wrapup Incomplete",
+              "srcVariable": "errorType"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "78a7af0e-d599-49d0-9987-c29b8a3cc61f": {
+        "id": "78a7af0e-d599-49d0-9987-c29b8a3cc61f",
+        "name": "EndSubflow_mx3",
+        "group": "end",
+        "properties": {
+          "activityId": "end-subflow",
+          "activityVersionNumber": null,
+          "name": "EndSubflow_mx3",
+          "activityName": "end-subflow",
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "616c988d-24de-4575-85e8-03b0de800ccc": {
+        "id": "616c988d-24de-4575-85e8-03b0de800ccc",
+        "name": "SetVariable_m1y_6mc",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "errorType",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_m1y_6mc",
+          "setTo": "set-to-literal",
+          "expr": "No Summary",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "No Summary",
+              "id": "d2a2b4d7-b028-4eab-96f4-fd7cbd571ed9",
+              "literal": "No Summary",
+              "srcVariable": "errorType"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "c150cdfe-b182-4abb-b62b-55a5c51559a4": {
+        "id": "c150cdfe-b182-4abb-b62b-55a5c51559a4",
+        "name": "Post_JDS",
+        "group": "action",
+        "properties": {
+          "httpRequestHeaders": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "httpRequestMethod_type": null,
+          "authenticated": true,
+          "httpRequestBody": "{\n    \"data\": {\n        \"AdditionalContext\": \"{{AdditionalContext}}\",\n        \"InitialContactReason\": \"{{InitialContactReason}}\",\n        \"KeyActionsTaken\": \"{{KeyActionsTaken}}\",\n        \"NextSteps\": \"{{NextSteps}}\",\n        \"AdditionalContactReasons\":\"{{additionalContactReasons}}\",\n        \"uiData\": {\n            \"iconType\": \"aiSummary\",\n            \"subTitle\": \"Selected wrapup - {{wrapupName}} - {{agentName}}\",\n            \"title\": \"AI Summary\"\n        }\n    },\n    \"datacontenttype\": \"application/json\",\n    \"id\": \"{{taskId}}.1\",\n    \"identity\": \"{{phoneNum}}\",\n    \"identitytype\": \"phone\",\n    \"source\": \"summary\",\n    \"specversion\": \"1.0\",\n    \"type\": \"summary\"\n}",
+          "httpRequestPath": "/publish/v1/api/event",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Post Summary info to JDS",
+          "httpRequestBodyFiles": null,
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "Application/JSON",
+          "_renderRequestTimestamp": 1791281307218,
+          "retryAttempts": 1,
+          "httpQueryParameters": {
+            "workspaceId": "{{jds_workspaceId}}"
+          },
+          "httpContentType_name:name": "None",
+          "httpRequestBodyGQL": null,
+          "activityName": "http-request-v2",
+          "httpContentType_type": null,
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod_name": "POST",
+          "httpContentType:name": "Application/JSON",
+          "httpRequestMethod": "POST",
+          "httpContentType:name:name": "None",
+          "outputVariableArray": [],
+          "httpContentType:type": null,
+          "connectorId_type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "name": "Post_JDS",
+          "httpRequestMethod:name": "POST",
+          "flowDecryptAccess": true,
+          "activityType": "logic",
+          "connectorId_name": "",
+          "httpContentType_name": "Application/JSON"
+        }
+      },
+      "6b7ea4d2-01a6-4398-bafc-63987a975b12": {
+        "id": "6b7ea4d2-01a6-4398-bafc-63987a975b12",
+        "name": "JDS_Success",
+        "group": "enum-gateway",
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{Post_JDS.httpStatusCode == 202}}",
+          "activityVersionNumber": null,
+          "name": "JDS_Success",
+          "activityName": "condition-activity",
+          "description": "Was JDS post successful?",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "42563b6e-6dc1-4f11-9be4-bfa9417c768e": {
+        "id": "42563b6e-6dc1-4f11-9be4-bfa9417c768e",
+        "name": "SetVariable_m1y_6mc_g89",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "errorType",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "description": "Defines error type before ending flow",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_m1y_6mc_g89",
+          "setTo": "set-to-literal",
+          "expr": "Bad JDS Post",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "Bad JDS Post",
+              "id": "d2a2b4d7-b028-4eab-96f4-fd7cbd571ed9",
+              "literal": "Bad JDS Post",
+              "srcVariable": "errorType"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "cdb7098e-dfd4-4863-be63-6e9617db92a2": {
+        "id": "cdb7098e-dfd4-4863-be63-6e9617db92a2",
+        "name": "Sanitise_Summary",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "SummaryBody",
+          "srcVariableType": "JSON",
+          "activityName": "set-variable",
+          "description": "Strip newline characters from summary body. Issues found in testing with agent entered newline characters and making JDS fail. ",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "Sanitise_Summary",
+          "setTo": "set-to-literal",
+          "expr": "{{SummaryBody | replace({\"\\n\":\" \"})}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "JSON",
+              "literal_invalid_error": false,
+              "expr": "{{SummaryBody | replace({\"\\n\":\" \"})}}",
+              "id": "1c8ed88f-15c3-4e0b-b01a-eab573e53d05",
+              "literal": "{{SummaryBody | replace({\"\\n\":\" \"})}}",
+              "srcVariable": "SummaryBody"
+            },
+            {
+              "setTo": "set-to-variable",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{wrapupName}}",
+              "tgtVariableType": "STRING",
+              "srcVariable": "chosenWrapCode",
+              "tgtVariable": "{{wrapupName}}",
+              "id": "18e72d9a-e978-4955-a118-9016e4ecb23a"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{orgID}}:{{taskId}}:{{ciUserId}}",
+              "id": "88bbd506-20d0-4277-b3d2-b63d5b05a9a1",
+              "literal": "{{orgID}}:{{taskId}}:{{ciUserId}}",
+              "srcVariable": "PostCallSummary_ID"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "6a76dc70-00a2-464d-8ea2-6942f1633b2d": {
+        "id": "6a76dc70-00a2-464d-8ea2-6942f1633b2d",
+        "name": "ParseSummary",
+        "group": "action",
+        "properties": {
+          "contentType:name": "JSON",
+          "contentType_type": null,
+          "activityName": "parse-activity",
+          "contentType_name": "JSON",
+          "outputVariableArray": [
+            {
+              "outputVariable": "AdditionalContext",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].additionalContext"
+            },
+            {
+              "outputVariable": "InitialContactReason",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].initialContactReason"
+            },
+            {
+              "outputVariable": "KeyActionsTaken",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].keyActionsTaken"
+            },
+            {
+              "outputVariable": "NextSteps",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].nextSteps"
+            },
+            {
+              "outputVariable": "additionalContactReasons",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].additionalContactReasons"
+            }
+          ],
+          "activityId": "parse-activity",
+          "inputVariable": "SummaryBody",
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "ParseSummary",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "contentType": "JSON"
+        }
+      },
+      "d5b6022d-a6e2-4eed-8ace-7e627e8c7259": {
+        "id": "d5b6022d-a6e2-4eed-8ace-7e627e8c7259",
+        "name": "Case_09x",
+        "group": "enum-gateway",
+        "properties": {
+          "expression": "{{callDirection}}",
+          "expression:radioName": "setToVariable",
+          "activityName": "case-statement",
+          "description": "Check call direction to adjust JDS phone number",
+          "expression_name": "STRING",
+          "activityId": "case-statement",
+          "menuLinks": [
+            "0",
+            "1",
+            "2"
+          ],
+          "activityVersionNumber": null,
+          "name": "Case_09x",
+          "expression:name": "STRING",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "menuLinks_input": [
+            "inbound",
+            "outbound",
+            "outdial"
+          ],
+          "expression_radioName": "setToVariable",
+          "menuLinks:input": [
+            "inbound",
+            "outbound",
+            "outdial"
+          ]
+        }
+      },
+      "8576ffbf-82c9-43ad-ac66-eb0bd1cbaeb7": {
+        "id": "8576ffbf-82c9-43ad-ac66-eb0bd1cbaeb7",
+        "name": "SwapANI_mhm",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "phoneNum",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SwapANI_mhm",
+          "setTo": "set-to-variable",
+          "expr": "{{destination}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-variable",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{destination}}",
+              "tgtVariableType": "STRING",
+              "srcVariable": "phoneNum",
+              "tgtVariable": "{{destination}}",
+              "id": "6b8fa747-a65a-40f6-884e-5e9495d2dbe2"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{AdditionalContext | trim}} ",
+              "id": "3cbf0f28-74ca-42bc-a8b8-c0f192d8c1af",
+              "literal": "{{AdditionalContext | trim}} ",
+              "srcVariable": "AdditionalContext"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{NextSteps | trim}}",
+              "id": "f3abc09a-3bbc-41eb-b301-83dcc405b54c",
+              "literal": "{{NextSteps | trim}}",
+              "srcVariable": "NextSteps"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{InitialContactReason | trim}}",
+              "id": "85304382-fc73-44f1-af2b-e3ded267fabc",
+              "literal": "{{InitialContactReason | trim}}",
+              "srcVariable": "InitialContactReason"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{KeyActionsTaken | trim}}",
+              "id": "a42df89e-68c1-4a2b-b2d9-1a916d859191",
+              "literal": "{{KeyActionsTaken | trim}}",
+              "srcVariable": "KeyActionsTaken"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{additionalContactReasons | trim}}",
+              "id": "1a961e14-cd9b-40ce-8b10-7631ccb1a9c2",
+              "literal": "{{additionalContactReasons | trim}}",
+              "srcVariable": "additionalContactReasons"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "26e77df8-bfcd-4b23-9c61-d776526a7c84": {
+        "id": "26e77df8-bfcd-4b23-9c61-d776526a7c84",
+        "name": "GetCiscoUID_fqj",
+        "group": "action",
+        "properties": {
+          "httpRequestHeaders": {},
+          "httpRequestMethod_type": null,
+          "authenticated": true,
+          "httpRequestBody": null,
+          "httpRequestPath": "/organization/{{orgID}}/user/{{agentId}}",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Get the Cisco Common Identity user ID to construct the Summary reference ID",
+          "httpRequestBodyFiles": null,
+          "contentType_name": "JSON",
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "Application/JSON",
+          "_renderRequestTimestamp": 1791281307218,
+          "contentType": "JSON",
+          "retryAttempts": 1,
+          "httpQueryParameters": {},
+          "httpContentType_name:name": "None",
+          "httpRequestBodyGQL": null,
+          "contentType:name": "JSON",
+          "contentType_type": null,
+          "activityName": "http-request-v2",
+          "httpContentType_type": null,
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod_name": "GET",
+          "httpContentType:name": "Application/JSON",
+          "httpRequestMethod": "GET",
+          "httpContentType:name:name": "None",
+          "outputVariableArray": [
+            {
+              "outputVariable": "ciUserId",
+              "jsonPathExp": "$.ciUserId"
+            }
+          ],
+          "httpContentType:type": null,
+          "connectorId_type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "GetCiscoUID_fqj",
+          "httpRequestMethod:name": "GET",
+          "flowDecryptAccess": true,
+          "activityType": "logic",
+          "connectorId_name": "",
+          "httpContentType_name": "Application/JSON"
+        }
+      },
+      "b7e281d9-188d-451b-91df-961adfeacbb5": {
+        "id": "b7e281d9-188d-451b-91df-961adfeacbb5",
+        "name": "TrimPayloads_hz5",
+        "group": "set-variable",
+        "properties": {
+          "srcVariable": "phoneNum",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "TrimPayloads_hz5",
+          "setTo": "set-to-variable",
+          "expr": "{{origin}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-variable",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{origin}}",
+              "tgtVariableType": "STRING",
+              "srcVariable": "phoneNum",
+              "tgtVariable": "{{origin}}",
+              "id": "6b8fa747-a65a-40f6-884e-5e9495d2dbe2"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{AdditionalContext | escape('json') }} ",
+              "id": "3cbf0f28-74ca-42bc-a8b8-c0f192d8c1af",
+              "literal": "{{AdditionalContext | escape('json') }} ",
+              "srcVariable": "AdditionalContext"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{NextSteps | escape('json') }}",
+              "id": "f3abc09a-3bbc-41eb-b301-83dcc405b54c",
+              "literal": "{{NextSteps | escape('json') }}",
+              "srcVariable": "NextSteps"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{InitialContactReason | escape('json') }}",
+              "id": "85304382-fc73-44f1-af2b-e3ded267fabc",
+              "literal": "{{InitialContactReason | escape('json') }}",
+              "srcVariable": "InitialContactReason"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{KeyActionsTaken | escape('json') }}",
+              "id": "a42df89e-68c1-4a2b-b2d9-1a916d859191",
+              "literal": "{{KeyActionsTaken | escape('json') }}",
+              "srcVariable": "KeyActionsTaken"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{additionalContactReasons | escape('json') }}",
+              "id": "1a961e14-cd9b-40ce-8b10-7631ccb1a9c2",
+              "literal": "{{additionalContactReasons | escape('json') }}",
+              "srcVariable": "additionalContactReasons"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      }
+    },
+    "links": [
+      {
+        "id": "fa8edb0a-5b35-4b76-829c-76994a4e3701",
+        "sourceActivityId": "aa7c5bd6-f23b-4379-bb2a-9a57ddcf6a22",
+        "targetActivityId": "fa93c062-b8e8-4daa-ba62-3b84674d3d2a",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "f670abda-78ac-4233-8835-b83eb6e54d26",
+        "sourceActivityId": "fd717a04-d2ea-4df0-a6ff-6339a421894a",
+        "targetActivityId": "9b25b63d-7e08-4bdf-9848-aa2dcd63b5d5",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "c9877f40-1690-4cc8-a829-0dc4080e678b",
+        "sourceActivityId": "71200037-22aa-41eb-99f7-a46b16c2a138",
+        "targetActivityId": "fd717a04-d2ea-4df0-a6ff-6339a421894a",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "5a264a70-c4ce-4f99-aad8-46f60e4f8065",
+        "sourceActivityId": "3d7c57b3-5592-4c8f-a468-0d354626320b",
+        "targetActivityId": "1bc1f96b-ff94-4690-ab30-b27752d115e8",
+        "conditionExpr": "true",
+        "properties": {
+          "value": "true"
+        }
+      },
+      {
+        "id": "439f7b1b-1579-477f-b7ab-04557bc70835",
+        "sourceActivityId": "9b25b63d-7e08-4bdf-9848-aa2dcd63b5d5",
+        "targetActivityId": "3d7c57b3-5592-4c8f-a468-0d354626320b",
+        "conditionExpr": "false",
+        "properties": {
+          "value": "false"
+        }
+      },
+      {
+        "id": "11f76a3c-4811-49fe-be75-a08ed431d2a1",
+        "sourceActivityId": "1bc1f96b-ff94-4690-ab30-b27752d115e8",
+        "targetActivityId": "71200037-22aa-41eb-99f7-a46b16c2a138",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "f00b86f4-617d-40ec-b563-625051057b06",
+        "sourceActivityId": "fa93c062-b8e8-4daa-ba62-3b84674d3d2a",
+        "targetActivityId": "7be74c99-9117-4e0f-bda7-a7885a4a534b",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "8f3699b7-d6e3-4e85-b0e4-57297451ea33",
+        "sourceActivityId": "7be74c99-9117-4e0f-bda7-a7885a4a534b",
+        "targetActivityId": "ffc903ac-a542-427e-8044-d948e3145a1c",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "9dea7506-33cb-4e02-9a79-35becd1c282c",
+        "sourceActivityId": "ffc903ac-a542-427e-8044-d948e3145a1c",
+        "targetActivityId": "b1150957-0926-4084-a849-87017a62fa54",
+        "conditionExpr": "true",
+        "properties": {
+          "value": "true"
+        }
+      },
+      {
+        "id": "c831b739-f806-4325-ad8c-220dcaea042f",
+        "sourceActivityId": "b1150957-0926-4084-a849-87017a62fa54",
+        "targetActivityId": "fd717a04-d2ea-4df0-a6ff-6339a421894a",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "649dfe7a-4822-4396-a594-23085db8bab9",
+        "sourceActivityId": "ffc903ac-a542-427e-8044-d948e3145a1c",
+        "targetActivityId": "d54be63b-92dd-4f27-83ce-20ba957484b4",
+        "conditionExpr": "false",
+        "properties": {
+          "value": "false"
+        }
+      },
+      {
+        "id": "473f0f8d-924d-4ceb-b4d4-c619eb9c4a6a",
+        "sourceActivityId": "d54be63b-92dd-4f27-83ce-20ba957484b4",
+        "targetActivityId": "cd6c7bdc-0996-4bb0-910c-6c2b49d0b439",
+        "conditionExpr": "true",
+        "properties": {
+          "value": "true"
+        }
+      },
+      {
+        "id": "7fd1779b-6731-4a07-bc5a-46359a9652b5",
+        "sourceActivityId": "cd6c7bdc-0996-4bb0-910c-6c2b49d0b439",
+        "targetActivityId": "3954a637-f05d-44d4-bb76-067bb2341787",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "b3d1946b-2bb7-4d8f-9803-7299b5ee84d3",
+        "sourceActivityId": "d54be63b-92dd-4f27-83ce-20ba957484b4",
+        "targetActivityId": "ea554cfe-3d8f-44ab-8f39-f62d40b3f50b",
+        "conditionExpr": "false",
+        "properties": {
+          "value": "false"
+        }
+      },
+      {
+        "id": "0eefdf99-e1b0-4eef-b486-dafa383b9f46",
+        "sourceActivityId": "ea554cfe-3d8f-44ab-8f39-f62d40b3f50b",
+        "targetActivityId": "78a7af0e-d599-49d0-9987-c29b8a3cc61f",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "cd971c3d-3d99-48c8-adcc-3d14a6a2797a",
+        "sourceActivityId": "3d7c57b3-5592-4c8f-a468-0d354626320b",
+        "targetActivityId": "616c988d-24de-4575-85e8-03b0de800ccc",
+        "conditionExpr": "false",
+        "properties": {
+          "value": "false"
+        }
+      },
+      {
+        "id": "bcf67200-0a30-44f4-a33b-3ff118c0fcf8",
+        "sourceActivityId": "616c988d-24de-4575-85e8-03b0de800ccc",
+        "targetActivityId": "78a7af0e-d599-49d0-9987-c29b8a3cc61f",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "ca44cdeb-bcf6-47fa-95e7-2c6625252553",
+        "sourceActivityId": "c150cdfe-b182-4abb-b62b-55a5c51559a4",
+        "targetActivityId": "6b7ea4d2-01a6-4398-bafc-63987a975b12",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "42d4dada-578f-459e-b2b0-e7eb5d3300b6",
+        "sourceActivityId": "6b7ea4d2-01a6-4398-bafc-63987a975b12",
+        "targetActivityId": "42563b6e-6dc1-4f11-9be4-bfa9417c768e",
+        "conditionExpr": "false",
+        "properties": {
+          "value": "false"
+        }
+      },
+      {
+        "id": "9293610b-348f-4638-8dc3-66b31d4c51c4",
+        "sourceActivityId": "42563b6e-6dc1-4f11-9be4-bfa9417c768e",
+        "targetActivityId": "78a7af0e-d599-49d0-9987-c29b8a3cc61f",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "5e03036e-c549-40ee-8db1-5caecfce2c97",
+        "sourceActivityId": "6b7ea4d2-01a6-4398-bafc-63987a975b12",
+        "targetActivityId": "78a7af0e-d599-49d0-9987-c29b8a3cc61f",
+        "conditionExpr": "true",
+        "properties": {
+          "value": "true"
+        }
+      },
+      {
+        "id": "890b91b7-5d89-45c4-a867-10609f607933",
+        "sourceActivityId": "3954a637-f05d-44d4-bb76-067bb2341787",
+        "targetActivityId": "7be74c99-9117-4e0f-bda7-a7885a4a534b",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "95aaac4e-c609-44a0-a052-ad6d14dbd33f",
+        "sourceActivityId": "cdb7098e-dfd4-4863-be63-6e9617db92a2",
+        "targetActivityId": "6a76dc70-00a2-464d-8ea2-6942f1633b2d",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "e1647ae5-3d22-410b-bce2-83ccf800ee3b",
+        "sourceActivityId": "6a76dc70-00a2-464d-8ea2-6942f1633b2d",
+        "targetActivityId": "d5b6022d-a6e2-4eed-8ace-7e627e8c7259",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "d3ffdb08-bef5-450b-9a6d-a7c692314af7",
+        "sourceActivityId": "d5b6022d-a6e2-4eed-8ace-7e627e8c7259",
+        "targetActivityId": "8576ffbf-82c9-43ad-ac66-eb0bd1cbaeb7",
+        "conditionExpr": "1",
+        "properties": {
+          "value": "1"
+        }
+      },
+      {
+        "id": "62d0eeb6-98dd-40b8-aa23-fa213f07ba7c",
+        "sourceActivityId": "26e77df8-bfcd-4b23-9c61-d776526a7c84",
+        "targetActivityId": "cdb7098e-dfd4-4863-be63-6e9617db92a2",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "04f02248-8333-4bcf-93fb-af891c8dcf41",
+        "sourceActivityId": "8576ffbf-82c9-43ad-ac66-eb0bd1cbaeb7",
+        "targetActivityId": "c150cdfe-b182-4abb-b62b-55a5c51559a4",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "513b69f9-742b-45bc-9a65-1f61c90bfb19",
+        "sourceActivityId": "d5b6022d-a6e2-4eed-8ace-7e627e8c7259",
+        "targetActivityId": "b7e281d9-188d-451b-91df-961adfeacbb5",
+        "conditionExpr": "0",
+        "properties": {
+          "value": "0"
+        }
+      },
+      {
+        "id": "51addb8b-edb8-45db-ad29-c1fdd4a9f9c9",
+        "sourceActivityId": "d5b6022d-a6e2-4eed-8ace-7e627e8c7259",
+        "targetActivityId": "b7e281d9-188d-451b-91df-961adfeacbb5",
+        "conditionExpr": "default",
+        "properties": {
+          "value": "default"
+        }
+      },
+      {
+        "id": "eefa025d-f556-48d8-91b2-0190e51aa566",
+        "sourceActivityId": "b7e281d9-188d-451b-91df-961adfeacbb5",
+        "targetActivityId": "c150cdfe-b182-4abb-b62b-55a5c51559a4",
+        "conditionExpr": "out",
+        "properties": {
+          "value": "out"
+        }
+      },
+      {
+        "id": "73fc1ff0-cc9d-4792-adce-32226b0ecb2f",
+        "sourceActivityId": "9b25b63d-7e08-4bdf-9848-aa2dcd63b5d5",
+        "targetActivityId": "26e77df8-bfcd-4b23-9c61-d776526a7c84",
+        "conditionExpr": "true",
+        "properties": {
+          "value": "true"
+        }
+      },
+      {
+        "id": "4d4ace7a-a682-4c09-90bc-81df10314c7b",
+        "sourceActivityId": "d5b6022d-a6e2-4eed-8ace-7e627e8c7259",
+        "targetActivityId": "8576ffbf-82c9-43ad-ac66-eb0bd1cbaeb7",
+        "conditionExpr": "2",
+        "properties": {
+          "value": "2"
+        }
+      }
+    ]
+  },
+  "diagram": {
+    "widgets": {
+      "aa7c5bd6-f23b-4379-bb2a-9a57ddcf6a22": {
+        "id": "fc83b8da-bd4c-48c9-bab0-d03f152f16b4",
+        "type": "start-subflow",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -1360,
+          "y": -440
+        },
+        "ports": [
+          {
+            "portId": "bf314ce9-bef9-45f1-a768-5600cfdda2bc",
+            "isSourcePort": false,
+            "linkId": "652caab0-8c35-44be-8876-937238cff8ef",
+            "type": "arrow",
+            "links": [
+              "652caab0-8c35-44be-8876-937238cff8ef"
+            ],
+            "properties": {
+              "x": -1194.2960801586948,
+              "name": "out",
+              "y": -426.49440321445996,
+              "label": "out",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "start-subflow",
+          "activityVersionNumber": null,
+          "name": "StartSubflow",
+          "activityName": "NewSubFlowStart",
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic"
+        }
+      },
+      "fa93c062-b8e8-4daa-ba62-3b84674d3d2a": {
+        "id": "cec8c0c0-c7db-4399-a814-3cb42c6514ba",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -1060,
+          "y": -420
+        },
+        "ports": [
+          {
+            "portId": "16942b4b-386a-4003-bf1c-a443e80ff5ae",
+            "isSourcePort": true,
+            "linkId": "652caab0-8c35-44be-8876-937238cff8ef",
+            "type": "arrow",
+            "links": [
+              "652caab0-8c35-44be-8876-937238cff8ef"
+            ],
+            "properties": {
+              "x": -1069.706500535532,
+              "name": "in",
+              "y": -406.5024900657215,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "889894f6-ac2a-4a69-b856-ae86bd588e99",
+            "isSourcePort": false,
+            "linkId": "8c453207-ba29-4fb8-ba6d-859e6718f5df",
+            "type": "arrow",
+            "links": [
+              "8c453207-ba29-4fb8-ba6d-859e6718f5df"
+            ],
+            "properties": {
+              "x": -894.3063978654768,
+              "name": "out",
+              "y": -406.5024900657215,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "165b35dd-e8ea-4ce0-b805-5af43e2c0b55",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": -894.3063978654768,
+              "name": "error",
+              "y": -218.53131373307048,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "timeNowString",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "description": "Set up org-specific variables. Org ID and JDS Workspace should be your org-specific details. timeEarlierInt defines the start of a 15-minute lookback period for the search API (Epoch time in milliseconds). timeNowInt complements this with the current time. timeNowString defines the JDS expected time format.  \nPostCallSummaryID is set using the correct three sets of strings (org ID - Task ID - Agent ID)",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "Setup_vars",
+          "setTo": "set-to-literal",
+          "expr": "{{ now() | epoch(inMillis=true)  | date(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")  }}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{ now() | epoch(inMillis=true)  | date(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")  }}",
+              "id": "02ce1d76-eb79-4750-bc7d-ec471cd15710",
+              "literal": "{{ now() | epoch(inMillis=true)  | date(\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\")  }}",
+              "srcVariable": "timeNowString"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{orgID}}",
+              "id": "74f07232-a30b-4565-8606-d126958c37b6",
+              "literal": "{{orgID}}",
+              "srcVariable": "orgID"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "REPLACE_WITH_YOUR_JOURNEY_PROJECT_ID",
+              "id": "5c862427-10c4-4a3d-8c5a-86bd570ac447",
+              "literal": "REPLACE_WITH_YOUR_JOURNEY_PROJECT_ID",
+              "srcVariable": "jds_workspaceId"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{ now() | epoch(inMillis=true) }}",
+              "id": "77bc30f7-7f89-4dda-8edd-3cf55b22ad23",
+              "literal": "{{ now() | epoch(inMillis=true) }}",
+              "srcVariable": "timeNowInt"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{ now() | epoch(inMillis=true) - 900000 }}",
+              "id": "e807c47c-fcde-47c4-a6bf-693bfa418eab",
+              "literal": "{{ now() | epoch(inMillis=true) - 900000 }}",
+              "srcVariable": "timeEarlierInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "fa8edb0a-5b35-4b76-829c-76994a4e3701": {
+        "id": "652caab0-8c35-44be-8876-937238cff8ef",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "5874b679-27e8-42e7-92b4-98ff9ea44b9a",
+              "type": "point",
+              "x": -1184.2931965244284,
+              "y": -416.4915132425358
+            },
+            {
+              "id": "50d5187b-7524-41b8-a617-fc0ec692315d",
+              "type": "point",
+              "x": -1059.703610563608,
+              "y": -396.49960643145505
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "bf314ce9-bef9-45f1-a768-5600cfdda2bc",
+          "activeWidgetId": "fc83b8da-bd4c-48c9-bab0-d03f152f16b4",
+          "point": {
+            "x": -1184,
+            "y": -416
+          }
+        },
+        "targetPort": {
+          "id": "16942b4b-386a-4003-bf1c-a443e80ff5ae",
+          "activeWidgetId": "cec8c0c0-c7db-4399-a814-3cb42c6514ba",
+          "point": {
+            "x": -1059,
+            "y": -396
+          }
+        }
+      },
+      "fd717a04-d2ea-4df0-a6ff-6339a421894a": {
+        "id": "2f8c00e3-4eaa-4d2f-a5a3-c1ddcb02db44",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 160,
+          "y": -340
+        },
+        "ports": [
+          {
+            "portId": "b6c80553-53f6-4a03-999e-c73079902221",
+            "isSourcePort": true,
+            "linkId": "b51116d3-ae9e-4b1e-a441-c4afcdb569af",
+            "type": "arrow",
+            "links": [
+              "b51116d3-ae9e-4b1e-a441-c4afcdb569af",
+              "36f8acd4-57e7-4fb2-a661-9779069beb13"
+            ],
+            "properties": {
+              "x": 150.30531285847383,
+              "name": "in",
+              "y": -326.495543992851,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "f0816499-33af-4125-a825-a8b8c2e91b6c",
+            "isSourcePort": false,
+            "linkId": "68711dde-8fd4-4e6b-a0f0-048a050cd4fc",
+            "type": "arrow",
+            "links": [
+              "68711dde-8fd4-4e6b-a0f0-048a050cd4fc"
+            ],
+            "properties": {
+              "x": 325.7053141260053,
+              "name": "default",
+              "y": -326.495543992851,
+              "label": "default",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "httpRequestHeaders": {},
+          "authenticated": true,
+          "httpRequestBody": "{\n\"orgId\":\"{{orgID}}\",\n\"interactionId\":\"{{taskId}}\",\n\"searchType\":\"INTERACTION\"\n}",
+          "httpRequestPath": "/generated-summaries/search",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Retrieve post-call summary by interaction/task ID",
+          "httpRequestBodyFiles": null,
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "Application/JSON",
+          "_renderRequestTimestamp": 1791281307217,
+          "contentType": "JSON",
+          "retryAttempts": 1,
+          "httpQueryParameters": {},
+          "httpRequestBodyGQL": null,
+          "contentType:name": "JSON",
+          "activityName": "http-request-v2",
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod": "POST",
+          "httpContentType:name": "Application/JSON",
+          "httpContentType:name:name": "None",
+          "outputVariableArray": [
+            {
+              "outputVariable": "SummaryBody",
+              "jsonPathExp": "$"
+            },
+            {
+              "outputVariable": "SummariesDebug",
+              "jsonPathExp": "$.summaries.POST_CALL"
+            }
+          ],
+          "httpContentType:type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "GetSummary",
+          "httpRequestMethod:name": "POST",
+          "flowDecryptAccess": true,
+          "activityType": "logic"
+        }
+      },
+      "9b25b63d-7e08-4bdf-9848-aa2dcd63b5d5": {
+        "id": "be237bee-b62d-4a6a-94bb-4b4a792d1a85",
+        "type": "enum-gateway",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 460,
+          "y": -220
+        },
+        "ports": [
+          {
+            "portId": "25800e51-42bf-4a1e-ad5c-00ef9cd4c86e",
+            "isSourcePort": true,
+            "linkId": "68711dde-8fd4-4e6b-a0f0-048a050cd4fc",
+            "type": "arrow",
+            "links": [
+              "68711dde-8fd4-4e6b-a0f0-048a050cd4fc"
+            ],
+            "properties": {
+              "x": 450.29722600721243,
+              "name": "in",
+              "y": -204.4973058616996,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "0d425fd5-e368-4f74-819b-442eb6514e2b",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 625.6972272747439,
+              "name": "error",
+              "y": -30.661641326598442,
+              "label": "error",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "6a5a258e-8e52-4921-9a60-1d1a69aa4434",
+            "isSourcePort": false,
+            "linkId": "9e5d6ff9-c4ec-4608-853d-0dbafe626318",
+            "type": "arrow",
+            "links": [
+              "9e5d6ff9-c4ec-4608-853d-0dbafe626318"
+            ],
+            "properties": {
+              "x": 625.6972272747439,
+              "name": "true",
+              "y": -122.53587684663495,
+              "label": "true",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "c0ce7e28-e906-41fa-bb49-4f01e82336b2",
+            "isSourcePort": false,
+            "linkId": "d8c57fc1-ee33-468f-9437-b81c1ed61076",
+            "type": "arrow",
+            "links": [
+              "d8c57fc1-ee33-468f-9437-b81c1ed61076"
+            ],
+            "properties": {
+              "x": 625.6972272747439,
+              "name": "false",
+              "y": -88.60223212305192,
+              "label": "false",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{GetSummary.httpStatusCode == 200 and SummariesDebug != \"\" }}",
+          "activityVersionNumber": null,
+          "name": "CheckSummSuccess",
+          "activityName": "condition-activity",
+          "description": "Did the API return a summary?",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic"
+        }
+      },
+      "f670abda-78ac-4233-8835-b83eb6e54d26": {
+        "id": "68711dde-8fd4-4e6b-a0f0-048a050cd4fc",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "a7baf3df-a73d-4d0f-b6dc-1ffa86462aed",
+              "type": "point",
+              "x": 335.7082040979294,
+              "y": -316.49266035858454
+            },
+            {
+              "id": "e4e91824-203e-4435-be93-3b31aeaee84d",
+              "type": "point",
+              "x": 460.3001096414787,
+              "y": -194.49441588977538
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "f0816499-33af-4125-a825-a8b8c2e91b6c",
+          "activeWidgetId": "2f8c00e3-4eaa-4d2f-a5a3-c1ddcb02db44",
+          "point": {
+            "x": 335,
+            "y": -316
+          }
+        },
+        "targetPort": {
+          "id": "25800e51-42bf-4a1e-ad5c-00ef9cd4c86e",
+          "activeWidgetId": "be237bee-b62d-4a6a-94bb-4b4a792d1a85",
+          "point": {
+            "x": 460,
+            "y": -194
+          }
+        }
+      },
+      "71200037-22aa-41eb-99f7-a46b16c2a138": {
+        "id": "e77118e6-ab30-4c41-b6e8-0ec0fcaeedbc",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1360,
+          "y": -360
+        },
+        "ports": [
+          {
+            "portId": "5560539a-75b7-46dd-b26e-14b9346d93c4",
+            "isSourcePort": true,
+            "linkId": "65297e6d-fcae-4fce-b1c1-b367e215eabd",
+            "type": "arrow",
+            "links": [
+              "65297e6d-fcae-4fce-b1c1-b367e215eabd"
+            ],
+            "properties": {
+              "x": 1350.3053128584738,
+              "name": "in",
+              "y": -346.49906773054806,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "285df096-f665-4aa5-a049-1cc12d220f58",
+            "isSourcePort": false,
+            "linkId": "b51116d3-ae9e-4b1e-a441-c4afcdb569af",
+            "type": "arrow",
+            "links": [
+              "b51116d3-ae9e-4b1e-a441-c4afcdb569af"
+            ],
+            "properties": {
+              "x": 1525.7055169310524,
+              "name": "out",
+              "y": -346.49906773054806,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "a6f559c3-e3f2-4b09-84ee-12a4c21b5a52",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1525.7055169310524,
+              "name": "error",
+              "y": -238.53701762502612,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "loopInt",
+          "srcVariableType": "INTEGER",
+          "activityName": "set-variable",
+          "description": "Increment loop counter\n",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_ivl",
+          "setTo": "set-to-literal",
+          "expr": "{{loopInt +1}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307217,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{loopInt +1}}",
+              "id": "81a53949-8d4f-4ac7-960a-34d37c427380",
+              "literal": "{{loopInt +1}}",
+              "srcVariable": "loopInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "c9877f40-1690-4cc8-a829-0dc4080e678b": {
+        "id": "b51116d3-ae9e-4b1e-a441-c4afcdb569af",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "6784eef1-05ad-404f-b730-5cd12ff31435",
+              "type": "point",
+              "x": 1535.7084005653187,
+              "y": -336.49617775862396
+            },
+            {
+              "id": "96f03b2b-87a4-4efd-ae09-03b10e934671",
+              "type": "point",
+              "x": 160.3081964927403,
+              "y": -316.49266035858454
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "285df096-f665-4aa5-a049-1cc12d220f58",
+          "activeWidgetId": "e77118e6-ab30-4c41-b6e8-0ec0fcaeedbc",
+          "point": {
+            "x": 1535,
+            "y": -336
+          }
+        },
+        "targetPort": {
+          "id": "b6c80553-53f6-4a03-999e-c73079902221",
+          "activeWidgetId": "2f8c00e3-4eaa-4d2f-a5a3-c1ddcb02db44",
+          "point": {
+            "x": 160,
+            "y": -316
+          }
+        }
+      },
+      "3d7c57b3-5592-4c8f-a468-0d354626320b": {
+        "id": "f0748964-d895-4529-bac0-ebe1f76cedc7",
+        "type": "enum-gateway",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 840,
+          "y": -280
+        },
+        "ports": [
+          {
+            "portId": "8d03d13b-30ae-4256-a62b-955fa802d13b",
+            "isSourcePort": true,
+            "linkId": "d8c57fc1-ee33-468f-9437-b81c1ed61076",
+            "type": "arrow",
+            "links": [
+              "d8c57fc1-ee33-468f-9437-b81c1ed61076"
+            ],
+            "properties": {
+              "x": 830.3053128584738,
+              "name": "in",
+              "y": -264.4984466400907,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "72447413-27b1-4f3f-983f-5f831d3a6189",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1005.7055169310524,
+              "name": "error",
+              "y": -90.66278210498956,
+              "label": "error",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "5a35d0bb-fb20-4fb5-bd89-724b1935d820",
+            "isSourcePort": false,
+            "linkId": "0131a84c-7f01-42f7-b880-fb95d2a34ad0",
+            "type": "arrow",
+            "links": [
+              "0131a84c-7f01-42f7-b880-fb95d2a34ad0"
+            ],
+            "properties": {
+              "x": 1005.7055169310524,
+              "name": "true",
+              "y": -182.53701762502612,
+              "label": "true",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "cd9d1cd9-59d7-4aef-b2b6-208409ad7264",
+            "isSourcePort": false,
+            "linkId": "b71ddba5-1a53-4a99-b5f5-17e3221ed47b",
+            "type": "arrow",
+            "links": [
+              "b71ddba5-1a53-4a99-b5f5-17e3221ed47b"
+            ],
+            "properties": {
+              "x": 1005.7055169310524,
+              "name": "false",
+              "y": -148.60337290144304,
+              "label": "false",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{loopInt < 3}}",
+          "activityVersionNumber": null,
+          "name": "Loop_Counter",
+          "activityName": "condition-activity",
+          "description": "Loop up to 3 times",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "1bc1f96b-ff94-4690-ab30-b27752d115e8": {
+        "id": "351e9f96-1d11-4b97-ba79-9b5e68556778",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1080,
+          "y": -340
+        },
+        "ports": [
+          {
+            "portId": "c3777d54-7bd1-448f-9ff2-31d1ce221132",
+            "isSourcePort": true,
+            "linkId": "0131a84c-7f01-42f7-b880-fb95d2a34ad0",
+            "type": "arrow",
+            "links": [
+              "0131a84c-7f01-42f7-b880-fb95d2a34ad0"
+            ],
+            "properties": {
+              "x": 1070.2938036720388,
+              "name": "in",
+              "y": -326.5013492873304,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "aa5ea4ad-2d2e-4f92-b95f-5f748391c2dc",
+            "isSourcePort": false,
+            "linkId": "65297e6d-fcae-4fce-b1c1-b367e215eabd",
+            "type": "arrow",
+            "links": [
+              "65297e6d-fcae-4fce-b1c1-b367e215eabd"
+            ],
+            "properties": {
+              "x": 1245.694007744618,
+              "name": "default",
+              "y": -326.5013492873304,
+              "label": "default",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "5436a640-2308-4107-b64d-7f4001a60bda",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1245.694007744618,
+              "name": "error",
+              "y": -218.53940058433204,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "duration": "00:00:30",
+          "activityId": "wait-activity",
+          "activityVersionNumber": null,
+          "name": "Wait_odl",
+          "activityName": "wait-activity",
+          "description": "Wait 30 seconds in case summary isn't available",
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "5a264a70-c4ce-4f99-aad8-46f60e4f8065": {
+        "id": "0131a84c-7f01-42f7-b880-fb95d2a34ad0",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "6a5580c3-19fd-40a7-8e5f-42e73b2b3ac1",
+              "type": "point",
+              "x": 1015.7084005653187,
+              "y": -172.53413399075964
+            },
+            {
+              "id": "8c781022-1cc0-4ec9-b00e-fa3e9c916d3c",
+              "type": "point",
+              "x": 1080.296687306305,
+              "y": -316.49846565306393
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "5a35d0bb-fb20-4fb5-bd89-724b1935d820",
+          "activeWidgetId": "f0748964-d895-4529-bac0-ebe1f76cedc7",
+          "point": {
+            "x": 1015,
+            "y": -172
+          }
+        },
+        "targetPort": {
+          "id": "c3777d54-7bd1-448f-9ff2-31d1ce221132",
+          "activeWidgetId": "351e9f96-1d11-4b97-ba79-9b5e68556778",
+          "point": {
+            "x": 1080,
+            "y": -316
+          }
+        }
+      },
+      "439f7b1b-1579-477f-b7ab-04557bc70835": {
+        "id": "d8c57fc1-ee33-468f-9437-b81c1ed61076",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "7bd6e0c0-6912-426a-8298-044737cc5631",
+              "type": "point",
+              "x": 635.700117246668,
+              "y": -78.59934848878547
+            },
+            {
+              "id": "cebd0a85-d41b-476b-bddf-b38145f7a5be",
+              "type": "point",
+              "x": 840.3081964927401,
+              "y": -254.49556300582424
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "c0ce7e28-e906-41fa-bb49-4f01e82336b2",
+          "activeWidgetId": "be237bee-b62d-4a6a-94bb-4b4a792d1a85",
+          "point": {
+            "x": 635,
+            "y": -78
+          }
+        },
+        "targetPort": {
+          "id": "8d03d13b-30ae-4256-a62b-955fa802d13b",
+          "activeWidgetId": "f0748964-d895-4529-bac0-ebe1f76cedc7",
+          "point": {
+            "x": 840,
+            "y": -254
+          }
+        }
+      },
+      "11f76a3c-4811-49fe-be75-a08ed431d2a1": {
+        "id": "65297e6d-fcae-4fce-b1c1-b367e215eabd",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "33e1a753-9bd9-4cdb-8f25-455d001b8dcc",
+              "type": "point",
+              "x": 1255.6968913788842,
+              "y": -316.49846565306393
+            },
+            {
+              "id": "0e1d6dfc-aef2-4db9-a65d-94251299eabb",
+              "type": "point",
+              "x": 1360.308202830398,
+              "y": -336.49617775862396
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "aa5ea4ad-2d2e-4f92-b95f-5f748391c2dc",
+          "activeWidgetId": "351e9f96-1d11-4b97-ba79-9b5e68556778",
+          "point": {
+            "x": 1255,
+            "y": -316
+          }
+        },
+        "targetPort": {
+          "id": "5560539a-75b7-46dd-b26e-14b9346d93c4",
+          "activeWidgetId": "e77118e6-ab30-4c41-b6e8-0ec0fcaeedbc",
+          "point": {
+            "x": 1360,
+            "y": -336
+          }
+        }
+      },
+      "7be74c99-9117-4e0f-bda7-a7885a4a534b": {
+        "id": "1e544d0f-e48a-43be-ab48-8bad1baa7776",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -800,
+          "y": -420
+        },
+        "ports": [
+          {
+            "portId": "05f160b0-298b-4270-a99d-1689d6bbfbcc",
+            "isSourcePort": true,
+            "linkId": "8c453207-ba29-4fb8-ba6d-859e6718f5df",
+            "type": "arrow",
+            "links": [
+              "8c453207-ba29-4fb8-ba6d-859e6718f5df",
+              "c688fd56-c645-4b25-b907-af8002ebfd6a"
+            ],
+            "properties": {
+              "x": -809.7007079163682,
+              "name": "in",
+              "y": -406.50249006572153,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "3a556861-0178-440b-8528-cd3a5d7678c2",
+            "isSourcePort": false,
+            "linkId": "b3653f96-61c7-4787-b0d3-dfdd13c5b826",
+            "type": "arrow",
+            "links": [
+              "b3653f96-61c7-4787-b0d3-dfdd13c5b826"
+            ],
+            "properties": {
+              "x": -634.3006179216286,
+              "name": "default",
+              "y": -406.50249006572153,
+              "label": "default",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "httpRequestHeaders": {},
+          "authenticated": true,
+          "httpRequestBody": null,
+          "httpRequestPath": "/search?orgId={{orgID}}",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Check to see if wrapup has been applied.",
+          "httpRequestBodyFiles": null,
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "GraphQL",
+          "_renderRequestTimestamp": 1791281307218,
+          "contentType": "JSON",
+          "retryAttempts": 1,
+          "httpQueryParameters": {},
+          "httpRequestBodyGQL": {
+            "query": "{\n  taskDetails(\n    from: {{timeEarlierInt}}\n    to: {{timeNowInt}}\n    filter: { id: { equals: \"{{taskId}}\" } }\n  ) {\n    tasks {\n      status\n      lastWrapupCodeName\n      origin\n      destination\n      direction\n      lastAgent {\n        id\n        name\n      }\n    }\n  }\n}",
+            "variables": ""
+          },
+          "contentType:name": "JSON",
+          "activityName": "http-request-v2",
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod": "POST",
+          "httpContentType:name": "GraphQL",
+          "outputVariableArray": [
+            {
+              "outputVariable": "wrapupName",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].lastWrapupCodeName"
+            },
+            {
+              "outputVariable": "callDirection",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].direction"
+            },
+            {
+              "outputVariable": "destination",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].destination"
+            },
+            {
+              "outputVariable": "origin",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].origin"
+            },
+            {
+              "outputVariable": "agentId",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].lastAgent.id"
+            },
+            {
+              "outputVariable": "agentName",
+              "jsonPathExp": "$.data.taskDetails.tasks[0].lastAgent.name"
+            }
+          ],
+          "httpContentType:type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "GetSearchAPI_mkk",
+          "httpRequestMethod:name": "POST",
+          "flowDecryptAccess": true,
+          "activityType": "logic"
+        }
+      },
+      "f00b86f4-617d-40ec-b563-625051057b06": {
+        "id": "8c453207-ba29-4fb8-ba6d-859e6718f5df",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "7366b6f7-6ba0-42db-bd77-fa720732e79b",
+              "type": "point",
+              "x": -884.3035142312103,
+              "y": -396.49960643145505
+            },
+            {
+              "id": "54a7156c-97ac-4566-956c-3080532a028e",
+              "type": "point",
+              "x": -799.697817944444,
+              "y": -396.4996064314551
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "889894f6-ac2a-4a69-b856-ae86bd588e99",
+          "activeWidgetId": "cec8c0c0-c7db-4399-a814-3cb42c6514ba",
+          "point": {
+            "x": -884,
+            "y": -396
+          }
+        },
+        "targetPort": {
+          "id": "05f160b0-298b-4270-a99d-1689d6bbfbcc",
+          "activeWidgetId": "1e544d0f-e48a-43be-ab48-8bad1baa7776",
+          "point": {
+            "x": -799,
+            "y": -396
+          }
+        }
+      },
+      "ffc903ac-a542-427e-8044-d948e3145a1c": {
+        "id": "b727bfef-3203-4482-b1f5-c17e16a7b509",
+        "type": "enum-gateway",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -580,
+          "y": -420
+        },
+        "ports": [
+          {
+            "portId": "82ad0a44-78c1-4a9b-ad8f-a2267823bc27",
+            "isSourcePort": true,
+            "linkId": "b3653f96-61c7-4787-b0d3-dfdd13c5b826",
+            "type": "arrow",
+            "links": [
+              "b3653f96-61c7-4787-b0d3-dfdd13c5b826"
+            ],
+            "properties": {
+              "x": -589.7064371589547,
+              "name": "in",
+              "y": -404.4950243049173,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "9c38fc3c-5730-4201-bfe1-881f6931fb6a",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": -414.306347164215,
+              "name": "error",
+              "y": -230.673251915557,
+              "label": "error",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "8f8a9fa8-c843-4c15-b18a-0facd678d4f0",
+            "isSourcePort": false,
+            "linkId": "209d686e-f8d4-4ea4-9dfa-3c4b00dbbdc9",
+            "type": "arrow",
+            "links": [
+              "209d686e-f8d4-4ea4-9dfa-3c4b00dbbdc9"
+            ],
+            "properties": {
+              "x": -414.306347164215,
+              "name": "true",
+              "y": -322.5335952898527,
+              "label": "true",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "667a9a24-5e42-4a66-8551-dc99f4df01d3",
+            "isSourcePort": false,
+            "linkId": "dec80a74-aa39-4b17-aa60-f8c2b02863d7",
+            "type": "arrow",
+            "links": [
+              "dec80a74-aa39-4b17-aa60-f8c2b02863d7"
+            ],
+            "properties": {
+              "x": -414.306347164215,
+              "name": "false",
+              "y": -288.5999505662697,
+              "label": "false",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{wrapupName != \"\"}}",
+          "activityVersionNumber": null,
+          "name": "CheckSummSuccess_5th",
+          "activityName": "condition-activity",
+          "description": "Was the wrap-up completed?",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "8f3699b7-d6e3-4e85-b0e4-57297451ea33": {
+        "id": "b3653f96-61c7-4787-b0d3-dfdd13c5b826",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "7ccceef7-b592-4635-9d7f-3d98793d8f1d",
+              "type": "point",
+              "x": -624.2977342873622,
+              "y": -396.4996064314551
+            },
+            {
+              "id": "be082157-b5c6-4200-a163-1e4a80307276",
+              "type": "point",
+              "x": -579.7035535246882,
+              "y": -394.49213433299315
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "3a556861-0178-440b-8528-cd3a5d7678c2",
+          "activeWidgetId": "1e544d0f-e48a-43be-ab48-8bad1baa7776",
+          "point": {
+            "x": -624,
+            "y": -396
+          }
+        },
+        "targetPort": {
+          "id": "82ad0a44-78c1-4a9b-ad8f-a2267823bc27",
+          "activeWidgetId": "b727bfef-3203-4482-b1f5-c17e16a7b509",
+          "point": {
+            "x": -579,
+            "y": -394
+          }
+        }
+      },
+      "b1150957-0926-4084-a849-87017a62fa54": {
+        "id": "57de1a3e-7d1a-46d2-8a60-233fd03323b5",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -120,
+          "y": -340
+        },
+        "ports": [
+          {
+            "portId": "599c12b9-4693-474d-b926-a019bf2bd3f8",
+            "isSourcePort": true,
+            "linkId": "209d686e-f8d4-4ea4-9dfa-3c4b00dbbdc9",
+            "type": "arrow",
+            "links": [
+              "209d686e-f8d4-4ea4-9dfa-3c4b00dbbdc9"
+            ],
+            "properties": {
+              "x": -129.70049243600545,
+              "name": "in",
+              "y": -326.5013492873304,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "1da2de2f-88c4-4f23-8b04-9326eed641e9",
+            "isSourcePort": false,
+            "linkId": "36f8acd4-57e7-4fb2-a661-9779069beb13",
+            "type": "arrow",
+            "links": [
+              "36f8acd4-57e7-4fb2-a661-9779069beb13"
+            ],
+            "properties": {
+              "x": 45.69950883152603,
+              "name": "out",
+              "y": -326.5013492873304,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "3212ce48-3f4d-4f33-8e23-7877d0ea3d73",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 45.69950883152603,
+              "name": "error",
+              "y": -218.53940058433204,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "loopInt",
+          "srcVariableType": "INTEGER",
+          "activityName": "set-variable",
+          "description": "Reset loop counter and set post-call summary ID",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "Reset_Loop_and_SetVar",
+          "setTo": "set-to-literal",
+          "expr": "0",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "0",
+              "id": "fc026d31-f283-492c-9cba-f4a2cf79d618",
+              "literal": "0",
+              "srcVariable": "loopInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "9dea7506-33cb-4e02-9a79-35becd1c282c": {
+        "id": "209d686e-f8d4-4ea4-9dfa-3c4b00dbbdc9",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "bd6947ef-9020-4d88-ab21-c6d2675c396b",
+              "type": "point",
+              "x": -404.30345719229086,
+              "y": -312.5307116555863
+            },
+            {
+              "id": "8d3b1d6f-d513-4d20-bea9-977f0380fef2",
+              "type": "point",
+              "x": -119.69760880173897,
+              "y": -316.49846565306393
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "8f8a9fa8-c843-4c15-b18a-0facd678d4f0",
+          "activeWidgetId": "b727bfef-3203-4482-b1f5-c17e16a7b509",
+          "point": {
+            "x": -404,
+            "y": -312
+          }
+        },
+        "targetPort": {
+          "id": "599c12b9-4693-474d-b926-a019bf2bd3f8",
+          "activeWidgetId": "57de1a3e-7d1a-46d2-8a60-233fd03323b5",
+          "point": {
+            "x": -119,
+            "y": -316
+          }
+        }
+      },
+      "c831b739-f806-4325-ad8c-220dcaea042f": {
+        "id": "36f8acd4-57e7-4fb2-a661-9779069beb13",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "7bcbd17f-25b1-4c59-9f96-4ea7484793d2",
+              "type": "point",
+              "x": 55.702398803450365,
+              "y": -316.49846565306393
+            },
+            {
+              "id": "e43563d9-a7a4-4b79-8b91-80103e70664e",
+              "type": "point",
+              "x": 160.3081964927403,
+              "y": -316.49266035858454
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "1da2de2f-88c4-4f23-8b04-9326eed641e9",
+          "activeWidgetId": "57de1a3e-7d1a-46d2-8a60-233fd03323b5",
+          "point": {
+            "x": 55,
+            "y": -316
+          }
+        },
+        "targetPort": {
+          "id": "b6c80553-53f6-4a03-999e-c73079902221",
+          "activeWidgetId": "2f8c00e3-4eaa-4d2f-a5a3-c1ddcb02db44",
+          "point": {
+            "x": 160,
+            "y": -316
+          }
+        }
+      },
+      "d54be63b-92dd-4f27-83ce-20ba957484b4": {
+        "id": "35758aaf-8af8-48f4-bdb0-8a5faf4f133a",
+        "type": "enum-gateway",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -340,
+          "y": -580
+        },
+        "ports": [
+          {
+            "portId": "d5f0e9f2-a293-4bbb-9eaa-dbde796e5c4a",
+            "isSourcePort": true,
+            "linkId": "dec80a74-aa39-4b17-aa60-f8c2b02863d7",
+            "type": "arrow",
+            "links": [
+              "dec80a74-aa39-4b17-aa60-f8c2b02863d7"
+            ],
+            "properties": {
+              "x": -349.69833763237784,
+              "name": "in",
+              "y": -564.4949229023937,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "8c59a259-132e-4cdb-b940-560489d984c6",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": -174.29826031295352,
+              "name": "error",
+              "y": -390.6731505130333,
+              "label": "error",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "ca707fe5-d08b-41cb-843c-41d8153b3865",
+            "isSourcePort": false,
+            "linkId": "9f4785fb-5b38-449f-974b-570a736add9b",
+            "type": "arrow",
+            "links": [
+              "9f4785fb-5b38-449f-974b-570a736add9b"
+            ],
+            "properties": {
+              "x": -174.29826031295352,
+              "name": "true",
+              "y": -482.53359528985266,
+              "label": "true",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "10ee602f-77ef-42f0-8116-c04bf3a9b3d3",
+            "isSourcePort": false,
+            "linkId": "bbd2542b-bd52-409f-9bcb-5bcc058eea86",
+            "type": "arrow",
+            "links": [
+              "bbd2542b-bd52-409f-9bcb-5bcc058eea86"
+            ],
+            "properties": {
+              "x": -174.29826031295352,
+              "name": "false",
+              "y": -448.5999505662696,
+              "label": "false",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{loopInt < 3}}",
+          "activityVersionNumber": null,
+          "name": "LoopCheck",
+          "activityName": "condition-activity",
+          "description": "Loop up to 3 times",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "649dfe7a-4822-4396-a594-23085db8bab9": {
+        "id": "dec80a74-aa39-4b17-aa60-f8c2b02863d7",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "71d295d3-55d5-4bc5-87eb-d115e01b3b2b",
+              "type": "point",
+              "x": -404.30345719229086,
+              "y": -278.5970605943455
+            },
+            {
+              "id": "c1412a19-952b-46a8-a982-d51a0959d4c8",
+              "type": "point",
+              "x": -339.69544766045374,
+              "y": -554.4920392681272
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "667a9a24-5e42-4a66-8551-dc99f4df01d3",
+          "activeWidgetId": "b727bfef-3203-4482-b1f5-c17e16a7b509",
+          "point": {
+            "x": -404,
+            "y": -278
+          }
+        },
+        "targetPort": {
+          "id": "d5f0e9f2-a293-4bbb-9eaa-dbde796e5c4a",
+          "activeWidgetId": "35758aaf-8af8-48f4-bdb0-8a5faf4f133a",
+          "point": {
+            "x": -339,
+            "y": -554
+          }
+        }
+      },
+      "cd6c7bdc-0996-4bb0-910c-6c2b49d0b439": {
+        "id": "a18558a1-b7ad-4cec-adf0-d4d166d250ab",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": -100,
+          "y": -640
+        },
+        "ports": [
+          {
+            "portId": "792c5d87-3c58-482d-a607-19f6b9977a8b",
+            "isSourcePort": true,
+            "linkId": "9f4785fb-5b38-449f-974b-570a736add9b",
+            "type": "arrow",
+            "links": [
+              "9f4785fb-5b38-449f-974b-570a736add9b"
+            ],
+            "properties": {
+              "x": -109.69831228174687,
+              "name": "in",
+              "y": -626.4944032144599,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "a78c02ae-2ad3-4fa6-82e0-b8106b924ffe",
+            "isSourcePort": false,
+            "linkId": "02cd2722-2a07-4841-a578-3646d4714c72",
+            "type": "arrow",
+            "links": [
+              "02cd2722-2a07-4841-a578-3646d4714c72"
+            ],
+            "properties": {
+              "x": 65.70179038830832,
+              "name": "default",
+              "y": -626.4944032144599,
+              "label": "default",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "9ce720d0-6e3e-49bb-b207-cbd12420abf3",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 65.70179038830832,
+              "name": "error",
+              "y": -518.5324545114615,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "duration": "00:01:29",
+          "activityId": "wait-activity",
+          "activityVersionNumber": null,
+          "name": "Wait_odl_rqo",
+          "activityName": "wait-activity",
+          "description": "Wait 90 seconds for agent wrapup",
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "473f0f8d-924d-4ceb-b4d4-c619eb9c4a6a": {
+        "id": "9f4785fb-5b38-449f-974b-570a736add9b",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "86b21185-9150-4881-a3ee-50fb240403dd",
+              "type": "point",
+              "x": -164.29537667868703,
+              "y": -472.5307116555862
+            },
+            {
+              "id": "3a71aec6-9439-4c19-90fa-7c9f1d318372",
+              "type": "point",
+              "x": -99.69542864748041,
+              "y": -616.4915195801934
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "ca707fe5-d08b-41cb-843c-41d8153b3865",
+          "activeWidgetId": "35758aaf-8af8-48f4-bdb0-8a5faf4f133a",
+          "point": {
+            "x": -164,
+            "y": -472
+          }
+        },
+        "targetPort": {
+          "id": "792c5d87-3c58-482d-a607-19f6b9977a8b",
+          "activeWidgetId": "a18558a1-b7ad-4cec-adf0-d4d166d250ab",
+          "point": {
+            "x": -99,
+            "y": -616
+          }
+        }
+      },
+      "3954a637-f05d-44d4-bb76-067bb2341787": {
+        "id": "c52b8a3b-9d8f-4843-beea-049af6b647fd",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 120,
+          "y": -680
+        },
+        "ports": [
+          {
+            "portId": "145482c4-1619-4a25-b392-0f709f39cdfa",
+            "isSourcePort": true,
+            "linkId": "02cd2722-2a07-4841-a578-3646d4714c72",
+            "type": "arrow",
+            "links": [
+              "02cd2722-2a07-4841-a578-3646d4714c72"
+            ],
+            "properties": {
+              "x": 110.3194899298228,
+              "name": "in",
+              "y": -666.518588539966,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "a9409d58-8325-4c25-b88c-dbb1d7e15f17",
+            "isSourcePort": false,
+            "linkId": "c688fd56-c645-4b25-b907-af8002ebfd6a",
+            "type": "arrow",
+            "links": [
+              "c688fd56-c645-4b25-b907-af8002ebfd6a"
+            ],
+            "properties": {
+              "x": 285.687084828321,
+              "name": "out",
+              "y": -666.518588539966,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "556f3f31-9478-4e45-a365-e02e54eb1d83",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 296,
+              "name": "error",
+              "y": -574,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "loopInt",
+          "srcVariableType": "INTEGER",
+          "activityName": "set-variable",
+          "description": "Increment loop counter\n",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_ivl_sv8",
+          "setTo": "set-to-literal",
+          "expr": "{{loopInt +1}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "INTEGER",
+              "literal_invalid_error": false,
+              "expr": "{{loopInt +1}}",
+              "id": "81a53949-8d4f-4ac7-960a-34d37c427380",
+              "literal": "{{loopInt +1}}",
+              "srcVariable": "loopInt"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "7fd1779b-6731-4a07-bc5a-46359a9652b5": {
+        "id": "02cd2722-2a07-4841-a578-3646d4714c72",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "b483d7ee-1c87-4f33-93d6-74caefbbb767",
+              "type": "point",
+              "x": 75.70468036023249,
+              "y": -616.4915195801934
+            },
+            {
+              "id": "f45cb125-bb53-418e-b26b-f82457c72881",
+              "type": "point",
+              "x": 120.31399977813624,
+              "y": -656.5240598251512
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "a78c02ae-2ad3-4fa6-82e0-b8106b924ffe",
+          "activeWidgetId": "a18558a1-b7ad-4cec-adf0-d4d166d250ab",
+          "point": {
+            "x": 75,
+            "y": -616
+          }
+        },
+        "targetPort": {
+          "id": "145482c4-1619-4a25-b392-0f709f39cdfa",
+          "activeWidgetId": "c52b8a3b-9d8f-4843-beea-049af6b647fd",
+          "point": {
+            "x": 120,
+            "y": -656
+          }
+        }
+      },
+      "ea554cfe-3d8f-44ab-8f39-f62d40b3f50b": {
+        "id": "b5adbbf9-9d40-4f2a-bf46-210eddd259f8",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 2000,
+          "y": -440
+        },
+        "ports": [
+          {
+            "portId": "d4996f54-36c3-4ea7-a40f-884454619f8c",
+            "isSourcePort": true,
+            "linkId": "bbd2542b-bd52-409f-9bcb-5bcc058eea86",
+            "type": "arrow",
+            "links": [
+              "bbd2542b-bd52-409f-9bcb-5bcc058eea86"
+            ],
+            "properties": {
+              "x": 1990.3053128584743,
+              "name": "in",
+              "y": -426.5011464822828,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "99cf3dc6-2d66-4a73-bfb3-6ddd8c7dd000",
+            "isSourcePort": false,
+            "linkId": "75713ed6-b7c5-4509-a5e7-3ade9e8d346c",
+            "type": "arrow",
+            "links": [
+              "75713ed6-b7c5-4509-a5e7-3ade9e8d346c"
+            ],
+            "properties": {
+              "x": 2165.7055169310524,
+              "name": "out",
+              "y": -426.5011464822828,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "8f2ad0e6-1d5b-409f-b5ed-fc2a480cc14c",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 2165.7055169310524,
+              "name": "error",
+              "y": -318.53929918180825,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "errorType",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "description": "Defines error type before ending flow",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_m1y",
+          "setTo": "set-to-literal",
+          "expr": "Bad Search API or Wrapup Incomplete",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "Bad Search API or Wrapup Incomplete",
+              "id": "d2a2b4d7-b028-4eab-96f4-fd7cbd571ed9",
+              "literal": "Bad Search API or Wrapup Incomplete",
+              "srcVariable": "errorType"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "b3d1946b-2bb7-4d8f-9803-7299b5ee84d3": {
+        "id": "bbd2542b-bd52-409f-9bcb-5bcc058eea86",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "b783aea1-538b-43e0-88e3-6012f632874c",
+              "type": "point",
+              "x": -164.29537667868703,
+              "y": -438.59706693200314
+            },
+            {
+              "id": "eccb3e21-67f8-4ee9-bf63-7ab3335d9bd0",
+              "type": "point",
+              "x": 2000.3081964927405,
+              "y": -416.49826284801657
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "10ee602f-77ef-42f0-8116-c04bf3a9b3d3",
+          "activeWidgetId": "35758aaf-8af8-48f4-bdb0-8a5faf4f133a",
+          "point": {
+            "x": -164,
+            "y": -438
+          }
+        },
+        "targetPort": {
+          "id": "d4996f54-36c3-4ea7-a40f-884454619f8c",
+          "activeWidgetId": "b5adbbf9-9d40-4f2a-bf46-210eddd259f8",
+          "point": {
+            "x": 2000,
+            "y": -416
+          }
+        }
+      },
+      "78a7af0e-d599-49d0-9987-c29b8a3cc61f": {
+        "id": "d9fd5637-e9ff-4c68-a4ef-81f9eb0c1c15",
+        "type": "end",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 2420,
+          "y": -160
+        },
+        "ports": [
+          {
+            "portId": "4c21a807-2300-473a-87b3-63326c42d660",
+            "isSourcePort": true,
+            "linkId": "75713ed6-b7c5-4509-a5e7-3ade9e8d346c",
+            "type": "arrow",
+            "links": [
+              "75713ed6-b7c5-4509-a5e7-3ade9e8d346c",
+              "0ceb7503-79a8-4bf7-8c8f-716382bf7976",
+              "fc4cb285-5c7e-4744-a7f5-2eee673dc817",
+              "bfb24bb8-c8ef-477b-bb42-d31d6f6c7be0"
+            ],
+            "properties": {
+              "x": 2410.3009525499565,
+              "name": "in",
+              "y": -146.50363084411254,
+              "label": "in",
+              "alignment": "left"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "end-subflow",
+          "activityVersionNumber": null,
+          "name": "EndSubflow_mx3",
+          "activityName": "end-subflow",
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "0eefdf99-e1b0-4eef-b486-dafa383b9f46": {
+        "id": "75713ed6-b7c5-4509-a5e7-3ade9e8d346c",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "c667969d-4600-41f5-9dd0-4248843db423",
+              "type": "point",
+              "x": 2175.7084005653187,
+              "y": -416.49826284801657
+            },
+            {
+              "id": "05d24d34-a255-44eb-8214-60cec0f4696c",
+              "type": "point",
+              "x": 2420.3038361842227,
+              "y": -136.50074087218832
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "99cf3dc6-2d66-4a73-bfb3-6ddd8c7dd000",
+          "activeWidgetId": "b5adbbf9-9d40-4f2a-bf46-210eddd259f8",
+          "point": {
+            "x": 2175,
+            "y": -416
+          }
+        },
+        "targetPort": {
+          "id": "4c21a807-2300-473a-87b3-63326c42d660",
+          "activeWidgetId": "d9fd5637-e9ff-4c68-a4ef-81f9eb0c1c15",
+          "point": {
+            "x": 2420,
+            "y": -136
+          }
+        }
+      },
+      "616c988d-24de-4575-85e8-03b0de800ccc": {
+        "id": "812f2d00-e8e4-42f3-a9ba-2dc798039d6d",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1360,
+          "y": -160
+        },
+        "ports": [
+          {
+            "portId": "077986fc-6784-4bae-80e9-0b260d4bfab6",
+            "isSourcePort": true,
+            "linkId": "b71ddba5-1a53-4a99-b5f5-17e3221ed47b",
+            "type": "arrow",
+            "links": [
+              "b71ddba5-1a53-4a99-b5f5-17e3221ed47b"
+            ],
+            "properties": {
+              "x": 1350.304172080083,
+              "name": "in",
+              "y": -146.4932624360688,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "a90bda7e-daa3-46e6-8f1f-2d68bac1e99d",
+            "isSourcePort": false,
+            "linkId": "0ceb7503-79a8-4bf7-8c8f-716382bf7976",
+            "type": "arrow",
+            "links": [
+              "0ceb7503-79a8-4bf7-8c8f-716382bf7976"
+            ],
+            "properties": {
+              "x": 1525.7043761526616,
+              "name": "out",
+              "y": -146.4932624360688,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "022355d4-2dd1-4e32-86da-bd9a6a8a9124",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1525.7043761526616,
+              "name": "error",
+              "y": -38.53121233054682,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "errorType",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_m1y_6mc",
+          "setTo": "set-to-literal",
+          "expr": "No Summary",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "No Summary",
+              "id": "d2a2b4d7-b028-4eab-96f4-fd7cbd571ed9",
+              "literal": "No Summary",
+              "srcVariable": "errorType"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "cd971c3d-3d99-48c8-adcc-3d14a6a2797a": {
+        "id": "b71ddba5-1a53-4a99-b5f5-17e3221ed47b",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "0a1689c1-19dc-44eb-a085-56793a09963c",
+              "type": "point",
+              "x": 1015.7084005653187,
+              "y": -138.60048292951888
+            },
+            {
+              "id": "89b79a3b-3466-4b3f-b9ba-a4029395c2bf",
+              "type": "point",
+              "x": 1360.3070620520075,
+              "y": -136.49037246414463
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "cd9d1cd9-59d7-4aef-b2b6-208409ad7264",
+          "activeWidgetId": "f0748964-d895-4529-bac0-ebe1f76cedc7",
+          "point": {
+            "x": 1015,
+            "y": -138
+          }
+        },
+        "targetPort": {
+          "id": "077986fc-6784-4bae-80e9-0b260d4bfab6",
+          "activeWidgetId": "812f2d00-e8e4-42f3-a9ba-2dc798039d6d",
+          "point": {
+            "x": 1360,
+            "y": -136
+          }
+        }
+      },
+      "bcf67200-0a30-44f4-a33b-3ff118c0fcf8": {
+        "id": "0ceb7503-79a8-4bf7-8c8f-716382bf7976",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "62305eef-7462-465d-8717-7165d93e7a8e",
+              "type": "point",
+              "x": 1535.7072597869278,
+              "y": -136.49037246414463
+            },
+            {
+              "id": "bc8663ad-0d69-47f7-8f0f-3a093e353730",
+              "type": "point",
+              "x": 2420.3038361842227,
+              "y": -136.50074087218832
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "a90bda7e-daa3-46e6-8f1f-2d68bac1e99d",
+          "activeWidgetId": "812f2d00-e8e4-42f3-a9ba-2dc798039d6d",
+          "point": {
+            "x": 1535,
+            "y": -136
+          }
+        },
+        "targetPort": {
+          "id": "4c21a807-2300-473a-87b3-63326c42d660",
+          "activeWidgetId": "d9fd5637-e9ff-4c68-a4ef-81f9eb0c1c15",
+          "point": {
+            "x": 2420,
+            "y": -136
+          }
+        }
+      },
+      "c150cdfe-b182-4abb-b62b-55a5c51559a4": {
+        "id": "714f13f8-8cb5-4e41-a336-4ddd7da1d11c",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1660,
+          "y": 240
+        },
+        "ports": [
+          {
+            "portId": "e91d1a02-b4b6-4369-95fb-d09f874f3b26",
+            "isSourcePort": true,
+            "linkId": "3a1aaf88-7b27-40ab-97be-a64e2634bfdf",
+            "type": "arrow",
+            "links": [
+              "3a1aaf88-7b27-40ab-97be-a64e2634bfdf",
+              "6813c3bf-469d-4744-8d6c-d3d22697bb40"
+            ],
+            "properties": {
+              "x": 1650.3065550393885,
+              "name": "in",
+              "y": 253.50445600714897,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "82389aa3-e769-4cb2-9d18-6f25638719b9",
+            "isSourcePort": false,
+            "linkId": "608fdc78-6f8d-4ad0-98b0-c433a0cadd92",
+            "type": "arrow",
+            "links": [
+              "608fdc78-6f8d-4ad0-98b0-c433a0cadd92"
+            ],
+            "properties": {
+              "x": 1825.7067591119671,
+              "name": "default",
+              "y": 253.50445600714897,
+              "label": "default",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "httpRequestHeaders": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "authenticated": true,
+          "httpRequestBody": "{\n    \"data\": {\n        \"AdditionalContext\": \"{{AdditionalContext}}\",\n        \"InitialContactReason\": \"{{InitialContactReason}}\",\n        \"KeyActionsTaken\": \"{{KeyActionsTaken}}\",\n        \"NextSteps\": \"{{NextSteps}}\",\n        \"AdditionalContactReasons\":\"{{additionalContactReasons}}\",\n        \"uiData\": {\n            \"iconType\": \"aiSummary\",\n            \"subTitle\": \"Selected wrapup - {{wrapupName}} - {{agentName}}\",\n            \"title\": \"AI Summary\"\n        }\n    },\n    \"datacontenttype\": \"application/json\",\n    \"id\": \"{{taskId}}.1\",\n    \"identity\": \"{{phoneNum}}\",\n    \"identitytype\": \"phone\",\n    \"source\": \"summary\",\n    \"specversion\": \"1.0\",\n    \"type\": \"summary\"\n}",
+          "httpRequestPath": "/publish/v1/api/event",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Post Summary info to JDS",
+          "httpRequestBodyFiles": null,
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "Application/JSON",
+          "_renderRequestTimestamp": 1791281307218,
+          "retryAttempts": 1,
+          "httpQueryParameters": {
+            "workspaceId": "{{jds_workspaceId}}"
+          },
+          "httpRequestBodyGQL": null,
+          "activityName": "http-request-v2",
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod": "POST",
+          "httpContentType:name": "Application/JSON",
+          "httpContentType:name:name": "None",
+          "outputVariableArray": [],
+          "httpContentType:type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "name": "Post_JDS",
+          "httpRequestMethod:name": "POST",
+          "flowDecryptAccess": true,
+          "activityType": "logic"
+        }
+      },
+      "6b7ea4d2-01a6-4398-bafc-63987a975b12": {
+        "id": "e270832f-05d0-4510-b823-7c2e456eb3a6",
+        "type": "enum-gateway",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1920,
+          "y": 240
+        },
+        "ports": [
+          {
+            "portId": "81c19fd5-9238-4c48-b96f-97978f0778de",
+            "isSourcePort": true,
+            "linkId": "608fdc78-6f8d-4ad0-98b0-c433a0cadd92",
+            "type": "arrow",
+            "links": [
+              "608fdc78-6f8d-4ad0-98b0-c433a0cadd92"
+            ],
+            "properties": {
+              "x": 1910.3009525499565,
+              "name": "in",
+              "y": 255.50051398404185,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "ee881fcb-5722-4a7b-8f6e-881f9eed6736",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 2085.700953817488,
+              "name": "error",
+              "y": 429.336178519143,
+              "label": "error",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "852ad67d-7023-47eb-9a40-29c5557fb402",
+            "isSourcePort": false,
+            "linkId": "bfb24bb8-c8ef-477b-bb42-d31d6f6c7be0",
+            "type": "arrow",
+            "links": [
+              "bfb24bb8-c8ef-477b-bb42-d31d6f6c7be0"
+            ],
+            "properties": {
+              "x": 2085.700953817488,
+              "name": "true",
+              "y": 337.46184159658276,
+              "label": "true",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "5db198ef-2bec-41ff-a3fc-554dd3b35957",
+            "isSourcePort": false,
+            "linkId": "67827525-934b-42ed-a987-3954ba4c3a65",
+            "type": "arrow",
+            "links": [
+              "67827525-934b-42ed-a987-3954ba4c3a65"
+            ],
+            "properties": {
+              "x": 2085.700953817488,
+              "name": "false",
+              "y": 371.39558772268947,
+              "label": "false",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "activityId": "condition-activity",
+          "expression": "{{Post_JDS.httpStatusCode == 202}}",
+          "activityVersionNumber": null,
+          "name": "JDS_Success",
+          "activityName": "condition-activity",
+          "description": "Was JDS post successful?",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic"
+        }
+      },
+      "ca44cdeb-bcf6-47fa-95e7-2c6625252553": {
+        "id": "608fdc78-6f8d-4ad0-98b0-c433a0cadd92",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "2100a817-22dd-4da0-b8f3-d1f195aa9ab4",
+              "type": "point",
+              "x": 1835.7096427462343,
+              "y": 263.5073459790732
+            },
+            {
+              "id": "70af0388-e139-429a-96d9-284e24e274d7",
+              "type": "point",
+              "x": 1920.3038361842227,
+              "y": 265.50340395596595
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "82389aa3-e769-4cb2-9d18-6f25638719b9",
+          "activeWidgetId": "714f13f8-8cb5-4e41-a336-4ddd7da1d11c",
+          "point": {
+            "x": 1835,
+            "y": 263
+          }
+        },
+        "targetPort": {
+          "id": "81c19fd5-9238-4c48-b96f-97978f0778de",
+          "activeWidgetId": "e270832f-05d0-4510-b823-7c2e456eb3a6",
+          "point": {
+            "x": 1920,
+            "y": 265
+          }
+        }
+      },
+      "42563b6e-6dc1-4f11-9be4-bfa9417c768e": {
+        "id": "4b4c62c9-4f06-4618-9788-5e326e92de5f",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 2200,
+          "y": 360
+        },
+        "ports": [
+          {
+            "portId": "e049b172-df72-4e73-910a-974c08ea0c9d",
+            "isSourcePort": true,
+            "linkId": "67827525-934b-42ed-a987-3954ba4c3a65",
+            "type": "arrow",
+            "links": [
+              "67827525-934b-42ed-a987-3954ba4c3a65"
+            ],
+            "properties": {
+              "x": 2190.295147255478,
+              "name": "in",
+              "y": 373.5055967855401,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "d05a292c-e4eb-4302-af3a-1bc350a38554",
+            "isSourcePort": false,
+            "linkId": "fc4cb285-5c7e-4744-a7f5-2eee673dc817",
+            "type": "arrow",
+            "links": [
+              "fc4cb285-5c7e-4744-a7f5-2eee673dc817"
+            ],
+            "properties": {
+              "x": 2365.6951485230093,
+              "name": "out",
+              "y": 373.5055967855401,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "6675d296-0daf-47ca-b36c-96b6a62089e4",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 2365.6951485230093,
+              "name": "error",
+              "y": 481.46764689106203,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "errorType",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "description": "Defines error type before ending flow",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SetVariable_m1y_6mc_g89",
+          "setTo": "set-to-literal",
+          "expr": "Bad JDS Post",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "Bad JDS Post",
+              "id": "d2a2b4d7-b028-4eab-96f4-fd7cbd571ed9",
+              "literal": "Bad JDS Post",
+              "srcVariable": "errorType"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "42d4dada-578f-459e-b2b0-e7eb5d3300b6": {
+        "id": "67827525-934b-42ed-a987-3954ba4c3a65",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "5797d644-11d8-4769-a08e-d2032464de62",
+              "type": "point",
+              "x": 2095.703837451754,
+              "y": 381.39847135695595
+            },
+            {
+              "id": "f87d38f8-ee56-40b2-bc94-e52ef84b6216",
+              "type": "point",
+              "x": 2200.298030889744,
+              "y": 383.5084867574642
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "5db198ef-2bec-41ff-a3fc-554dd3b35957",
+          "activeWidgetId": "e270832f-05d0-4510-b823-7c2e456eb3a6",
+          "point": {
+            "x": 2095,
+            "y": 381
+          }
+        },
+        "targetPort": {
+          "id": "e049b172-df72-4e73-910a-974c08ea0c9d",
+          "activeWidgetId": "4b4c62c9-4f06-4618-9788-5e326e92de5f",
+          "point": {
+            "x": 2200,
+            "y": 383
+          }
+        }
+      },
+      "9293610b-348f-4638-8dc3-66b31d4c51c4": {
+        "id": "fc4cb285-5c7e-4744-a7f5-2eee673dc817",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "aa99337b-2530-46f8-82f0-4ff976128289",
+              "type": "point",
+              "x": 2375.698038494933,
+              "y": 383.5084867574642
+            },
+            {
+              "id": "9b058e49-8fe1-4f4b-83fd-80135a76ae03",
+              "type": "point",
+              "x": 2420.3038361842227,
+              "y": -136.50074087218832
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "d05a292c-e4eb-4302-af3a-1bc350a38554",
+          "activeWidgetId": "4b4c62c9-4f06-4618-9788-5e326e92de5f",
+          "point": {
+            "x": 2375,
+            "y": 383
+          }
+        },
+        "targetPort": {
+          "id": "4c21a807-2300-473a-87b3-63326c42d660",
+          "activeWidgetId": "d9fd5637-e9ff-4c68-a4ef-81f9eb0c1c15",
+          "point": {
+            "x": 2420,
+            "y": -136
+          }
+        }
+      },
+      "5e03036e-c549-40ee-8db1-5caecfce2c97": {
+        "id": "bfb24bb8-c8ef-477b-bb42-d31d6f6c7be0",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "6ffc85a1-e590-47f9-81ee-55198407f354",
+              "type": "point",
+              "x": 2095.703837451754,
+              "y": 347.46472523084924
+            },
+            {
+              "id": "fb3172a5-d7e9-4da4-9756-445b9b14c542",
+              "type": "point",
+              "x": 2420.3038361842227,
+              "y": -136.50074087218832
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "852ad67d-7023-47eb-9a40-29c5557fb402",
+          "activeWidgetId": "e270832f-05d0-4510-b823-7c2e456eb3a6",
+          "point": {
+            "x": 2095,
+            "y": 347
+          }
+        },
+        "targetPort": {
+          "id": "4c21a807-2300-473a-87b3-63326c42d660",
+          "activeWidgetId": "d9fd5637-e9ff-4c68-a4ef-81f9eb0c1c15",
+          "point": {
+            "x": 2420,
+            "y": -136
+          }
+        }
+      },
+      "890b91b7-5d89-45c4-a867-10609f607933": {
+        "id": "c688fd56-c645-4b25-b907-af8002ebfd6a",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "84557b88-b747-4381-b9e2-bd250ddcb262",
+              "type": "point",
+              "x": 295.68159467663435,
+              "y": -656.5240598251512
+            },
+            {
+              "id": "f7cceb58-fc71-4d9d-a27d-aaa5a17f7abf",
+              "type": "point",
+              "x": -799.697817944444,
+              "y": -396.4996064314551
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "a9409d58-8325-4c25-b88c-dbb1d7e15f17",
+          "activeWidgetId": "c52b8a3b-9d8f-4843-beea-049af6b647fd",
+          "point": {
+            "x": 295,
+            "y": -656
+          }
+        },
+        "targetPort": {
+          "id": "05f160b0-298b-4270-a99d-1689d6bbfbcc",
+          "activeWidgetId": "1e544d0f-e48a-43be-ab48-8bad1baa7776",
+          "point": {
+            "x": -799,
+            "y": -396
+          }
+        }
+      },
+      "cdb7098e-dfd4-4863-be63-6e9617db92a2": {
+        "id": "10d025ac-f468-4ff3-b5a5-e0a449a5c178",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 840,
+          "y": 260
+        },
+        "ports": [
+          {
+            "portId": "f0bb8411-1a43-4796-a437-e0def5f7fcd9",
+            "isSourcePort": true,
+            "linkId": "26b8148a-4d83-4c1b-9077-a7f47ce9f31b",
+            "type": "arrow",
+            "links": [
+              "26b8148a-4d83-4c1b-9077-a7f47ce9f31b"
+            ],
+            "properties": {
+              "x": 830.297226007212,
+              "name": "in",
+              "y": 273.4998928935845,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "e1911fe1-ab4b-437f-9d94-cf52f902a876",
+            "isSourcePort": false,
+            "linkId": "9dcf7d7c-099c-4163-b522-be8d99c97b7d",
+            "type": "arrow",
+            "links": [
+              "9dcf7d7c-099c-4163-b522-be8d99c97b7d"
+            ],
+            "properties": {
+              "x": 1005.697430079791,
+              "name": "out",
+              "y": 273.4998928935845,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "d95e0f16-da50-4e15-8062-b8922966b811",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1005.697430079791,
+              "name": "error",
+              "y": 421.4733507830176,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "SummaryBody",
+          "srcVariableType": "JSON",
+          "activityName": "set-variable",
+          "description": "Strip newline characters from summary body. Issues found in testing with agent entered newline characters and making JDS fail. ",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "Sanitise_Summary",
+          "setTo": "set-to-literal",
+          "expr": "{{SummaryBody | replace({\"\\n\":\" \"})}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "JSON",
+              "literal_invalid_error": false,
+              "expr": "{{SummaryBody | replace({\"\\n\":\" \"})}}",
+              "id": "1c8ed88f-15c3-4e0b-b01a-eab573e53d05",
+              "literal": "{{SummaryBody | replace({\"\\n\":\" \"})}}",
+              "srcVariable": "SummaryBody"
+            },
+            {
+              "setTo": "set-to-variable",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{wrapupName}}",
+              "tgtVariableType": "STRING",
+              "srcVariable": "chosenWrapCode",
+              "tgtVariable": "{{wrapupName}}",
+              "id": "18e72d9a-e978-4955-a118-9016e4ecb23a"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{orgID}}:{{taskId}}:{{ciUserId}}",
+              "id": "88bbd506-20d0-4277-b3d2-b63d5b05a9a1",
+              "literal": "{{orgID}}:{{taskId}}:{{ciUserId}}",
+              "srcVariable": "PostCallSummary_ID"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "6a76dc70-00a2-464d-8ea2-6942f1633b2d": {
+        "id": "cce519de-52bb-479f-95b2-4a5522329b5a",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 840,
+          "y": 500
+        },
+        "ports": [
+          {
+            "portId": "94a459dd-1949-4e2f-8f61-a3fccd5ab3f0",
+            "isSourcePort": true,
+            "linkId": "9dcf7d7c-099c-4163-b522-be8d99c97b7d",
+            "type": "arrow",
+            "links": [
+              "9dcf7d7c-099c-4163-b522-be8d99c97b7d"
+            ],
+            "properties": {
+              "x": 830.297226007212,
+              "name": "in",
+              "y": 513.4940875991051,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "14c178f1-ffb2-40b4-b413-c3ec46c2d0c8",
+            "isSourcePort": false,
+            "linkId": "bb31aa32-2d09-46c4-8cab-521adcd63ba9",
+            "type": "arrow",
+            "links": [
+              "bb31aa32-2d09-46c4-8cab-521adcd63ba9"
+            ],
+            "properties": {
+              "x": 1005.697430079791,
+              "name": "default",
+              "y": 513.4940875991051,
+              "label": "default",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "contentType:name": "JSON",
+          "activityName": "parse-activity",
+          "outputVariableArray": [
+            {
+              "outputVariable": "AdditionalContext",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].additionalContext"
+            },
+            {
+              "outputVariable": "InitialContactReason",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].initialContactReason"
+            },
+            {
+              "outputVariable": "KeyActionsTaken",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].keyActionsTaken"
+            },
+            {
+              "outputVariable": "NextSteps",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].nextSteps"
+            },
+            {
+              "outputVariable": "additionalContactReasons",
+              "jsonPathExp": "$.summaries.POST_CALL['{{PostCallSummary_ID}}'].additionalContactReasons"
+            }
+          ],
+          "activityId": "parse-activity",
+          "inputVariable": "SummaryBody",
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "ParseSummary",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "contentType": "JSON"
+        }
+      },
+      "95aaac4e-c609-44a0-a052-ad6d14dbd33f": {
+        "id": "9dcf7d7c-099c-4163-b522-be8d99c97b7d",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "d29a6621-d7ec-421d-8bfc-0594215d0068",
+              "type": "point",
+              "x": 1015.7003137140573,
+              "y": 283.502776527851
+            },
+            {
+              "id": "a991f375-1431-41b6-a418-a961830ffaf1",
+              "type": "point",
+              "x": 840.3001159791365,
+              "y": 523.4969775710292
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "e1911fe1-ab4b-437f-9d94-cf52f902a876",
+          "activeWidgetId": "10d025ac-f468-4ff3-b5a5-e0a449a5c178",
+          "point": {
+            "x": 1015,
+            "y": 283
+          }
+        },
+        "targetPort": {
+          "id": "94a459dd-1949-4e2f-8f61-a3fccd5ab3f0",
+          "activeWidgetId": "cce519de-52bb-479f-95b2-4a5522329b5a",
+          "point": {
+            "x": 840,
+            "y": 523
+          }
+        }
+      },
+      "d5b6022d-a6e2-4eed-8ace-7e627e8c7259": {
+        "id": "cc55aab8-9571-461e-87e6-78477434af9b",
+        "type": "enum-gateway",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1080,
+          "y": 500
+        },
+        "ports": [
+          {
+            "portId": "4ecc42a2-7633-41b4-b645-4480961ddb12",
+            "isSourcePort": false,
+            "linkId": "93d60c73-f07a-4458-8594-6e8fadac3b09",
+            "type": "arrow",
+            "links": [
+              "93d60c73-f07a-4458-8594-6e8fadac3b09"
+            ],
+            "properties": {
+              "x": 1245.7032353742707,
+              "name": "0",
+              "y": 621.4629823749738,
+              "label": "0",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "0f563098-763c-41fc-b1f6-5c4ce6101ddf",
+            "isSourcePort": false,
+            "linkId": "bf5f0af6-c9ae-4673-bc5d-17b3b640697f",
+            "type": "arrow",
+            "links": [
+              "bf5f0af6-c9ae-4673-bc5d-17b3b640697f"
+            ],
+            "properties": {
+              "x": 1245.7032353742707,
+              "name": "1",
+              "y": 655.3967285010806,
+              "label": "1",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "c1754b94-fb5f-42d5-955c-0b18344dd0c4",
+            "isSourcePort": false,
+            "linkId": "b5d2fcca-e71b-4a2c-badc-3a70fe0e4eed",
+            "type": "arrow",
+            "links": [
+              "b5d2fcca-e71b-4a2c-badc-3a70fe0e4eed"
+            ],
+            "properties": {
+              "x": 1245.7032353742707,
+              "name": "2",
+              "y": 689.33027182214,
+              "label": "2",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "b626c568-a890-4a4d-a3be-31d4d1025ac4",
+            "isSourcePort": true,
+            "linkId": "bb31aa32-2d09-46c4-8cab-521adcd63ba9",
+            "type": "arrow",
+            "links": [
+              "bb31aa32-2d09-46c4-8cab-521adcd63ba9"
+            ],
+            "properties": {
+              "x": 1070.3030313016916,
+              "name": "in",
+              "y": 515.4947086895627,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "bf890e72-5700-402d-af88-7fe0bacd41f7",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1245.7032353742707,
+              "name": "error",
+              "y": 815.8858942751938,
+              "label": "error",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "04942904-3f05-4335-ba58-ca39a6c8ac87",
+            "isSourcePort": false,
+            "linkId": "b8cc8748-4c5c-4153-bad5-d8ccc7641d3e",
+            "type": "arrow",
+            "links": [
+              "b8cc8748-4c5c-4153-bad5-d8ccc7641d3e"
+            ],
+            "properties": {
+              "x": 1245.7032353742707,
+              "name": "default",
+              "y": 757.9453034787402,
+              "label": "default",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "expression": "{{callDirection}}",
+          "expression:radioName": "setToVariable",
+          "activityName": "case-statement",
+          "description": "Check call direction to adjust JDS phone number",
+          "activityId": "case-statement",
+          "menuLinks": [
+            "0",
+            "1",
+            "2"
+          ],
+          "activityVersionNumber": null,
+          "name": "Case_09x",
+          "expression:name": "STRING",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "menuLinks:input": [
+            "inbound",
+            "outbound",
+            "outdial"
+          ]
+        }
+      },
+      "e1647ae5-3d22-410b-bce2-83ccf800ee3b": {
+        "id": "bb31aa32-2d09-46c4-8cab-521adcd63ba9",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "e279e9ee-c8ec-426b-8ceb-1b9c176b90fd",
+              "type": "point",
+              "x": 1015.7003137140573,
+              "y": 523.4969775710292
+            },
+            {
+              "id": "b8e73418-4aaa-4178-b3a7-2cf29f0da748",
+              "type": "point",
+              "x": 1080.3059212736157,
+              "y": 525.4975923238289
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "14c178f1-ffb2-40b4-b413-c3ec46c2d0c8",
+          "activeWidgetId": "cce519de-52bb-479f-95b2-4a5522329b5a",
+          "point": {
+            "x": 1015,
+            "y": 523
+          }
+        },
+        "targetPort": {
+          "id": "b626c568-a890-4a4d-a3be-31d4d1025ac4",
+          "activeWidgetId": "cc55aab8-9571-461e-87e6-78477434af9b",
+          "point": {
+            "x": 1080,
+            "y": 525
+          }
+        }
+      },
+      "8576ffbf-82c9-43ad-ac66-eb0bd1cbaeb7": {
+        "id": "dcc1a79f-4f3a-4bf2-b46d-1be26c87e208",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1360,
+          "y": 700
+        },
+        "ports": [
+          {
+            "portId": "4a01b181-0f65-43af-a261-df58258ffe96",
+            "isSourcePort": true,
+            "linkId": "bf5f0af6-c9ae-4673-bc5d-17b3b640697f",
+            "type": "arrow",
+            "links": [
+              "bf5f0af6-c9ae-4673-bc5d-17b3b640697f",
+              "b5d2fcca-e71b-4a2c-badc-3a70fe0e4eed"
+            ],
+            "properties": {
+              "x": 1350.2949444504302,
+              "name": "in",
+              "y": 713.4940875991051,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "cf50ddb8-31f8-4bce-a37e-48f0ac330956",
+            "isSourcePort": false,
+            "linkId": "3a1aaf88-7b27-40ab-97be-a64e2634bfdf",
+            "type": "arrow",
+            "links": [
+              "3a1aaf88-7b27-40ab-97be-a64e2634bfdf"
+            ],
+            "properties": {
+              "x": 1525.6951485230088,
+              "name": "out",
+              "y": 713.4940875991051,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "a5edf35b-2b63-41ae-a66c-21dc89799ddc",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1525.6951485230088,
+              "name": "error",
+              "y": 921.4710692262354,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "phoneNum",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "SwapANI_mhm",
+          "setTo": "set-to-variable",
+          "expr": "{{destination}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-variable",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{destination}}",
+              "tgtVariableType": "STRING",
+              "srcVariable": "phoneNum",
+              "tgtVariable": "{{destination}}",
+              "id": "6b8fa747-a65a-40f6-884e-5e9495d2dbe2"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{AdditionalContext | trim}} ",
+              "id": "3cbf0f28-74ca-42bc-a8b8-c0f192d8c1af",
+              "literal": "{{AdditionalContext | trim}} ",
+              "srcVariable": "AdditionalContext"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{NextSteps | trim}}",
+              "id": "f3abc09a-3bbc-41eb-b301-83dcc405b54c",
+              "literal": "{{NextSteps | trim}}",
+              "srcVariable": "NextSteps"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{InitialContactReason | trim}}",
+              "id": "85304382-fc73-44f1-af2b-e3ded267fabc",
+              "literal": "{{InitialContactReason | trim}}",
+              "srcVariable": "InitialContactReason"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{KeyActionsTaken | trim}}",
+              "id": "a42df89e-68c1-4a2b-b2d9-1a916d859191",
+              "literal": "{{KeyActionsTaken | trim}}",
+              "srcVariable": "KeyActionsTaken"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{additionalContactReasons | trim}}",
+              "id": "1a961e14-cd9b-40ce-8b10-7631ccb1a9c2",
+              "literal": "{{additionalContactReasons | trim}}",
+              "srcVariable": "additionalContactReasons"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "d3ffdb08-bef5-450b-9a6d-a7c692314af7": {
+        "id": "bf5f0af6-c9ae-4673-bc5d-17b3b640697f",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "479d6a53-3156-47b6-bd7d-a8c230f7e544",
+              "type": "point",
+              "x": 1255.706119008537,
+              "y": 665.3996121353471
+            },
+            {
+              "id": "048fa95e-f09b-45d7-b9c1-55e9b30f7ece",
+              "type": "point",
+              "x": 1360.2978344223548,
+              "y": 723.4969775710292
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "0f563098-763c-41fc-b1f6-5c4ce6101ddf",
+          "activeWidgetId": "cc55aab8-9571-461e-87e6-78477434af9b",
+          "point": {
+            "x": 1255,
+            "y": 665
+          }
+        },
+        "targetPort": {
+          "id": "4a01b181-0f65-43af-a261-df58258ffe96",
+          "activeWidgetId": "dcc1a79f-4f3a-4bf2-b46d-1be26c87e208",
+          "point": {
+            "x": 1360,
+            "y": 723
+          }
+        }
+      },
+      "26e77df8-bfcd-4b23-9c61-d776526a7c84": {
+        "id": "38f53e77-83e2-4f88-b939-5dec391d4389",
+        "type": "action",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 840,
+          "y": 100
+        },
+        "ports": [
+          {
+            "portId": "32ba1958-af9f-410a-b79f-7ae08a069c1c",
+            "isSourcePort": true,
+            "linkId": "9e5d6ff9-c4ec-4608-853d-0dbafe626318",
+            "type": "arrow",
+            "links": [
+              "9e5d6ff9-c4ec-4608-853d-0dbafe626318"
+            ],
+            "properties": {
+              "x": 830.3053128584738,
+              "name": "in",
+              "y": 113.49522837749629,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "d5b1191d-21e7-4cb1-a72b-6fef92202c8a",
+            "isSourcePort": false,
+            "linkId": "26b8148a-4d83-4c1b-9077-a7f47ce9f31b",
+            "type": "arrow",
+            "links": [
+              "26b8148a-4d83-4c1b-9077-a7f47ce9f31b"
+            ],
+            "properties": {
+              "x": 1005.7055169310524,
+              "name": "default",
+              "y": 113.49522837749629,
+              "label": "default",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "httpRequestHeaders": {},
+          "authenticated": true,
+          "httpRequestBody": null,
+          "httpRequestPath": "/organization/{{orgID}}/user/{{agentId}}",
+          "httpRequestUrl": null,
+          "connectorId": "",
+          "description": "Get the Cisco Common Identity user ID to construct the Summary reference ID",
+          "httpRequestBodyFiles": null,
+          "activityId": "http-request-v2",
+          "httpResponseTimeout": 2000,
+          "httpRequestBodyFormData": null,
+          "httpContentType": "Application/JSON",
+          "_renderRequestTimestamp": 1791281307218,
+          "contentType": "JSON",
+          "retryAttempts": 1,
+          "httpQueryParameters": {},
+          "httpRequestBodyGQL": null,
+          "contentType:name": "JSON",
+          "activityName": "http-request-v2",
+          "connectorId:name": "",
+          "httpRequestMethod:type": null,
+          "httpRequestMethod": "GET",
+          "httpContentType:name": "Application/JSON",
+          "httpContentType:name:name": "None",
+          "outputVariableArray": [
+            {
+              "outputVariable": "ciUserId",
+              "jsonPathExp": "$.ciUserId"
+            }
+          ],
+          "httpContentType:type": null,
+          "connectorId:type": null,
+          "activityVersionNumber": null,
+          "contentType:type": null,
+          "name": "GetCiscoUID_fqj",
+          "httpRequestMethod:name": "GET",
+          "flowDecryptAccess": true,
+          "activityType": "logic"
+        }
+      },
+      "62d0eeb6-98dd-40b8-aa23-fa213f07ba7c": {
+        "id": "26b8148a-4d83-4c1b-9077-a7f47ce9f31b",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "b8e52889-9cd5-416f-8b13-9c58de20caf1",
+              "type": "point",
+              "x": 1015.7084005653187,
+              "y": 123.49811834942045
+            },
+            {
+              "id": "5747e2b6-9e75-41c6-8dd7-a77276d7f765",
+              "type": "point",
+              "x": 840.3001159791365,
+              "y": 283.502776527851
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "d5b1191d-21e7-4cb1-a72b-6fef92202c8a",
+          "activeWidgetId": "38f53e77-83e2-4f88-b939-5dec391d4389",
+          "point": {
+            "x": 1015,
+            "y": 123
+          }
+        },
+        "targetPort": {
+          "id": "f0bb8411-1a43-4796-a437-e0def5f7fcd9",
+          "activeWidgetId": "10d025ac-f468-4ff3-b5a5-e0a449a5c178",
+          "point": {
+            "x": 840,
+            "y": 283
+          }
+        }
+      },
+      "04f02248-8333-4bcf-93fb-af891c8dcf41": {
+        "id": "3a1aaf88-7b27-40ab-97be-a64e2634bfdf",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "f919084d-b33b-4ed5-ae01-9cf655ba604e",
+              "type": "point",
+              "x": 1535.698032157275,
+              "y": 723.4969775710292
+            },
+            {
+              "id": "8db83351-33d1-47c5-8a51-734d3931a1b4",
+              "type": "point",
+              "x": 1660.309445011313,
+              "y": 263.5073459790732
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "cf50ddb8-31f8-4bce-a37e-48f0ac330956",
+          "activeWidgetId": "dcc1a79f-4f3a-4bf2-b46d-1be26c87e208",
+          "point": {
+            "x": 1535,
+            "y": 723
+          }
+        },
+        "targetPort": {
+          "id": "e91d1a02-b4b6-4369-95fb-d09f874f3b26",
+          "activeWidgetId": "714f13f8-8cb5-4e41-a336-4ddd7da1d11c",
+          "point": {
+            "x": 1660,
+            "y": 263
+          }
+        }
+      },
+      "b7e281d9-188d-451b-91df-961adfeacbb5": {
+        "id": "ed6a82b5-4804-4e1a-ab08-44cee342ca61",
+        "type": "set-variable",
+        "widgetType": "activity",
+        "label": "New Activity Widget in Diagram",
+        "point": {
+          "x": 1360,
+          "y": 240
+        },
+        "ports": [
+          {
+            "portId": "f2536535-3d04-4562-8b98-e5d025e6da36",
+            "isSourcePort": true,
+            "linkId": "93d60c73-f07a-4458-8594-6e8fadac3b09",
+            "type": "arrow",
+            "links": [
+              "93d60c73-f07a-4458-8594-6e8fadac3b09",
+              "b8cc8748-4c5c-4153-bad5-d8ccc7641d3e"
+            ],
+            "properties": {
+              "x": 1350.3007497449094,
+              "name": "in",
+              "y": 253.49875211519338,
+              "label": "in",
+              "alignment": "left"
+            }
+          },
+          {
+            "portId": "197aee1b-4c79-4c02-bdd1-694ad2c826b0",
+            "isSourcePort": false,
+            "linkId": "6813c3bf-469d-4744-8d6c-d3d22697bb40",
+            "type": "arrow",
+            "links": [
+              "6813c3bf-469d-4744-8d6c-d3d22697bb40"
+            ],
+            "properties": {
+              "x": 1525.700953817488,
+              "name": "out",
+              "y": 253.49875211519338,
+              "label": "out",
+              "alignment": "right"
+            }
+          },
+          {
+            "portId": "6fb47f8e-cb80-494c-9dc5-5fabe0adf3c3",
+            "isSourcePort": false,
+            "linkId": null,
+            "type": "arrow",
+            "links": [],
+            "properties": {
+              "x": 1525.700953817488,
+              "name": "error",
+              "y": 461.46194299910644,
+              "label": "error",
+              "alignment": "right"
+            }
+          }
+        ],
+        "properties": {
+          "srcVariable": "phoneNum",
+          "srcVariableType": "STRING",
+          "activityName": "set-variable",
+          "activityId": "set-variable",
+          "activityVersionNumber": null,
+          "name": "TrimPayloads_hz5",
+          "setTo": "set-to-variable",
+          "expr": "{{origin}}",
+          "flowDecryptAccess": true,
+          "_renderRequestTimestamp": 1791281307218,
+          "activityType": "logic",
+          "setVariablesArray": [
+            {
+              "setTo": "set-to-variable",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{origin}}",
+              "tgtVariableType": "STRING",
+              "srcVariable": "phoneNum",
+              "tgtVariable": "{{origin}}",
+              "id": "6b8fa747-a65a-40f6-884e-5e9495d2dbe2"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{AdditionalContext | escape('json') }} ",
+              "id": "3cbf0f28-74ca-42bc-a8b8-c0f192d8c1af",
+              "literal": "{{AdditionalContext | escape('json') }} ",
+              "srcVariable": "AdditionalContext"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{NextSteps | escape('json') }}",
+              "id": "f3abc09a-3bbc-41eb-b301-83dcc405b54c",
+              "literal": "{{NextSteps | escape('json') }}",
+              "srcVariable": "NextSteps"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{InitialContactReason | escape('json') }}",
+              "id": "85304382-fc73-44f1-af2b-e3ded267fabc",
+              "literal": "{{InitialContactReason | escape('json') }}",
+              "srcVariable": "InitialContactReason"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{KeyActionsTaken | escape('json') }}",
+              "id": "a42df89e-68c1-4a2b-b2d9-1a916d859191",
+              "literal": "{{KeyActionsTaken | escape('json') }}",
+              "srcVariable": "KeyActionsTaken"
+            },
+            {
+              "setTo": "set-to-literal",
+              "srcVariableType": "STRING",
+              "literal_invalid_error": false,
+              "expr": "{{additionalContactReasons | escape('json') }}",
+              "id": "1a961e14-cd9b-40ce-8b10-7631ccb1a9c2",
+              "literal": "{{additionalContactReasons | escape('json') }}",
+              "srcVariable": "additionalContactReasons"
+            }
+          ],
+          "literal_invalid_error": false
+        }
+      },
+      "513b69f9-742b-45bc-9a65-1f61c90bfb19": {
+        "id": "93d60c73-f07a-4458-8594-6e8fadac3b09",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "430ebebc-1fc1-44cd-948c-b7587f3edcdc",
+              "type": "point",
+              "x": 1255.706119008537,
+              "y": 631.4658660092405
+            },
+            {
+              "id": "c2666a90-b751-49bc-b137-e6099f071b16",
+              "type": "point",
+              "x": 1360.3036397168335,
+              "y": 263.50163574945987
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "4ecc42a2-7633-41b4-b645-4480961ddb12",
+          "activeWidgetId": "cc55aab8-9571-461e-87e6-78477434af9b",
+          "point": {
+            "x": 1255,
+            "y": 631
+          }
+        },
+        "targetPort": {
+          "id": "f2536535-3d04-4562-8b98-e5d025e6da36",
+          "activeWidgetId": "ed6a82b5-4804-4e1a-ab08-44cee342ca61",
+          "point": {
+            "x": 1360,
+            "y": 263
+          }
+        }
+      },
+      "51addb8b-edb8-45db-ad29-c1fdd4a9f9c9": {
+        "id": "b8cc8748-4c5c-4153-bad5-d8ccc7641d3e",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "0aef6272-b855-455f-81e8-17ea72b238d6",
+              "type": "point",
+              "x": 1255.706119008537,
+              "y": 767.948187113007
+            },
+            {
+              "id": "abe7987b-46a8-4452-825d-84c30f0fb9e5",
+              "type": "point",
+              "x": 1360.3036397168335,
+              "y": 263.50163574945987
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "04942904-3f05-4335-ba58-ca39a6c8ac87",
+          "activeWidgetId": "cc55aab8-9571-461e-87e6-78477434af9b",
+          "point": {
+            "x": 1255,
+            "y": 767
+          }
+        },
+        "targetPort": {
+          "id": "f2536535-3d04-4562-8b98-e5d025e6da36",
+          "activeWidgetId": "ed6a82b5-4804-4e1a-ab08-44cee342ca61",
+          "point": {
+            "x": 1360,
+            "y": 263
+          }
+        }
+      },
+      "eefa025d-f556-48d8-91b2-0190e51aa566": {
+        "id": "6813c3bf-469d-4744-8d6c-d3d22697bb40",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "b533da80-2d6c-4c91-ae34-4b500f8d3ac8",
+              "type": "point",
+              "x": 1535.7038374517542,
+              "y": 263.50163574945987
+            },
+            {
+              "id": "ac7eae7e-d928-4582-b343-b45cefc2b48c",
+              "type": "point",
+              "x": 1660.309445011313,
+              "y": 263.5073459790732
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "197aee1b-4c79-4c02-bdd1-694ad2c826b0",
+          "activeWidgetId": "ed6a82b5-4804-4e1a-ab08-44cee342ca61",
+          "point": {
+            "x": 1535,
+            "y": 263
+          }
+        },
+        "targetPort": {
+          "id": "e91d1a02-b4b6-4369-95fb-d09f874f3b26",
+          "activeWidgetId": "714f13f8-8cb5-4e41-a336-4ddd7da1d11c",
+          "point": {
+            "x": 1660,
+            "y": 263
+          }
+        }
+      },
+      "73fc1ff0-cc9d-4792-adce-32226b0ecb2f": {
+        "id": "9e5d6ff9-c4ec-4608-853d-0dbafe626318",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "41acc664-4926-452a-9c90-9deb35cc3b36",
+              "type": "point",
+              "x": 635.700117246668,
+              "y": -112.53299321236852
+            },
+            {
+              "id": "fca469a9-52c2-48c3-b922-7600a82174d9",
+              "type": "point",
+              "x": 840.3081964927401,
+              "y": 123.49811834942045
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "6a5a258e-8e52-4921-9a60-1d1a69aa4434",
+          "activeWidgetId": "be237bee-b62d-4a6a-94bb-4b4a792d1a85",
+          "point": {
+            "x": 635,
+            "y": -112
+          }
+        },
+        "targetPort": {
+          "id": "32ba1958-af9f-410a-b79f-7ae08a069c1c",
+          "activeWidgetId": "38f53e77-83e2-4f88-b939-5dec391d4389",
+          "point": {
+            "x": 840,
+            "y": 123
+          }
+        }
+      },
+      "4d4ace7a-a682-4c09-90bc-81df10314c7b": {
+        "id": "b5d2fcca-e71b-4a2c-badc-3a70fe0e4eed",
+        "type": "arrow",
+        "widgetType": "link",
+        "label": "",
+        "properties": {
+          "curvyness": 50,
+          "selected": false,
+          "color": "var(--mds-color-theme-outline-theme-normal)",
+          "points": [
+            {
+              "id": "93374b1c-6e89-47c8-9bb2-1434da883ecd",
+              "type": "point",
+              "x": 1255.706119008537,
+              "y": 699.3331617940642
+            },
+            {
+              "id": "70c0d86b-4ec2-450a-8a26-8defbf6629e7",
+              "type": "point",
+              "x": 1360.2978344223548,
+              "y": 723.4969775710292
+            }
+          ],
+          "width": 2,
+          "selectedColor": "var(--mds-color-theme-outline-theme-normal)"
+        },
+        "points": [],
+        "sourcePort": {
+          "id": "c1754b94-fb5f-42d5-955c-0b18344dd0c4",
+          "activeWidgetId": "cc55aab8-9571-461e-87e6-78477434af9b",
+          "point": {
+            "x": 1255,
+            "y": 699
+          }
+        },
+        "targetPort": {
+          "id": "4a01b181-0f65-43af-a261-df58258ffe96",
+          "activeWidgetId": "dcc1a79f-4f3a-4bf2-b46d-1be26c87e208",
+          "point": {
+            "x": 1360,
+            "y": 723
+          }
+        }
+      }
+    },
+    "properties": {
+      "offsetX": 581.3518594577706,
+      "offsetY": 499.90467351703023,
+      "zoom": 42.18902587890625,
+      "gridSize": 20
+    }
+  },
+  "variableOrders": {
+    "pop-over": [],
+    "interaction-panel": []
+  },
+  "flowId": "",
+  "eventFlows": {
+    "eventsMap": {},
+    "properties": {
+      "zoom": null,
+      "__typename": "EventFlowProperties"
+    },
+    "__typename": "EventFlowMap"
+  },
+  "runtimeVariables": [],
+  "validating": false,
+  "persist": true,
+  "validationResults": [],
+  "createdBy": "",
+  "createdDate": "",
+  "lastModifiedBy": "",
+  "lastModifiedDate": "",
+  "settings": [
+    {
+      "name": "flowDecryptAccess",
+      "value": "true",
+      "type": "BOOLEAN",
+      "group": "decryption",
+      "__typename": "FlowVersionSetting"
+    }
+  ],
+  "flowOutcome": null,
+  "associatedChannels": [],
+  "__typename": "FlowVersionExport"
+}
