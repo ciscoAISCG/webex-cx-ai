@@ -14,6 +14,7 @@ Search across the collection or combine filters for vertical, channel, feature, 
         <option value="">Any</option>
       <option value="health-care">Health Care</option>
       <option value="retail">Retail</option>
+      <option value="wholesale-distribution">Wholesale Distribution</option>
       </select>
     </label>
     <label class="playbook-filter" for="filter-channels">
@@ -61,6 +62,7 @@ Search across the collection or combine filters for vertical, channel, feature, 
       <option value="service-now">ServiceNow</option>
       <option value="database">Database</option>
       <option value="webhook">Webhook</option>
+      <option value="jds">JDS</option>
       </select>
     </label>
     <label class="playbook-filter" for="filter-complexity">
@@ -79,6 +81,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
 <p id="playbook-empty" hidden>No playbooks match these filters.</p>
 
 <div class="playbook-grid" id="playbook-grid">
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/post-call-ai-summary-to-jds" target="_blank" rel="noopener" data-verticals="wholesale-distribution" data-channels="voice" data-features="ai-assistant-real-time-transcript,ai-assistant-wrap-up-summary" data-customer_journeys="customer-service" data-integrations="jds,rest-api" data-complexity="intermediate" data-search="post-call ai assistant summary to customer journey data retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a webex contact center customer journey data project. post-call-summary customer-journey-data jds-event flow-designer wrap-up wholesale distribution voice ai assistant - real-time transcript ai assistant - wrap-up summary customer service jds rest api intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Post-Call AI Assistant Summary to Customer Journey Data</h2>
+    <p>Retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a Webex Contact Center Customer Journey Data project.</p>
+    <span class="playbook-card__tags">Customer Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/configure-custom-data-custom-events-ai-agents" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="customer-service,self-service,routing-transfer" data-integrations="" data-complexity="intermediate" data-search="configure custom data and custom events for ai agents pass session data to an autonomous voice ai agent, handle source-flow action exits through vav2, parse metadata, and return fulfillment data to continue the same conversation. autonomous-voice custom-data custom-events eventdatajson handled-outcome stateeventname virtual-agent-v2 flow-designer voice ai agent - autonomous (voice) customer service self-service routing &amp; transfer intermediate">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>Configure Custom Data and Custom Events for AI Agents</h2>
