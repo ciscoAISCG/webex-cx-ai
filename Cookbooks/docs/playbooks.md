@@ -151,6 +151,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/otp-validation" target="_blank" rel="noopener" data-verticals="" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="authentication,self-service,routing-transfer" data-integrations="rest-api,mcp" data-complexity="advanced" data-search="otp validation with mcp document phone, start code, and pin-as-otp validation before expert handoff; registered-device delivery uses an external service. one-time-passcode otp verification-code start-code pin-validation voice sms ai agent - autonomous (voice) authentication self-service routing &amp; transfer rest api mcp advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>OTP Validation with MCP</h2>
+    <p>Document phone, START Code, and PIN-as-OTP validation before expert handoff; registered-device delivery uses an external service.</p>
+    <span class="playbook-card__tags">Authentication · Self-Service · Routing &amp; Transfer</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/procedure-guided-agent-pattern" target="_blank" rel="noopener" data-verticals="" data-channels="" data-features="ai-agent-autonomous-digital" data-customer_journeys="customer-service" data-integrations="mcp" data-complexity="advanced" data-search="procedure-guided ai agent pattern select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results. procedure-catalogue bounded-agent controlled-actions ai agent - autonomous (digital) customer service mcp advanced">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>Procedure-Guided AI Agent Pattern</h2>
