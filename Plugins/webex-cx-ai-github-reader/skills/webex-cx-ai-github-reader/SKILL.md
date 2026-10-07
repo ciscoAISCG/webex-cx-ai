@@ -24,6 +24,15 @@ in the source rather than relying on memory.
 - If a GitHub integration is needed for issues or pull requests, ask the user
   to connect an approved integration through its normal sign-in flow. Never ask
   for a password, one-time code, access token, or secret in chat.
+- If the user requests token-based GitHub access or their chosen MCP connection
+  requires a token, guide them to create a fine-grained personal access token
+  for only `ciscoAISCG/webex-cx-ai`, with `Contents: Read-only`; add
+  `Issues: Read-only` and `Pull requests: Read-only` only when they need those
+  records. Explain how to provide it through a secure credential store or the
+  `GITHUB_PAT_TOKEN` environment variable for the GitHub hosted read-only MCP
+  server. The README contains the creation and connection steps. Never ask the
+  user to paste the token into chat or expose it in commands, logs, files, or
+  responses.
 - If no GitHub or internet-capable tool is available, say that current source
   access is unavailable and guide the user to install or connect an approved
   GitHub integration. Do not present remembered or local content as current

@@ -13,6 +13,40 @@ connector installation. For issues, pull requests, private repositories, or
 environments without a web-capable tool, Codex can guide the user to connect a
 GitHub integration. The plugin never asks users to paste a token into chat.
 
+## Optional GitHub token setup
+
+Only create a token if the user requests token-based access or their chosen
+GitHub MCP integration requires one. Public repository reading does not need a
+token. Use a fine-grained personal access token with access limited to this
+repository and read-only permissions:
+
+1. On GitHub, open **Settings → Developer settings → Fine-grained personal
+   access tokens → Generate new token**.
+2. Select `ciscoAISCG` as the resource owner and **Only select repositories**,
+   then choose `webex-cx-ai`.
+3. Set **Contents: Read-only**. Add **Issues: Read-only** and **Pull requests:
+   Read-only** only if the user also needs GitHub discussions and PR data.
+   Repository metadata is read-only by default. Do not grant write permissions.
+4. Set an expiration, generate the token, and store it in a secure credential
+   store or in the user's environment variable `GITHUB_PAT_TOKEN`. For an
+   organization-owned repository, the organization may require approval.
+5. Connect the GitHub hosted read-only MCP server to Codex using the saved
+   environment variable (never the token text):
+
+   ```bash
+   codex mcp add github --url https://api.githubcopilot.com/mcp/x/all/readonly --bearer-token-env-var GITHUB_PAT_TOKEN
+   ```
+
+   If `github` is already configured, update that server's URL and credential
+   through Codex's MCP configuration instead of adding a duplicate. Fully
+   restart Codex after changing the environment variable, then ask it to use
+   the GitHub MCP connection for the repository query.
+
+Never paste the token into Codex chat, a terminal command, this repository, a
+plugin manifest, or a committed `.env` file. If the token is exposed, revoke it
+in **GitHub Settings → Developer settings → Fine-grained personal access
+tokens** and create a replacement.
+
 ## Installation
 
 > [!IMPORTANT]
