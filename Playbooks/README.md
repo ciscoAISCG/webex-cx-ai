@@ -6,6 +6,7 @@ Browse by searching or filtering the [website catalog](../Cookbooks/docs/playboo
 
 | Playbook | Summary | Customer journey |
 |---|---|---|
+| [OTP Validation with MCP](otp-validation/README.md) | Document phone, START Code, and PIN-as-OTP validation before expert handoff; registered-device delivery uses an external service. | Authentication, Self-Service, Routing & Transfer |
 | [Post-Call AI Assistant Summary to Customer Journey Data](post-call-ai-summary-to-jds/README.md) | Retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a Webex Contact Center Customer Journey Data project. | Customer Service |
 | [Configure Custom Data and Custom Events for AI Agents](configure-custom-data-custom-events-ai-agents/README.md) | Pass session data to an Autonomous Voice AI Agent, handle source-flow action exits through VAV2, parse MetaData, and return fulfillment data to continue the same conversation. | Customer Service, Self-Service, Routing & Transfer |
 | [Retrieve AI Assistant Post-Call Summaries for Supervisor Reporting](post-call-ai-summary-reporting/README.md) | Retrieve AI Assistant wrap-up summaries after contact completion and expose selected fields through a historical Analyzer report for supervisor visibility. | Customer Service |

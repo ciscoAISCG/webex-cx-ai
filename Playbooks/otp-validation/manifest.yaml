@@ -1,0 +1,49 @@
+schema_version: 2
+id: otp-validation
+date_added: "2026-10-07"
+title: "OTP Validation with MCP"
+summary: "Document phone, START Code, and PIN-as-OTP validation before expert handoff; registered-device delivery uses an external service."
+
+classification:
+  channels:
+    - voice
+    - sms
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - authentication
+    - self-service
+    - routing-transfer
+  integrations:
+    - rest-api
+    - mcp
+
+complexity: advanced
+last_validated: "2026-10-07"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - one-time-passcode
+  - otp
+  - verification-code
+  - start-code
+  - pin-validation
+
+artifacts:
+  diagrams:
+    - assets/otp-validation-journey.svg
+  exports:
+    - downloads/Demo Authentication.json
+    - content/sample_otp_authentication_mcp.py
+
+validation:
+  environment: "Documentation review and JSON/Python syntax checks only; the AI Agent export and MCP sample were not runtime-tested or bound to a tenant."
+  expected_result: "The agent export, MCP methods, and external delivery requirement are documented; bind and test in the target Webex Contact Center environment."
+
+security:
+  customer_data_removed: false
+  credentials_removed: true
+  tenant_identifiers_removed: false
