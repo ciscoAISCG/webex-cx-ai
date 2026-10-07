@@ -5,6 +5,18 @@
   },
   "plugins": [
     {
+      "name": "webex-cx-ai-github-reader",
+      "source": {
+        "source": "local",
+        "path": "./Plugins/webex-cx-ai-github-reader"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
       "name": "scg-library",
       "source": {
         "source": "local",
