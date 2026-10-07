@@ -1,6 +1,6 @@
 {
   "name": "scg-playbook",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create visual-first SCG playbooks for Webex CX AI Agent and Contact Center use cases.",
   "author": {
     "name": "Cisco AI SCG"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "SCG Playbook",
     "shortDescription": "Create visual-first SCG playbooks",
-    "longDescription": "Turn Webex AI Agent Studio, Flow Designer, Webex Connect, MCP, screenshots, and field notes into reusable, visual-first playbooks with Try It Fast steps, setup guidance, diagrams, cleanup, and validation.",
+    "longDescription": "Turn Webex AI Agent Studio, Flow Designer, Webex Connect, MCP, screenshots, and field notes into reusable, visual-first playbooks with Watch Me, Try Me, and generated Get Me links, Try It Fast steps, setup guidance, diagrams, cleanup, and validation.",
     "developerName": "Cisco AI SCG",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],

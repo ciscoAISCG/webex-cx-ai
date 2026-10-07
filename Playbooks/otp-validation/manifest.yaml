@@ -1,5 +1,6 @@
 schema_version: 2
 id: otp-validation
+date_added: "2026-10-07"
 title: "OTP Validation with MCP"
 summary: "Document phone, START Code, and PIN-as-OTP validation before expert handoff; registered-device delivery uses an external service."
 

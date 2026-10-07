@@ -1,5 +1,6 @@
 schema_version: 2
 id: configure-custom-data-custom-events-ai-agents
+date_added: "2026-10-01"
 title: Configure Custom Data and Custom Events for AI Agents
 summary: Pass session data to an Autonomous Voice AI Agent, handle source-flow action exits through VAV2, parse MetaData, and return fulfillment data to continue the same conversation.
 

@@ -14,6 +14,7 @@ Search across the collection or combine filters for vertical, channel, feature, 
         <option value="">Any</option>
       <option value="health-care">Health Care</option>
       <option value="retail">Retail</option>
+      <option value="wholesale-distribution">Wholesale Distribution</option>
       </select>
     </label>
     <label class="playbook-filter" for="filter-channels">
@@ -61,6 +62,7 @@ Search across the collection or combine filters for vertical, channel, feature, 
       <option value="service-now">ServiceNow</option>
       <option value="database">Database</option>
       <option value="webhook">Webhook</option>
+      <option value="jds">JDS</option>
       </select>
     </label>
     <label class="playbook-filter" for="filter-complexity">
@@ -79,78 +81,6 @@ Search across the collection or combine filters for vertical, channel, feature, 
 <p id="playbook-empty" hidden>No playbooks match these filters.</p>
 
 <div class="playbook-grid" id="playbook-grid">
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/appointment-scheduling" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="scheduling" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="appointment scheduling schedule, review, and reschedule appointments with an autonomous voice ai agent and webex connect fulfillment workflows. appointments booking rescheduling webex-connect voice ai agent - autonomous (voice) scheduling rest api webhook intermediate">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Appointment Scheduling</h2>
-    <p>Schedule, review, and reschedule appointments with an autonomous voice AI agent and Webex Connect fulfillment workflows.</p>
-    <span class="playbook-card__tags">Scheduling</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/concierge-ai-agent" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="routing-transfer,customer-service" data-integrations="" data-complexity="beginner" data-search="concierge routing agent template classify incoming questions and route them to a specialist using an ai agent studio import, prompt template, and routing knowledge-base starter. concierge specialist-routing starter-template voice ai agent - autonomous (voice) routing &amp; transfer customer service beginner">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Concierge Routing Agent Template</h2>
-    <p>Classify incoming questions and route them to a specialist using an AI Agent Studio import, prompt template, and routing knowledge-base starter.</p>
-    <span class="playbook-card__tags">Routing &amp; Transfer · Customer Service</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/configure-custom-data-custom-events-ai-agents" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="customer-service,self-service,routing-transfer" data-integrations="" data-complexity="intermediate" data-search="configure custom data and custom events for ai agents pass session data to an autonomous voice ai agent, handle source-flow action exits through vav2, parse metadata, and return fulfillment data to continue the same conversation. autonomous-voice custom-data custom-events eventdatajson handled-outcome stateeventname virtual-agent-v2 flow-designer voice ai agent - autonomous (voice) customer service self-service routing &amp; transfer intermediate">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Configure Custom Data and Custom Events for AI Agents</h2>
-    <p>Pass session data to an Autonomous Voice AI Agent, handle source-flow action exits through VAV2, parse MetaData, and return fulfillment data to continue the same conversation.</p>
-    <span class="playbook-card__tags">Customer Service · Self-Service · Routing &amp; Transfer</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/data-driven-ordering" target="_blank" rel="noopener" data-verticals="retail" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="self-service,order-management" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="data-driven ordering guide callers through a structured menu, validate choices, place an order, and offer a digital fallback. structured-menu digital-fallback webex-connect retail voice sms ai agent - autonomous (voice) self-service order management rest api webhook intermediate">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Data-Driven Ordering</h2>
-    <p>Guide callers through a structured menu, validate choices, place an order, and offer a digital fallback.</p>
-    <span class="playbook-card__tags">Self-Service · Order Management</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/departmental-routing-ai-agent-scripted" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-scripted-voice" data-customer_journeys="routing-transfer" data-integrations="" data-complexity="intermediate" data-search="departmental routing ai agent (scripted) collect and confirm a caller’s requested hospital department, then route the call to its matching queue with a scripted ai agent and voice flow. department-routing queue-routing scripted-agent health care voice ai agent - scripted (voice) routing &amp; transfer intermediate">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Departmental Routing AI Agent (Scripted)</h2>
-    <p>Collect and confirm a caller’s requested hospital department, then route the call to its matching queue with a scripted AI agent and voice flow.</p>
-    <span class="playbook-card__tags">Routing &amp; Transfer</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/directory-routing" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="routing-transfer" data-integrations="database" data-complexity="intermediate" data-search="directory routing classify a caller request as a person or department lookup, search directory resources, and transfer the caller to the matching destination. directory person-lookup department-lookup health care voice ai agent - autonomous (voice) routing &amp; transfer database intermediate">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Directory Routing</h2>
-    <p>Classify a caller request as a person or department lookup, search directory resources, and transfer the caller to the matching destination.</p>
-    <span class="playbook-card__tags">Routing &amp; Transfer</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/payment-ai-agent-scripted" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-scripted-voice" data-customer_journeys="payments,authentication" data-integrations="rest-api,webhook" data-complexity="advanced" data-search="hospital payment agent (scripted) collect payment intent and caller details, then use voice-flow state events and subflows for balance lookup and payment processing. hospital-billing balance-lookup payment-processing health care voice ai agent - scripted (voice) payments authentication rest api webhook advanced">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Hospital Payment Agent (Scripted)</h2>
-    <p>Collect payment intent and caller details, then use voice-flow state events and subflows for balance lookup and payment processing.</p>
-    <span class="playbook-card__tags">Payments · Authentication</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/payment-ai-agent-autonomous" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="payments,authentication" data-integrations="rest-api,webhook" data-complexity="advanced" data-search="hospital payment line (autonomous) let patients check an outstanding hospital balance and pay by card through an autonomous voice ai agent with safe escalation. hospital-billing balance-lookup credit-card-payment health care voice ai agent - autonomous (voice) payments authentication rest api webhook advanced">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Hospital Payment Line (Autonomous)</h2>
-    <p>Let patients check an outstanding hospital balance and pay by card through an autonomous voice AI agent with safe escalation.</p>
-    <span class="playbook-card__tags">Payments · Authentication</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/order-tracking" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="order-management,self-service" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="order tracking retrieve order, delivery, and fulfillment status from a backend workflow and explain the result with human escalation when needed. delivery-status fulfillment tracking voice ai agent - autonomous (voice) order management self-service rest api webhook intermediate">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Order Tracking</h2>
-    <p>Retrieve order, delivery, and fulfillment status from a backend workflow and explain the result with human escalation when needed.</p>
-    <span class="playbook-card__tags">Order Management · Self-Service</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/otp-validation" target="_blank" rel="noopener" data-verticals="" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="authentication,self-service,routing-transfer" data-integrations="rest-api,mcp" data-complexity="advanced" data-search="otp validation with mcp document phone, start code, and pin-as-otp validation before expert handoff; registered-device delivery uses an external service. one-time-passcode otp verification-code start-code pin-validation voice sms ai agent - autonomous (voice) authentication self-service routing &amp; transfer rest api mcp advanced">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>OTP Validation with MCP</h2>
@@ -159,11 +89,19 @@ Search across the collection or combine filters for vertical, channel, feature, 
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/procedure-guided-agent-pattern" target="_blank" rel="noopener" data-verticals="" data-channels="" data-features="ai-agent-autonomous-digital" data-customer_journeys="customer-service" data-integrations="mcp" data-complexity="advanced" data-search="procedure-guided ai agent pattern select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results. procedure-catalogue bounded-agent controlled-actions ai agent - autonomous (digital) customer service mcp advanced">
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/post-call-ai-summary-to-jds" target="_blank" rel="noopener" data-verticals="wholesale-distribution" data-channels="voice" data-features="ai-assistant-real-time-transcript,ai-assistant-wrap-up-summary" data-customer_journeys="customer-service" data-integrations="jds,rest-api" data-complexity="intermediate" data-search="post-call ai assistant summary to customer journey data retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a webex contact center customer journey data project. post-call-summary customer-journey-data jds-event flow-designer wrap-up wholesale distribution voice ai assistant - real-time transcript ai assistant - wrap-up summary customer service jds rest api intermediate">
     <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>Procedure-Guided AI Agent Pattern</h2>
-    <p>Select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results.</p>
+    <h2>Post-Call AI Assistant Summary to Customer Journey Data</h2>
+    <p>Retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a Webex Contact Center Customer Journey Data project.</p>
     <span class="playbook-card__tags">Customer Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/configure-custom-data-custom-events-ai-agents" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="customer-service,self-service,routing-transfer" data-integrations="" data-complexity="intermediate" data-search="configure custom data and custom events for ai agents pass session data to an autonomous voice ai agent, handle source-flow action exits through vav2, parse metadata, and return fulfillment data to continue the same conversation. autonomous-voice custom-data custom-events eventdatajson handled-outcome stateeventname virtual-agent-v2 flow-designer voice ai agent - autonomous (voice) customer service self-service routing &amp; transfer intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Configure Custom Data and Custom Events for AI Agents</h2>
+    <p>Pass session data to an Autonomous Voice AI Agent, handle source-flow action exits through VAV2, parse MetaData, and return fulfillment data to continue the same conversation.</p>
+    <span class="playbook-card__tags">Customer Service · Self-Service · Routing &amp; Transfer</span>
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
@@ -191,19 +129,83 @@ Search across the collection or combine filters for vertical, channel, feature, 
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
-  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/servicenow-kb-incident-ai-agent-with-mcp" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="knowledge-support,case-management" data-integrations="mcp,service-now" data-complexity="advanced" data-search="servicenow knowledge and incident agent with mcp search servicenow knowledge first, then create, find, update, or delete incidents through mcp-backed actions when needed. incident-management knowledge-base mcp voice ai agent - autonomous (voice) knowledge support case management mcp servicenow advanced">
-    <span class="playbook-card__eyebrow">Playbook</span>
-    <h2>ServiceNow Knowledge and Incident Agent with MCP</h2>
-    <p>Search ServiceNow knowledge first, then create, find, update, or delete incidents through MCP-backed actions when needed.</p>
-    <span class="playbook-card__tags">Knowledge Support · Case Management</span>
-    <span class="playbook-card__link">Open playbook on GitHub →</span>
-  </a>
-
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/servicenow-hosted-incident-mcp-ai-agent" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="case-management,authentication" data-integrations="mcp,service-now" data-complexity="advanced" data-search="servicenow-hosted incident mcp ai agent verify an employee and manage authorized servicenow incidents through a servicenow-hosted mcp server, with safe human handoff. incident-management service-now-hosted-mcp employee-verification voice ai agent - autonomous (voice) case management authentication mcp servicenow advanced">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>ServiceNow-Hosted Incident MCP AI Agent</h2>
     <p>Verify an employee and manage authorized ServiceNow incidents through a ServiceNow-hosted MCP server, with safe human handoff.</p>
     <span class="playbook-card__tags">Case Management · Authentication</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/procedure-guided-agent-pattern" target="_blank" rel="noopener" data-verticals="" data-channels="" data-features="ai-agent-autonomous-digital" data-customer_journeys="customer-service" data-integrations="mcp" data-complexity="advanced" data-search="procedure-guided ai agent pattern select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results. procedure-catalogue bounded-agent controlled-actions ai agent - autonomous (digital) customer service mcp advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Procedure-Guided AI Agent Pattern</h2>
+    <p>Select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results.</p>
+    <span class="playbook-card__tags">Customer Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/departmental-routing-ai-agent-scripted" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-scripted-voice" data-customer_journeys="routing-transfer" data-integrations="" data-complexity="intermediate" data-search="departmental routing ai agent (scripted) collect and confirm a caller’s requested hospital department, then route the call to its matching queue with a scripted ai agent and voice flow. department-routing queue-routing scripted-agent health care voice ai agent - scripted (voice) routing &amp; transfer intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Departmental Routing AI Agent (Scripted)</h2>
+    <p>Collect and confirm a caller’s requested hospital department, then route the call to its matching queue with a scripted AI agent and voice flow.</p>
+    <span class="playbook-card__tags">Routing &amp; Transfer</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/payment-ai-agent-scripted" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-scripted-voice" data-customer_journeys="payments,authentication" data-integrations="rest-api,webhook" data-complexity="advanced" data-search="hospital payment agent (scripted) collect payment intent and caller details, then use voice-flow state events and subflows for balance lookup and payment processing. hospital-billing balance-lookup payment-processing health care voice ai agent - scripted (voice) payments authentication rest api webhook advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Hospital Payment Agent (Scripted)</h2>
+    <p>Collect payment intent and caller details, then use voice-flow state events and subflows for balance lookup and payment processing.</p>
+    <span class="playbook-card__tags">Payments · Authentication</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/order-tracking" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="order-management,self-service" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="order tracking retrieve order, delivery, and fulfillment status from a backend workflow and explain the result with human escalation when needed. delivery-status fulfillment tracking voice ai agent - autonomous (voice) order management self-service rest api webhook intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Order Tracking</h2>
+    <p>Retrieve order, delivery, and fulfillment status from a backend workflow and explain the result with human escalation when needed.</p>
+    <span class="playbook-card__tags">Order Management · Self-Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/concierge-ai-agent" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="routing-transfer,customer-service" data-integrations="" data-complexity="beginner" data-search="concierge routing agent template classify incoming questions and route them to a specialist using an ai agent studio import, prompt template, and routing knowledge-base starter. concierge specialist-routing starter-template voice ai agent - autonomous (voice) routing &amp; transfer customer service beginner">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Concierge Routing Agent Template</h2>
+    <p>Classify incoming questions and route them to a specialist using an AI Agent Studio import, prompt template, and routing knowledge-base starter.</p>
+    <span class="playbook-card__tags">Routing &amp; Transfer · Customer Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/appointment-scheduling" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="scheduling" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="appointment scheduling schedule, review, and reschedule appointments with an autonomous voice ai agent and webex connect fulfillment workflows. appointments booking rescheduling webex-connect voice ai agent - autonomous (voice) scheduling rest api webhook intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Appointment Scheduling</h2>
+    <p>Schedule, review, and reschedule appointments with an autonomous voice AI agent and Webex Connect fulfillment workflows.</p>
+    <span class="playbook-card__tags">Scheduling</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/data-driven-ordering" target="_blank" rel="noopener" data-verticals="retail" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="self-service,order-management" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="data-driven ordering guide callers through a structured menu, validate choices, place an order, and offer a digital fallback. structured-menu digital-fallback webex-connect retail voice sms ai agent - autonomous (voice) self-service order management rest api webhook intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Data-Driven Ordering</h2>
+    <p>Guide callers through a structured menu, validate choices, place an order, and offer a digital fallback.</p>
+    <span class="playbook-card__tags">Self-Service · Order Management</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/directory-routing" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="routing-transfer" data-integrations="database" data-complexity="intermediate" data-search="directory routing classify a caller request as a person or department lookup, search directory resources, and transfer the caller to the matching destination. directory person-lookup department-lookup health care voice ai agent - autonomous (voice) routing &amp; transfer database intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Directory Routing</h2>
+    <p>Classify a caller request as a person or department lookup, search directory resources, and transfer the caller to the matching destination.</p>
+    <span class="playbook-card__tags">Routing &amp; Transfer</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/servicenow-kb-incident-ai-agent-with-mcp" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="knowledge-support,case-management" data-integrations="mcp,service-now" data-complexity="advanced" data-search="servicenow knowledge and incident agent with mcp search servicenow knowledge first, then create, find, update, or delete incidents through mcp-backed actions when needed. incident-management knowledge-base mcp voice ai agent - autonomous (voice) knowledge support case management mcp servicenow advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>ServiceNow Knowledge and Incident Agent with MCP</h2>
+    <p>Search ServiceNow knowledge first, then create, find, update, or delete incidents through MCP-backed actions when needed.</p>
+    <span class="playbook-card__tags">Knowledge Support · Case Management</span>
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
@@ -220,6 +222,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
     <h2>Visual Appointment Confirmation</h2>
     <p>Send appointment details by SMS for caller review and confirm only after the caller approves or corrects them by voice.</p>
     <span class="playbook-card__tags">Scheduling · Proactive Notifications</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/payment-ai-agent-autonomous" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="payments,authentication" data-integrations="rest-api,webhook" data-complexity="advanced" data-search="hospital payment line (autonomous) let patients check an outstanding hospital balance and pay by card through an autonomous voice ai agent with safe escalation. hospital-billing balance-lookup credit-card-payment health care voice ai agent - autonomous (voice) payments authentication rest api webhook advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Hospital Payment Line (Autonomous)</h2>
+    <p>Let patients check an outstanding hospital balance and pay by card through an autonomous voice AI agent with safe escalation.</p>
+    <span class="playbook-card__tags">Payments · Authentication</span>
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 </div>

@@ -130,6 +130,7 @@ facets:
     - database
     - webhook
     - a2a
+    - jds
 
   complexity:
     - beginner
@@ -204,6 +205,7 @@ display_labels:
     database: Database
     webhook: Webhook
     a2a: A2A
+    jds: JDS
 
   complexity:
     beginner: Beginner

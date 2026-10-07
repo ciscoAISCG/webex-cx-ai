@@ -1,5 +1,6 @@
 schema_version: 2
 id: payment-ai-agent-autonomous
+date_added: "2026-06-02"
 title: "Hospital Payment Line (Autonomous)"
 summary: "Let patients check an outstanding hospital balance and pay by card through an autonomous voice AI agent with safe escalation."
 

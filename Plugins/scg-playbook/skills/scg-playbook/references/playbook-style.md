@@ -5,14 +5,23 @@ SCG playbooks should lower the friction to try a use case. They should not feel 
 ## Recommended README Order
 
 1. Title with the use case name.
-2. One or two sentences that explain the outcome.
-3. `Downloadable Content Files` index with links to supplied original files.
-4. Hero visual.
-5. `Try It Fast` section with the recommended path.
-6. Setup checklist.
-7. Test script.
-8. Troubleshooting or validation.
-9. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+2. One link row immediately after the title: `Watch Me`, `Try Me`, and `Get Me`.
+3. One or two sentences that explain the outcome.
+4. `Downloadable Content Files` index with links to supplied original files.
+5. Hero visual.
+6. `Try It Fast` section with the recommended path.
+7. Setup checklist.
+8. Test script.
+9. Troubleshooting or validation.
+10. Collapsed details for architecture, imports, backend paths, security, limits, and publishing.
+
+For each new playbook, ask for an optional use-case video URL (`Watch Me`) and live-demo URL (`Try Me`). Keep both links if supplied. If either is unavailable, keep the action label and write `link not provided`; do not invent a URL. Generate the `Get Me` link as `[Get Me](exports/)`, relative to the README, and ensure `exports/` exists in the package. If no export files are available yet, add `exports/README.md` explaining that no exports were supplied so the directory stays tracked and the link resolves.
+
+Use this format directly below the title, replacing the two optional placeholders with supplied URLs or the `link not provided` text:
+
+```markdown
+[Watch Me](VIDEO_URL) | [Try Me](DEMO_URL) | [Get Me](exports/)
+```
 
 Keep classifications, complexity, ownership, and other catalog metadata in the playbook's schema-v2 `manifest.yaml`. Do not add a duplicate metadata table to the README. Use only taxonomy values from `Playbooks/taxonomy.yaml`.
 

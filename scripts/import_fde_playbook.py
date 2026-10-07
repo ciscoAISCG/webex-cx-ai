@@ -15,6 +15,7 @@ import re
 import shutil
 import sys
 import tempfile
+from datetime import date
 from pathlib import Path, PurePosixPath
 from typing import Any, Iterable, Sequence
 
@@ -211,6 +212,27 @@ def import_playbook(
             destination = staged.joinpath(*relative.parts)
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, destination)
+
+        staged_manifest = staged / "manifest.yaml"
+        manifest_text = staged_manifest.read_text(encoding="utf-8")
+        date_line = f'date_added: "{date.today().isoformat()}"'
+        if re.search(r"(?m)^date_added:\s*", manifest_text):
+            manifest_text = re.sub(
+                r"(?m)^date_added:.*$", date_line, manifest_text, count=1
+            )
+        else:
+            id_match = re.search(r"(?m)^id:\s*[^\r\n]+$", manifest_text)
+            if id_match is None:
+                raise ImportFailure(
+                    "source manifest needs an id before date_added can be set"
+                )
+            manifest_text = (
+                manifest_text[: id_match.end()]
+                + "\n"
+                + date_line
+                + manifest_text[id_match.end() :]
+            )
+        staged_manifest.write_text(manifest_text, encoding="utf-8", newline="\n")
 
         if target.exists():
             if target.is_symlink() or not target.is_dir():

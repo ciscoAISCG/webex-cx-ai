@@ -1,5 +1,6 @@
 schema_version: 2
 id: procedure-guided-agent-pattern
+date_added: "2026-08-27"
 title: "Procedure-Guided AI Agent Pattern"
 summary: "Select an approved procedure from a bounded catalogue, retrieve its guidance, and act through controlled, authoritative fulfillment results."
 
