@@ -2,26 +2,12 @@
 
 Reviews Webex AI Agent instruction sets against the user's selected engine,
 recommends improvements, identifies likely hallucination and other concern
-areas, and proposes use-case-specific tests with expected results. Webex AI
-Pro 1 is reviewed for ChatGPT 4.1; Webex AI Pro 2 is reviewed for ChatGPT 5.4.
-The review also captures the channel (Voice or Digital) and reports where
-confirmed built-in engine guardrails may override or affect the user's
-instructions.
-
-## Obfuscated guardrail data
-
-The supplied built-in guardrails are included in
-`skills/webex-ai-validator/references/engine-guardrails.obfuscated.txt` as
-Base64-encoded UTF-8. The companion
-`skills/webex-ai-validator/scripts/decode_guardrails.py` helper decodes the
-selected engine's data for comparison. The Validator summarizes applicable
-constraints without reproducing the raw prompt text. Base64 is reversible
-obfuscation, not encryption: anyone with the plugin can decode the guardrails.
-Do not use this packaging approach for data that must remain secret from plugin
-recipients. The Pro 1 guardrails are complete as supplied. The shorter Pro 2
-guardrails are also complete as supplied; the Validator must not extrapolate
-Pro 1-only rules to Pro 2. The review is advisory: it does not execute tests or
-certify runtime behavior.
+areas, and proposes use-case-specific tests with expected results. Users
+provide the applicable system guardrails separately for comparison with the
+agent instruction set. Webex AI Pro 1 is reviewed for ChatGPT 4.1; Webex AI
+Pro 2 is reviewed for ChatGPT 5.4. The review also captures the channel (Voice
+or Digital). It is advisory: it does not execute tests or certify runtime
+behavior.
 
 ## Installation
 
