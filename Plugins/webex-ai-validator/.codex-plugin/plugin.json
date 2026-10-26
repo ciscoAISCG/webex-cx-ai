@@ -1,0 +1,27 @@
+{
+  "name": "webex-ai-validator",
+  "version": "0.4.0",
+  "description": "Reviews Webex AI Agent instructions for the selected engine and channel, reports built-in guardrail impacts, identifies risks, and designs use-case validation tests.",
+  "author": {
+    "name": "AI SCG"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Webex AI Validator",
+    "shortDescription": "Review instructions, guardrails, and tests",
+    "longDescription": "Reviews the user's Webex AI Agent instructions for the selected Webex AI Pro engine and Voice or Digital channel, recommends improvements and edits, reports impacts from the included obfuscated built-in guardrails, identifies likely hallucination and other concern areas, and proposes use-case-specific tests with expected results. It reviews Webex AI Pro 1 for ChatGPT 4.1 and Webex AI Pro 2 for ChatGPT 5.4. The guardrail encoding is reversible obfuscation, not encryption. It does not execute tests or certify runtime behavior.",
+    "developerName": "AI SCG",
+    "category": "Productivity",
+    "capabilities": [
+      "Review AI Agent instruction sets",
+      "Recommend instruction improvements and edits",
+      "Identify hallucination and instruction-following risks",
+      "Report built-in engine guardrail impacts",
+      "Review Voice or Digital channel-specific behavior",
+      "Design use-case-specific validation tests"
+    ],
+    "defaultPrompt": [
+      "Review my Webex AI Agent instruction set for the selected Webex AI Pro engine and Voice or Digital channel. Report built-in guardrail impacts, improvements, risks, and use-case validation tests."
+    ]
+  }
+}

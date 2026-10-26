@@ -1,0 +1,27 @@
+{
+  "name": "webex-cx-ai-github-reader",
+  "version": "0.1.0",
+  "description": "Answers questions using current content from the ciscoAISCG/webex-cx-ai GitHub repository.",
+  "author": {
+    "name": "AI SCG"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Webex CX AI GitHub Reader",
+    "shortDescription": "Ask about the AI SCG GitHub repository",
+    "longDescription": "Finds and explains current content in ciscoAISCG/webex-cx-ai, including Cookbooks, Skills, Plugins, Playbooks, repository guidance, and GitHub discussions. Uses public repository content without requiring a GitHub token when internet-enabled tools are available.",
+    "developerName": "AI SCG",
+    "category": "Productivity",
+    "capabilities": [
+      "Search and read public repository files",
+      "Answer questions about Cookbooks, Skills, Plugins, and Playbooks",
+      "Cite source paths and GitHub links",
+      "Summarize issues and pull requests when GitHub tools are connected"
+    ],
+    "defaultPrompt": [
+      "Find the playbooks in the AI SCG repository related to appointment scheduling.",
+      "Answer this question using the current Cookbooks and cite the source files.",
+      "Find the AI SCG plugin or skill that can help with this task."
+    ]
+  }
+}

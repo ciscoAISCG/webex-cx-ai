@@ -1,0 +1,4 @@
+interface:
+  display_name: "AWS SigV4 MCP Onboarding"
+  short_description: "Connect IAM-protected AWS MCP servers"
+  default_prompt: "Use $aws-sigv4-mcp-onboarding to securely connect an AWS SigV4 MCP server to Codex."

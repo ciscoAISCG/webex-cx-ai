@@ -1,0 +1,85 @@
+{
+  "title": "Update ServiceNow incident request body",
+  "description": "JSON request body for the PUT /incidents/{incident_number} resource. Use one operation: update, resolve, or close. caller_id must be the trusted 32-character sys_user.sys_id for the authenticated caller, and the incident number is supplied separately in the URL path. Do not wrap these fields in a request_body property; this schema describes the raw JSON body. The scripted REST resource applies the operation-specific confirmation and state-transition rules.",
+  "type": "object",
+  "properties": {
+    "caller_id": {
+      "type": "string",
+      "description": "Trusted ServiceNow sys_user.sys_id for the authenticated caller. The incident must belong to this caller. Do not generate or infer this value.",
+      "pattern": "^[0-9a-fA-F]{32}$",
+      "minLength": 32,
+      "maxLength": 32,
+      "example": "46d4c3b0e1a24c1a9b3b2d4e5f6a7b8c"
+    },
+    "operation": {
+      "type": "string",
+      "description": "Operation to perform. Use update to add notes, resolve to move the incident to the configured Resolved state, or close to close an already-resolved incident.",
+      "enum": [
+        "update",
+        "resolve",
+        "close"
+      ],
+      "example": "update"
+    },
+    "update_note": {
+      "type": "string",
+      "description": "Customer-visible incident comment. Required for operation update unless work_notes is supplied. Do not include credentials, secrets, tokens, passwords, or PINs.",
+      "minLength": 2,
+      "maxLength": 2000,
+      "example": "The issue also occurs without the dock."
+    },
+    "work_notes": {
+      "type": "string",
+      "description": "Optional internal ServiceNow work note. Required for operation update unless update_note is supplied. Do not include credentials, secrets, tokens, passwords, PINs, or unnecessary personal information.",
+      "minLength": 2,
+      "maxLength": 4000,
+      "example": "Caller reports the issue occurs with a direct cable connection."
+    },
+    "caller_confirmed": {
+      "type": "boolean",
+      "description": "Must be true for operation update, after the caller confirms the requested incident update.",
+      "enum": [
+        true
+      ]
+    },
+    "resolution_summary": {
+      "type": "string",
+      "description": "Explanation of how the incident was resolved. Required for operations resolve and close.",
+      "minLength": 3,
+      "maxLength": 1000,
+      "example": "Reconnected the monitor cable and confirmed that the display returned."
+    },
+    "resolution_code": {
+      "type": "string",
+      "description": "Optional ServiceNow resolution code for operation resolve. Use a value accepted by the target instance.",
+      "maxLength": 100,
+      "example": "Solved (Work Around)"
+    },
+    "close_code": {
+      "type": "string",
+      "description": "Required ServiceNow close code for operation close. The incident must already be in the configured Resolved state.",
+      "minLength": 1,
+      "maxLength": 100,
+      "example": "Solved (Work Around)"
+    },
+    "caller_confirmed_resolved": {
+      "type": "boolean",
+      "description": "Must be true for operations resolve and close, after the caller confirms that the issue is resolved.",
+      "enum": [
+        true
+      ]
+    },
+    "idempotency_key": {
+      "type": "string",
+      "description": "Optional client-generated retry key, up to 100 characters. X-Idempotency-Key or X-Request-ID headers may be used instead. A matching recorded key returns a duplicate result without applying the operation again.",
+      "minLength": 1,
+      "maxLength": 100,
+      "example": "example-update-0001"
+    }
+  },
+  "required": [
+    "caller_id",
+    "operation"
+  ],
+  "additionalProperties": false
+}

@@ -2,3 +2,4 @@ mkdocs
 mkdocs-material
 mkdocs-glightbox
 pymdown-extensions
+PyYAML>=6.0

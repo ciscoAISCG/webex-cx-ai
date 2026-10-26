@@ -1,0 +1,523 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/webex-ai-agent.schema.json",
+  "title": "Webex AI Agent Configuration",
+  "description": "Schema for Webex AI Agent Studio import/export style JSON. The action entity types are based on the earlier User Identification & Verification sample and support string, number, date, time, phone, regex, and custom_list.",
+  "type": "object",
+  "required": [
+    "bot_type",
+    "configuration",
+    "tools"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "bot_type": {
+      "type": "string",
+      "description": "Agent type as exported by AI Agent Studio.",
+      "examples": [
+        "virtualagent"
+      ]
+    },
+    "configuration": {
+      "$ref": "#/$defs/configuration"
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/tool"
+      }
+    }
+  },
+  "$defs": {
+    "configuration": {
+      "type": "object",
+      "required": [
+        "ai_engine",
+        "default_language",
+        "kb_ids",
+        "llm_agent_description",
+        "llm_model",
+        "logo",
+        "voice_settings",
+        "welcome_message"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "ai_engine": {
+          "type": "string"
+        },
+        "default_language": {
+          "type": "string"
+        },
+        "kb_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "llm_agent_description": {
+          "type": "string"
+        },
+        "llm_model": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "voice_settings": {
+          "$ref": "#/$defs/voiceSettings"
+        },
+        "welcome_message": {
+          "type": "string"
+        }
+      }
+    },
+    "voiceSettings": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "voices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/voice"
+          }
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "required": [
+        "displayName",
+        "language",
+        "locale"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        }
+      }
+    },
+    "tool": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/systemTool"
+        },
+        {
+          "$ref": "#/$defs/actionTool"
+        }
+      ]
+    },
+    "systemTool": {
+      "type": "object",
+      "required": [
+        "capability",
+        "description",
+        "enabled",
+        "fulfillment",
+        "id",
+        "name",
+        "slots",
+        "slots_view",
+        "system_tool"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "capability": {
+          "type": "string",
+          "enum": [
+            "slot_filling"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "fulfillment": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slots": {
+          "type": "array"
+        },
+        "slots_view": {
+          "type": "string"
+        },
+        "system_tool": {
+          "const": true
+        }
+      }
+    },
+    "actionTool": {
+      "type": "object",
+      "required": [
+        "capability",
+        "description",
+        "enabled",
+        "fulfillment",
+        "id",
+        "input_entities",
+        "name",
+        "slots_view",
+        "system_tool"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "bot_id": {
+          "type": "integer"
+        },
+        "capability": {
+          "type": "string",
+          "enum": [
+            "slot_filling_with_fulfillment"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "fulfillment": {
+          "$ref": "#/$defs/fulfillment"
+        },
+        "id": {
+          "type": "string"
+        },
+        "input_entities": {
+          "$ref": "#/$defs/entitiesContainer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slots_view": {
+          "type": "string"
+        },
+        "system_tool": {
+          "const": false
+        }
+      }
+    },
+    "fulfillment": {
+      "type": "object",
+      "required": [
+        "authentication",
+        "flow_name",
+        "output_entities",
+        "output_entities_format",
+        "output_entities_text",
+        "output_entities_view",
+        "service_name",
+        "type"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "authentication": {
+          "$ref": "#/$defs/authentication"
+        },
+        "code": {
+          "type": "string"
+        },
+        "flow_builder": {
+          "type": "string"
+        },
+        "flow_id": {
+          "type": "integer"
+        },
+        "flow_name": {
+          "type": "string"
+        },
+        "output_entities": {
+          "$ref": "#/$defs/entitiesContainer"
+        },
+        "output_entities_format": {
+          "type": "string"
+        },
+        "output_entities_text": {
+          "type": "string"
+        },
+        "output_entities_view": {
+          "type": "string"
+        },
+        "service_id": {
+          "type": "string"
+        },
+        "service_name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "webhook_url": {
+          "type": "string"
+        }
+      }
+    },
+    "authentication": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "service_key": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "entitiesContainer": {
+      "type": "object",
+      "required": [
+        "parameters"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "parameters": {
+          "$ref": "#/$defs/entityParameters"
+        }
+      }
+    },
+    "entityParameters": {
+      "type": "object",
+      "required": [
+        "properties",
+        "required",
+        "type"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/entity"
+          }
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secure": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "const": "object"
+        }
+      }
+    },
+    "entity": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/stringEntity"
+        },
+        {
+          "$ref": "#/$defs/numberEntity"
+        },
+        {
+          "$ref": "#/$defs/dateEntity"
+        },
+        {
+          "$ref": "#/$defs/timeEntity"
+        },
+        {
+          "$ref": "#/$defs/phoneEntity"
+        },
+        {
+          "$ref": "#/$defs/regexEntity"
+        },
+        {
+          "$ref": "#/$defs/customListEntity"
+        }
+      ]
+    },
+    "entityBase": {
+      "type": "object",
+      "required": [
+        "description",
+        "examples",
+        "type"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "stringEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "string"
+            }
+          }
+        }
+      ]
+    },
+    "numberEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "number"
+            }
+          }
+        }
+      ]
+    },
+    "dateEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "format"
+          ],
+          "properties": {
+            "type": {
+              "const": "date"
+            },
+            "format": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "timeEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "format"
+          ],
+          "properties": {
+            "type": {
+              "const": "time"
+            },
+            "format": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "phoneEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "pattern"
+          ],
+          "properties": {
+            "type": {
+              "const": "phone"
+            },
+            "pattern": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "regexEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "pattern"
+          ],
+          "properties": {
+            "type": {
+              "const": "regex"
+            },
+            "pattern": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "customListEntity": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/entityBase"
+        },
+        {
+          "type": "object",
+          "required": [
+            "enum"
+          ],
+          "properties": {
+            "type": {
+              "const": "custom_list"
+            },
+            "enum": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

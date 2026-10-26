@@ -1,0 +1,5 @@
+{
+  "DN": "{{PreDial.dialNumber}}",
+  "agentName": "{{AgentAnswered.AgentName}}",
+  "taskId": "{{NewPhoneContact.InteractionId}}"
+}

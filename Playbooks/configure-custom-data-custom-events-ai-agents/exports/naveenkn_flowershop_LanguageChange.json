@@ -1,0 +1,349 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": {
+      "id": "PRO",
+      "type": "native"
+    },
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are Flower Shop, a friendly voice flower ordering assistant.\n\nYour goal is to help callers choose flowers, place orders, calculate totals accurately, arrange delivery when needed, and offer SMS confirmation after the order is complete.\n\n## Language Behavior\nStart in the currently active language.\nIf the caller changes from the current language to a different language, immediately use `Switch_language`.\nOnly continue in English after the action returns success.\nAfter a successful action result, continue in English and treat English as the active language.\nIf the action fails, continue helping in the current language.\nDo not discuss internal variables, backend logic, or system settings unless the caller explicitly asks.\n\n## Voice Style\nKeep responses short, natural, and easy to understand over voice.\nAsk one question at a time.\nRepeat quantities, addresses, phone numbers, and totals clearly when confirming them.\nDo not give long lists unless the caller asks for options.\n\n## Opening\nStart by asking for the occasion or purpose of the flowers.\n\n## Product Handling\nSupport individual flowers, bouquets, and custom selections.\nDo not assume the caller wants a bouquet.\nIf the caller names a flower with a quantity, treat it as an individual flower order.\nExamples: 3 roses means 3 individual roses. 10 tulips means 10 individual tulips.\nIf the caller says bouquet, arrangement, or names a bouquet product, treat it as a bouquet request.\nIf the caller says only a flower name, interpret it first as an individual flower request.\nIf the request is unclear, ask: Would you like individual flowers, a bouquet, or a custom arrangement?\n\n## Recommendations\nRecommend options based on occasion, preferences, and budget.\nShare descriptions, prices, meanings, seasonal availability, and suitable occasions when helpful.\nHelp the caller build custom selections using available flowers or bouquet products.\n\n## Wholesale Transfer\nIf the caller asks for any number of boxes of roses, immediately execute `Transfer_to_different_department` to transfer to the Wholesale department.\nDo not ask for confirmation before transferring.\n\n## Pricing\nUse only approved flower, bouquet, and delivery pricing.\nFor individual flowers, multiply unit price by quantity.\nFor bouquets, use the bouquet price.\nAdd delivery only if delivery is requested.\nDo not guess prices, fees, or availability.\n\n## Delivery\nIf delivery is requested, collect the full delivery address, repeat it back for confirmation, and add the delivery fee.\n\n## Order Completion\nBefore completing the order, provide a clear itemized summary with item name, quantity, unit price, subtotal, delivery fee if applicable, and final total.\nConfirm the final total before submitting the order.\n\n## SMS Confirmation\nAfter the caller confirms the order, ask whether they want SMS confirmation.\nIf yes, collect or confirm the phone number and use `Send_order_confirmation_sms`.\n\n## Guardrails\nStay focused on flower shopping.\nSpeak like a florist or store assistant, not like a system.\nDo not mention internal systems, data sources, sheets, tables, knowledge bases, or backend logic.\nDo not invent prices, availability, or action results.\nIf something cannot be found, say: I'm sorry, I don't have that available right now. or I'm sorry, I couldn't find that option right now.",
+    "llm_model": "1.0.0",
+    "logo": "",
+    "timezone": "Asia/Kolkata",
+    "transparency_configuration": {
+      "disable_reason": "Test",
+      "enabled": false,
+      "message": "You are now interacting with an AI-powered virtual assistant."
+    },
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": true,
+          "response_settings": {
+            "acknowledgement_frequency": "APPROPRIATE",
+            "acknowledgement_length": "MEDIUM",
+            "acknowledgement_style": "CONVERSATIONAL",
+            "custom_prompt": "",
+            "custom_vocabulary": [],
+            "include_disfluencies": false,
+            "response_style": "DIRECT"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jennifer",
+          "gender": "FEMALE",
+          "language": "English",
+          "locale": "en-US",
+          "speaking_rate": 1
+        }
+      ]
+    },
+    "welcome_message": "Hi there, my name is Blossom, the AI Agent. How can I assist you?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "0e31e74091d77db096a1cd2e7f4e0650",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Use this when the caller speaks in English or clearly switches to spoken English. The fulfillment must set {{Global_Language}} to \"en-US\" and {{Global_VoiceName}} to \"en-US-Jennifer\" before the agent continues in English.\n\nUse this when the caller speaks in Hindi or clearly switches to spoken Hindi. The fulfillment must set {{Global_Language}} to \"hi-IN\" and {{Global_VoiceName}} to \"hi-IN-Kiara\" before the agent continues in hindi.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "none"
+        },
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "status": {
+                "description": "Language switch result such as success or failure.",
+                "examples": [],
+                "type": "string"
+              },
+              "updated_language": {
+                "description": "The language that was applied by the flow.",
+                "examples": [],
+                "type": "string"
+              },
+              "updated_voice_name": {
+                "description": "The voice name that was applied by the flow.",
+                "examples": [],
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_view": "table",
+        "type": "custom_event",
+        "webhook_url": ""
+      },
+      "id": "003f793428f20fa588bbd0981bfe5275",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "Global_Language": {
+              "description": "Use this when the caller asks to change different language or speaks different language",
+              "examples": [],
+              "type": "string"
+            },
+            "Global_VoiceName": {
+              "description": "Use this when the caller asks to change different language or speaks different language",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "Global_Language",
+            "Global_VoiceName"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "Switch_language",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Use this immediately when the customer requests any number of boxes of roses. Transfer the conversation to the Wholesale department without asking for confirmation.",
+      "enabled": false,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "code": "",
+        "flow_id": 0,
+        "flow_name": "<WEBEX_CONNECT_FLOW_NAME_TRANSFER_TO_WHOLESALE>",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "status": {
+                "description": "Transfer result such as success or failure.",
+                "examples": [],
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "",
+        "service_name": "<WEBEX_CONNECT_SERVICE_NAME_PLACEHOLDER>",
+        "type": "flow",
+        "webhook_url": "<WEBEX_CONNECT_WEBHOOK_URL_PLACEHOLDER>"
+      },
+      "id": "35ead699bdaddc82dd7a8ae32b91ec55",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "department_name": {
+              "description": "The destination department for the transfer. Use Wholesale for boxes of roses requests.",
+              "examples": [],
+              "type": "string"
+            },
+            "transfer_reason": {
+              "description": "Short reason for the transfer.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "department_name"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "Transfer_to_different_department",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Use this after the customer confirms the itemized summary and final total. Submit the flower order with the selected items and delivery details when applicable.",
+      "enabled": false,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "code": "",
+        "flow_id": 0,
+        "flow_name": "<WEBEX_CONNECT_FLOW_NAME_CREATE_OR_SUBMIT_ORDER>",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "order_id": {
+                "description": "The created order identifier returned by the fulfillment flow.",
+                "examples": [],
+                "type": "string"
+              },
+              "status": {
+                "description": "Order submission result such as success or failure.",
+                "examples": [],
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "",
+        "service_name": "<WEBEX_CONNECT_SERVICE_NAME_PLACEHOLDER>",
+        "type": "flow",
+        "webhook_url": "<WEBEX_CONNECT_WEBHOOK_URL_PLACEHOLDER>"
+      },
+      "id": "fc9f02605d87fe46d0813760ef01489f",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "delivery_address": {
+              "description": "Confirmed delivery address when delivery is requested.",
+              "examples": [],
+              "type": "string"
+            },
+            "delivery_required": {
+              "description": "Whether delivery is included in the order.",
+              "examples": [],
+              "type": "string"
+            },
+            "final_total": {
+              "description": "The final confirmed order total including delivery when applicable, passed as text such as 450 or 450.00.",
+              "examples": [],
+              "type": "string"
+            },
+            "items": {
+              "description": "A structured or serialized summary of ordered items, quantities, unit prices, and subtotals.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "items",
+            "delivery_required",
+            "final_total"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "Create_or_submit_order",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Use this when the customer wants an SMS confirmation after confirming the final order. Send the order summary and final total to the confirmed phone number.",
+      "enabled": false,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "code": "",
+        "flow_id": 0,
+        "flow_name": "<WEBEX_CONNECT_FLOW_NAME_SEND_ORDER_CONFIRMATION_SMS>",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "message_id": {
+                "description": "Identifier returned by the SMS service when available.",
+                "examples": [],
+                "type": "string"
+              },
+              "status": {
+                "description": "SMS delivery result such as sent or failed.",
+                "examples": [],
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "",
+        "service_name": "<WEBEX_CONNECT_SERVICE_NAME_PLACEHOLDER>",
+        "type": "flow",
+        "webhook_url": "<WEBEX_CONNECT_WEBHOOK_URL_PLACEHOLDER>"
+      },
+      "id": "95e279332d4679488f88e2f1f49875d2",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "final_total": {
+              "description": "The confirmed final total included in the SMS message, passed as text such as 450 or 450.00.",
+              "examples": [],
+              "type": "string"
+            },
+            "order_summary": {
+              "description": "A concise text summary of the confirmed order.",
+              "examples": [],
+              "type": "string"
+            },
+            "phone_number": {
+              "description": "The confirmed mobile number for SMS delivery.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "phone_number",
+            "order_summary",
+            "final_total"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "Send_order_confirmation_sms",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}

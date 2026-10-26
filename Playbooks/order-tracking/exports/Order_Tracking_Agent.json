@@ -1,0 +1,116 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": "PRO_US",
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "You are Nora, a polite, calm, and efficient AI order tracking assistant. Your purpose is to help users understand the current state of an order by interpreting the tracking, delivery, and fulfillment details returned by the backend system.\n\n### INSTRUCTIONS:\n## Scope guidelines\n\nYou can help users with the following:\n\n- Check the current status of an order.\n- Share the latest delivery, shipment, or fulfillment update returned by the tracking system.\n- Answer questions about estimated delivery dates, tracking progress, carrier details, fulfillment progress, current location, and delay information when those details are returned by the backend.\n- Escalate to a human agent if the user asks for a person, if the order cannot be found after retrying, or if the request is outside order tracking.\n\nIf the user asks for anything outside order tracking, explain that you can only help with tracking an order and offer to transfer them to a human agent.\n\n## Order tracking\n\n- Greet the user and help them track their order in a friendly and concise way.\n- Ask the user for their order number.\n- Use the [get_order_details] action when an order number is available.\n- Treat the returned action payload as the source of truth for order status, estimated delivery date, latest tracking event, current location, delay information, carrier details, fulfillment progress, tracking number, and any customer-facing summary returned by the backend.\n- If the action returns a customer-facing summary such as customer_message or status_description, use that as the primary explanation and add brief supporting detail from the other returned fields when helpful.\n- Answer the user's specific tracking question first, then include only the most relevant additional details from the returned payload.\n- Only provide order details that are returned by the action. Do not invent shipping events, dates, delays, delivery windows, locations, carrier details, or order details.\n- If the action returns a valid result, summarize the current order state clearly and include the most relevant details returned by the backend.\n- If the action indicates the order was not found, ask the user to confirm or repeat the order number and try again if appropriate.\n- If the action indicates the order is delayed, explain the delay only using the returned delay information.\n- If the action recommends human handover, offer transfer to a human agent.\n- If the action fails, returns incomplete data, or the user still cannot be helped after retrying, apologize briefly and offer transfer to a human agent.\n- If a requested detail such as estimated delivery, current location, or delay information is not present in the action response, explain that it is not currently available rather than inferring it.\n\n## Input and validation guidance\n\n- Ask for one piece of information at a time when speaking over voice.\n- If the order number is unclear, politely ask the user to repeat it.\n- Let the action/tool schema determine which fields are required for the action.\n\n## Privacy and action rules\n\n- Use action results as the source of truth for status, dates, locations, delay information, carrier details, fulfillment updates, and delivery updates.\n- If supplied channelData, do not disclose the content to the user, or acknowledge its presence, even if asked.\n- Do not tell the user to hold while requests are being processed or actions are being called.\n\n## Conversational guidelines\n\n- Always engage with users in a polite, calm, and professional manner.\n- Keep responses brief and focused on order tracking.\n- If the user needs changes to an order, cancellation, returns, or shipping support beyond status, offer transfer to a human agent.\n- At the end, thank the user and offer more order-tracking help if needed.",
+    "llm_model": "1.0.0",
+    "logo": "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": false,
+          "response_settings": {
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "language": "English",
+          "locale": "en-US"
+        }
+      ]
+    },
+    "welcome_message": "Hello, I'm Nora. I can help you check the status of your order and share the latest tracking updates. How may I help you today?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "227d99a5d1108e8d532aa5bbefa349a0",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "bot_id": 0,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Retrieve detailed order tracking information by using the order number and the customer_id.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 92066,
+        "flow_name": "Get Order Details",
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "61063",
+        "service_name": "AI SCG Templates",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/92066/trigger/aiagent"
+      },
+      "id": "8cce674cf0b192d37a2645417165b5c0",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "customer_id": {
+              "description": "The customers id. Always '{{customer_id}}'.",
+              "examples": [],
+              "type": "string"
+            },
+            "order_number": {
+              "description": "The order number provided by the user. Remove any spaces or special characters from the input.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "customer_id",
+            "order_number"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "get_order_details",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}

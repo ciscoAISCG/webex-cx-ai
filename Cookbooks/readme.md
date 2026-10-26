@@ -37,6 +37,22 @@ This cookbook helps teams:
 
 This cookbook is structured for GitHub and can also be published as a documentation site using MkDocs and GitHub Pages.
 
+The [Playbooks](docs/playbooks.md) card catalog is generated from the README in each `Playbooks/<playbook-name>/` folder. To refresh it locally after adding or updating a playbook, run:
+
+```powershell
+python scripts/generate_playbook_catalog.py
+```
+
+The GitHub Pages workflow runs this generator automatically before building the site whenever `Playbooks/`, `Cookbooks/`, or the generator changes.
+
+The [Plugins](docs/plugins.md), [Skills](docs/skills.md), and [MCP Factory](docs/mcp-factory.md) card catalogs are generated from the package folders under `Plugins/`, `Skills/`, and `MCP Factory/servers/`. To refresh all three catalogs locally, run:
+
+```powershell
+python scripts/generate_resource_catalogs.py
+```
+
+The GitHub Pages workflow refreshes these catalogs automatically whenever one of those source folders or the generator changes.
+
 ## Suggested Next Step
 
 Start with [Getting Started](docs/getting-started.md).

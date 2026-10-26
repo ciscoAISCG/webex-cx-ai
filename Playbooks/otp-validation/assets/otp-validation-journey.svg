@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-labelledby="title desc">
+  <title id="title">OTP validation journey</title>
+  <desc id="desc">The caller gives a phone number and START Code to a Webex Contact Center AI agent. MCP tools validate the phone, START Code, and PIN that serves as the OTP. A separate delivery action sends the PIN to the registered device.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4b6b87"/>
+    </marker>
+    <style>
+      .bg { fill: #f4f8fc; }
+      .card { fill: #fff; stroke: #c9d8e6; stroke-width: 2; }
+      .accent { fill: #e4f4f1; stroke: #83c9bb; stroke-width: 2; }
+      .result { fill: #eaf5e8; stroke: #a6cfa0; stroke-width: 2; }
+      .title { font: 700 23px Arial, sans-serif; fill: #17334d; }
+      .body { font: 16px Arial, sans-serif; fill: #36536c; }
+      .tag { font: 700 13px Arial, sans-serif; fill: #30536e; }
+      .arrow { fill: none; stroke: #4b6b87; stroke-width: 3; marker-end: url(#arrow); }
+      .pill { fill: #edf3f8; stroke: #c9d8e6; stroke-width: 1; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1280" height="430" rx="28"/>
+  <text x="48" y="55" class="tag">ONE-TIME PASSCODE · BACKEND-VERIFIED</text>
+  <rect class="card" x="48" y="120" width="235" height="190" rx="22"/>
+  <text x="76" y="165" class="title">Caller</text>
+  <text x="76" y="205" class="body">Requests a code</text>
+  <text x="76" y="235" class="body">Enters the code</text>
+  <text x="76" y="275" class="tag">VOICE CHANNEL</text>
+  <rect class="accent" x="365" y="120" width="235" height="190" rx="22"/>
+  <text x="393" y="165" class="title">Contact center</text>
+  <text x="393" y="205" class="body">AI agent collects</text>
+  <text x="393" y="235" class="body">and submits codes</text>
+  <text x="393" y="275" class="tag">NO LOCAL DECISION</text>
+  <rect class="card" x="682" y="120" width="255" height="190" rx="22"/>
+  <text x="710" y="165" class="title">MCP tools</text>
+  <text x="710" y="205" class="body">Verify phone, START,</text>
+  <text x="710" y="235" class="body">and PIN / OTP</text>
+  <text x="710" y="275" class="tag">DELIVERY IS EXTERNAL</text>
+  <rect class="result" x="1019" y="120" width="213" height="190" rx="22"/>
+  <text x="1047" y="165" class="title">Registered device</text>
+  <text x="1047" y="205" class="body">Receives the PIN</text>
+  <text x="1047" y="235" class="body">as the OTP</text>
+  <text x="1047" y="275" class="tag">TRUSTED DESTINATION</text>
+  <path class="arrow" d="M283 182 H350"/>
+  <rect class="pill" x="290" y="143" width="54" height="25" rx="12"/>
+  <text x="299" y="161" class="tag">input</text>
+  <path class="arrow" d="M600 182 H667"/>
+  <rect class="pill" x="600" y="143" width="66" height="25" rx="12"/>
+  <text x="607" y="161" class="tag">challenge</text>
+  <path class="arrow" d="M937 182 H1004"/>
+  <rect class="pill" x="942" y="143" width="55" height="25" rx="12"/>
+  <text x="950" y="161" class="tag">deliver</text>
+  <text x="48" y="370" class="body">The PIN is the OTP. A separate delivery action sends it; the sample MCP provides validation tools only.</text>
+</svg>

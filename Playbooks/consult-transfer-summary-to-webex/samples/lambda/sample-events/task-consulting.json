@@ -1,0 +1,29 @@
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/",
+  "rawQueryString": "",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "requestContext": {
+    "accountId": "anonymous",
+    "apiId": "example",
+    "domainName": "example.lambda-url.eu-west-1.on.aws",
+    "domainPrefix": "example",
+    "http": {
+      "method": "POST",
+      "path": "/",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "127.0.0.1",
+      "userAgent": "Webex Contact Center"
+    },
+    "requestId": "example-request-id",
+    "routeKey": "$default",
+    "stage": "$default",
+    "time": "31/Aug/2026:12:00:00 +0000",
+    "timeEpoch": 1788177600000
+  },
+  "body": "{\"id\":\"49670b0c-1fd2-4863-8a9f-68224628d52d\",\"specversion\":\"1.0\",\"type\":\"task:consulting\",\"source\":\"/com/cisco/wxcc/example-subscription\",\"comciscoorgid\":\"9dcb8657-ffad-45a1-9d8c-2f66e3b640f8\",\"datacontenttype\":\"application/json\",\"data\":{\"taskId\":\"888b688e-b74e-4fa6-8260-1e8d0a3523a\",\"origin\":\"+15550100100\",\"destination\":\"+15550100200\",\"direction\":\"INBOUND\",\"channelType\":\"telephony\",\"outboundType\":null,\"queueId\":\"example-queue\",\"createdTime\":1788177600000}}",
+  "isBase64Encoded": false
+}

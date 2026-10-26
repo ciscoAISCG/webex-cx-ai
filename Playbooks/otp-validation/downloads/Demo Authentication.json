@@ -1,0 +1,282 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": {
+      "id": "PRO_2_0_0",
+      "type": "native"
+    },
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "## Customer Session ID\nThe customers Session ID is {{custom_data.customerReference}} use this where SessionId is needed.\n\nThe customers name is   {{custom_data.name}} \nThe customers Email Address is {{custom_data.email }} \nThe customers Phone Number is  {{custom_data.phone}} \n\n## Identity and goal\nYou are the Express Credit Card voice authentication and routing assistant. Help callers with account or card issues reach a Client Management Expert after the required authentication checks. You do not resolve account issues yourself.\n\n## Voice behavior\nSpeak calmly and briefly. In noisy telephone conditions, wait through brief pauses, do not interrupt, and ignore background noise. Ask the caller to repeat or clarify only when the input is unclear. Accept digits spoken individually or entered on the keypad. Normalize spoken number words and keypad input to digits before using an action. Do not infer digits that were not clearly provided.\n\n## Authentication\nVerify the account phone number first by collecting it and calling `Verify Account Phone`. Call this action only after you have captured the number. Continue only if the action returns verified. If it returns no match or an error, transfer to a Client Management Expert using `Agent handover`.\n\nAfter phone verification, collect the START Code separately and call `Validate START Code`. Call this action only after capturing the code. Continue to the PIN only if the action returns valid. If it returns invalid or an error, transfer to an expert.\n\nThen collect the PIN separately and call `Validate PIN Code`. Call this action only after capturing the PIN. Transfer to an expert whether the PIN result is valid or invalid. A valid PIN means authentication succeeded and the caller should be handed to an expert.\n\nNever claim that phone verification or a code is valid unless the corresponding action returns that result. Never invent action results.\n\n## Difficult capture and caller choices\nFor each item, allow two attempts to capture it clearly. After two unsuccessful capture attempts, offer keypad entry. If the caller cannot provide the required input after keypad entry, transfer to an expert. Distinguish unclear or incomplete capture from an action result that says a credential is invalid.\n\nIf the caller does not have the START Code or PIN, transfer to an expert. If the caller requests an agent at any point, stop authentication and transfer.\n\n## Sensitive information\nDo not repeat the START Code or PIN aloud. Do not include either code in `Agent handover`, a summary, or any response. Pass each code only to its corresponding validation action, and follow the fulfillment flow’s secure handling and retention controls.\n\n## Transfer\nUse `Agent handover` for every required transfer. Route to a Client Management Expert and give a concise, non-sensitive reason, such as successful authentication, invalid START Code, invalid PIN, missing code, caller request, phone verification failure, or service error. Never say the transfer succeeded unless the handover action confirms it.\n\nWhen trasferring, inform the user they are being transferred to one of the below categories depending on the reason they have given for calling.\n\nPayments and billing — make a payment, payment not posted, late fee\nCard activation and access — activate a card, reset PIN, trouble signing in\nLost or stolen card — report a missing card or request a replacement\nFraud or suspicious activity — flag an unfamiliar charge or suspected account misuse\nTransactions and disputes — question a charge, refund, or declined transaction\nAccount details — update contact information, ask about balance or credit limit\n",
+    "llm_model": "1.0.0",
+    "logo": "https://studio.aiagent-us1.cisco.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/Los_Angeles",
+    "transparency_configuration": {
+      "enabled": true,
+      "message": "Hi, I’m an AI assistant. This interaction may be recorded and transcribed for troubleshooting purposes."
+    },
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": false,
+          "response_settings": {
+            "acknowledgement_frequency": "APPROPRIATE",
+            "acknowledgement_length": "MEDIUM",
+            "acknowledgement_style": "CONVERSATIONAL",
+            "custom_prompt": "",
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": []
+    },
+    "welcome_message": "Hi there, how can I help you?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "ab1d29d0e6af51bcc7fdebb388ed01e3",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 85931,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "For this demo, always mark the supplied E.164 account phone as verified and return a random UUID verification_id. Generate a five-digit START Code and save it to the session pane with HTML verification details; save the token for subsequent checks.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "apiKey"
+        },
+        "execution_mode": "automatic",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "verified",
+                  "no_match",
+                  "error"
+                ],
+                "title": "Status",
+                "type": "string"
+              },
+              "verification_id": {
+                "title": "Verification Id",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "title": "VerifyAccountPhoneResult",
+            "type": "object"
+          }
+        },
+        "serverId": "baeareibcqm7nm6uqjmqdn7o5y37znyegohmh4wphqgj6lt7rtfmczdegc4",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/d9656f3b483d4d46b49905fdc4912330.png",
+        "server_id": "baeareibcqm7nm6uqjmqdn7o5y37znyegohmh4wphqgj6lt7rtfmczdegc4",
+        "server_name": "Playground Demo MCP ",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://4v53w9jtwb.execute-api.us-east-1.amazonaws.com/Prod/mcp"
+      },
+      "id": "a85d131f77da5a40d69f1b5b0b574dd3",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "account_phone": {
+              "description": "The caller's account phone number normalized to E.164 format, for example +15551234567.",
+              "pattern": "^\\+[1-9][0-9]{1,14}$",
+              "title": "Account Phone",
+              "type": "string"
+            },
+            "sessionId": {
+              "description": "Workspace-pane session ID for this verification.",
+              "title": "Sessionid",
+              "type": "string"
+            }
+          },
+          "required": [
+            "account_phone",
+            "sessionId"
+          ],
+          "title": "verify_account_phoneArguments",
+          "type": "object"
+        }
+      },
+      "name": "verify_account_phone",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 85931,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Compare the caller's digit-only START Code with the workspace-pane value for sessionId. Save Verified or NOT Verified in the pane HTML; after a match, rotate the value to a new five-digit PIN. Requires the verification_id from phone check.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "apiKey"
+        },
+        "execution_mode": "automatic",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "Verified",
+                  "NOT Verified",
+                  "error"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "title": "ValidateCredentialResult",
+            "type": "object"
+          }
+        },
+        "serverId": "baeareibcqm7nm6uqjmqdn7o5y37znyegohmh4wphqgj6lt7rtfmczdegc4",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/d9656f3b483d4d46b49905fdc4912330.png",
+        "server_id": "baeareibcqm7nm6uqjmqdn7o5y37znyegohmh4wphqgj6lt7rtfmczdegc4",
+        "server_name": "Playground Demo MCP ",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://4v53w9jtwb.execute-api.us-east-1.amazonaws.com/Prod/mcp"
+      },
+      "id": "451146d45c0646ad12507f7d9dde2653",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "sessionId": {
+              "description": "Workspace-pane session ID for this verification.",
+              "title": "Sessionid",
+              "type": "string"
+            },
+            "start_code": {
+              "description": "The caller's START Code as digits only; preserved as a string.",
+              "pattern": "^[0-9]+$",
+              "title": "Start Code",
+              "type": "string"
+            },
+            "verification_id": {
+              "description": "Short-lived reference returned by verify_account_phone.",
+              "title": "Verification Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "verification_id",
+            "start_code",
+            "sessionId"
+          ],
+          "title": "validate_start_codeArguments",
+          "type": "object"
+        }
+      },
+      "name": "validate_start_code",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "fulfilment",
+      "bot_id": 85931,
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Compare the caller's digit-only PIN with the workspace-pane value for sessionId. Save Verified or NOT Verified in the pane HTML; after a match, rotate the value to a new five-digit PIN. Requires the verification_id from phone check.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "type": "apiKey"
+        },
+        "execution_mode": "automatic",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "Verified",
+                  "NOT Verified",
+                  "error"
+                ],
+                "title": "Status",
+                "type": "string"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "title": "ValidateCredentialResult",
+            "type": "object"
+          }
+        },
+        "serverId": "baeareibcqm7nm6uqjmqdn7o5y37znyegohmh4wphqgj6lt7rtfmczdegc4",
+        "server_icon_url": "https://developer-applications.webexcontent.com/agenticServers/icons/d9656f3b483d4d46b49905fdc4912330.png",
+        "server_id": "baeareibcqm7nm6uqjmqdn7o5y37znyegohmh4wphqgj6lt7rtfmczdegc4",
+        "server_name": "Playground Demo MCP ",
+        "transport": "streamableHTTP",
+        "type": "mcp",
+        "url": "https://4v53w9jtwb.execute-api.us-east-1.amazonaws.com/Prod/mcp"
+      },
+      "id": "e4832c15cb1621de3e953bc22055b922",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "pin_code": {
+              "description": "The caller's PIN Code as digits only; preserved as a string.",
+              "pattern": "^[0-9]+$",
+              "title": "Pin Code",
+              "type": "string"
+            },
+            "sessionId": {
+              "description": "Workspace-pane session ID for this verification.",
+              "title": "Sessionid",
+              "type": "string"
+            },
+            "verification_id": {
+              "description": "Short-lived reference returned by verify_account_phone.",
+              "title": "Verification Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "verification_id",
+            "pin_code",
+            "sessionId"
+          ],
+          "title": "validate_pin_codeArguments",
+          "type": "object"
+        }
+      },
+      "name": "validate_pin_code",
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}

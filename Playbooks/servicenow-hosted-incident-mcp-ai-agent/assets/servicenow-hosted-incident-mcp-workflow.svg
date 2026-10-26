@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">ServiceNow hosted incident MCP workflow</title>
+  <desc id="desc">Caller enters through Webex Contact Center, the autonomous AI Agent invokes a ServiceNow-hosted MCP server, and the flow disconnects completed calls or queues escalation and errors.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 z" fill="#2563eb"/>
+    </marker>
+    <marker id="greenArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 z" fill="#15803d"/>
+    </marker>
+    <style>
+      .title { font: 700 29px Arial, sans-serif; fill: #172033; }
+      .subtitle { font: 400 15px Arial, sans-serif; fill: #475569; }
+      .label { font: 700 11px Arial, sans-serif; letter-spacing: 1px; fill: #64748b; }
+      .card-title { font: 700 18px Arial, sans-serif; fill: #172033; }
+      .body { font: 400 14px Arial, sans-serif; fill: #334155; }
+      .connector { stroke: #2563eb; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .handoff { stroke: #15803d; stroke-width: 3; fill: none; marker-end: url(#greenArrow); }
+    </style>
+  </defs>
+
+  <rect width="1280" height="560" fill="url(#bg)"/>
+  <text x="640" y="45" text-anchor="middle" class="title">ServiceNow Hosted Incident MCP</text>
+  <text x="640" y="72" text-anchor="middle" class="subtitle">Direct MCP tool calls from a Webex Contact Center autonomous AI Agent</text>
+
+  <g filter="url(#shadow)">
+    <rect x="45" y="170" width="190" height="170" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <circle cx="140" cy="215" r="29" fill="#dbeafe"/>
+    <circle cx="140" cy="207" r="9" fill="#2563eb"/>
+    <path d="M121 234 C126 219,154 219,159 234" fill="#2563eb"/>
+    <text x="140" y="275" text-anchor="middle" class="label">VOICE</text>
+    <text x="140" y="300" text-anchor="middle" class="card-title">Caller</text>
+    <text x="140" y="323" text-anchor="middle" class="body">Incident request</text>
+  </g>
+
+  <path d="M235 255 L275 255" class="connector"/>
+
+  <g filter="url(#shadow)">
+    <rect x="285" y="170" width="190" height="170" rx="16" fill="#eef2ff" stroke="#a5b4fc" stroke-width="2"/>
+    <rect x="335" y="205" width="90" height="48" rx="9" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+    <path d="M355 230 C349 220,351 213,357 208 L366 216 C364 221,367 225,372 230 C377 235,383 237,388 233 L396 242 C389 250,381 250,372 245 C364 241,359 236,355 230 Z" fill="#4f46e5"/>
+    <text x="380" y="275" text-anchor="middle" class="label">WEBEX CC</text>
+    <text x="380" y="300" text-anchor="middle" class="card-title">Call Flow</text>
+    <text x="380" y="323" text-anchor="middle" class="body">Entry and routing</text>
+  </g>
+
+  <path d="M475 255 L515 255" class="connector"/>
+
+  <g filter="url(#shadow)">
+    <rect x="525" y="170" width="190" height="170" rx="16" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="620" cy="215" r="29" fill="#bae6fd"/>
+    <path d="M604 217 C598 209,602 199,611 198 C615 189,628 191,631 201 C641 203,643 215,635 221 C637 231,624 237,618 229 C609 232,601 226,604 217 Z" fill="#0284c7" opacity="0.8"/>
+    <circle cx="611" cy="214" r="3" fill="#ffffff"/><circle cx="623" cy="208" r="3" fill="#ffffff"/><circle cx="632" cy="221" r="3" fill="#ffffff"/>
+    <path d="M611 214 L623 208 L632 221" stroke="#ffffff" stroke-width="2" fill="none"/>
+    <text x="620" y="275" text-anchor="middle" class="label">AUTONOMOUS</text>
+    <text x="620" y="300" text-anchor="middle" class="card-title">AI Agent</text>
+    <text x="620" y="323" text-anchor="middle" class="body">Verify, confirm, act</text>
+  </g>
+
+  <path d="M715 255 L755 255" class="connector"/>
+
+  <g filter="url(#shadow)">
+    <rect x="765" y="170" width="210" height="170" rx="16" fill="#ecfdf5" stroke="#86efac" stroke-width="2"/>
+    <ellipse cx="870" cy="211" rx="40" ry="13" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <path d="M830 211 L830 249 C830 257,910 257,910 249 L910 211" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <ellipse cx="870" cy="249" rx="40" ry="13" fill="#bbf7d0" stroke="#22c55e" stroke-width="2"/>
+    <text x="870" y="280" text-anchor="middle" class="label">STREAMABLE HTTP MCP</text>
+    <text x="870" y="305" text-anchor="middle" class="card-title">ServiceNow MCP</text>
+    <text x="870" y="328" text-anchor="middle" class="body">Five incident tools</text>
+  </g>
+
+  <path d="M975 255 L1015 255" class="connector"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1025" y="170" width="210" height="170" rx="16" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <rect x="1080" y="205" width="100" height="65" rx="8" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+    <path d="M1096 222 H1164 M1096 239 H1164 M1096 256 H1148" stroke="#ea580c" stroke-width="4"/>
+    <text x="1130" y="300" text-anchor="middle" class="label">SYSTEM OF RECORD</text>
+    <text x="1130" y="325" text-anchor="middle" class="card-title">ServiceNow</text>
+  </g>
+
+  <path d="M620 340 C620 405, 450 407, 450 465" class="handoff"/>
+  <path d="M620 340 C620 405, 790 407, 790 465" class="connector"/>
+
+  <g filter="url(#shadow)">
+    <rect x="310" y="465" width="280" height="60" rx="14" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+    <text x="450" y="502" text-anchor="middle" class="card-title">Human handoff queue</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="650" y="465" width="280" height="60" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text x="790" y="502" text-anchor="middle" class="card-title">Disconnect on completion</text>
+  </g>
+</svg>
