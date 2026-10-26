@@ -1,6 +1,6 @@
 ---
 name: webex-ai-agent-creator
-description: Design Webex AI Agent Studio assistants from a user-provided business use case. Use when Codex should ask for an AI agent use case, confirm the agent goal and likely actions, apply the Cisco AI prompt-design best-practice guide, generate production-ready AI agent instructions, recommend actions with parameters, and provide step-by-step Webex AI Agent Studio setup guidance.
+description: Design Webex AI Agent Studio assistants from a user-provided business use case. Ask which Webex AI engine and persona to use, confirm the agent goal and likely actions, apply the Cisco AI prompt-design best-practice guide, generate production-ready AI agent instructions, recommend actions with parameters, and provide step-by-step Webex AI Agent Studio setup guidance.
 ---
 
 # Webex AI Agent Creator
@@ -21,11 +21,27 @@ Read these references before producing the final artifact:
 
 1. Gather the use case.
    - Ask the user what AI agent use case they want to implement.
+   - Ask which engine to use, offering exactly these choices: **Webex AI Pro 1.0** and **Webex AI Pro 2.0**.
+   - Ask the user to choose one persona and apply its description when shaping the generated instructions' tone and interaction style:
+     - **Creative explorer** — Be imaginative and generative. Offer fresh ideas, useful alternatives, and unexpected connections, while clearly labeling speculation and respecting the user's constraints.
+     - **Evidence-bound expert** — Base factual answers on the provided knowledge and reliable sources available to you. If the answer is missing or uncertain, say so plainly; do not invent facts to fill gaps.
+     - **Strict rule-follower** — Apply the stated policies and procedures consistently. Do not make exceptions or promise actions that the rules do not allow; briefly explain the relevant constraint and offer an allowed next step.
+     - **Warm companion** — Be kind, attentive, and reassuring without sounding overly familiar. Acknowledge the user's concern before responding, and avoid claiming feelings or personal experiences of your own.
+     - **Concise operator** — Be brief and action-focused. Give the answer or next step first, include only details needed to act, and ask a short clarifying question when essential information is missing.
+     - **Patient teacher** — Explain unfamiliar ideas in small, clear steps, using plain language and a simple example when useful. Adjust the level of detail to the user's apparent familiarity, and invite questions without testing or lecturing them.
+     - **Skeptical reviewer** — Examine claims and plans carefully. Point out unsupported assumptions, contradictions, missing information, and practical risks, then suggest a constructive way to address them.
+     - **Proactive guide** — Help the user reach their goal, not just answer the latest sentence. Suggest a relevant next step when it would save effort, but don't overwhelm the user with options or take actions they haven't requested.
+     - **Playful conversationalist** — Use a relaxed, lively tone and occasional light humor when it suits the conversation. Keep humor brief and kind; switch to a calm, direct tone for serious, sensitive, or urgent topics.
+     - **Calm professional** — Be composed, respectful, and clear. Use neutral language, especially when the user is frustrated; focus on facts and practical next steps without becoming cold or defensive.
    - Ask only for missing essentials: target users, channel, business outcome, source systems, required authentication, escalation path, and success criteria.
    - Keep questions concise and grouped.
+   - Do not select a default engine. If the user has not chosen one, ask before finalizing the agent design.
+   - If the user has not chosen a persona, ask before finalizing the generated instructions. Do not infer a persona.
 
 2. Confirm the use case and likely actions.
    - Restate the use case in plain language.
+   - Include the selected engine in the confirmation and ask the user to correct it if needed.
+   - Include the selected persona in the confirmation and ask the user to correct it if needed.
    - Identify the likely actions the agent needs, such as checking ticket status, booking appointments, fetching account details, creating cases, updating records, transferring to an agent, or sending confirmations.
    - Ask the user to confirm or correct the use case and action list before finalizing instructions.
 
@@ -44,6 +60,11 @@ Read these references before producing the final artifact:
 
 4. Generate AI agent instructions.
    - Apply https://github.com/ciscoAISCG/webex-cx-ai/blob/main/Cookbooks/docs/prompt-design.md
+   - Apply the selected persona's description as the instruction set's personality style alongside the engine-specific optimization, prompt-design guidance, and all other skill requirements. Preserve the use case's factual, safety, policy, and action constraints; persona style must not override them.
+   - Optimize the instructions for the model paired with the user's confirmed engine:
+     - **Webex AI Pro 1.0** → **Chat GPT 4.1**.
+     - **Webex AI Pro 2.0** → **Chat GPT 5.4**.
+   - Use only the matching model as the prompt-optimization target. Treat this pairing as an instruction-writing target; do not imply that it changes or configures the runtime model.
    - Use natural-language instructions with clear sections, not brittle code-like control flow.
    - State the agent identity, goal, scope, constraints, conversational behavior, required action usage, escalation behavior, and output style.
    - Include a short goal summary that explains the business purpose and user benefit in one or two sentences.
@@ -79,6 +100,7 @@ Hello, you have reached the clinic booking assistant. I can help you book an app
 6. Generate an import-ready JSON file when requested.
    - Use the structure in `references/ai-agent-studio-json-import.md`.
    - Use `references/webex-ai-agent.schema.json` as the structural source of truth for the JSON shape and supported action entity types.
+   - Use the engine confirmed by the user. If the selected display name must be converted to a platform-specific `ai_engine` identifier and that mapping is not confirmed by the available references or the user, ask for the identifier rather than guessing.
    - Include `bot_type`, `configuration`, and `tools` top-level keys.
    - Put the agent goal and generated agent instructions in `configuration.llm_agent_description`.
    - Format `configuration.llm_agent_description` as: agent goal text, then a blank line, then the literal separator `### INSTRUCTIONS:`, then the detailed AI agent instructions.
