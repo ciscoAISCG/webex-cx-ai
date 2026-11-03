@@ -1,6 +1,6 @@
 {
   "name": "webex-ai-agent-creator",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Design Webex AI Agent Studio assistants from business use cases, including production-ready instructions, action definitions, optional complete MCP tool contracts, and setup guidance.",
   "author": {
     "name": "Cisco AI SCG"
