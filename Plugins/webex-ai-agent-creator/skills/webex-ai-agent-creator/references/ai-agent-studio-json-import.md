@@ -18,7 +18,10 @@ Use these common fields:
 
 ```json
 {
-  "ai_engine": "PRO_US",
+  "ai_engine": {
+    "id": "<ENGINE_ID_FOR_SELECTED_ENGINE>",
+    "type": "native"
+  },
   "default_language": "en-US",
   "kb_ids": [],
   "llm_agent_description": "<Agent Goal>\n\n### INSTRUCTIONS:\n<Detailed AI Agent Instructions>",
@@ -29,6 +32,26 @@ Use these common fields:
   "welcome_message": "<Suggested Greeting>"
 }
 ```
+
+For **Webex AI Pro 1.0**, set `configuration.ai_engine` to this exact object:
+
+```json
+{
+  "id": "PRO",
+  "type": "native"
+}
+```
+
+For **Webex AI Pro 2.0**, set `configuration.ai_engine` to this exact object:
+
+```json
+{
+  "id": "PRO_2_0_0",
+  "type": "native"
+}
+```
+
+Do not serialize either mapping as a string. For other engines, use an identifier and type confirmed by the user or an authoritative reference.
 
 For voice agents, include voice settings similar to the samples, but keep the selected voice as a placeholder because the user must choose or confirm the available voice in their tenant. A safe placeholder structure is:
 

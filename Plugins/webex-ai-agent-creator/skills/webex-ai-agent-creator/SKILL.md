@@ -100,7 +100,7 @@ Hello, you have reached the clinic booking assistant. I can help you book an app
 6. Generate an import-ready JSON file when requested.
    - Use the structure in `references/ai-agent-studio-json-import.md`.
    - Use `references/webex-ai-agent.schema.json` as the structural source of truth for the JSON shape and supported action entity types.
-   - Use the engine confirmed by the user. If the selected display name must be converted to a platform-specific `ai_engine` identifier and that mapping is not confirmed by the available references or the user, ask for the identifier rather than guessing.
+   - Use the engine confirmed by the user. For **Webex AI Pro 1.0**, set `configuration.ai_engine` to `{ "id": "PRO", "type": "native" }`. For **Webex AI Pro 2.0**, set it to `{ "id": "PRO_2_0_0", "type": "native" }`. For any other engine, use a mapping confirmed by the available references or the user; do not guess.
    - Include `bot_type`, `configuration`, and `tools` top-level keys.
    - Put the agent goal and generated agent instructions in `configuration.llm_agent_description`.
    - Format `configuration.llm_agent_description` as: agent goal text, then a blank line, then the literal separator `### INSTRUCTIONS:`, then the detailed AI agent instructions.
@@ -121,7 +121,11 @@ Hello, you have reached the clinic booking assistant. I can help you book an app
    - Fix any schema mismatches before finalizing the artifact.
    - Report that the JSON was validated against the schema in the final response.
 
-8. Generate MCP tool definitions when requested.
+8. Offer an exportable JSON file at the end of every completed use case.
+   - After presenting the completed use case, always ask whether the user wants an exportable Webex AI Agent Studio JSON file, unless they already explicitly requested one.
+   - Treat the offer as the final prompt in the completed-use-case response. If the user says yes, create and validate the JSON artifact using steps 6 and 7; if they say no, finish without creating the file.
+
+9. Generate MCP tool definitions when requested.
    - Keep MCP tool definitions separate from Webex AI Agent Studio JSON. They are different contracts and must not be presented as interchangeable formats.
    - Produce a complete MCP Tool object for each requested action, including both `inputSchema` and `outputSchema` with definitions for every input and output field and nested entity.
    - Follow `references/mcp-tool-definitions.md` for schema completeness, name alignment, unknown details, and output formatting.

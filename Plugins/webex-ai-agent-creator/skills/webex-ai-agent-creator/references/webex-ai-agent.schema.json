@@ -44,7 +44,45 @@
       "additionalProperties": true,
       "properties": {
         "ai_engine": {
-          "type": "string"
+          "description": "Engine mapping. Webex AI Pro 1.0 uses {id: PRO, type: native}; Webex AI Pro 2.0 uses {id: PRO_2_0_0, type: native}. String values remain accepted for legacy exports.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "id",
+                "type"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "examples": [
+                    "PRO",
+                    "PRO_2_0_0"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "examples": [
+                    "native"
+                  ]
+                }
+              },
+              "examples": [
+                {
+                  "id": "PRO_2_0_0",
+                  "type": "native"
+                },
+                {
+                  "id": "PRO",
+                  "type": "native"
+                }
+              ]
+            }
+          ]
         },
         "default_language": {
           "type": "string"
