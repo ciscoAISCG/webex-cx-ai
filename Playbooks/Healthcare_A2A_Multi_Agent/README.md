@@ -44,8 +44,6 @@ flowchart LR
 - [ ] All three AI agents are imported and published.
 - [ ] `Authenticate_Patient`, `Validate_Referral_Insurance`, `Find_Appointment_Slots`, and `Manage_Appointment` point to tenant-local fulfillment flows.
 - [ ] The voice flow references the three imported agents.
-- [ ] The default branch of `Route_Agent_Transfer` reaches the human-support queue.
-- [ ] `identityVerified`, `patientReference`, `specialty`, and `validationReference` are passed to the correct downstream agent.
 - [ ] Sensitive fields and transcript retention have been reviewed against the deployment's privacy requirements.
 
 ## Journey Rules
@@ -70,13 +68,9 @@ An explicit request for a person, failed authentication, an unsupported request,
 
 ## Required Flow Review
 
-The supplied exports are reference assets and retain tenant-bound IDs. Complete these checks after import:
+The supplied exports are reference assets and retain tenant-bound IDs. Complete this check after import:
 
-The edited flow now parses `identityVerified` and `patientReference` from both Concierge transfer actions, so the direct cancellation path is covered.
-
-1. **Scheduling return metadata:** `Parse_Scheduling_Transfer` currently reads values from `actions.Transfer_To_Scheduling`, while the Scheduling agent emits `Transfer_To_Validation`. Update those JSONPath expressions to use `actions.Transfer_To_Validation`.
-2. **Sensitive context:** `patientReference` is not marked secure in the current voice-flow variable or several tool schemas. Apply the target organization's secure-variable policy before production use.
-3. **Tenant references:** Rebind AI Agent IDs, queue IDs, Webex Connect flows, service references, webhook endpoints, and credentials. Do not assume imported IDs are portable.
+1. **Tenant references:** Rebind AI Agent IDs, queue IDs, Webex Connect flows, service references, webhook endpoints, and credentials. Do not assume imported IDs are portable.
 
 ## Test Script
 
@@ -166,12 +160,4 @@ See [Agent And Tool Configuration Reference](docs/agent-configuration-reference.
 - Validate emergency-language handling with the healthcare organization's approved policy; this reference does not provide clinical or emergency advice.
 
 </details>
-
-## Validation Performed
-
-- Parsed all four JSON files under `assets/` successfully with `jq`.
-- Inspected all AI Agent and Flow Designer exports with the SCG playbook inspector.
-- Confirmed that all four referenced Webex Connect workflow exports are present.
-- Validated the SVG as well-formed XML.
-- Preserved the importable JSON exports without modification.
 
