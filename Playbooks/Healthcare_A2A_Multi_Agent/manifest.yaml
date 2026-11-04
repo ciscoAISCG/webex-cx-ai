@@ -1,0 +1,57 @@
+schema_version: 2
+id: Healthcare_A2A_Multi_Agent
+date_added: "2026-11-04"
+title: "Healthcare A2A Multi-Agent Voice Orchestration"
+summary: "Authenticate patients, validate referral and insurance readiness, and demonstrate appointment booking across three autonomous voice agents."
+
+classification:
+  verticals:
+    - health-care
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - authentication
+    - scheduling
+    - routing-transfer
+  integrations:
+    - webhook
+
+complexity: advanced
+last_validated: "2026-11-04"
+
+ownership:
+  owner: shrishailsd
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - healthcare
+  - multi-agent
+  - referral-validation
+  - insurance-validation
+  - appointment-booking
+  - webex-connect
+
+artifacts:
+  diagrams:
+    - assets/healthcare-a2a-multi-agent-flow.svg
+  exports:
+    - assets/HealthCare_Concierge.json
+    - assets/HealthCare_Insurance_Validation.json
+    - assets/HealthCare_Scheduling_v2.json
+    - assets/Healthcare_A2A_Multi_Agent_voice_Flow.json
+    - assets/98941.workflow
+    - assets/99610.workflow
+    - assets/98942.workflow
+    - assets/98943.workflow
+  documentation:
+    - docs/agent-configuration-reference.md
+
+validation:
+  environment: "Static package review only; no live tenant import, fulfillment execution, or voice call was performed."
+  expected_result: "A verified and validation-cleared caller reaches Scheduling and books a returned slot after confirmation. Cancellation and rescheduling remain demo-only spoken outcomes."
+
+security:
+  tenant_identifiers_removed: false
+  notes: "Tenant-specific references require rebinding. The contributor approved the original exports for public release; opaque workflow contents were not independently inspected."
