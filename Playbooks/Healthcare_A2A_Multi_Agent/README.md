@@ -44,8 +44,6 @@ flowchart LR
 - [ ] All three AI agents are imported and published.
 - [ ] `Authenticate_Patient`, `Validate_Referral_Insurance`, `Find_Appointment_Slots`, and `Manage_Appointment` point to tenant-local fulfillment flows.
 - [ ] The voice flow references the three imported agents.
-- [ ] The default branch of `Route_Agent_Transfer` reaches the human-support queue.
-- [ ] `identityVerified`, `patientReference`, `specialty`, and `validationReference` are passed to the correct downstream agent.
 - [ ] Sensitive fields and transcript retention have been reviewed against the deployment's privacy requirements.
 
 ## Journey Rules
