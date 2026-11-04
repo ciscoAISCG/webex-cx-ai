@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title description">
+  <title id="title">Healthcare A2A multi-agent architecture</title>
+  <desc id="description">A caller enters a Webex Contact Center voice flow, authenticates with a Concierge agent, continues through Validation and Scheduling agents, and can be routed to human support. Each agent uses its own fulfillment service.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#31546f"/>
+    </marker>
+    <marker id="arrow-soft" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#6b8294"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#17324d" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .title { font: 700 30px Inter, Arial, sans-serif; fill: #17324d; letter-spacing: 0; }
+      .subtitle { font: 400 16px Inter, Arial, sans-serif; fill: #52697b; letter-spacing: 0; }
+      .card-title { font: 700 20px Inter, Arial, sans-serif; fill: #17324d; letter-spacing: 0; }
+      .card-copy { font: 400 14px Inter, Arial, sans-serif; fill: #40586b; letter-spacing: 0; }
+      .label { font: 600 13px Inter, Arial, sans-serif; fill: #31546f; letter-spacing: 0; }
+      .small { font: 400 13px Inter, Arial, sans-serif; fill: #52697b; letter-spacing: 0; }
+      .lane { font: 600 15px Inter, Arial, sans-serif; fill: #31546f; letter-spacing: 0; }
+      .line { fill: none; stroke: #31546f; stroke-width: 3; marker-end: url(#arrow); }
+      .soft-line { fill: none; stroke: #6b8294; stroke-width: 2.5; stroke-dasharray: 7 7; marker-end: url(#arrow-soft); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="760" fill="#f7fafc"/>
+  <text x="50" y="55" class="title">Healthcare A2A Multi-Agent Voice Journey</text>
+  <text x="50" y="84" class="subtitle">Authenticate once, validate readiness, and carry trusted context into scheduling.</text>
+
+  <rect x="50" y="220" width="190" height="120" rx="8" fill="#ffffff" stroke="#bfd0dc" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="98" cy="266" r="20" fill="#dcecff"/>
+  <path d="M82 314c2-20 30-20 32 0" fill="#dcecff" stroke="#31546f" stroke-width="2"/>
+  <circle cx="98" cy="263" r="10" fill="none" stroke="#31546f" stroke-width="2"/>
+  <text x="130" y="260" class="card-title">Caller</text>
+  <text x="130" y="286" class="card-copy">Voice request</text>
+  <text x="130" y="307" class="card-copy">and consent</text>
+
+  <rect x="290" y="180" width="250" height="200" rx="8" fill="#e8f2ff" stroke="#5d91bd" stroke-width="2" filter="url(#shadow)"/>
+  <text x="315" y="222" class="card-title">WXCC Voice Flow</text>
+  <text x="315" y="254" class="card-copy">Invokes each AI agent</text>
+  <text x="315" y="278" class="card-copy">Parses transfer metadata</text>
+  <text x="315" y="302" class="card-copy">Routes by escalation trigger</text>
+  <text x="315" y="326" class="card-copy">Owns queue and disconnect</text>
+  <rect x="315" y="342" width="172" height="24" rx="8" fill="#ffffff" opacity="0.9"/>
+  <text x="328" y="359" class="small">Trusted context carrier</text>
+
+  <rect x="620" y="140" width="270" height="210" rx="8" fill="#e7f8f5" stroke="#4c9d91" stroke-width="2" filter="url(#shadow)"/>
+  <text x="646" y="181" class="card-title">1. Concierge</text>
+  <text x="646" y="214" class="card-copy">Collects patient ID, DOB,</text>
+  <text x="646" y="237" class="card-copy">and postal code</text>
+  <text x="646" y="269" class="card-copy">Authenticates the caller</text>
+  <text x="646" y="301" class="card-copy">Selects the next journey</text>
+  <rect x="646" y="316" width="205" height="22" rx="8" fill="#ffffff" opacity="0.9"/>
+  <text x="658" y="332" class="small">identityVerified + patientReference</text>
+
+  <rect x="960" y="140" width="270" height="210" rx="8" fill="#fff5df" stroke="#d49a33" stroke-width="2" filter="url(#shadow)"/>
+  <text x="986" y="181" class="card-title">2. Validation</text>
+  <text x="986" y="214" class="card-copy">Collects member number</text>
+  <text x="986" y="237" class="card-copy">and requested specialty</text>
+  <text x="986" y="269" class="card-copy">Checks referral, eligibility,</text>
+  <text x="986" y="292" class="card-copy">network, and authorization</text>
+  <rect x="986" y="316" width="202" height="22" rx="8" fill="#ffffff" opacity="0.9"/>
+  <text x="999" y="332" class="small">specialty + validationReference</text>
+
+  <rect x="1310" y="140" width="240" height="210" rx="8" fill="#edf8e9" stroke="#6ca55b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1336" y="181" class="card-title">3. Scheduling</text>
+  <text x="1336" y="214" class="card-copy">Finds available slots</text>
+  <text x="1336" y="237" class="card-copy">Confirms caller choice</text>
+  <text x="1336" y="269" class="card-copy">Books a new appointment</text>
+  <text x="1336" y="301" class="card-copy">Demo cancel / reschedule</text>
+
+  <path d="M240 280 H290" class="line"/>
+  <path d="M540 245 H620" class="line"/>
+  <text x="552" y="229" class="label">start</text>
+
+  <path d="M890 225 H960" class="line"/>
+  <rect x="872" y="186" width="108" height="25" rx="8" fill="#ffffff" stroke="#c7d5df"/>
+  <text x="888" y="203" class="label">validate first</text>
+
+  <path d="M1230 225 H1310" class="line"/>
+  <rect x="1218" y="186" width="106" height="25" rx="8" fill="#ffffff" stroke="#c7d5df"/>
+  <text x="1234" y="203" class="label">cleared caller</text>
+
+  <path d="M890 170 C1030 78 1240 78 1310 170" class="line"/>
+  <rect x="1045" y="92" width="161" height="27" rx="8" fill="#ffffff" stroke="#c7d5df"/>
+  <text x="1061" y="111" class="label">cancel: direct route</text>
+
+  <path d="M1310 326 C1260 408 1190 408 1135 350" class="line"/>
+  <rect x="1158" y="380" width="190" height="27" rx="8" fill="#ffffff" stroke="#c7d5df"/>
+  <text x="1173" y="399" class="label">referral / insurance question</text>
+
+  <rect x="290" y="500" width="250" height="130" rx="8" fill="#fcecef" stroke="#c56b7b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="315" y="542" class="card-title">Human Support</text>
+  <text x="315" y="574" class="card-copy">Default route, requested handoff,</text>
+  <text x="315" y="597" class="card-copy">or unsupported / failed journey</text>
+  <path d="M415 380 V500" class="line"/>
+
+  <rect x="620" y="500" width="270" height="130" rx="8" fill="#ffffff" stroke="#82bdb4" stroke-width="2"/>
+  <text x="646" y="541" class="card-title">Authentication</text>
+  <text x="646" y="573" class="card-copy">Webex Connect fulfillment</text>
+  <text x="646" y="597" class="card-copy">Returns trusted patient reference</text>
+  <path d="M755 350 V500" class="soft-line"/>
+
+  <rect x="960" y="500" width="270" height="130" rx="8" fill="#ffffff" stroke="#d6ad60" stroke-width="2"/>
+  <text x="986" y="541" class="card-title">Referral / Insurance</text>
+  <text x="986" y="573" class="card-copy">Webex Connect fulfillment</text>
+  <text x="986" y="597" class="card-copy">Returns validation decision</text>
+  <path d="M1095 350 V500" class="soft-line"/>
+
+  <rect x="1310" y="500" width="240" height="130" rx="8" fill="#ffffff" stroke="#88b77b" stroke-width="2"/>
+  <text x="1336" y="541" class="card-title">Scheduling Backend</text>
+  <text x="1336" y="573" class="card-copy">Slot lookup and booking</text>
+  <text x="1336" y="597" class="card-copy">fulfillment paths</text>
+  <path d="M1430 350 V500" class="soft-line"/>
+
+  <rect x="290" y="675" width="1260" height="48" rx="8" fill="#eaf0f5"/>
+  <text x="920" y="705" text-anchor="middle" class="lane">Custom transfer metadata returns to the voice flow, which selects the next AI agent or human queue.</text>
+</svg>

@@ -1,0 +1,283 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": {
+      "id": "PRO_US_2_0",
+      "type": "native"
+    },
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "**Goal**: The Healthcare Concierge Agent verifies patient identity and routes each caller to the correct specialist AI agent while minimizing repeated questions and protecting sensitive information.\n### Role and scope\n\nYou are the healthcare concierge. Authenticate the caller, identify whether the request concerns referral or insurance validation or appointment scheduling, and route the verified caller to the correct specialist. Cancellation is the only request that can go directly to Scheduling without referral and insurance validation.\n\n### Authentication\n\n- Collect patient ID, date of birth, and postal code, then call Authenticate_Patient.\n- Continue only when Authenticate_Patient returns identityVerified as true.\n- Retain the patientReference returned by Authenticate_Patient for downstream business actions.\n- After two failed attempts, or when the caller cannot complete authentication, use Agent handover.\n\n### Routing\n\n- Use Transfer_To_Validation for referral status, insurance eligibility, network status, prior authorization questions, booking, rescheduling, or finding an appointment.\n- Use Transfer_To_Scheduling only when the caller clearly requests cancellation of an existing appointment.\n- For a cancellation transfer, pass the identityVerified and patientReference values returned by Authenticate_Patient. The receiving agent uses the conversation context to recognize the cancellation request.\n- Validation is mandatory before Scheduling for every request except cancellation. Never use the direct Scheduling transfer for booking, rescheduling, availability, referral, insurance, or prior authorization requests.\n- Pass the identityVerified and patientReference values returned by Authenticate_Patient to Transfer_To_Validation.\n- If the request is unclear, ask one concise clarifying question. If it remains unclear, use Agent handover.\n\n### Guardrails\n\n- Do not provide clinical advice.\n- Do not repeat sensitive authentication values aloud unless the caller asks to correct them.\n- Do not reveal which value caused authentication to fail.\n- Do not invent identity, referral, insurance, or scheduling results.\n- If the caller asks for a person or requests medical guidance, use Agent handover.\n- If the caller reports an emergency, advise the caller to contact local emergency services and use Agent handover.\n\n### Style\n\n- Keep responses calm, brief, and patient-friendly.",
+    "llm_model": "1.0.0",
+    "logo": "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/New_York",
+    "transparency_configuration": {
+      "disable_reason": "32",
+      "enabled": false,
+      "message": "You are now interacting with an AI-powered virtual assistant."
+    },
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": true,
+          "response_settings": {
+            "acknowledgement_frequency": "APPROPRIATE",
+            "acknowledgement_length": "MEDIUM",
+            "acknowledgement_style": "CONVERSATIONAL",
+            "custom_prompt": "",
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "gender": "FEMALE",
+          "language": "English",
+          "locale": "en-US",
+          "speaking_rate": 1
+        }
+      ]
+    },
+    "welcome_message": "Welcome to the healthcare access line. I can verify your identity and connect you with referral, insurance, or appointment support. How may I help you today?"
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "f901bac9944f9f53876b306f9f5feb83",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Verify the caller using patient ID, date of birth, and postal code.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 98941,
+        "flow_name": "healthCare_authenticate",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "identityVerified": {
+                "description": "Whether identity verification succeeded.",
+                "enum": [
+                  "true",
+                  "false"
+                ],
+                "examples": [],
+                "type": "custom_list"
+              },
+              "patientReference": {
+                "description": "Opaque patient reference returned after successful verification.",
+                "examples": [],
+                "type": "string"
+              }
+            },
+            "required": [
+              "identityVerified"
+            ],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "63878",
+        "service_name": "My First Service",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/98941/trigger/aiagent"
+      },
+      "id": "ee1e8ff71eebed2dbc82a62b25b9c47a",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "dateOfBirth": {
+              "description": "Caller date of birth normalized for the authentication service.",
+              "examples": [],
+              "format": "YYYY-mm-dd",
+              "type": "date"
+            },
+            "patientId": {
+              "description": "Patient identifier supplied by the caller.",
+              "examples": [],
+              "type": "string"
+            },
+            "postalCode": {
+              "description": "U.S. postal code associated with the patient record.",
+              "examples": [],
+              "pattern": "^[0-9]{5}(-[0-9]{4})?$",
+              "type": "regex"
+            }
+          },
+          "required": [
+            "patientId",
+            "dateOfBirth",
+            "postalCode"
+          ],
+          "secure": [
+            "patientId",
+            "dateOfBirth",
+            "postalCode"
+          ],
+          "type": "object"
+        }
+      },
+      "name": "Authenticate_Patient",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "transfer",
+      "capability": "custom_transfer",
+      "description": "Transfer the verified caller to the Referral and Insurance Validation Agent.",
+      "enabled": true,
+      "exit_details": {
+        "announce_transfer": false,
+        "type": "custom_transfer"
+      },
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "exit_details": {
+          "announce_transfer": false,
+          "type": "custom_transfer"
+        },
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table"
+      },
+      "id": "14a2d5ed345a592e04a5a6f343f9ec2d",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "identityVerified": {
+              "description": "Whether patient identity was successfully verified by the Concierge Agent.",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "examples": [],
+              "type": "custom_list"
+            },
+            "patientReference": {
+              "description": "Patient reference returned by Authenticate_Patient. Pass that tool output to the transfer action; do not ask the caller for it.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "identityVerified",
+            "patientReference"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "Transfer_To_Validation",
+      "skip_greetings_match_voice": true,
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "transfer",
+      "bot_id": 87562,
+      "capability": "custom_transfer",
+      "description": "Transfer an authenticated cancellation request directly to the Scheduling Agent.",
+      "enabled": true,
+      "exit_details": {
+        "announce_transfer": false,
+        "type": "custom_transfer"
+      },
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "exit_details": {
+          "announce_transfer": false,
+          "type": "custom_transfer"
+        },
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table"
+      },
+      "id": "c0d766db8481f840fac080d17dbee8c6",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "identityVerified": {
+              "description": "Whether patient identity was successfully verified by the Concierge Agent.",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "examples": [],
+              "type": "custom_list"
+            },
+            "patientReference": {
+              "description": "Patient reference returned by Authenticate_Patient. Pass that tool output to the transfer action; do not ask the caller for it.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "patientReference",
+            "identityVerified"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "Transfer_To_Scheduling",
+      "skip_greetings_match_voice": false,
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}

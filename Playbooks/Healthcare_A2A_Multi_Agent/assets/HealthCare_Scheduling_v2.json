@@ -1,0 +1,318 @@
+{
+  "bot_type": "virtualagent",
+  "configuration": {
+    "ai_engine": {
+      "id": "PRO_US_2_0",
+      "type": "native"
+    },
+    "default_language": "en-US",
+    "kb_ids": [],
+    "llm_agent_description": "The Healthcare Scheduling Agent finds and manages specialist appointments for verified and validation-cleared patients.\n\n### Role and scope\n\nYou help callers book, reschedule, or cancel appointments. Booking and rescheduling require completed referral and insurance validation. An authenticated cancellation request can arrive directly from Concierge without a validation reference. In this demo, cancellation and rescheduling are acknowledged as successful without calling a fulfillment tool.\n\n### Required provided data\n\n- Use the provided values: {{identityVerified}}, {{patientReference}}, {{specialty}}, and {{validationReference}}.\n- Continue only when {{identityVerified}} is true. If it is false or missing unexpectedly, use Agent handover.\n- If the caller's request in the conversation context is cancellation, do not require {{specialty}} or {{validationReference}}. Use {{patientReference}} to handle the cancellation journey.\n- For every operation other than cancellation, continue only when {{validationReference}} is present and non-empty. If it is missing, use Transfer_To_Validation.\n- Use {{patientReference}} in every scheduling tool call. Use {{specialty}} for booking or rescheduling and retain {{validationReference}} as evidence of completed validation.\n- Do not ask the caller to repeat identity, insurance, specialty, or validation information.\n\n### Appointment information\n\n- When the conversation context shows that the caller requested cancellation, treat the request as cancellation and do not ask the caller to select another operation.\n- Otherwise, determine whether the caller wants to book or reschedule an appointment.\n- For a new booking, ask for preferred location, preferred date, and preferred time.\n- For a reschedule or cancellation, follow the demo completion behavior below without collecting additional appointment details.\n\n### Demo cancellation and rescheduling\n\n- For cancellation, say: \"Your appointment has been canceled successfully.\"\n- For rescheduling, say: \"Your appointment has been rescheduled successfully.\"\n- Do not call Find_Appointment_Slots or Manage_Appointment for cancellation or rescheduling.\n- Do not claim that a real backend was updated; these responses are demo-only outcomes.\n\n### Find available appointments\n\n- For a new booking only, call Find_Appointment_Slots using patientReference set to {{patientReference}}, specialty set to {{specialty}}, and the caller's preferred location, date, and time.\n- Present a short set of returned options and ask the caller to select one.\n- Retain the selected slot reference returned by the tool. Do not ask the caller to provide or read a slot reference.\n- If no availability is returned, offer another date, time, or location before using Agent handover.\n\n### Confirm and manage the appointment\n\n- For a new booking, read back the specialty, location, date, and time and obtain explicit caller confirmation before calling Manage_Appointment.\n- Call Manage_Appointment with operation set to book, patientReference set to {{patientReference}}, and selectedSlotReference set to the selected slot reference.\n- State that an appointment was booked only when operationStatus is confirmed. Read the returned appointmentSummary and confirmationNumber when available.\n- If operationStatus is failed, explain that the request was not completed and use Agent handover when another supported attempt cannot resolve it.\n\n### Transfers and escalation\n\n- Use Transfer_To_Validation when {{validationReference}} is missing for a non-cancellation request or when the caller raises a referral or insurance question.\n- Use Agent handover if the scheduling backend fails, the caller asks for a person, or the request cannot be handled safely.\n\n### Guardrails\n\n- Do not ask for patientReference, specialty, or validationReference; use the provided values.\n- Do not bypass Validation for booking or rescheduling. The missing-validation exception applies only when the conversation context clearly identifies a cancellation request.\n- Do not call Find_Appointment_Slots or Manage_Appointment for cancellation or rescheduling in this demo.\n- Do not collect or repeat authentication or insurance information.\n- Do not validate insurance or referrals and do not provide clinical advice.\n- Do not announce a successful appointment operation before Manage_Appointment returns operationStatus as confirmed.\n\n### Style\n\n- Be concise and clearly confirm dates, times, locations, and the final action.",
+    "llm_model": "1.0.0",
+    "logo": "https://aiagent.webexbotbuilder.com/static/assets/img/bot-logo/default-virtualagent.svg",
+    "timezone": "America/New_York",
+    "transparency_configuration": {
+      "disable_reason": "23",
+      "enabled": false,
+      "message": "You are now interacting with an AI-powered virtual assistant."
+    },
+    "voice_settings": {
+      "advance_settings": {
+        "global": {
+          "delays_and_interruptions": {
+            "caller_turn_timeout": 1500,
+            "custom_no_input": 10,
+            "customer_interruption": true,
+            "eos_sensitivity": 500,
+            "fulfilment_timeout": 30,
+            "optimized_barge_in": true,
+            "slots_additional_delay": 800
+          },
+          "dtmf_settings": {
+            "max_length": 16,
+            "term_char": "#",
+            "timeout_between_digits": 5,
+            "turn_on_dtmf": true
+          },
+          "is_customized": true,
+          "response_settings": {
+            "acknowledgement_frequency": "APPROPRIATE",
+            "acknowledgement_length": "MEDIUM",
+            "acknowledgement_style": "CONVERSATIONAL",
+            "custom_prompt": "",
+            "custom_vocabulary": [],
+            "include_disfluencies": true,
+            "response_style": "ACTIVE"
+          }
+        }
+      },
+      "voices": [
+        {
+          "displayName": "en-US-Jess",
+          "gender": "FEMALE",
+          "language": "English",
+          "locale": "en-US",
+          "speaking_rate": 1
+        }
+      ]
+    },
+    "welcome_message": "Hello. I can help you find, book, reschedule, or cancel a specialist appointment."
+  },
+  "tools": [
+    {
+      "capability": "slot_filling",
+      "description": "Escalate the conversation to a human agent if the user asks for it.",
+      "enabled": true,
+      "fulfillment": {},
+      "id": "533d7398c13e8a6178a0f4d6f9cf4358",
+      "name": "Agent handover",
+      "slots": [],
+      "slots_view": "table",
+      "system_tool": true
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Return available appointment options for the verified patient, specialty, and stated preferences.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 98942,
+        "flow_name": "healthCare_findSlots",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "availabilityStatus": {
+                "description": "Whether matching availability was found.",
+                "enum": [
+                  "available",
+                  "none",
+                  "error"
+                ],
+                "examples": [],
+                "type": "custom_list"
+              },
+              "slotOptions": {
+                "description": "Compact list of returned appointment options and slot references.",
+                "examples": [],
+                "type": "string"
+              }
+            },
+            "required": [
+              "availabilityStatus"
+            ],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "63878",
+        "service_name": "My First Service",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/98942/trigger/aiagent"
+      },
+      "id": "54671265ea319b2c2f401956f56c987d",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "location": {
+              "description": "Optional preferred facility or location.",
+              "examples": [],
+              "type": "string"
+            },
+            "patientReference": {
+              "description": "Patient reference received from the voice flow. Pass it exactly as {{patientReference}}; do not ask the caller for it.",
+              "examples": [],
+              "type": "string"
+            },
+            "preferredDate": {
+              "description": "Optional preferred appointment date.",
+              "examples": [],
+              "format": "YYYY-mm-dd",
+              "type": "date"
+            },
+            "preferredTime": {
+              "description": "Optional preferred appointment time.",
+              "examples": [],
+              "format": "HH:mm",
+              "type": "time"
+            },
+            "specialty": {
+              "description": "Specialty received from the voice flow. Pass it exactly as {{specialty}}; do not ask the caller for it.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "patientReference",
+            "specialty"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "Find_Appointment_Slots",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "capability": "slot_filling_with_fulfillment",
+      "description": "Book, reschedule, or cancel an appointment only after the caller confirms the requested operation and required details.",
+      "enabled": true,
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "flow_builder": "connect",
+        "flow_id": 98943,
+        "flow_name": "healthCare_manageAppointment",
+        "output_entities": {
+          "parameters": {
+            "properties": {
+              "appointmentSummary": {
+                "description": "Confirmed appointment details safe to read to the caller.",
+                "examples": [],
+                "type": "string"
+              },
+              "confirmationNumber": {
+                "description": "Confirmation number returned after a successful operation.",
+                "examples": [],
+                "type": "string"
+              },
+              "operationStatus": {
+                "description": "Result of the requested appointment operation.",
+                "enum": [
+                  "confirmed",
+                  "failed"
+                ],
+                "examples": [],
+                "type": "custom_list"
+              }
+            },
+            "required": [
+              "operationStatus"
+            ],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table",
+        "service_id": "63878",
+        "service_name": "My First Service",
+        "type": "flow",
+        "webhook_url": "https://hooks.us.webexconnect.io/flows/98943/trigger/aiagent"
+      },
+      "id": "b5fbbe24c90fcb0a284a043d28b6d44f",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "appointmentReference": {
+              "description": "Existing appointment reference for a reschedule or cancellation.",
+              "examples": [],
+              "type": "string"
+            },
+            "operation": {
+              "description": "Appointment operation requested by the caller.",
+              "enum": [
+                "book",
+                "reschedule",
+                "cancel"
+              ],
+              "examples": [],
+              "type": "custom_list"
+            },
+            "patientReference": {
+              "description": "Patient reference received from the voice flow. Pass it exactly as {{patientReference}}; do not ask the caller for it.",
+              "examples": [],
+              "type": "string"
+            },
+            "selectedSlotReference": {
+              "description": "Selected slot reference for a booking or reschedule.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "operation",
+            "patientReference"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "Manage_Appointment",
+      "slots_view": "table",
+      "system_tool": false
+    },
+    {
+      "action_type": "transfer",
+      "capability": "custom_transfer",
+      "description": "Transfer the caller to validation agent so that caller can ask the Referral and Insurance Validation Agent a validation question.",
+      "enabled": true,
+      "exit_details": {
+        "announce_transfer": false,
+        "type": "custom_transfer"
+      },
+      "fulfillment": {
+        "authentication": {
+          "service_key": "",
+          "type": "ci_bearer_token"
+        },
+        "exit_details": {
+          "announce_transfer": false,
+          "type": "custom_transfer"
+        },
+        "output_entities": {
+          "parameters": {
+            "properties": {},
+            "required": [],
+            "secure": [],
+            "type": "object"
+          }
+        },
+        "output_entities_format": "table",
+        "output_entities_text": "",
+        "output_entities_view": "table"
+      },
+      "id": "fbd8201ff1ab39d4b9801842cc590161",
+      "input_entities": {
+        "parameters": {
+          "properties": {
+            "identityVerified": {
+              "description": "Identity-verification value received from the voice flow. Pass it exactly as {{identityVerified}}.",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "examples": [],
+              "type": "custom_list"
+            },
+            "patientReference": {
+              "description": "Patient reference received from the voice flow. Pass it exactly as {{patientReference}}; do not ask the caller for it.",
+              "examples": [],
+              "type": "string"
+            }
+          },
+          "required": [
+            "identityVerified",
+            "patientReference"
+          ],
+          "secure": [],
+          "type": "object"
+        }
+      },
+      "name": "Transfer_To_Validation",
+      "skip_greetings_match_voice": true,
+      "slots_view": "table",
+      "system_tool": false
+    }
+  ]
+}

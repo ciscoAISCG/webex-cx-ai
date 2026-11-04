@@ -81,6 +81,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
 <p id="playbook-empty" hidden>No playbooks match these filters.</p>
 
 <div class="playbook-grid" id="playbook-grid">
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/Healthcare_A2A_Multi_Agent" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="authentication,scheduling,routing-transfer" data-integrations="webhook" data-complexity="advanced" data-search="healthcare a2a multi-agent voice orchestration authenticate patients, validate referral and insurance readiness, and demonstrate appointment booking across three autonomous voice agents. healthcare multi-agent referral-validation insurance-validation appointment-booking webex-connect health care voice ai agent - autonomous (voice) authentication scheduling routing &amp; transfer webhook advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Healthcare A2A Multi-Agent Voice Orchestration</h2>
+    <p>Authenticate patients, validate referral and insurance readiness, and demonstrate appointment booking across three autonomous voice agents.</p>
+    <span class="playbook-card__tags">Authentication · Scheduling · Routing &amp; Transfer</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/otp-validation" target="_blank" rel="noopener" data-verticals="" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="authentication,self-service,routing-transfer" data-integrations="rest-api,mcp" data-complexity="advanced" data-search="otp validation with mcp document phone, start code, and pin-as-otp validation before expert handoff; registered-device delivery uses an external service. one-time-passcode otp verification-code start-code pin-validation voice sms ai agent - autonomous (voice) authentication self-service routing &amp; transfer rest api mcp advanced">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>OTP Validation with MCP</h2>
