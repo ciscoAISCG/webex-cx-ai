@@ -6,6 +6,7 @@ Browse by searching or filtering the [website catalog](../Cookbooks/docs/playboo
 
 | Playbook | Summary | Customer journey |
 |---|---|---|
+| [Implement Google Maps MCP and SMS Fulfillment in a Webex Autonomous Voice Agent](google-maps-mcp-autonomous-voice-sms/README.md) | Configure Google Maps MCP for location search and route estimates, then use a Webex Connect fulfillment flow to search Google Places and send a selected location link to a customer by SMS. | Self-Service |
 | [Healthcare A2A Multi-Agent Voice Orchestration](Healthcare_A2A_Multi_Agent/README.md) | Authenticate patients, validate referral and insurance readiness, and demonstrate appointment booking across three autonomous voice agents. | Authentication, Scheduling, Routing & Transfer |
 | [OTP Validation with MCP](otp-validation/README.md) | Document phone, START Code, and PIN-as-OTP validation before expert handoff; registered-device delivery uses an external service. | Authentication, Self-Service, Routing & Transfer |
 | [Post-Call AI Assistant Summary to Customer Journey Data](post-call-ai-summary-to-jds/README.md) | Retrieve the completed voice interaction wrap-up summary and publish selected summary fields to a Webex Contact Center Customer Journey Data project. | Customer Service |
