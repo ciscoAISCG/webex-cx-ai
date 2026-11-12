@@ -1,0 +1,50 @@
+schema_version: 2
+id: google-maps-mcp-autonomous-voice-sms
+date_added: "2026-11-12"
+title: Implement Google Maps MCP and SMS Fulfillment in a Webex Autonomous Voice Agent
+summary: Configure Google Maps MCP for location search and route estimates, then use a Webex Connect fulfillment flow to search Google Places and send a selected location link to a customer by SMS.
+
+classification:
+  channels:
+    - voice
+    - sms
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - self-service
+  integrations:
+    - rest-api
+    - mcp
+
+complexity: intermediate
+last_validated: "2026-11-11"
+
+ownership:
+  owner: sumanth2391
+  maintaining_team: fde-team
+
+keywords:
+  - google-maps
+  - maps-mcp
+  - places-text-search
+  - sms-fulfillment
+  - webex-connect
+  - autonomous-voice
+
+artifacts:
+  flows:
+    - exports/95722.workflow
+  settings:
+    - exports/send-location-sms-action.png
+  samples:
+    - resources/Google Maps MCP and Location SMS Guide.docx
+  tests: []
+
+validation:
+  environment: Webex Contact Center autonomous AI Agent and Webex Connect Flow Builder with Google Maps MCP, Places API (New), and an SMS sender configured.
+  expected_result: The agent uses Google Maps MCP for location search and route estimates. After customer consent, the fulfillment flow searches Places, parses the results, normalizes the destination number, and sends a Google Maps place link by SMS.
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: true
