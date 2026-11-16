@@ -6,6 +6,7 @@ Browse by searching or filtering the [website catalog](../Cookbooks/docs/playboo
 
 | Playbook | Summary | Customer journey |
 |---|---|---|
+| [ServiceNow-Hosted Account Recovery MCP AI Agent](servicenow-hosted-account-recovery-mcp-ai-agent/README.md) | Verify employees with ServiceNow security questions before unlocking a work account or resetting a password through a ServiceNow-hosted MCP server. | Authentication, Self-Service |
 | [Implement Google Maps MCP and SMS Fulfillment in a Webex Autonomous Voice Agent](google-maps-mcp-autonomous-voice-sms/README.md) | Configure Google Maps MCP for location search and route estimates, then use a Webex Connect fulfillment flow to search Google Places and send a selected location link to a customer by SMS. | Self-Service |
 | [Analyzer Order Tracking Autonomous AI Agent](analyzer-order-tracking-autonomous-ai-agent/README.md) | Verify callers before checking or cancelling an order, fulfill the actions through Webex Connect, and visualize outcomes in Webex Contact Center Analyzer. | Order Management, Self-Service |
 | [Healthcare A2A Multi-Agent Voice Orchestration](Healthcare_A2A_Multi_Agent/README.md) | Authenticate patients, validate referral and insurance readiness, and demonstrate appointment booking across three autonomous voice agents. | Authentication, Scheduling, Routing & Transfer |

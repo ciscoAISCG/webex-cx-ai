@@ -1,0 +1,61 @@
+schema_version: 2
+id: servicenow-hosted-account-recovery-mcp-ai-agent
+date_added: "2026-11-16"
+title: "ServiceNow-Hosted Account Recovery MCP AI Agent"
+summary: "Verify employees with ServiceNow security questions before unlocking a work account or resetting a password through a ServiceNow-hosted MCP server."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - authentication
+    - self-service
+  integrations:
+    - mcp
+    - service-now
+
+complexity: advanced
+last_validated: "2026-11-16"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - account-recovery
+  - account-unlock
+  - password-reset
+  - service-now-hosted-mcp
+  - employee-verification
+
+artifacts:
+  diagrams:
+    - assets/servicenow-hosted-account-recovery-mcp-ai-agent-workflow.svg
+  exports:
+    - exports/ServiceNow_Account_Recovery_AI_Agent.json
+    - exports/ServiceNow_Account_Recovery_Flow.json
+    - exports/servicenow/schemas/reset_user_password.schema.json
+    - exports/servicenow/schemas/unlock_user_account.schema.json
+    - exports/servicenow/schemas/verify_security_answers.schema.json
+  samples:
+    - exports/servicenow/resources/lookup_user_record.js
+    - exports/servicenow/resources/retrieve_security_questions.js
+    - exports/servicenow/resources/verify_security_answers.js
+    - exports/servicenow/resources/unlock_user_account.js
+    - exports/servicenow/resources/reset_user_password.js
+  documentation:
+    - README.md
+    - resources/account_recovery_agent_prompt.md
+    - resources/servicenow-mcp-server-setup.md
+    - resources/test-cases.md
+
+validation:
+  environment: "Static package review and repository contribution validation; AI Agent Studio, Flow Designer, and ServiceNow runtime behavior were not tested in a customer tenant."
+  expected_result: "The playbook assets and setup guidance are present; import and validate the full journey with synthetic records in a nonproduction Webex Contact Center and ServiceNow environment."
+
+security:
+  customer_data_removed: true
+  credentials_removed: true
+  tenant_identifiers_removed: false

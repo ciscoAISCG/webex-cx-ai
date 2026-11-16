@@ -1,0 +1,48 @@
+{
+  "title": "Verify security answers request body",
+  "description": "Checks the caller's answers against the user's enrolled security questions; verification passes when at least 2 of 3 answers are correct. Do not wrap these fields in a request_body property; this schema describes the raw JSON body.",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ServiceNow sys_user.sys_id returned by lookup_user_record. Do not generate or infer this value.",
+      "pattern": "^[0-9a-f]{32}$",
+      "minLength": 32,
+      "maxLength": 32
+    },
+    "questions_answers": {
+      "type": "array",
+      "description": "Exactly 3 entries, one per question returned by get_security_questions, each with the caller's answer.",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "description": "pwd_active_question.sys_id returned as questions[].sys_id by get_security_questions. Do not generate or infer this value.",
+            "pattern": "^[0-9a-f]{32}$",
+            "minLength": 32,
+            "maxLength": 32
+          },
+          "user_answer": {
+            "type": "string",
+            "description": "The caller's answer exactly as stated. Leading and trailing spaces are trimmed. Never repeat, log, or store this value elsewhere.",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "question_id",
+          "user_answer"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "user_id",
+    "questions_answers"
+  ],
+  "additionalProperties": false
+}

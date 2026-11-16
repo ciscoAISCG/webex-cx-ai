@@ -1,0 +1,18 @@
+{
+  "title": "Unlock user account request body",
+  "description": "Clears the locked_out flag and resets failed sign-in attempts; does not change the password. Call only after verify_security_answers returns success true for the same user_id; this endpoint does not re-verify. Do not wrap these fields in a request_body property; this schema describes the raw JSON body.",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ServiceNow sys_user.sys_id returned by lookup_user_record and used in verify_security_answers. Do not generate or infer this value.",
+      "pattern": "^[0-9a-f]{32}$",
+      "minLength": 32,
+      "maxLength": 32
+    }
+  },
+  "required": [
+    "user_id"
+  ],
+  "additionalProperties": false
+}
