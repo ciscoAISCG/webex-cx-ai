@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="452" height="902" viewBox="0 0 452 902" role="img" aria-labelledby="title desc">
+<title>ServiceNow Account Recovery Workflow</title>
+<desc>AI agent workflow diagram with sequential steps.</desc>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6feb"/>
+</marker>
+</defs>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="226.0" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172033">ServiceNow Account Recovery Workflow</text>
+<rect x="46" y="82" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="123.0" r="18" fill="#1f6feb"/>
+<text x="74" y="129.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">1</text>
+<text x="108" y="104" font-family="Arial, sans-serif" font-size="15" fill="#172033">Caller requests an account</text>
+<text x="108" y="123" font-family="Arial, sans-serif" font-size="15" fill="#172033">unlock or password reset</text>
+<line x1="226.0" y1="170" x2="226.0" y2="191" stroke="#1f6feb" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="46" y="198" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="239.0" r="18" fill="#1f6feb"/>
+<text x="74" y="245.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">2</text>
+<text x="108" y="220" font-family="Arial, sans-serif" font-size="15" fill="#172033">Agent looks up employee ID and</text>
+<text x="108" y="239" font-family="Arial, sans-serif" font-size="15" fill="#172033">confirms the name</text>
+<line x1="226.0" y1="286" x2="226.0" y2="307" stroke="#1f6feb" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="46" y="314" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="355.0" r="18" fill="#1f6feb"/>
+<text x="74" y="361.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">3</text>
+<text x="108" y="336" font-family="Arial, sans-serif" font-size="15" fill="#172033">Agent collects three security</text>
+<text x="108" y="355" font-family="Arial, sans-serif" font-size="15" fill="#172033">answers</text>
+<line x1="226.0" y1="402" x2="226.0" y2="423" stroke="#1f6feb" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="46" y="430" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="471.0" r="18" fill="#1f6feb"/>
+<text x="74" y="477.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">4</text>
+<text x="108" y="452" font-family="Arial, sans-serif" font-size="15" fill="#172033">ServiceNow verifies the</text>
+<text x="108" y="471" font-family="Arial, sans-serif" font-size="15" fill="#172033">answers</text>
+<line x1="226.0" y1="518" x2="226.0" y2="539" stroke="#1f6feb" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="46" y="546" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="587.0" r="18" fill="#1f6feb"/>
+<text x="74" y="593.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">5</text>
+<text x="108" y="568" font-family="Arial, sans-serif" font-size="15" fill="#172033">Agent unlocks the account or</text>
+<text x="108" y="587" font-family="Arial, sans-serif" font-size="15" fill="#172033">resets the password</text>
+<line x1="226.0" y1="634" x2="226.0" y2="655" stroke="#1f6feb" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="46" y="662" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="703.0" r="18" fill="#1f6feb"/>
+<text x="74" y="709.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">6</text>
+<text x="108" y="684" font-family="Arial, sans-serif" font-size="15" fill="#172033">Agent gives next steps and</text>
+<text x="108" y="703" font-family="Arial, sans-serif" font-size="15" fill="#172033">checks sign-in</text>
+<line x1="226.0" y1="750" x2="226.0" y2="771" stroke="#1f6feb" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="46" y="778" width="360" height="82" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+<circle cx="74" cy="819.0" r="18" fill="#1f6feb"/>
+<text x="74" y="825.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">7</text>
+<text x="108" y="791" font-family="Arial, sans-serif" font-size="15" fill="#172033">Unclear, ineligible, or failed</text>
+<text x="108" y="810" font-family="Arial, sans-serif" font-size="15" fill="#172033">requests go to the service</text>
+<text x="108" y="829" font-family="Arial, sans-serif" font-size="15" fill="#172033">desk</text>
+</svg>

@@ -81,6 +81,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
 <p id="playbook-empty" hidden>No playbooks match these filters.</p>
 
 <div class="playbook-grid" id="playbook-grid">
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/servicenow-hosted-account-recovery-mcp-ai-agent" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="authentication,self-service" data-integrations="mcp,service-now" data-complexity="advanced" data-search="servicenow-hosted account recovery mcp ai agent verify employees with servicenow security questions before unlocking a work account or resetting a password through a servicenow-hosted mcp server. account-recovery account-unlock password-reset service-now-hosted-mcp employee-verification voice ai agent - autonomous (voice) authentication self-service mcp servicenow advanced">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>ServiceNow-Hosted Account Recovery MCP AI Agent</h2>
+    <p>Verify employees with ServiceNow security questions before unlocking a work account or resetting a password through a ServiceNow-hosted MCP server.</p>
+    <span class="playbook-card__tags">Authentication · Self-Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/google-maps-mcp-autonomous-voice-sms" target="_blank" rel="noopener" data-verticals="" data-channels="voice,sms" data-features="ai-agent-autonomous-voice" data-customer_journeys="self-service" data-integrations="rest-api,mcp" data-complexity="intermediate" data-search="implement google maps mcp and sms fulfillment in a webex autonomous voice agent configure google maps mcp for location search and route estimates, then use a webex connect fulfillment flow to search google places and send a selected location link to a customer by sms. google-maps maps-mcp places-text-search sms-fulfillment webex-connect autonomous-voice voice sms ai agent - autonomous (voice) self-service rest api mcp intermediate">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>Implement Google Maps MCP and SMS Fulfillment in a Webex Autonomous Voice Agent</h2>
