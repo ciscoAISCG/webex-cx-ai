@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">Analyzer Order Tracking Autonomous AI Agent overview</title>
+  <desc id="desc">A caller uses a Webex autonomous AI agent. Webex Connect fulfills verification, order status, and cancellation actions. Results return to the caller, route to a human when needed, and populate Analyzer reports.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3478a8"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="480" rx="24" fill="#f6f9fc"/>
+  <text x="48" y="54" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#17324d">Secure order self-service with visible outcomes</text>
+  <text x="48" y="83" font-family="Inter, Arial, sans-serif" font-size="16" fill="#4c6478">Verify first, complete the requested action, and report the result in Webex Contact Center Analyzer.</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700">
+    <rect x="945" y="36" width="70" height="28" rx="14" fill="#dcecff"/>
+    <text x="980" y="55" text-anchor="middle" fill="#185a8d">VOICE</text>
+    <rect x="1025" y="36" width="78" height="28" rx="14" fill="#dff5ef"/>
+    <text x="1064" y="55" text-anchor="middle" fill="#14745f">PRO 2.0</text>
+    <rect x="1113" y="36" width="60" height="28" rx="14" fill="#fff0d6"/>
+    <text x="1143" y="55" text-anchor="middle" fill="#8a5a00">CSR</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="40" y="135" width="180" height="210" rx="18" fill="#ffffff" stroke="#c8d8e6"/>
+    <circle cx="130" cy="190" r="28" fill="#dcecff"/>
+    <circle cx="130" cy="181" r="9" fill="#3478a8"/>
+    <path d="M110 210 C114 194 146 194 150 210" fill="#3478a8"/>
+    <text x="130" y="246" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#17324d">Caller</text>
+    <text x="130" y="276" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" fill="#4c6478">Check status</text>
+    <text x="130" y="298" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" fill="#4c6478">or cancel order</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="270" y="115" width="260" height="250" rx="18" fill="#ffffff" stroke="#9dc3e2"/>
+    <rect x="270" y="115" width="260" height="54" rx="18" fill="#e9f4ff"/>
+    <path d="M270 151 H530 V169 H270 Z" fill="#e9f4ff"/>
+    <text x="400" y="148" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#185a8d">Autonomous AI Agent</text>
+    <rect x="294" y="190" width="212" height="42" rx="10" fill="#f4f9fd" stroke="#c8d8e6"/>
+    <text x="310" y="216" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#17324d">1</text>
+    <text x="334" y="216" font-family="Inter, Arial, sans-serif" font-size="14" fill="#314c62">Verify customer</text>
+    <rect x="294" y="244" width="212" height="42" rx="10" fill="#f4f9fd" stroke="#c8d8e6"/>
+    <text x="310" y="270" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#17324d">2</text>
+    <text x="334" y="270" font-family="Inter, Arial, sans-serif" font-size="14" fill="#314c62">Check order status</text>
+    <rect x="294" y="298" width="212" height="42" rx="10" fill="#f4f9fd" stroke="#c8d8e6"/>
+    <text x="310" y="324" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#17324d">3</text>
+    <text x="334" y="324" font-family="Inter, Arial, sans-serif" font-size="14" fill="#314c62">Confirm and cancel</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="580" y="95" width="260" height="290" rx="18" fill="#ffffff" stroke="#99d5c5"/>
+    <rect x="580" y="95" width="260" height="54" rx="18" fill="#e7f7f2"/>
+    <path d="M580 131 H840 V149 H580 Z" fill="#e7f7f2"/>
+    <text x="710" y="128" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#14745f">Webex Connect</text>
+    <rect x="604" y="171" width="212" height="48" rx="10" fill="#f1fbf8" stroke="#b8e4d8"/>
+    <circle cx="626" cy="195" r="8" fill="#2e9b7f"/>
+    <text x="646" y="200" font-family="Inter, Arial, sans-serif" font-size="14" fill="#244f45">Verify_Customer</text>
+    <rect x="604" y="232" width="212" height="48" rx="10" fill="#f1fbf8" stroke="#b8e4d8"/>
+    <circle cx="626" cy="256" r="8" fill="#2e9b7f"/>
+    <text x="646" y="261" font-family="Inter, Arial, sans-serif" font-size="14" fill="#244f45">Get_Order_Status</text>
+    <rect x="604" y="293" width="212" height="48" rx="10" fill="#f1fbf8" stroke="#b8e4d8"/>
+    <circle cx="626" cy="317" r="8" fill="#2e9b7f"/>
+    <text x="646" y="322" font-family="Inter, Arial, sans-serif" font-size="14" fill="#244f45">Cancel_Order</text>
+    <text x="710" y="365" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" fill="#5b706a">Deterministic fulfillment</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="890" y="115" width="270" height="250" rx="18" fill="#ffffff" stroke="#e4c27d"/>
+    <rect x="890" y="115" width="270" height="54" rx="18" fill="#fff6e7"/>
+    <path d="M890 151 H1160 V169 H890 Z" fill="#fff6e7"/>
+    <text x="1025" y="148" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#8a5a00">Outcomes</text>
+    <rect x="914" y="190" width="222" height="42" rx="10" fill="#fffaf1" stroke="#ead7ad"/>
+    <text x="936" y="216" font-family="Inter, Arial, sans-serif" font-size="14" fill="#5f4d29">Caller-safe response</text>
+    <rect x="914" y="244" width="222" height="42" rx="10" fill="#fffaf1" stroke="#ead7ad"/>
+    <text x="936" y="270" font-family="Inter, Arial, sans-serif" font-size="14" fill="#5f4d29">Human handover</text>
+    <rect x="914" y="298" width="222" height="42" rx="10" fill="#fffaf1" stroke="#ead7ad"/>
+    <text x="936" y="324" font-family="Inter, Arial, sans-serif" font-size="14" fill="#5f4d29">Analyzer table + pie</text>
+  </g>
+
+  <path d="M220 240 H270" fill="none" stroke="#3478a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M530 240 H580" fill="none" stroke="#3478a8" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M840 240 H890" fill="none" stroke="#3478a8" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#185a8d">
+    <rect x="222" y="209" width="46" height="22" rx="11" fill="#e9f4ff"/>
+    <text x="245" y="224" text-anchor="middle">VOICE</text>
+    <rect x="532" y="209" width="46" height="22" rx="11" fill="#e9f4ff"/>
+    <text x="555" y="224" text-anchor="middle">TOOLS</text>
+    <rect x="842" y="209" width="46" height="22" rx="11" fill="#e9f4ff"/>
+    <text x="865" y="224" text-anchor="middle">RESULT</text>
+  </g>
+
+  <rect x="270" y="414" width="620" height="38" rx="19" fill="#eaf1f6"/>
+  <text x="580" y="438" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#314c62">Reportable outcomes: customer verification  &#8226;  order status  &#8226;  cancellation</text>
+</svg>

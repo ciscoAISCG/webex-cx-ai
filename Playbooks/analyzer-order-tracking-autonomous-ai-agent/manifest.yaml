@@ -1,0 +1,59 @@
+schema_version: 2
+id: analyzer-order-tracking-autonomous-ai-agent
+date_added: "2026-11-06"
+title: "Analyzer Order Tracking Autonomous AI Agent"
+summary: "Verify callers before checking or cancelling an order, fulfill the actions through Webex Connect, and visualize outcomes in Webex Contact Center Analyzer."
+
+classification:
+  channels:
+    - voice
+  features:
+    - ai-agent-autonomous-voice
+  customer_journeys:
+    - order-management
+    - self-service
+  integrations:
+    - rest-api
+    - webhook
+
+complexity: intermediate
+last_validated: "2026-11-16"
+
+ownership:
+  owner: ciscoAISCG
+  maintaining_team: ai-solutions-consulting-group
+
+keywords:
+  - authentication
+  - analyzer-report
+  - analyzer-reporting
+  - cancellation
+  - historical-reporting
+  - order-status
+  - verification
+  - webex-connect
+
+artifacts:
+  diagrams:
+    - assets/analyzer-order-tracking-overview.svg
+  documentation:
+    - resources/agent-instructions.md
+    - resources/mock-action-contracts.md
+  exports:
+    - exports/Analyzer-order-tracking-ai-agent-studio-import.json
+    - exports/101779.workflow
+    - exports/101780.workflow
+    - exports/101781.workflow
+    - exports/AI_Reporting_voice_flow.json
+  settings:
+    - exports/CSR_order_tracking_AI_agent_2026-11-16-19-28-43.json
+    - exports/CSR_pie_chart_order_tracking_2026-11-16-19-28-53.json
+
+validation:
+  environment: "Local package validation with supplied AI Agent Studio JSON, three Webex Connect workflow exports, and two Webex Contact Center Analyzer report templates. Tenant runtime was not retested during documentation refresh."
+  expected_result: "After rebinding the three actions and populating the reportable global variables, callers can verify, check or cancel an order, and supervisors can review action outcomes in the table and pie-chart reports."
+
+security:
+  customer_data_removed: true
+  credentials_removed: false
+  tenant_identifiers_removed: false
