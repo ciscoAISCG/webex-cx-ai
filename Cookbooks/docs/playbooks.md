@@ -89,6 +89,14 @@ Search across the collection or combine filters for vertical, channel, feature, 
     <span class="playbook-card__link">Open playbook on GitHub →</span>
   </a>
 
+  <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/analyzer-order-tracking-autonomous-ai-agent" target="_blank" rel="noopener" data-verticals="" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="order-management,self-service" data-integrations="rest-api,webhook" data-complexity="intermediate" data-search="analyzer order tracking autonomous ai agent verify callers before checking or cancelling an order, fulfill the actions through webex connect, and visualize outcomes in webex contact center analyzer. authentication analyzer-report analyzer-reporting cancellation historical-reporting order-status verification webex-connect voice ai agent - autonomous (voice) order management self-service rest api webhook intermediate">
+    <span class="playbook-card__eyebrow">Playbook</span>
+    <h2>Analyzer Order Tracking Autonomous AI Agent</h2>
+    <p>Verify callers before checking or cancelling an order, fulfill the actions through Webex Connect, and visualize outcomes in Webex Contact Center Analyzer.</p>
+    <span class="playbook-card__tags">Order Management · Self-Service</span>
+    <span class="playbook-card__link">Open playbook on GitHub →</span>
+  </a>
+
   <a class="playbook-card" href="https://github.com/ciscoAISCG/webex-cx-ai/tree/main/Playbooks/Healthcare_A2A_Multi_Agent" target="_blank" rel="noopener" data-verticals="health-care" data-channels="voice" data-features="ai-agent-autonomous-voice" data-customer_journeys="authentication,scheduling,routing-transfer" data-integrations="webhook" data-complexity="advanced" data-search="healthcare a2a multi-agent voice orchestration authenticate patients, validate referral and insurance readiness, and demonstrate appointment booking across three autonomous voice agents. healthcare multi-agent referral-validation insurance-validation appointment-booking webex-connect health care voice ai agent - autonomous (voice) authentication scheduling routing &amp; transfer webhook advanced">
     <span class="playbook-card__eyebrow">Playbook</span>
     <h2>Healthcare A2A Multi-Agent Voice Orchestration</h2>
